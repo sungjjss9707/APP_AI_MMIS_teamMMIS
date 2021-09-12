@@ -7,7 +7,12 @@ String getToday() {
 }
 
 String getTodayInKorean() {
+  List<String> weekdayKorean = ["월", "화", "수", "목", "금", "토", "일"];
   DateTime now = DateTime.now();
-  DateFormat formatter = DateFormat("yyyy년 mm월 dd일");
-  return formatter.format(now);
+  int year = now.year;
+  int month = now.month;
+  int day = now.day;
+  int weekInt = now.weekday;
+  String weekday = weekdayKorean[weekInt - 1];
+  return "$year년 $month월 $day일($weekday)";
 }

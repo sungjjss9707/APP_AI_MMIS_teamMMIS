@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/suggestion.dart';
 import 'package:myapp/view/components/custom_text_form_field_search.dart';
@@ -36,15 +37,25 @@ class _SuggestionPageState extends State<SuggestionPage> {
             Form(
               key: _formKey,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CustomTextFormFieldSearch(
-                    hint: "제목으로 검색해 보세요.",
-                  ),
                   TextButton(
                     onPressed: () {
                       Get.to(() => WriteSuggestionPage());
                     },
-                    child: Text("건의하기"),
+                    child: Row(
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.pen,
+                          size: 14,
+                        ),
+                        SizedBox(width: 4),
+                        Text("건의하기"),
+                      ],
+                    ),
+                  ),
+                  CustomTextFormFieldSearch(
+                    hint: "제목으로 검색해 보세요.",
                   ),
                 ],
               ),
