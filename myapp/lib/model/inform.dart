@@ -8,7 +8,7 @@ class Inform {
   Inform(this.type, this.title, this.date, this.writer, this.main);
 }
 
-List<Inform> dummyNotice = [
+List<Inform> dummyInform = [
   Inform("공지", "1. 예시 입니다.", "2021/09/12", "관리자", "글내용" * 50),
   Inform("긴급", "2. 예시 입니다.", "2021/09/13", "관리자", "글내용" * 50),
   Inform("공지", "3. 예시 입니다.", "2021/09/14", "관리자", "글내용" * 50),

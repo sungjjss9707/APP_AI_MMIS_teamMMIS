@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/menu.dart';
-import 'package:myapp/pages/subpages/rate_menu_page.dart';
-
-import '../get_today.dart';
+import 'package:myapp/view/pages/subpages/rate_menu_page.dart';
+import '../../get_today.dart';
 import 'not_eating.dart';
-
 
 class MenuBox extends StatelessWidget {
   final String date;

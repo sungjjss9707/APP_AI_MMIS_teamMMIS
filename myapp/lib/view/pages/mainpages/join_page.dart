@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/components/custom_elevated_button.dart';
-import 'package:myapp/components/custom_text_form_field.dart';
+import 'package:myapp/view/components/custom_elevated_button.dart';
+import 'package:myapp/view/components/custom_text_form_field.dart';
 
 import 'login_page.dart';
 
@@ -40,12 +40,15 @@ class JoinPage extends StatelessWidget {
         children: [
           CustomTextFormField(
             hint: "이름",
+            funValidate: null,
           ),
           CustomTextFormField(
             hint: "군번",
+            funValidate: null,
           ),
           CustomTextFormField(
             hint: "계급",
+            funValidate: null,
           ),
           SizedBox(height: 10),
           CustomElevatedButton(
@@ -58,6 +61,7 @@ class JoinPage extends StatelessWidget {
                 Get.to(LoginPage());
               }
             },
+            width: double.infinity,
           ),
         ],
       ),

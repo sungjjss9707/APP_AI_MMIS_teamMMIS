@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:myapp/components/custom_banner.dart';
-import 'package:myapp/components/function_button.dart';
-import 'package:myapp/components/menu_box.dart';
-import 'package:myapp/pages/subpages/notice_page.dart';
-
+import 'package:myapp/view/components/custom_banner.dart';
+import 'package:myapp/view/components/function_button.dart';
+import 'package:myapp/view/components/menu_box.dart';
+import 'package:myapp/view/pages/subpages/notice_page.dart';
+import 'package:myapp/view/pages/subpages/suggestion_page.dart';
+import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -66,7 +67,9 @@ class HomePage extends StatelessWidget {
           text: "설문조사",
         ),
         FunctionButton(
-          onTap: () {},
+          onTap: () {
+            Get.to(() => SuggestionPage());
+          },
           iconData: FontAwesomeIcons.exclamationCircle,
           text: "건의사항",
         ),

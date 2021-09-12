@@ -4,14 +4,16 @@ import 'package:get/get.dart';
 class CustomElevatedButton extends StatelessWidget {
   final String text;
   final funpageRoute; //익명함수를 받을거임
+  final double width;
 
-  const CustomElevatedButton({required this.text, required this.funpageRoute});
+  const CustomElevatedButton(
+      {required this.text, required this.funpageRoute, required this.width});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        minimumSize: Size(double.infinity, 50),
+        minimumSize: Size(width, 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

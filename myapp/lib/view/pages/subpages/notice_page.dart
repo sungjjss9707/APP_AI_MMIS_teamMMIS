@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/custom_text_form_field_search.dart';
-import 'package:myapp/model/notice.dart';
-
-
+import 'package:get/get.dart';
+import 'package:myapp/model/inform.dart';
+import 'package:myapp/view/components/custom_text_form_field_search.dart';
+import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
 class NoticePage extends StatefulWidget {
   @override
@@ -25,9 +25,10 @@ class _NoticePageState extends State<NoticePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("공지사항"),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -41,7 +42,7 @@ class _NoticePageState extends State<NoticePage> {
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  Inform notice = dummyNotice[index];
+                  Inform notice = dummyInform[index];
                   return ListTile(
                     onTap: () {},
                     title: Text(
@@ -56,7 +57,7 @@ class _NoticePageState extends State<NoticePage> {
                     color: Colors.grey,
                   );
                 },
-                itemCount: dummyNotice.length,
+                itemCount: dummyInform.length,
               ),
             ),
           ],
@@ -66,5 +67,4 @@ class _NoticePageState extends State<NoticePage> {
   }
 }
 
-class Notice {
-}
+class Notice {}
