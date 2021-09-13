@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:myapp/view/components/custom_banner.dart';
 import 'package:myapp/view/components/function_button.dart';
 import 'package:myapp/view/components/menu_box.dart';
+import 'package:myapp/view/pages/subpages/eating_schedule_page.dart';
 import 'package:myapp/view/pages/subpages/notice_page.dart';
 import 'package:myapp/view/pages/subpages/suggestion_page.dart';
 import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
@@ -74,7 +75,9 @@ class HomePage extends StatelessWidget {
           text: "건의사항",
         ),
         FunctionButton(
-          onTap: () {},
+          onTap: () {
+            Get.to(EatingSchedulePage());
+          },
           iconData: FontAwesomeIcons.exclamationCircle,
           text: "불취식 관리",
         ),

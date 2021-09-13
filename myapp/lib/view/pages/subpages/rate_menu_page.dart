@@ -63,6 +63,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
                     removeUserNotEating(date, time);
                     isEating = true;
                   }
+                  print(userNotEating);
                 });
               },
               child: isEating! ? Text("불취식신청") : Text("취식신청"),
