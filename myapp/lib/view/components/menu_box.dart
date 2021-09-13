@@ -4,7 +4,7 @@ import 'package:myapp/model/menu.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/yes_eating.dart';
 import 'package:myapp/view/pages/subpages/rate_menu_page.dart';
-import '../../get_today.dart';
+import '../../date_functions.dart';
 import 'not_eating.dart';
 
 class MenuBox extends StatelessWidget {

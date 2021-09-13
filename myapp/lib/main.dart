@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/view/pages/mainpages/join_page.dart';
 
 import 'view/pages/mainpages/framepage.dart';
 
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme:
           ThemeData(backgroundColor: Colors.white, appBarTheme: AppBarTheme()),
-      home: JoinPage(),
+      home: FramePage(),
     );
   }
 }

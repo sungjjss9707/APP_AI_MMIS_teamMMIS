@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 import 'package:myapp/model/menu.dart';
 import 'package:myapp/user/user.dart';
+import 'package:myapp/view/pages/mainpages/framepage.dart';
+import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
 import 'notice_page.dart';
 
@@ -16,8 +19,7 @@ class RateMenuPage extends StatefulWidget {
 
 class _RateMenuPageState extends State<RateMenuPage> {
   String date, time; // 오늘 날짜
-  String? beforeDate, beforeTime; // 내일 날짜
-  String? afterDate, afterTime; // 어제 날짜
+  String? beforeDate, beforeTime, afterDate, afterTime; // 어제, 내일 날짜
   Menu? menu;
   List<double>? rating;
   List<String>? menuPlate;
@@ -45,7 +47,13 @@ class _RateMenuPageState extends State<RateMenuPage> {
       afterTime = dummyMenu[index! + 1].time;
     }
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+          leading: IconButton(
+        onPressed: () {
+          Get.offAll(() => FramePage());
+        },
+        icon: Icon(Icons.arrow_back),
+      )),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -53,25 +61,8 @@ class _RateMenuPageState extends State<RateMenuPage> {
             _arrowAndDate(), // < 날짜(석식) 취식여부 >
             _menuAndRatings(),
             _saveRating(),
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  if (isEating!) {
-                    addUserNotEating(date, time);
-                    isEating = false;
-                  } else {
-                    removeUserNotEating(date, time);
-                    isEating = true;
-                  }
-                  print(userNotEating);
-                });
-              },
-              child: isEating! ? Text("불취식신청") : Text("취식신청"),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: Text("건의하기"),
-            ),
+            _notEatingApplyButton(),
+            _suggestingButton(),
           ],
         ),
       ),
@@ -190,6 +181,36 @@ class _RateMenuPageState extends State<RateMenuPage> {
           child: Text("저장하기"),
         ),
       ],
+    );
+  }
+
+  Widget _notEatingApplyButton() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: ElevatedButton(
+        onPressed: () {
+          setState(() {
+            if (isEating!) {
+              addUserNotEating(date, time);
+              isEating = false;
+            } else {
+              removeUserNotEating(date, time);
+              isEating = true;
+            }
+            print(userNotEating);
+          });
+        },
+        child: isEating! ? Text("불취식신청") : Text("취식신청"),
+      ),
+    );
+  }
+
+  Widget _suggestingButton() {
+    return ElevatedButton(
+      onPressed: () {
+        Get.to(() => WriteSuggestionPage());
+      },
+      child: Text("건의하기"),
     );
   }
 }

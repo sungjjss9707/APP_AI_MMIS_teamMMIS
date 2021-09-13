@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:myapp/model/menu.dart';
 import 'package:myapp/view/components/custom_banner.dart';
 import 'package:myapp/view/components/function_button.dart';
 import 'package:myapp/view/components/menu_box.dart';
@@ -48,12 +49,13 @@ class HomePage extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: [
-          MenuBox("2021-09-06", "석식"),
-          MenuBox("2021-09-07", "석식"),
-          MenuBox("2021-09-09", "중식"),
-          MenuBox("2021-09-10", "브런치"),
-        ],
+        children: List.generate(
+          dummyMenu.length,
+          (index) => MenuBox(
+            dummyMenu[index].date,
+            dummyMenu[index].time,
+          ),
+        ),
       ),
     );
   }

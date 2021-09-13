@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/user/user.dart';
 
-import '../../../get_today.dart';
+import '../../../date_functions.dart';
 import 'homepage.dart';
 import 'setting_page.dart';
 import 'show_photo_of_meal_page.dart';
