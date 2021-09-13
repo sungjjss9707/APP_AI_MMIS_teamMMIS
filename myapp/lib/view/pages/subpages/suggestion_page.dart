@@ -64,13 +64,19 @@ class _SuggestionPageState extends State<SuggestionPage> {
               child: ListView.separated(
                 itemBuilder: (context, index) {
                   Suggestion suggestion = dummySuggestion[index];
-                  return ListTile(
-                    onTap: () {},
+                  return ExpansionTile(
+                    initiallyExpanded: false,
+                    textColor: Colors.black,
                     title: Text(
                       "${suggestion.title}",
                     ),
-                    trailing: Text(suggestion.writer),
                     subtitle: Text(suggestion.date),
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Text(suggestion.main),
+                      ),
+                    ],
                   );
                 },
                 separatorBuilder: (context, index) {

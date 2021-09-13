@@ -1,17 +1,30 @@
-import 'package:intl/intl.dart';
+String userName = "최윤호";
+String classes = "병장";
+String army = "공군";
+String unit = "8전투비행단";
 
-Map<String, dynamic> userNotEating = {
-  "2021": {
-    "09": {
-      "10": ["중식", "석식"]
-    }
-  }
+Map<String, List> userNotEating = {
+  "2021-09-10": ["석식"]
 };
 
 void addUserNotEating(String date, String time) {
-  //date는 "2021-09-21"형식으로
-  var date1 = DateFormat('dd/MM/YYYY').parse(date);
-  String year = date1.year.toString();
-  String month = date1.month.toString();
-  String day = date1.day.toString();
+  if (userNotEating[date] == null) {
+    userNotEating[date] = [time];
+  } else {
+    userNotEating[date]!.add(time);
+  }
+}
+
+void removeUserNotEating(String date, String time) {
+  userNotEating[date]!.remove(time);
+  if (userNotEating[date]!.length == 0) userNotEating.remove(date);
+}
+
+bool checkIfEating(String date, String time) {
+  if (userNotEating[date] == null) {
+    return true;
+  } else if (userNotEating[date]!.contains(time)) {
+    return false;
+  } else
+    return true;
 }

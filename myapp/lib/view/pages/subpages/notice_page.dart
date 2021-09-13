@@ -43,17 +43,24 @@ class _NoticePageState extends State<NoticePage> {
               child: ListView.separated(
                 itemBuilder: (context, index) {
                   Inform notice = dummyInform[index];
-                  return ListTile(
-                    onTap: () {},
+                  return ExpansionTile(
+                    initiallyExpanded: false,
+                    textColor: Colors.black,
                     title: Text(
                       "[${notice.type}] ${notice.title}",
                     ),
-                    trailing: Text(notice.writer),
+                    // trailing: Text(notice.writer),
                     subtitle: Text(notice.date),
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Text(notice.main),
+                      ),
+                    ],
                   );
                 },
                 separatorBuilder: (context, index) {
-                  return const Divider(
+                  return Divider(
                     color: Colors.grey,
                   );
                 },

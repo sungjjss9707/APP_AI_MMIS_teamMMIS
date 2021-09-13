@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:get/get.dart';
 import 'package:myapp/model/menu.dart';
+import 'package:myapp/user/user.dart';
 
 import 'notice_page.dart';
 
@@ -23,30 +23,13 @@ class _RateMenuPageState extends State<RateMenuPage> {
   List<String>? menuPlate;
   int? index;
   bool isLeft = false, isRight = false;
+  bool? isEating;
 
   _RateMenuPageState(this.date, this.time);
 
-  // @override
-  // void initState() {
-  //   menu = getMenuByDateAndTime(date, time, dummyMenu);
-  //   rating = menu!.rating;
-  //   menuPlate = menu!.menuPlate;
-  //   index = getMenuIndexByDateAndTime(date, time, dummyMenu);
-  //   if (index != 0) {
-  //     isLeft = true;
-  //     beforeDate = dummyMenu[index! - 1].date;
-  //     beforeTime = dummyMenu[index! - 1].time;
-  //   }
-  //   if (index != dummyMenu.length - 1) {
-  //     isRight = true;
-  //     afterDate = dummyMenu[index! + 1].date;
-  //     afterTime = dummyMenu[index! + 1].time;
-  //   }
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
+    isEating = checkIfEating(date, time);
     menu = getMenuByDateAndTime(date, time, dummyMenu);
     rating = menu!.rating;
     menuPlate = menu!.menuPlate;
@@ -71,8 +54,18 @@ class _RateMenuPageState extends State<RateMenuPage> {
             _menuAndRatings(),
             _saveRating(),
             TextButton(
-              onPressed: () {},
-              child: Text("불취식신청"),
+              onPressed: () {
+                setState(() {
+                  if (isEating!) {
+                    addUserNotEating(date, time);
+                    isEating = false;
+                  } else {
+                    removeUserNotEating(date, time);
+                    isEating = true;
+                  }
+                });
+              },
+              child: isEating! ? Text("불취식신청") : Text("취식신청"),
             ),
             TextButton(
               onPressed: () {},

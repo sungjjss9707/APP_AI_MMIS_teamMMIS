@@ -23,9 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/myapp/lib/user/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/get_today.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/get_today.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/model/menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/model/menu.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/eating_schedule_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/user/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/user/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/framepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,8 +79,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="460" y="209" key="FileChooserDialogImpl" timestamp="1631508237631">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="460" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1631508237631" />
     <state x="163" y="70" key="SettingsEditor" timestamp="1631455953442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

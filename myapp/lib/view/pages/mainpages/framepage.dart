@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/user/user.dart';
 
 import '../../../get_today.dart';
 import 'homepage.dart';
@@ -44,8 +45,8 @@ class _FramePageState extends State<FramePage> {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("8전투비행단"),
-            Text("병장 최윤호님"),
+            Text(unit),
+            Text("${classes} ${userName}님"),
           ],
         ),
         SizedBox(width: 4),
