@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/menu.dart';
+import 'package:myapp/user/user.dart';
+import 'package:myapp/view/components/yes_eating.dart';
 import 'package:myapp/view/pages/subpages/rate_menu_page.dart';
 import '../../get_today.dart';
 import 'not_eating.dart';
@@ -58,7 +60,7 @@ class MenuBox extends StatelessWidget {
               ),
               SizedBox(height: 1),
               // 취식, 불취식 표시
-              NotEating(),
+              checkIfEating(date, time) ? YesEating() : NotEating(),
             ],
           ),
         ),
