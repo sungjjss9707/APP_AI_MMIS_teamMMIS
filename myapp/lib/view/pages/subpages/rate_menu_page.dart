@@ -3,7 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/menu.dart';
 import 'package:myapp/user/user.dart';
-import 'package:myapp/view/pages/mainpages/framepage.dart';
+import 'package:myapp/view/pages/initialpages/framepage.dart';
 import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
 import 'notice_page.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/suggestion.dart';
-import 'package:myapp/view/components/custom_text_form_field_search.dart';
+import 'package:myapp/view/components/textfield/custom_text_form_field_search.dart';
 import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
 class SuggestionPage extends StatefulWidget {

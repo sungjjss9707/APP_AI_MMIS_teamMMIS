@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/view/components/custom_elevated_button.dart';
-import 'package:myapp/view/components/custom_text_form_field.dart';
+import 'package:myapp/view/components/button/custom_elevated_button.dart';
+import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
 
-import 'framepage.dart';
-import 'join_page.dart';
+import 'login_page.dart';
 
-class LoginPage extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
+class JoinPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,24 +18,23 @@ class LoginPage extends StatelessWidget {
               alignment: Alignment.center,
               height: 200,
               child: Text(
-                "로그인",
+                "회원가입",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            _loginForm(), ////////////////////////밑에 만들어놈
+            _joinForm(), ////////////////////////
           ],
         ),
       ),
     );
   }
 
-  Widget _loginForm() {
-    //이름입력, 군번입력, 로그인 버튼, 회원가입 버튼 네개로 이루어짐
+  Widget _joinForm() {
+    //이름쓰는칸, 군번쓰는칸, 계급쓰는칸, 회원가입버튼 네개로 이루어짐
     return Form(
-      key: _formKey,
       //한번에 서버로 날릴거라 이 네개를 폼으로 묶는게 좋음
       child: Column(
         children: [
@@ -49,22 +46,20 @@ class LoginPage extends StatelessWidget {
             hint: "군번",
             funValidate: null,
           ),
-          SizedBox(height: 10),
-          CustomElevatedButton(
-            width: double.infinity,
-            text: "로그인",
-            funpageRoute: () {
-              if (true) {
-                ////////////////////////////////////////////////일단 true로 넣었는데 로그인 성공할때만 if문 통과해야함
-                Get.to(FramePage());
-              }
-            },
+          CustomTextFormField(
+            hint: "계급",
+            funValidate: null,
           ),
           SizedBox(height: 10),
           CustomElevatedButton(
             text: "회원가입",
             funpageRoute: () {
-              Get.to(JoinPage()); //회원가입페이지로 이동
+              if (true) {
+                ////////////////////////////////////////일단은 true로 넣었는데 회원가입가능한
+                // 올바른 군번과 이름을 넣어야지 서버로 값들을
+                // 보내고 로그인 페이지로 넘어가야함
+                Get.to(LoginPage());
+              }
             },
             width: double.infinity,
           ),

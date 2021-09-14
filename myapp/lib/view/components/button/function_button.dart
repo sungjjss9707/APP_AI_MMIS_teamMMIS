@@ -28,7 +28,6 @@ class FunctionButton extends StatelessWidget {
           children: [
             FaIcon(
               iconData,
-              color: Colors.blue,
               size: 20,
             ),
             SizedBox(height: 5),

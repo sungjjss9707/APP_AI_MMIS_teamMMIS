@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:myapp/model/inform.dart';
 
 import 'package:myapp/page_util/validators.dart';
-import 'package:myapp/view/components/custom_elevated_button.dart';
-import 'package:myapp/view/components/custom_text_form_field.dart';
-import 'package:myapp/view/components/custom_writing_area.dart';
+import 'package:myapp/view/components/button/custom_elevated_button.dart';
+import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
+import 'package:myapp/view/components/textfield/custom_writing_area.dart';
 
 class WriteSuggestionPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();

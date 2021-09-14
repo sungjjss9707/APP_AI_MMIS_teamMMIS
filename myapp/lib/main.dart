@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/theme.dart';
 
-import 'view/pages/mainpages/framepage.dart';
+import 'view/pages/initialpages/framepage.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,8 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme:
-          ThemeData(backgroundColor: Colors.white, appBarTheme: AppBarTheme()),
+      theme: themeData,
       home: FramePage(),
     );
   }

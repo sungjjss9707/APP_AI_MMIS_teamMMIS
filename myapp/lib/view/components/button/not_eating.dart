@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class YesEating extends StatelessWidget {
+class NotEating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(1),
+      padding: EdgeInsets.all(2),
       decoration: BoxDecoration(
-        color: Colors.green,
+        color: Colors.blue[400],
         borderRadius: BorderRadius.circular(2),
       ),
-      child: const Text(
-        "취식",
-        style: TextStyle(color: Colors.white, fontSize: 9),
+      child: Text(
+        "불취식",
+        style: TextStyle(color: Colors.white, fontSize: 10),
       ),
     );
   }

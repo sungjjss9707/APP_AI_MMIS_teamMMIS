@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/menu.dart';
 import 'package:myapp/user/user.dart';
-import 'package:myapp/view/components/yes_eating.dart';
+import 'package:myapp/view/components/button/yes_eating.dart';
 import 'package:myapp/view/pages/subpages/rate_menu_page.dart';
 import '../../date_functions.dart';
-import 'not_eating.dart';
+import 'button/not_eating.dart';
 
 class MenuBox extends StatelessWidget {
   final String date;
@@ -30,41 +30,51 @@ class MenuBox extends StatelessWidget {
           decoration: BoxDecoration(
             border: _isToday == false
                 ? Border.all(color: Colors.black45, width: 2)
-                : Border.all(color: Colors.blue, width: 3),
+                : Border.all(color: Colors.lightGreen[600]!, width: 2),
             borderRadius: BorderRadius.circular(5),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //그 메뉴에 대한 날짜와 시간(조식, 중식, 석식)
-              Text(
-                "${menu.date} (${menu.time})",
-                style: TextStyle(fontSize: 9),
-              ),
+              _buildMenuHeader(menu),
               Divider(color: Colors.grey),
               // 메뉴
-              Expanded(
-                child: ListView(
-                  children: [
-                    Column(
-                      children: List.generate(
-                        menu.menuPlate.length,
-                        (index) => Text(
-                          "${menu.menuPlate[index]}",
-                          style: TextStyle(fontSize: 9),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(height: 1),
+              _buildMenuList(menu),
+              SizedBox(height: 2),
               // 취식, 불취식 표시
-              checkIfEating(date, time) ? YesEating() : NotEating(),
+              _buildCheckIfEating() ? YesEating() : NotEating(),
             ],
           ),
         ),
       ),
     );
   }
+
+  Widget _buildMenuHeader(Menu menu) {
+    return Text(
+      "${menu.date} (${menu.time})",
+      style: TextStyle(fontSize: 9),
+    );
+  }
+
+  Widget _buildMenuList(Menu menu) {
+    return Expanded(
+      child: ListView(
+        children: [
+          Column(
+            children: List.generate(
+              menu.menuPlate.length,
+              (index) => Text(
+                "${menu.menuPlate[index]}",
+                style: TextStyle(fontSize: 9),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  bool _buildCheckIfEating() => checkIfEating(date, time);
 }

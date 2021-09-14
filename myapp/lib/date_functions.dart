@@ -22,3 +22,9 @@ String transformToDateForm(int year, int month, int day) {
   DateFormat formatter = DateFormat("yyyy-MM-dd");
   return formatter.format(now);
 }
+
+// String getMonthAndDayAndWeekdayInKorean(String date){
+//   List<String> weekdayKorean = ["월", "화", "수", "목", "금", "토", "일"];
+//   DateTime dateTime = DateTime.parse(date);
+//
+// }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/date_functions.dart';
 import 'package:myapp/user/user.dart';
-import 'package:myapp/view/components/not_eating.dart';
-import 'package:myapp/view/pages/mainpages/framepage.dart';
+import 'package:myapp/view/components/button/not_eating.dart';
+import 'package:myapp/view/pages/initialpages/framepage.dart';
 import 'package:myapp/view/pages/mainpages/homepage.dart';
 
 class EatingSchedulePage extends StatefulWidget {

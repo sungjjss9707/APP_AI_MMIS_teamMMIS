@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:myapp/user/user.dart';
 
 import '../../../date_functions.dart';
-import 'homepage.dart';
-import 'setting_page.dart';
-import 'show_photo_of_meal_page.dart';
+import '../mainpages/homepage.dart';
+import '../mainpages/setting_page.dart';
+import '../mainpages/show_photo_of_meal_page.dart';
 
 class FramePage extends StatefulWidget {
   @override
@@ -30,8 +30,8 @@ class _FramePageState extends State<FramePage> {
 
   Widget _drawer(BuildContext context) {
     return Container(
-      color: Colors.blueAccent,
-      width: MediaQuery.of(context).size.width * 0.5,
+      color: Colors.white,
+      width: MediaQuery.of(context).size.width * 0.7,
     );
   }
 
@@ -56,7 +56,7 @@ class _FramePageState extends State<FramePage> {
 
   Widget _buildBottomNavigationBar() {
     return BottomNavigationBar(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.lightGreen[50],
       unselectedFontSize: 10,
       selectedFontSize: 10,
       iconSize: 20,
