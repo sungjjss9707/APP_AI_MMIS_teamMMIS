@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/user/user.dart';
+import 'package:myapp/view/components/custom_drawer.dart';
 
 import '../../../date_functions.dart';
 import '../mainpages/homepage.dart';
@@ -17,7 +18,7 @@ class _FramePageState extends State<FramePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: _drawer(context),
+      drawer: CustomDrawer(),
       appBar: _buildAppBar(),
       bottomNavigationBar: _buildBottomNavigationBar(),
       body: _selectedTapIndex == 0
@@ -25,13 +26,6 @@ class _FramePageState extends State<FramePage> {
           : _selectedTapIndex == 1
               ? ShowPhotoOfMealPage()
               : SettingPage(),
-    );
-  }
-
-  Widget _drawer(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      width: MediaQuery.of(context).size.width * 0.7,
     );
   }
 

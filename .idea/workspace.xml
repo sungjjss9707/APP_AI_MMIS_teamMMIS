@@ -22,34 +22,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨.">
-      <change afterPath="$PROJECT_DIR$/myapp/lib/theme.dart" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨.&#10;//&#10;1. drawer 추가 (custom_drawer.dart)&#10;-&gt; 따라서 framepage.dart 수정 (위 drawer 이용)&#10;2. 설정 페이지 구현 -&gt; setting_page.dart 수정&#10;+ 설정 페이지 내 버튼 눌러서 들어가지는 페이지 추가 (inner_setting_page.dart)&#10;3. 공제 페이지 구현 (deduction_page.dart)&#10;4. 회원정보 페이지 구현 (확인만 구현하였고 수정은 아직 미구현) -&gt; user_info_page.dart 생성, 내부 컴퍼넌트로 user_info_text_form_field.dart 및 user_info_radio.dart 생성">
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/components/user_info_radio.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/inner_seeting_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/date_functions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/date_functions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_elevated_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/custom_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_text_form_field_search.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/custom_text_form_field_search.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_writing_area.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/custom_writing_area.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/function_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/function_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/not_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/not_eating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/yes_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/yes_eating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/join_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/eating_schedule_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/eating_schedule_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/write_suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/write_suggestion_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/setting_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/setting_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -69,6 +60,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -79,6 +72,17 @@
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages\initialpages" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/myapp/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -129,28 +133,7 @@
     <MESSAGE value="9월 13일" />
     <MESSAGE value="불취식 관리 더 해야 됨." />
     <MESSAGE value="불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨." />
-    <option name="LAST_COMMIT_MESSAGE" value="불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="492" y="240" key="AndroidProcessChooserDialog" timestamp="1631522173548">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="492" y="240" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1631522173548" />
-    <state x="460" y="209" key="FileChooserDialogImpl" timestamp="1631508237631">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="460" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1631508237631" />
-    <state x="163" y="70" key="SettingsEditor" timestamp="1631455953442">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="163" y="70" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1631455953442" />
-    <state x="233" y="181" key="Vcs.Push.Dialog.v2" timestamp="1631528418681">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="233" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1631528418681" />
-    <state x="320" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1631522922023">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="320" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1631522922023" />
+    <MESSAGE value="불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨.&#10;//&#10;1. drawer 추가 (custom_drawer.dart)&#10;-&gt; 따라서 framepage.dart 수정 (위 drawer 이용)&#10;2. 설정 페이지 구현 -&gt; setting_page.dart 수정&#10;+ 설정 페이지 내 버튼 눌러서 들어가지는 페이지 추가 (inner_setting_page.dart)&#10;3. 공제 페이지 구현 (deduction_page.dart)&#10;4. 회원정보 페이지 구현 (확인만 구현하였고 수정은 아직 미구현) -&gt; user_info_page.dart 생성, 내부 컴퍼넌트로 user_info_text_form_field.dart 및 user_info_radio.dart 생성" />
+    <option name="LAST_COMMIT_MESSAGE" value="불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨.&#10;//&#10;1. drawer 추가 (custom_drawer.dart)&#10;-&gt; 따라서 framepage.dart 수정 (위 drawer 이용)&#10;2. 설정 페이지 구현 -&gt; setting_page.dart 수정&#10;+ 설정 페이지 내 버튼 눌러서 들어가지는 페이지 추가 (inner_setting_page.dart)&#10;3. 공제 페이지 구현 (deduction_page.dart)&#10;4. 회원정보 페이지 구현 (확인만 구현하였고 수정은 아직 미구현) -&gt; user_info_page.dart 생성, 내부 컴퍼넌트로 user_info_text_form_field.dart 및 user_info_radio.dart 생성" />
   </component>
 </project>
