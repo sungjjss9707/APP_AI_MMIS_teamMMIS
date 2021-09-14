@@ -6,7 +6,7 @@ class NotEating extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(2),
       decoration: BoxDecoration(
-        color: Colors.blue[400],
+        color: Colors.lightBlue,
         borderRadius: BorderRadius.circular(2),
       ),
       child: Text(

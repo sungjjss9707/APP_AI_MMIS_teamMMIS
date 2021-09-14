@@ -9,78 +9,88 @@ import 'package:myapp/view/components/menu_box.dart';
 import 'package:myapp/view/pages/subpages/eating_schedule_page.dart';
 import 'package:myapp/view/pages/subpages/notice_page.dart';
 import 'package:myapp/view/pages/subpages/suggestion_page.dart';
-import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
 class HomePage extends StatelessWidget {
+  late double length;
   @override
   Widget build(BuildContext context) {
+    length = (MediaQuery.of(context).size.width - 32) / 3;
+    return ListView(
+      children: [
+        _menuList(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: _functionButtons(),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: CustomBanner(),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: _recommendation(),
+        ),
+      ],
+    );
+  }
+
+  Widget _menuList() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView(
-        scrollDirection: Axis.vertical,
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: List.generate(
+            dummyMenu.length,
+            (index) => MenuBox(
+              dummyMenu[index].date,
+              dummyMenu[index].time,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _functionButtons() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: Column(
         children: [
-          _menuList(),
-          const SizedBox(height: 16),
-          Column(
-            children: [
-              _buildButtonSet1(),
-              const SizedBox(height: 16),
-              _buildButtonSet2(),
-            ],
-          ),
-          const SizedBox(height: 16),
-          CustomBanner(),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _popularMenu(),
-              const SizedBox(width: 8),
-              _AIRecommendation(),
-            ],
-          ),
+          _buildButtonSet1(),
+          SizedBox(height: 16),
+          _buildButtonSet2(),
         ],
       ),
     );
   }
 
-  Widget _menuList() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: List.generate(
-          dummyMenu.length,
-          (index) => MenuBox(
-            dummyMenu[index].date,
-            dummyMenu[index].time,
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget _buildButtonSet1() {
+    final double size = length / 4;
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         FunctionButton(
+          length: length,
           onTap: () {},
-          iconData: FontAwesomeIcons.poll,
+          icon: FaIcon(FontAwesomeIcons.poll, size: size),
           text: "설문조사",
         ),
+        SizedBox(width: 8),
         FunctionButton(
+          length: length,
           onTap: () {
             Get.to(() => SuggestionPage());
           },
-          iconData: FontAwesomeIcons.exclamationCircle,
+          icon: FaIcon(FontAwesomeIcons.exclamationCircle, size: size),
           text: "건의사항",
         ),
+        SizedBox(width: 8),
         FunctionButton(
+          length: length,
           onTap: () {
             Get.to(EatingSchedulePage());
           },
-          iconData: FontAwesomeIcons.exclamationCircle,
+          icon: Icon(Icons.no_meals, size: size),
           text: "불취식 관리",
         ),
       ],
@@ -88,21 +98,44 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildButtonSet2() {
+    final double size = length / 4;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         FunctionButton(
+          length: length,
           onTap: () {
             Get.to(() => NoticePage());
           },
-          iconData: FontAwesomeIcons.exclamationCircle,
+          icon: Icon(Icons.campaign, size: size),
           text: "공지사항",
         ),
+        SizedBox(width: 8),
         FunctionButton(
+          length: length,
           onTap: () {},
-          iconData: FontAwesomeIcons.exclamationCircle,
+          icon: Icon(Icons.payment, size: size),
           text: "공제내역",
         ),
+        SizedBox(width: 8),
+        FunctionButton(
+          length: length,
+          onTap: () {},
+          icon: Icon(Icons.help, size: size),
+          text: "알레르기 정보",
+        )
+      ],
+    );
+  }
+
+  Widget _recommendation() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _popularMenu(),
+        SizedBox(width: 8),
+        _AIRecommendation(),
       ],
     );
   }

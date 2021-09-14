@@ -75,7 +75,7 @@ class _EatingSchedulePageState extends State<EatingSchedulePage> {
       ),
       child: Center(
         child: Text(
-          "${userName}님의 ${year}년 ${month}월 공제예정금액은\n${(numberOfDates * 2370 * 2 - 2370)}원입니다.",
+          "${userName}님의 ${year}년 ${month}월 공제예정금액은 ${(numberOfDates * 2370 * 2 - 2370)}원입니다.",
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),

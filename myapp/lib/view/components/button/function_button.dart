@@ -2,20 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FunctionButton extends StatelessWidget {
-  final IconData iconData;
+  final Widget icon;
   final String text;
   final onTap;
+  final double length;
 
   const FunctionButton(
-      {required this.iconData, required this.text, required this.onTap});
+      {required this.icon,
+      required this.text,
+      required this.onTap,
+      required this.length});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: 80,
-        height: 80,
+        width: length,
+        height: length,
         decoration: BoxDecoration(
           border: Border.all(
             color: Colors.black38,
@@ -26,10 +30,7 @@ class FunctionButton extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FaIcon(
-              iconData,
-              size: 20,
-            ),
+            icon,
             SizedBox(height: 5),
             Text(
               text,

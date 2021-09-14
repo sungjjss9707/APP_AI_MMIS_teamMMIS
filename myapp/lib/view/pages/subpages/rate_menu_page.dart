@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:myapp/date_functions.dart';
 import 'package:myapp/model/menu.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/pages/initialpages/framepage.dart';
 import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
-
-import 'notice_page.dart';
 
 class RateMenuPage extends StatefulWidget {
   final String date;
@@ -48,12 +47,14 @@ class _RateMenuPageState extends State<RateMenuPage> {
     }
     return Scaffold(
       appBar: AppBar(
-          leading: IconButton(
-        onPressed: () {
-          Get.offAll(() => FramePage());
-        },
-        icon: Icon(Icons.arrow_back),
-      )),
+        leading: IconButton(
+          onPressed: () {
+            Get.offAll(() => FramePage());
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
+        title: Text("8전투비행단"),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -61,6 +62,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
             _arrowAndDate(), // < 날짜(석식) 취식여부 >
             _menuAndRatings(),
             _saveRating(),
+            Spacer(),
             _notEatingApplyButton(),
             _suggestingButton(),
           ],
@@ -69,63 +71,70 @@ class _RateMenuPageState extends State<RateMenuPage> {
     );
   }
 
-  Row _arrowAndDate() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        IconButton(
-          onPressed: () {
-            if (isLeft == true) {
-              setState(() {
-                date = beforeDate!;
-                time = beforeTime!;
-                isLeft = isRight = false;
-              });
-            }
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: isLeft ? Colors.black : Colors.grey,
+  Widget _arrowAndDate() {
+    return Padding(
+      padding: const EdgeInsets.only(right: 8, left: 8, bottom: 16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IconButton(
+            onPressed: () {
+              if (isLeft == true) {
+                setState(() {
+                  date = beforeDate!;
+                  time = beforeTime!;
+                  isLeft = isRight = false;
+                });
+              }
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: isLeft ? Colors.grey[800] : Colors.grey[500],
+            ),
           ),
-        ),
-        SizedBox(width: 10),
-        Container(
-          child: Center(child: Text("$date ($time)")),
-          width: 140,
-        ),
-        SizedBox(width: 10),
-        IconButton(
-          onPressed: () {
-            if (isRight == true) {
-              setState(() {
-                date = afterDate!;
-                time = afterTime!;
-                isLeft = isRight = false;
-              });
-            }
-          },
-          icon: Icon(
-            Icons.arrow_forward_ios,
-            color: isRight ? Colors.black : Colors.grey,
+          Spacer(),
+          Container(
+            child: Center(
+                child:
+                    Text("${getMonthDayAndWeekdayInKorean(date)} (${time})")),
+            width: 140,
           ),
-        ),
-      ],
+          Spacer(),
+          IconButton(
+            onPressed: () {
+              if (isRight == true) {
+                setState(() {
+                  date = afterDate!;
+                  time = afterTime!;
+                  isLeft = isRight = false;
+                });
+              }
+            },
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              color: isRight ? Colors.grey[800] : Colors.grey[500],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
-  Column _menuAndRatings() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: List.generate(menuPlate!.length, (index) {
-        if (index != menuPlate!.length - 1)
-          return Column(
-            children: [
-              _menuAndRating(menuPlate!, index),
-              SizedBox(height: 16),
-            ],
-          );
-        return _menuAndRating(menuPlate!, index);
-      }),
+  Widget _menuAndRatings() {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: List.generate(menuPlate!.length, (index) {
+          if (index != menuPlate!.length - 1)
+            return Column(
+              children: [
+                _menuAndRating(menuPlate!, index),
+                SizedBox(height: 16),
+              ],
+            );
+          return _menuAndRating(menuPlate!, index);
+        }),
+      ),
     );
   }
 
@@ -197,10 +206,13 @@ class _RateMenuPageState extends State<RateMenuPage> {
               removeUserNotEating(date, time);
               isEating = true;
             }
-            print(userNotEating);
           });
         },
         child: isEating! ? Text("불취식신청") : Text("취식신청"),
+        style: ElevatedButton.styleFrom(
+          primary: isEating! ? Colors.lightGreen[400] : Colors.lightBlue,
+          minimumSize: Size(double.infinity, 50),
+        ),
       ),
     );
   }
@@ -211,6 +223,10 @@ class _RateMenuPageState extends State<RateMenuPage> {
         Get.to(() => WriteSuggestionPage());
       },
       child: Text("건의하기"),
+      style: ElevatedButton.styleFrom(
+        primary: Colors.green,
+        minimumSize: Size(double.infinity, 50),
+      ),
     );
   }
 }

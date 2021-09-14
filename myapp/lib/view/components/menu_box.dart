@@ -53,7 +53,7 @@ class MenuBox extends StatelessWidget {
 
   Widget _buildMenuHeader(Menu menu) {
     return Text(
-      "${menu.date} (${menu.time})",
+      "${getMonthDayAndWeekdayInKorean(menu.date)} (${menu.time})",
       style: TextStyle(fontSize: 9),
     );
   }
