@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/textfield/user_info_text_form_field.dart';
 import 'package:myapp/view/components/user_info_radio.dart';
+import 'package:myapp/view/pages/subpages/user_edit_page.dart';
 
 class UserInfoPage extends StatelessWidget {
   @override
@@ -25,9 +28,9 @@ class UserInfoPage extends StatelessWidget {
         ),
         child: ListView(
           children: [
-            UserInfoTextFormField(text: "소속", info: "소속 예시", enabled: false),
-            UserInfoTextFormField(text: "계급", info: "계급 예시", enabled: false),
-            UserInfoTextFormField(text: "이름", info: "이름 예시", enabled: false),
+            UserInfoTextFormField(text: "소속", info: unit, enabled: false),
+            UserInfoTextFormField(text: "계급", info: classes, enabled: false),
+            UserInfoTextFormField(text: "이름", info: userName, enabled: false),
             Divider(),
             Center(
               child: Text(
@@ -35,15 +38,15 @@ class UserInfoPage extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
             ),
-            UserInfoRadio(text: "계란", allergy: true),
-            UserInfoRadio(text: "두부", allergy: true),
-            UserInfoRadio(text: "두부", allergy: true),
-            UserInfoRadio(text: "두부", allergy: true),
-            UserInfoRadio(text: "두부", allergy: true),
-            UserInfoRadio(text: "두부", allergy: true),
-            UserInfoRadio(text: "두부", allergy: true),
-            UserInfoRadio(text: "두부", allergy: true),
-            UserInfoRadio(text: "두부", allergy: true),
+            UserInfoRadio(text: "갑각류", enabled: false),
+            UserInfoRadio(text: "견과류", enabled: false),
+            UserInfoRadio(text: "달걀", enabled: false),
+            UserInfoRadio(text: "땅콩", enabled: false),
+            UserInfoRadio(text: "밀", enabled: false),
+            UserInfoRadio(text: "생선", enabled: false),
+            UserInfoRadio(text: "우유", enabled: false),
+            UserInfoRadio(text: "조개", enabled: false),
+            UserInfoRadio(text: "콩", enabled: false),
             Divider(),
             SizedBox(height: 10),
             Center(
@@ -60,7 +63,10 @@ class UserInfoPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(
                   20,
                 ))),
-                onPressed: () {},
+                onPressed: () {
+                  localUserAllergy = userAllergy;
+                  Get.to(() => UserEditPage());
+                },
               ),
             ),
           ],

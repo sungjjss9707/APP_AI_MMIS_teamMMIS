@@ -68,3 +68,16 @@ bool checkIfEating(String date, String time) {
   } else
     return true;
 }
+
+Map<String, bool> userAllergy = {
+  "갑각류": true,
+  "견과류": true,
+  "달걀": true,
+  "땅콩": true,
+  "밀": true,
+  "생선": true,
+  "우유": true,
+  "조개": true,
+  "콩": true
+};
+Map<String, bool> localUserAllergy = {...userAllergy};

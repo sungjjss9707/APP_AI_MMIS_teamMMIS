@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/user/user.dart';
 
 class UserInfoRadio extends StatefulWidget {
   String text;
-  bool allergy;
-  UserInfoRadio({required this.allergy, required this.text});
+  bool enabled;
+  UserInfoRadio({required this.text, required this.enabled});
   _UserInfoRadioState createState() =>
-      _UserInfoRadioState(allergy: allergy, text: text);
+      _UserInfoRadioState(text: text, enabled: enabled);
 }
 
 enum YesOrNo { yes, no }
 
 class _UserInfoRadioState extends State<UserInfoRadio> {
   String text;
-  bool allergy;
+  bool enabled;
   YesOrNo? v;
-  _UserInfoRadioState({required this.allergy, required this.text})
-      : v = allergy == true ? YesOrNo.yes : YesOrNo.no;
+  _UserInfoRadioState({required this.text, required this.enabled})
+      : v = userAllergy[text] == true ? YesOrNo.yes : YesOrNo.no;
 
   Widget build(BuildContext context) {
     return Column(
@@ -34,7 +35,14 @@ class _UserInfoRadioState extends State<UserInfoRadio> {
             Radio(
               value: YesOrNo.yes,
               groupValue: v,
-              onChanged: (YesOrNo? value) {},
+              onChanged: enabled == false
+                  ? (YesOrNo? value) {}
+                  : (YesOrNo? value) {
+                      setState(() {
+                        v = value;
+                        localUserAllergy[text] = true;
+                      });
+                    },
             ),
             Text("있음",
                 style: TextStyle(
@@ -45,7 +53,14 @@ class _UserInfoRadioState extends State<UserInfoRadio> {
             Radio(
               value: YesOrNo.no,
               groupValue: v,
-              onChanged: (YesOrNo? value) {},
+              onChanged: enabled == false
+                  ? (YesOrNo? value) {}
+                  : (YesOrNo? value) {
+                      setState(() {
+                        v = value;
+                        localUserAllergy[text] = false;
+                      });
+                    },
             ),
             Text("없음",
                 style: TextStyle(

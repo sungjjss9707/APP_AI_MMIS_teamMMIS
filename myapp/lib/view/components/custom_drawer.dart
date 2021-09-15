@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/user/user.dart';
 import 'package:myapp/view/pages/initialpages/login_page.dart';
 import 'package:myapp/view/pages/subpages/deduction_page.dart';
 import 'package:myapp/view/pages/subpages/user_info_page.dart';
@@ -16,14 +17,14 @@ class CustomDrawer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "상병 문철운",
+              "$classes $userName",
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                   color: Colors.black),
             ),
             Text(
-              "육군 지상작전사 제8군단사령부 제23경비여단 제1대대 본부중대",
+              "$army $unit",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 15,
