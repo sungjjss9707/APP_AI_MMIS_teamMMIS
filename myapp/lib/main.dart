@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      title: "MMIS project myapp",
       debugShowCheckedModeBanner: false,
       theme: themeData,
       home: FramePage(),

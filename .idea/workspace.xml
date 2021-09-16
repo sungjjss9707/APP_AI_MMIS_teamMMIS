@@ -13,31 +13,34 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="date_functions 수정 중. &gt; menu box 디자인 수정">
-      <change afterPath="$PROJECT_DIR$/myapp/lib/model/survey.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/lib/page_util/reg_ex.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/lib/view/components/appBar/sub_page_appbar.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/back_button.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="관리자 페이지 생성 9월 16일">
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/button/back_button.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/button/custom_elevated_button.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/button/not_eating.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/button/yes_eating.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/home/home_header.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field_search.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/textfield/custom_writing_area.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/textfield/user_info_text_form_field.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/page_util/reg_ex.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/page_util/validators.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/pages/home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/join_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/eating_schedule_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/eating_schedule_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/write_suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/write_suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/test/widget_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +66,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\components\textfield" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\components\button" />
@@ -111,7 +118,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631618221985</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="관리자 페이지 생성 9월 16일">
+      <created>1631774127235</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631774127235</updated>
+    </task>
+    <task id="LOCAL-00006" summary="관리자 페이지 생성 9월 16일">
+      <created>1631774249805</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631774249805</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,7 +140,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -131,25 +164,31 @@
     <MESSAGE value="불취식 관리 더 해야 됨." />
     <MESSAGE value="불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨." />
     <MESSAGE value="date_functions 수정 중. &gt; menu box 디자인 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="date_functions 수정 중. &gt; menu box 디자인 수정" />
+    <MESSAGE value="관리자 페이지 생성" />
+    <MESSAGE value="관리자 페이지 생성 9월 16일" />
+    <option name="LAST_COMMIT_MESSAGE" value="관리자 페이지 생성 9월 16일" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="366" y="302" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1631774447050">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="366" y="302" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1631774447050" />
     <state x="492" y="240" key="AndroidProcessChooserDialog" timestamp="1631522173548">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="492" y="240" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1631522173548" />
-    <state x="460" y="209" key="FileChooserDialogImpl" timestamp="1631508237631">
+    <state x="460" y="209" key="FileChooserDialogImpl" timestamp="1631776546372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="460" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1631508237631" />
+    <state x="460" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1631776546372" />
     <state x="163" y="70" key="SettingsEditor" timestamp="1631455953442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="163" y="70" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1631455953442" />
-    <state x="233" y="181" key="Vcs.Push.Dialog.v2" timestamp="1631618227435">
+    <state x="233" y="181" key="Vcs.Push.Dialog.v2" timestamp="1631774255418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="233" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1631618227435" />
+    <state x="233" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1631774255418" />
     <state x="222" y="200" key="run.anything.popup" timestamp="1631769737874">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
