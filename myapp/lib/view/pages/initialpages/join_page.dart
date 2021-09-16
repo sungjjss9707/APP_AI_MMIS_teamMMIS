@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/view/components/button/custom_elevated_button.dart';
 import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
 
 import 'login_page.dart';
 
 class JoinPage extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +37,7 @@ class JoinPage extends StatelessWidget {
   Widget _joinForm() {
     //이름쓰는칸, 군번쓰는칸, 계급쓰는칸, 회원가입버튼 네개로 이루어짐
     return Form(
+      key: _formKey,
       //한번에 서버로 날릴거라 이 네개를 폼으로 묶는게 좋음
       child: Column(
         children: [
@@ -44,7 +47,7 @@ class JoinPage extends StatelessWidget {
           ),
           CustomTextFormField(
             hint: "군번",
-            funValidate: null,
+            funValidate: validateMilitaryNumber(),
           ),
           CustomTextFormField(
             hint: "계급",
@@ -54,7 +57,7 @@ class JoinPage extends StatelessWidget {
           CustomElevatedButton(
             text: "회원가입",
             funpageRoute: () {
-              if (true) {
+              if (_formKey.currentState!.validate()) {
                 ////////////////////////////////////////일단은 true로 넣었는데 회원가입가능한
                 // 올바른 군번과 이름을 넣어야지 서버로 값들을
                 // 보내고 로그인 페이지로 넘어가야함

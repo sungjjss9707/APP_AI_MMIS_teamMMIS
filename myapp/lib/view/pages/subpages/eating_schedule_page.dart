@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:myapp/date_functions.dart';
 import 'package:myapp/user/user.dart';
+import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/button/not_eating.dart';
-import 'package:myapp/view/pages/initialpages/framepage.dart';
-import 'package:myapp/view/pages/mainpages/homepage.dart';
+import 'package:myapp/view/components/custom_drawer.dart';
 
 class EatingSchedulePage extends StatefulWidget {
   @override
@@ -39,15 +38,8 @@ class _EatingSchedulePageState extends State<EatingSchedulePage> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("불취식 관리"),
-        leading: IconButton(
-          onPressed: () {
-            Get.offAll(FramePage());
-          },
-          icon: Icon(Icons.arrow_back),
-        ),
-      ),
+      drawer: CustomDrawer(),
+      appBar: subPageAppBar("불취식 관리"),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -63,23 +55,45 @@ class _EatingSchedulePageState extends State<EatingSchedulePage> {
   Widget _thisMonthDeduction(int numberOfDates) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.symmetric(vertical: 16),
-      padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.grey,
-          width: 1,
-          style: BorderStyle.solid,
-        ),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.black12, width: 3),
       ),
-      child: Center(
-        child: Text(
-          "${userName}님의 ${year}년 ${month}월 공제예정금액은 ${(numberOfDates * 2370 * 2 - 2370)}원입니다.",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      child: Padding(
+        padding: EdgeInsets.only(top: 20, bottom: 20, right: 50, left: 50),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "${userName}님의 ${year}년 ${month}월 공제예정금액은 ${(numberOfDates * 2370 * 2 - 2370)}원입니다.",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+          ],
         ),
       ),
     );
+    // return Container(
+    //   width: double.infinity,
+    //   margin: EdgeInsets.symmetric(vertical: 16),
+    //   padding: EdgeInsets.all(10),
+    //   decoration: BoxDecoration(
+    //     border: Border.all(
+    //       color: Colors.grey,
+    //       width: 1,
+    //       style: BorderStyle.solid,
+    //     ),
+    //     borderRadius: BorderRadius.circular(10),
+    //   ),
+    //   child: Center(
+    //     child: Text(
+    //       "${userName}님의 ${year}년 ${month}월 공제예정금액은 ${(numberOfDates * 2370 * 2 - 2370)}원입니다.",
+    //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    //     ),
+    //   ),
+    // );
   }
 
   Widget _notEatingDays(int numberOfDates) {

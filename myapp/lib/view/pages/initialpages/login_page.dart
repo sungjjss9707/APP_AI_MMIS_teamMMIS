@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/view/components/button/custom_elevated_button.dart';
 import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
 
@@ -42,12 +43,12 @@ class LoginPage extends StatelessWidget {
       child: Column(
         children: [
           CustomTextFormField(
-            hint: "이름",
-            funValidate: null,
+            hint: "군번",
+            funValidate: validateMilitaryNumber(),
           ),
           CustomTextFormField(
-            hint: "군번",
-            funValidate: null,
+            hint: "비밀번호",
+            funValidate: validatePassWorld(),
           ),
           SizedBox(height: 10),
           CustomElevatedButton(

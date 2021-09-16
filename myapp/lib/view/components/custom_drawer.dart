@@ -28,7 +28,7 @@ class CustomDrawer extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 15,
-                color: Colors.brown,
+                color: Colors.black54,
               ),
             ),
             SizedBox(height: 10),
@@ -48,9 +48,9 @@ class CustomDrawer extends StatelessWidget {
                 }),
             DrawerLine(
               iconName: Icons.question_answer,
-              text: "문의",
+              text: "건의사항",
               tap: () {
-                print("문의");
+                print("건의사항");
               },
             ),
             DrawerLine(

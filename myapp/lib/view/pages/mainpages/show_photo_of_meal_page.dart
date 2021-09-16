@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:myapp/view/components/button/back_button.dart';
 
 class ShowPhotoOfMealPage extends StatelessWidget {
   @override
@@ -131,12 +132,7 @@ class ShowPhotoOfMealPage extends StatelessWidget {
         Row(
           children: [
             Spacer(),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text("돌아가기"),
-            ),
+            CustomBackButton(context),
           ],
         ),
       ],

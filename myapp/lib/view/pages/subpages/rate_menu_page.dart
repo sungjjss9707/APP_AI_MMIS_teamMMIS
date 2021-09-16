@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'package:myapp/date_functions.dart';
 import 'package:myapp/model/menu.dart';
 import 'package:myapp/user/user.dart';
+import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
+import 'package:myapp/view/components/button/back_button.dart';
+import 'package:myapp/view/components/custom_drawer.dart';
 import 'package:myapp/view/pages/initialpages/framepage.dart';
 import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
@@ -25,8 +28,16 @@ class _RateMenuPageState extends State<RateMenuPage> {
   int? index;
   bool isLeft = false, isRight = false;
   bool? isEating;
+  bool isSave = false;
 
   _RateMenuPageState(this.date, this.time);
+  @override
+  void dispose() {
+    if (!isSave) {
+      // rating!.clear();
+    }
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,15 +57,8 @@ class _RateMenuPageState extends State<RateMenuPage> {
       afterTime = dummyMenu[index! + 1].time;
     }
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Get.offAll(() => FramePage());
-          },
-          icon: Icon(Icons.arrow_back),
-        ),
-        title: Text("8전투비행단"),
-      ),
+      drawer: CustomDrawer(),
+      appBar: subPageAppBar("8전투비행단"),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -171,7 +175,6 @@ class _RateMenuPageState extends State<RateMenuPage> {
           onRatingUpdate: (score) {
             setState(() {
               rating![index] = score;
-              print(rating);
             });
           },
         )
@@ -185,6 +188,8 @@ class _RateMenuPageState extends State<RateMenuPage> {
         Spacer(),
         TextButton(
           onPressed: () {
+            isSave = true;
+            print(rating);
             //여기서 통신해야 됨.
           },
           child: Text("저장하기"),
@@ -202,9 +207,29 @@ class _RateMenuPageState extends State<RateMenuPage> {
             if (isEating!) {
               addUserNotEating(date, time);
               isEating = false;
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (context) => AlertDialog(
+                  content: Text("불취식 신청 되었습니다."),
+                  actions: [
+                    CustomBackButton(context),
+                  ],
+                ),
+              );
             } else {
               removeUserNotEating(date, time);
               isEating = true;
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (context) => AlertDialog(
+                  content: Text("취식 신청 되었습니다."),
+                  actions: [
+                    CustomBackButton(context),
+                  ],
+                ),
+              );
             }
           });
         },

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:myapp/model/inform.dart';
+import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
+import 'package:myapp/view/components/custom_drawer.dart';
 import 'package:myapp/view/components/textfield/custom_text_form_field_search.dart';
-import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
 class NoticePage extends StatefulWidget {
   @override
@@ -11,24 +11,12 @@ class NoticePage extends StatefulWidget {
 
 class _NoticePageState extends State<NoticePage> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _filter = TextEditingController();
-  FocusNode focusNode = FocusNode();
-  String _searchText = "";
-
-  _NoticePageState() {
-    _filter.addListener(() {
-      setState(() {
-        _searchText = _filter.text;
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("공지사항"),
-      ),
+      drawer: CustomDrawer(),
+      appBar: subPageAppBar("공지사항"),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

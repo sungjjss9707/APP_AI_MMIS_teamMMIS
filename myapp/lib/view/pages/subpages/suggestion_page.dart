@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/suggestion.dart';
+import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
+import 'package:myapp/view/components/custom_drawer.dart';
 import 'package:myapp/view/components/textfield/custom_text_form_field_search.dart';
 import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
@@ -27,9 +29,8 @@ class _SuggestionPageState extends State<SuggestionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("건의사항"),
-      ),
+      drawer: CustomDrawer(),
+      appBar: subPageAppBar("건의사항"),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

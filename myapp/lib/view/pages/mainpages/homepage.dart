@@ -9,6 +9,7 @@ import 'package:myapp/view/components/menu_box.dart';
 import 'package:myapp/view/pages/subpages/eating_schedule_page.dart';
 import 'package:myapp/view/pages/subpages/notice_page.dart';
 import 'package:myapp/view/pages/subpages/suggestion_page.dart';
+import 'package:myapp/view/pages/subpages/survey_page.dart';
 
 class HomePage extends StatelessWidget {
   late double length;
@@ -71,9 +72,11 @@ class HomePage extends StatelessWidget {
       children: [
         FunctionButton(
           length: length,
-          onTap: () {},
-          icon: FaIcon(FontAwesomeIcons.poll, size: size),
-          text: "설문조사",
+          onTap: () {
+            Get.to(() => NoticePage());
+          },
+          icon: Icon(Icons.campaign, size: size),
+          text: "공지사항",
         ),
         SizedBox(width: 8),
         FunctionButton(
@@ -88,10 +91,10 @@ class HomePage extends StatelessWidget {
         FunctionButton(
           length: length,
           onTap: () {
-            Get.to(EatingSchedulePage());
+            Get.to(() => SurveyPage());
           },
-          icon: Icon(Icons.no_meals, size: size),
-          text: "불취식 관리",
+          icon: FaIcon(FontAwesomeIcons.poll, size: size),
+          text: "설문조사",
         ),
       ],
     );
@@ -105,10 +108,10 @@ class HomePage extends StatelessWidget {
         FunctionButton(
           length: length,
           onTap: () {
-            Get.to(() => NoticePage());
+            Get.to(EatingSchedulePage());
           },
-          icon: Icon(Icons.campaign, size: size),
-          text: "공지사항",
+          icon: Icon(Icons.no_meals, size: size),
+          text: "불취식 관리",
         ),
         SizedBox(width: 8),
         FunctionButton(
