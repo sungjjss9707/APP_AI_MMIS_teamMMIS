@@ -7,7 +7,6 @@ import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/button/back_button.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
-import 'package:myapp/view/pages/initialpages/framepage.dart';
 import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
 class RateMenuPage extends StatefulWidget {
@@ -213,7 +212,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
                 builder: (context) => AlertDialog(
                   content: Text("불취식 신청 되었습니다."),
                   actions: [
-                    CustomBackButton(context),
+                    CustomBackButton(text: "돌아가기"),
                   ],
                 ),
               );
@@ -226,7 +225,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
                 builder: (context) => AlertDialog(
                   content: Text("취식 신청 되었습니다."),
                   actions: [
-                    CustomBackButton(context),
+                    CustomBackButton(text: '돌아가기'),
                   ],
                 ),
               );

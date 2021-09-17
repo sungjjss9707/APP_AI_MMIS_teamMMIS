@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/pages/initialpages/login_page.dart';
 import 'package:myapp/view/pages/subpages/deduction_page.dart';
+import 'package:myapp/view/pages/subpages/suggestion_page.dart';
 import 'package:myapp/view/pages/subpages/user_info_page.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -50,7 +51,7 @@ class CustomDrawer extends StatelessWidget {
               iconName: Icons.question_answer,
               text: "건의사항",
               tap: () {
-                print("건의사항");
+                Get.to(() => SuggestionPage());
               },
             ),
             DrawerLine(

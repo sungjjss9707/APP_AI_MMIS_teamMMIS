@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
-class CustomBackButton extends StatelessWidget {
+class CustomUploadButom extends StatelessWidget {
   final String text;
+  final onPressed;
 
-  const CustomBackButton({required this.text});
+  const CustomUploadButom({required this.text, required this.onPressed});
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        Navigator.pop(context);
-      },
+      onPressed: onPressed,
       child: Text(text),
     );
   }

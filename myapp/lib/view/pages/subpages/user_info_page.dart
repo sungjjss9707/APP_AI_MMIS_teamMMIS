@@ -42,7 +42,7 @@ class UserInfoPage extends StatelessWidget {
             UserInfoRadio(text: "견과류", enabled: false),
             UserInfoRadio(text: "달걀", enabled: false),
             UserInfoRadio(text: "땅콩", enabled: false),
-            UserInfoRadio(text: "밀", enabled: false),
+            UserInfoRadio(text: "밀 ", enabled: false),
             UserInfoRadio(text: "생선", enabled: false),
             UserInfoRadio(text: "우유", enabled: false),
             UserInfoRadio(text: "조개", enabled: false),
@@ -55,14 +55,16 @@ class UserInfoPage extends StatelessWidget {
                   "수정하기",
                   style: TextStyle(
                       fontSize: 20,
-                      color: Colors.blue,
+                      color: Colors.green,
                       fontWeight: FontWeight.bold),
                 ),
                 style: OutlinedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                  20,
-                ))),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      20,
+                    ),
+                  ),
+                ),
                 onPressed: () {
                   localUserAllergy = userAllergy;
                   Get.to(() => UserEditPage());

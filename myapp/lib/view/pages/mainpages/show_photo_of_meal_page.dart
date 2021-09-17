@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
+import 'package:like_button/like_button.dart';
 import 'package:myapp/view/components/button/back_button.dart';
+import 'package:myapp/view/pages/subpages/post_picture.dart';
 
 class ShowPhotoOfMealPage extends StatelessWidget {
   @override
@@ -11,7 +14,7 @@ class ShowPhotoOfMealPage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            child: _buildHeader(),
+            child: _buildHeader(context),
           ),
           Expanded(
             child: GridView.builder(
@@ -31,7 +34,7 @@ class ShowPhotoOfMealPage extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Row(
@@ -47,7 +50,12 @@ class ShowPhotoOfMealPage extends StatelessWidget {
           ),
           Spacer(),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => PostPicture(),
+              );
+            },
             child: Text("게시하기"),
           ),
         ],
@@ -66,7 +74,7 @@ class ShowPhotoOfMealPage extends StatelessWidget {
             context: context,
             barrierDismissible: false,
             builder: (context) {
-              return _simpleDialog(context, image, _imageWidth);
+              return _MealPictureDialog(context, image, _imageWidth);
             },
           );
         },
@@ -75,7 +83,7 @@ class ShowPhotoOfMealPage extends StatelessWidget {
           children: [
             Image.asset(
               image,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
               width: _imageWidth,
               height: _imageWidth * 0.6,
             ),
@@ -84,16 +92,29 @@ class ShowPhotoOfMealPage extends StatelessWidget {
               alignment: Alignment.topLeft,
               width: _imageWidth,
               height: _imageWidth * 0.3,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
                 children: [
-                  Text(
-                    "제8전투비행단",
-                    style: TextStyle(fontSize: 12),
+                  LikeButton(
+                    countPostion: CountPostion.right,
+                    onTap: onLikeButtonTapped,
+                    size: 14,
+                    likeCount: 20, //서버에서 받아올 부분
                   ),
-                  Text(
-                    "2021년 9월 8일 (석식)",
-                    style: TextStyle(fontSize: 12),
+                  VerticalDivider(color: Colors.grey),
+                  Spacer(),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "제8전투비행단",
+                        style: TextStyle(fontSize: 10),
+                      ),
+                      Text(
+                        "2021년 9월 8일 (석식)",
+                        style: TextStyle(fontSize: 10),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -104,7 +125,17 @@ class ShowPhotoOfMealPage extends StatelessWidget {
     );
   }
 
-  SimpleDialog _simpleDialog(
+  Future<bool> onLikeButtonTapped(bool isLiked) async {
+    /// send your request here
+    // final bool success= await sendRequest();
+
+    /// if failed, you can do nothing
+    // return success? !isLiked:isLiked;
+    print(isLiked);
+    return !isLiked;
+  }
+
+  SimpleDialog _MealPictureDialog(
       BuildContext context, String image, double _imageWidth) {
     return SimpleDialog(
       contentPadding: const EdgeInsets.all(16),
@@ -132,7 +163,7 @@ class ShowPhotoOfMealPage extends StatelessWidget {
         Row(
           children: [
             Spacer(),
-            CustomBackButton(context),
+            CustomBackButton(text: "돌아가기"),
           ],
         ),
       ],
