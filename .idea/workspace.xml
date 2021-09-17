@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="관리자 페이지 생성 9월 16일">
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_upload_button.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/post_picture.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/reg_ex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/page_util/reg_ex.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/back_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/back_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1y2hunPBSVi8eVQ03IidzeIslyE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\components\textfield" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\components\button" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages\initialpages" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="" />
+      <created>1631455816789</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1631455816789</updated>
+    </task>
+    <task id="LOCAL-00001" summary="9월 13일">
+      <created>1631513931129</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1631513931129</updated>
+    </task>
+    <task id="LOCAL-00002" summary="불취식 관리 더 해야 됨.">
+      <created>1631525998050</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1631525998050</updated>
+    </task>
+    <task id="LOCAL-00003" summary="불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨.">
+      <created>1631528414343</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1631528414343</updated>
+    </task>
+    <task id="LOCAL-00004" summary="date_functions 수정 중. &gt; menu box 디자인 수정">
+      <created>1631618221985</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1631618221985</updated>
+    </task>
+    <task id="LOCAL-00005" summary="관리자 페이지 생성 9월 16일">
+      <created>1631774127235</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631774127235</updated>
+    </task>
+    <task id="LOCAL-00006" summary="관리자 페이지 생성 9월 16일">
+      <created>1631774249805</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631774249805</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/yunho" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="9월 13일" />
+    <MESSAGE value="불취식 관리 더 해야 됨." />
+    <MESSAGE value="불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨." />
+    <MESSAGE value="date_functions 수정 중. &gt; menu box 디자인 수정" />
+    <MESSAGE value="관리자 페이지 생성" />
+    <MESSAGE value="관리자 페이지 생성 9월 16일" />
+    <option name="LAST_COMMIT_MESSAGE" value="관리자 페이지 생성 9월 16일" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="366" y="302" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1631774447050">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="366" y="302" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1631774447050" />
+    <state x="143" y="112" width="1402" height="800" key="AVDManager" timestamp="1631854986550">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="143" y="112" width="1402" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1631854986550" />
+    <state x="492" y="240" key="AndroidProcessChooserDialog" timestamp="1631522173548">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="492" y="240" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1631522173548" />
+    <state x="460" y="209" key="FileChooserDialogImpl" timestamp="1631776546372">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="460" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1631776546372" />
+    <state x="163" y="70" key="SettingsEditor" timestamp="1631455953442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="163" y="70" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1631455953442" />
+    <state x="233" y="181" key="Vcs.Push.Dialog.v2" timestamp="1631774255418">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="233" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1631774255418" />
+    <state x="492" y="408" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1631853962233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="492" y="408" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1631853962233" />
+    <state x="222" y="200" key="run.anything.popup" timestamp="1631769737874">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="222" y="200" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1631769737874" />
+    <state x="320" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1631522922023">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="320" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1631522922023" />
+  </component>
+</project>

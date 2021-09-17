@@ -2,102 +2,143 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:myapp/model/menu.dart';
 import 'package:myapp/view/components/custom_banner.dart';
-import 'package:myapp/view/components/function_button.dart';
+import 'package:myapp/view/components/button/function_button.dart';
 import 'package:myapp/view/components/menu_box.dart';
+import 'package:myapp/view/pages/subpages/eating_schedule_page.dart';
 import 'package:myapp/view/pages/subpages/notice_page.dart';
 import 'package:myapp/view/pages/subpages/suggestion_page.dart';
-import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
+import 'package:myapp/view/pages/subpages/survey_page.dart';
 
 class HomePage extends StatelessWidget {
+  late double length;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView(
-        scrollDirection: Axis.vertical,
-        children: [
-          _menuList(),
-          const SizedBox(height: 16),
-          Column(
-            children: [
-              _buildButtonSet1(),
-              const SizedBox(height: 16),
-              _buildButtonSet2(),
-            ],
-          ),
-          const SizedBox(height: 16),
-          CustomBanner(),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _popularMenu(),
-              const SizedBox(width: 8),
-              _AIRecommendation(),
-            ],
-          ),
-        ],
-      ),
+    length = (MediaQuery.of(context).size.width - 32) / 3;
+    return ListView(
+      children: [
+        _menuList(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: _functionButtons(),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: CustomBanner(),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: _recommendation(),
+        ),
+      ],
     );
   }
 
   Widget _menuList() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: List.generate(
+            dummyMenu.length,
+            (index) => MenuBox(
+              dummyMenu[index].date,
+              dummyMenu[index].time,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _functionButtons() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: Column(
         children: [
-          MenuBox("2021-09-06", "석식"),
-          MenuBox("2021-09-07", "석식"),
-          MenuBox("2021-09-09", "중식"),
-          MenuBox("2021-09-10", "브런치"),
+          _buildButtonSet1(),
+          SizedBox(height: 16),
+          _buildButtonSet2(),
         ],
       ),
     );
   }
 
   Widget _buildButtonSet1() {
+    final double size = length / 4;
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         FunctionButton(
-          onTap: () {},
-          iconData: FontAwesomeIcons.poll,
-          text: "설문조사",
+          length: length,
+          onTap: () {
+            Get.to(() => NoticePage());
+          },
+          icon: Icon(Icons.campaign, size: size),
+          text: "공지사항",
         ),
+        SizedBox(width: 8),
         FunctionButton(
+          length: length,
           onTap: () {
             Get.to(() => SuggestionPage());
           },
-          iconData: FontAwesomeIcons.exclamationCircle,
+          icon: FaIcon(FontAwesomeIcons.exclamationCircle, size: size),
           text: "건의사항",
         ),
+        SizedBox(width: 8),
         FunctionButton(
-          onTap: () {},
-          iconData: FontAwesomeIcons.exclamationCircle,
-          text: "불취식 관리",
+          length: length,
+          onTap: () {
+            Get.to(() => SurveyPage());
+          },
+          icon: FaIcon(FontAwesomeIcons.poll, size: size),
+          text: "설문조사",
         ),
       ],
     );
   }
 
   Widget _buildButtonSet2() {
+    final double size = length / 4;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         FunctionButton(
+          length: length,
           onTap: () {
-            Get.to(() => NoticePage());
+            Get.to(EatingSchedulePage());
           },
-          iconData: FontAwesomeIcons.exclamationCircle,
-          text: "공지사항",
+          icon: Icon(Icons.no_meals, size: size),
+          text: "불취식 관리",
         ),
+        SizedBox(width: 8),
         FunctionButton(
+          length: length,
           onTap: () {},
-          iconData: FontAwesomeIcons.exclamationCircle,
+          icon: Icon(Icons.payment, size: size),
           text: "공제내역",
         ),
+        SizedBox(width: 8),
+        FunctionButton(
+          length: length,
+          onTap: () {},
+          icon: Icon(Icons.help, size: size),
+          text: "알레르기 정보",
+        )
+      ],
+    );
+  }
+
+  Widget _recommendation() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _popularMenu(),
+        SizedBox(width: 8),
+        _AIRecommendation(),
       ],
     );
   }

@@ -1,13 +1,14 @@
+import 'package:myapp/page_util/reg_ex.dart';
 import 'package:validators/validators.dart';
 
-Function validateUserName() {
+Function validateMilitaryNumber() {
   return (String? value) {
     if (value!.isEmpty) {
-      return "ID를 기입하십시오.";
-    } else if (!isAlphanumeric(value)) {
-      return "ID는 영문과 숫자만 가능합니다.";
-    } else if (value.length > 12) {
-      return "아이디는 12자 이하로 해주십시오.";
+      return "군번를 기입하십시오.";
+    } else if (!isMilitaryNumber(value)) {
+      return "군번 형식이 잘못 되었습니다.";
+    } else if (value.length > 20) {
+      return "입력값이 너무 깁니다.";
     } else {
       return null;
     }
@@ -17,7 +18,7 @@ Function validateUserName() {
 Function validatePassWorld() {
   return (String? value) {
     if (value!.isEmpty) {
-      return "Password를 기입하십시오.";
+      return "비밀번호를 기입하십시오.";
     } else if (!isAlphanumeric(value)) {
       return "비밀번호는 영문과 숫자만 가능합니다.";
     } else if (value.length > 15) {
