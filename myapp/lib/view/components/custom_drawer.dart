@@ -38,6 +38,7 @@ class CustomDrawer extends StatelessWidget {
               iconName: Icons.account_circle,
               text: "내정보",
               tap: () {
+                Navigator.pop(context);
                 Get.to(() => UserInfoPage());
               },
             ),
@@ -45,12 +46,14 @@ class CustomDrawer extends StatelessWidget {
                 iconName: Icons.analytics,
                 text: "공제내역 확인",
                 tap: () {
+                  Navigator.pop(context);
                   Get.to(() => DeductionPage());
                 }),
             DrawerLine(
               iconName: Icons.question_answer,
               text: "건의사항",
               tap: () {
+                Navigator.pop(context);
                 Get.to(() => SuggestionPage());
               },
             ),
@@ -58,6 +61,7 @@ class CustomDrawer extends StatelessWidget {
               iconName: Icons.info,
               text: "앱정보",
               tap: () {
+                Navigator.pop(context);
                 print("앱정보");
               },
             ),

@@ -5,13 +5,16 @@ class UserInfoTextFormField extends StatelessWidget {
   String? info;
   bool enabled;
   int n;
+  final validator;
   TextEditingController? controller;
-  UserInfoTextFormField(
-      {required this.text,
-      this.info,
-      required this.enabled,
-      this.n = 10,
-      this.controller});
+  UserInfoTextFormField({
+    required this.text,
+    this.info,
+    required this.enabled,
+    this.n = 10,
+    this.controller,
+    required this.validator,
+  });
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,13 +25,7 @@ class UserInfoTextFormField extends StatelessWidget {
         ),
         SizedBox(height: 10),
         TextFormField(
-          validator: (value) {
-            if (value!.isEmpty) {
-              return "공백으로 둘 수 없습니다.";
-            } else if (value.length > n) {
-              return "입력된 글자가 너무 많습니다.";
-            }
-          },
+          validator: validator,
           enabled: enabled,
           controller: controller,
           decoration: InputDecoration(

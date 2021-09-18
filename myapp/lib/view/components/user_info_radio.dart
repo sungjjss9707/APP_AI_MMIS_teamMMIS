@@ -20,17 +20,20 @@ class _UserInfoRadioState extends State<UserInfoRadio> {
 
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Divider(),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(text,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Colors.black)),
+            SizedBox(
+              width: 100,
+              child: Text(
+                  text.length == 3 ? text : "  " * (3 - text.length) + text,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color: Colors.black)),
+            ),
             SizedBox(width: 50),
             Radio(
               value: YesOrNo.yes,

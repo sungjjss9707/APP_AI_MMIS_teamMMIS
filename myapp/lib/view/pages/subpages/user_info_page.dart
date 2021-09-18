@@ -28,9 +28,31 @@ class UserInfoPage extends StatelessWidget {
         ),
         child: ListView(
           children: [
-            UserInfoTextFormField(text: "소속", info: unit, enabled: false),
-            UserInfoTextFormField(text: "계급", info: classes, enabled: false),
-            UserInfoTextFormField(text: "이름", info: userName, enabled: false),
+            UserInfoTextFormField(
+                text: "소속",
+                info: unit,
+                enabled: false,
+                validator: (String? value) => null),
+            UserInfoTextFormField(
+                text: "계급",
+                info: classes,
+                enabled: false,
+                validator: (String? value) => null),
+            UserInfoTextFormField(
+                text: "이름",
+                info: userName,
+                enabled: false,
+                validator: (String? value) => null),
+            UserInfoTextFormField(
+                text: "키",
+                info: height.toString(),
+                enabled: false,
+                validator: (String? value) => null),
+            UserInfoTextFormField(
+                text: "몸무게",
+                info: weight.toString(),
+                enabled: false,
+                validator: (String? value) => null),
             Divider(),
             Center(
               child: Text(
@@ -42,7 +64,7 @@ class UserInfoPage extends StatelessWidget {
             UserInfoRadio(text: "견과류", enabled: false),
             UserInfoRadio(text: "달걀", enabled: false),
             UserInfoRadio(text: "땅콩", enabled: false),
-            UserInfoRadio(text: "밀 ", enabled: false),
+            UserInfoRadio(text: "밀", enabled: false),
             UserInfoRadio(text: "생선", enabled: false),
             UserInfoRadio(text: "우유", enabled: false),
             UserInfoRadio(text: "조개", enabled: false),

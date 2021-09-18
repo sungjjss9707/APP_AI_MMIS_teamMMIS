@@ -20,24 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="관리자 페이지 생성 9월 16일">
-      <change afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_upload_button.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/post_picture.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/reg_ex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/page_util/reg_ex.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/back_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/back_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/user/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/user/user.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/user_info_radio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/user_info_radio.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -55,8 +55,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
@@ -71,6 +73,17 @@
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages\initialpages" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/myapp/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -178,43 +191,5 @@
     <MESSAGE value="관리자 페이지 생성" />
     <MESSAGE value="관리자 페이지 생성 9월 16일" />
     <option name="LAST_COMMIT_MESSAGE" value="관리자 페이지 생성 9월 16일" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="366" y="302" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1631774447050">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="366" y="302" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1631774447050" />
-    <state x="143" y="112" width="1402" height="800" key="AVDManager" timestamp="1631854986550">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="143" y="112" width="1402" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1631854986550" />
-    <state x="492" y="240" key="AndroidProcessChooserDialog" timestamp="1631522173548">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="492" y="240" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1631522173548" />
-    <state x="460" y="209" key="FileChooserDialogImpl" timestamp="1631776546372">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="460" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1631776546372" />
-    <state x="163" y="70" key="SettingsEditor" timestamp="1631455953442">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="163" y="70" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1631455953442" />
-    <state x="233" y="181" key="Vcs.Push.Dialog.v2" timestamp="1631774255418">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="233" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1631774255418" />
-    <state x="492" y="408" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1631853962233">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="492" y="408" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1631853962233" />
-    <state x="222" y="200" key="run.anything.popup" timestamp="1631769737874">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="222" y="200" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1631769737874" />
-    <state x="320" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1631522922023">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="320" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1631522922023" />
   </component>
 </project>
