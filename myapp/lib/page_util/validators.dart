@@ -66,3 +66,68 @@ Function validateContent() {
     }
   };
 }
+
+Function validateName() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "공백으로 둘 수 없습니다.";
+    } else if (value.length > 10) {
+      return "입력된 글자가 너무 많습니다.";
+    }
+  };
+}
+
+final classNames = [
+  "이병",
+  "이등병",
+  "일병",
+  "일등병",
+  "상병",
+  "상등병",
+  "병장",
+  "하사",
+  "중사",
+  "상사",
+  "원사",
+  "준위",
+  "소위",
+  "중위",
+  "대위",
+  "소령",
+  "중령",
+  "대령",
+  "준장",
+  "소장",
+  "중장",
+  "대장"
+];
+
+Function validateClass() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "공백으로 둘 수 없습니다.";
+    } else if (classNames.contains(value) != true) {
+      return "입력값이 잘못되었습니다.";
+    }
+  };
+}
+
+Function validateUnit() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "공백으로 둘 수 없습니다.";
+    } else if (value.length > 50) {
+      return "입력된 글자가 너무 많습니다.";
+    }
+  };
+}
+
+Function validateHeight() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "공백으로 둘 수 없습니다.";
+    } else if (double.tryParse(value) == null) {
+      return "입력값이 잘못되었습니다.";
+    }
+  };
+}

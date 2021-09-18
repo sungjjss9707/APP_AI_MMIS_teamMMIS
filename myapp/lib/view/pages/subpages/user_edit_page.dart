@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/textfield/user_info_text_form_field.dart';
 import 'package:myapp/view/components/user_info_radio.dart';
@@ -16,6 +17,10 @@ class UserEditPage extends StatelessWidget {
     classController.text = classes;
     TextEditingController unitController = TextEditingController();
     unitController.text = unit;
+    TextEditingController heightController = TextEditingController();
+    heightController.text = height.toString();
+    TextEditingController weightController = TextEditingController();
+    weightController.text = weight.toString();
     final allergies = userAllergy.keys.toList();
     return Scaffold(
       appBar: AppBar(
@@ -40,11 +45,30 @@ class UserEditPage extends StatelessWidget {
           child: ListView(
             children: [
               UserInfoTextFormField(
-                  text: "소속", controller: unitController, enabled: true, n: 50),
+                  text: "소속",
+                  controller: unitController,
+                  enabled: true,
+                  validator: validateUnit()),
               UserInfoTextFormField(
-                  text: "계급", controller: classController, enabled: true),
+                  text: "계급",
+                  controller: classController,
+                  enabled: true,
+                  validator: validateClass()),
               UserInfoTextFormField(
-                  text: "이름", controller: nameController, enabled: true),
+                  text: "이름",
+                  controller: nameController,
+                  enabled: true,
+                  validator: validateName()),
+              UserInfoTextFormField(
+                  text: "키",
+                  controller: heightController,
+                  enabled: true,
+                  validator: validateHeight()),
+              UserInfoTextFormField(
+                  text: "몸무게",
+                  controller: weightController,
+                  enabled: true,
+                  validator: validateHeight()),
               Divider(),
               Center(
                 child: Text(
@@ -76,6 +100,8 @@ class UserEditPage extends StatelessWidget {
                       userName = nameController.text;
                       unit = unitController.text;
                       classes = classController.text;
+                      height = double.parse(heightController.text);
+                      weight = double.parse(weightController.text);
                       userAllergy = {...localUserAllergy};
                       Get.to(() => FramePage());
                       Get.snackbar("저장완료", "정보가 저장되었습니다.",

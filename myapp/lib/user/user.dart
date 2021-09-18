@@ -4,6 +4,8 @@ String userName = "최윤호";
 String classes = "병장";
 String army = "공군";
 String unit = "8전투비행단";
+double height = 180.0;
+double weight = 70.0;
 
 // Map<String, List> userNotEating = {
 //   "2021-09-10": ["석식"]
