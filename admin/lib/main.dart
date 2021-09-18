@@ -11,6 +11,7 @@ class Admin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      title: "admin",
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );

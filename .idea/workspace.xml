@@ -20,16 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="관리자 페이지 생성 9월 16일">
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/side_menu_bar.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/AI_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/notice_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/suggestion_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/survey_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/user/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/user/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/user_info_radio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/user_info_radio.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/home/home_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/home/home_header.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/home_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +153,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -191,5 +194,15 @@
     <MESSAGE value="관리자 페이지 생성" />
     <MESSAGE value="관리자 페이지 생성 9월 16일" />
     <option name="LAST_COMMIT_MESSAGE" value="관리자 페이지 생성 9월 16일" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="460" y="209" key="FileChooserDialogImpl" timestamp="1631972244880">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="460" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1631972244880" />
+    <state x="314" y="235" key="run.anything.popup" timestamp="1631975738236">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="314" y="235" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1631975738236" />
   </component>
 </project>
