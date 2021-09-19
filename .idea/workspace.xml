@@ -20,17 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="관리자 페이지 생성 9월 16일">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/menu_manage/menu_input_container.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/menu_manage/menu_input_form.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/page_util/calendar_util.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/size.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/style.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/user/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/user/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/user_info_radio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/user_info_radio.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/button/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/button/custom_elevated_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/side_menu_bar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_elevated_button.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,14 +71,15 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\components\menu_manage" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\components\textfield" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\components\button" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages\initialpages" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
     </key>
   </component>
   <component name="RunManager">
@@ -150,7 +158,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -191,5 +199,23 @@
     <MESSAGE value="관리자 페이지 생성" />
     <MESSAGE value="관리자 페이지 생성 9월 16일" />
     <option name="LAST_COMMIT_MESSAGE" value="관리자 페이지 생성 9월 16일" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="757" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1632023795807">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="757" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1632023795807" />
+    <state x="460" y="209" key="FileChooserDialogImpl" timestamp="1632048964621">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="460" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1632048964621" />
+    <state x="314" y="235" key="run.anything.popup" timestamp="1631975738236">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="314" y="235" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1631975738236" />
+    <state x="671" y="5" key="search.everywhere.popup" timestamp="1632048606057">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="671" y="5" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1632048606057" />
   </component>
 </project>

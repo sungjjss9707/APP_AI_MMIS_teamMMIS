@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
                     CustomElevatedButton(
                       width: double.infinity,
                       text: "로그인",
-                      funpageRoute: () {
+                      onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           ////////////////////////////////////////////////일단 true로 넣었는데 로그인 성공할때만 if문 통과해야함
                           Get.to(HomePage());

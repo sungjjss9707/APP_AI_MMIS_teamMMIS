@@ -7,7 +7,7 @@ class HomeHeader extends StatelessWidget {
       color: Colors.lightGreen[400],
       child: Center(
         child: Text(
-          "header",
+          "MMIS",
           style: TextStyle(fontSize: 50),
         ),
       ),
