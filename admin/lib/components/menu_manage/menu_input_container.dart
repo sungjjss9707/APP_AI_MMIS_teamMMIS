@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class MenuInputContainer extends StatefulWidget {
   final DateTime day;
 
-  final List<String> inputedTime = ["조식", "중식"];
+  final List<String> inputedTime = ["조식", "중식", "석식"];
   MenuInputContainer({required this.day});
   @override
   _MenuInputContainerState createState() => _MenuInputContainerState(day);

@@ -4,6 +4,7 @@ import 'package:admin/page_util/calendar_util.dart';
 import 'package:admin/size.dart';
 import 'package:admin/style.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:table_calendar/table_calendar.dart';
 
@@ -58,19 +59,32 @@ class _MenuManagePageState extends State<MenuManagePage> {
         calendarBuilders: CalendarBuilders(
           singleMarkerBuilder: (context, day, event) {
             if (event == "조식") {
-              return Icon(
-                Icons.account_balance_wallet_sharp,
-                size: 10,
+              return Image.asset(
+                "morning.png",
+                width: 14,
+                height: 14,
               );
             }
             if (event == "중식") {
-              return Icon(Icons.access_alarm, size: 13);
+              return FaIcon(
+                FontAwesomeIcons.solidSun,
+                color: Colors.red,
+                size: 14,
+              );
             }
 
             if (event == "석식") {
-              return Icon(Icons.accessibility_outlined, size: 13);
+              return FaIcon(
+                FontAwesomeIcons.solidMoon,
+                color: Colors.yellow,
+                size: 14,
+              );
             } else {
-              return Icon(Icons.account_balance_wallet_sharp, size: 13);
+              return Image.asset(
+                "brunch.png",
+                width: 14,
+                height: 14,
+              );
             }
           },
         ),
