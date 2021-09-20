@@ -1,26 +1,28 @@
 import 'package:admin/components/button/custom_elevated_button.dart';
 import 'package:admin/components/menu_manage/menuInputTextField.dart';
+import 'package:admin/model/menu.dart';
 import 'package:flutter/material.dart';
 
 import '../../size.dart';
 
 class MenuInputForm extends StatefulWidget {
   final String time;
-
-  const MenuInputForm({required this.time});
+  final DateTime date;
+  MenuInputForm({required this.time, required this.date});
 
   @override
-  _MenuInputFormState createState() => _MenuInputFormState(time);
+  _MenuInputFormState createState() => _MenuInputFormState(time, date);
 }
 
 class _MenuInputFormState extends State<MenuInputForm> {
   final _formKey = GlobalKey<FormState>();
   final String time;
+  final DateTime date;
   List<TextEditingController> textEditingControllerList = [];
 
   List<MenuInputTextField> menuInputTextField = [];
 
-  _MenuInputFormState(this.time);
+  _MenuInputFormState(this.time, this.date);
   @override
   void initState() {
     menuInputTextField
@@ -30,12 +32,15 @@ class _MenuInputFormState extends State<MenuInputForm> {
 
   @override
   void dispose() {
-    //menuInputTextField.clear();
+    for (MenuInputTextField i in menuInputTextField) {
+      i.controller.dispose();
+    }
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    print(date);
     return Container(
       width: 400,
       child: Form(
@@ -115,8 +120,8 @@ class _MenuInputFormState extends State<MenuInputForm> {
               for (MenuInputTextField i in menuInputTextField) {
                 if (i.controller.text.length != 0)
                   menuList.add(i.controller.text.trim());
+                addMenu(date, time, menuList);
               }
-              print(menuList);
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(

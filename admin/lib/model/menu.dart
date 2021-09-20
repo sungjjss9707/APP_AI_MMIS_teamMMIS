@@ -5,6 +5,9 @@ Map<String, Map<String, Map<String, Map<String, List<String>>>>>
       "20": {
         "조식": ["쌀밥, 김치"],
         "중식": ["라면", "김치"]
+      },
+      "21": {
+        "브런치": ["삼계탕", "깍두기"]
       }
     }
   }

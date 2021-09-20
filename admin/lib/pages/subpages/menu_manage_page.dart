@@ -38,7 +38,7 @@ class _MenuManagePageState extends State<MenuManagePage> {
           SizedBox(width: gap_l),
           _buildCalendar(),
           SizedBox(height: gap_m),
-          MenuInputContainer(day: _selectedDay)
+          MenuInputContainer(date: _selectedDay),
         ],
       ),
     );
@@ -52,11 +52,6 @@ class _MenuManagePageState extends State<MenuManagePage> {
   }
 
   Widget _buildCalendar() {
-    bool isBreakfast = false;
-    bool isLunch = false;
-    bool isDinner = false;
-    bool isBrunch = false;
-
     return Center(
       child: Container(
         width: 700,
@@ -69,8 +64,8 @@ class _MenuManagePageState extends State<MenuManagePage> {
           firstDay: kFirstDay,
           lastDay: kLastDay,
           calendarFormat: _calendarFormat,
-          selectedDayPredicate: (day) {
-            return isSameDay(_selectedDay, day);
+          selectedDayPredicate: (date) {
+            return isSameDay(_selectedDay, date);
           },
           onDaySelected: _onDaySelected,
           eventLoader: _getEventsForDay,
@@ -91,7 +86,7 @@ class _MenuManagePageState extends State<MenuManagePage> {
     );
   }
 
-  Widget _singleMarkerBuilder(context, day, event) {
+  Widget _singleMarkerBuilder(context, date, event) {
     if (event == "조식") {
       return Image.asset(
         "morning.png",
@@ -122,7 +117,7 @@ class _MenuManagePageState extends State<MenuManagePage> {
     }
   }
 
-  Widget _selectedBuilder(context, DateTime day, focusedDay) {
+  Widget _selectedBuilder(context, DateTime date, focusedDay) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.lightGreen[300],
@@ -130,15 +125,15 @@ class _MenuManagePageState extends State<MenuManagePage> {
       ),
       child: Center(
         child: Text(
-          day.day.toString(),
+          date.day.toString(),
         ),
       ),
     );
   }
 
-  List<String> _getEventsForDay(DateTime day) {
+  List<String> _getEventsForDay(DateTime date) {
     // 여기는 조식, 중식, 석식, 브런치 중 관리자가 입력했던 시간 때에 대한 정보가 있는 리스트가 있어야 됨.
-    List<String> event = MenuInputContainer(day: day).inputTime();
+    List<String> event = MenuInputContainer(date: date).inputTime();
     return event;
   }
 
