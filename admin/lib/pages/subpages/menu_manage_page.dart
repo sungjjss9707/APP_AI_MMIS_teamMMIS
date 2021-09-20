@@ -33,10 +33,7 @@ class _MenuManagePageState extends State<MenuManagePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "메뉴 관리",
-            style: h4(),
-          ),
+          _pageTitle(),
           Divider(color: Colors.grey),
           SizedBox(width: gap_l),
           _buildCalendar(),
@@ -47,75 +44,101 @@ class _MenuManagePageState extends State<MenuManagePage> {
     );
   }
 
+  Widget _pageTitle() {
+    return Text(
+      "메뉴 관리",
+      style: h4(),
+    );
+  }
+
   Widget _buildCalendar() {
     bool isBreakfast = false;
     bool isLunch = false;
     bool isDinner = false;
     bool isBrunch = false;
 
-    return Container(
-      width: 700,
-      child: TableCalendar(
-        calendarBuilders: CalendarBuilders(
-          singleMarkerBuilder: (context, day, event) {
-            if (event == "조식") {
-              return Image.asset(
-                "morning.png",
-                width: 14,
-                height: 14,
-              );
-            }
-            if (event == "중식") {
-              return FaIcon(
-                FontAwesomeIcons.solidSun,
-                color: Colors.red,
-                size: 14,
-              );
-            }
-
-            if (event == "석식") {
-              return FaIcon(
-                FontAwesomeIcons.solidMoon,
-                color: Colors.yellow,
-                size: 14,
-              );
-            } else {
-              return Image.asset(
-                "brunch.png",
-                width: 14,
-                height: 14,
+    return Center(
+      child: Container(
+        width: 700,
+        child: TableCalendar(
+          calendarBuilders: CalendarBuilders(
+            selectedBuilder: _selectedBuilder,
+            singleMarkerBuilder: _singleMarkerBuilder,
+          ),
+          focusedDay: _focusedDay,
+          firstDay: kFirstDay,
+          lastDay: kLastDay,
+          calendarFormat: _calendarFormat,
+          selectedDayPredicate: (day) {
+            return isSameDay(_selectedDay, day);
+          },
+          onDaySelected: _onDaySelected,
+          eventLoader: _getEventsForDay,
+          onFormatChanged: (format) {
+            if (_calendarFormat != format) {
+              setState(
+                () {
+                  _calendarFormat = format;
+                },
               );
             }
           },
+          onPageChanged: (focusedDay) {
+            _focusedDay = focusedDay;
+          },
         ),
-        focusedDay: _focusedDay,
-        firstDay: kFirstDay,
-        lastDay: kLastDay,
-        calendarFormat: _calendarFormat,
-        selectedDayPredicate: (day) {
-          return isSameDay(_selectedDay, day);
-        },
-        onDaySelected: _onDaySelected,
-        eventLoader: _getEventsForDay,
-        onFormatChanged: (format) {
-          if (_calendarFormat != format) {
-            setState(
-              () {
-                _calendarFormat = format;
-              },
-            );
-          }
-        },
-        onPageChanged: (focusedDay) {
-          _focusedDay = focusedDay;
-        },
       ),
     );
   }
 
-  List _getEventsForDay(DateTime day) {
+  Widget _singleMarkerBuilder(context, day, event) {
+    if (event == "조식") {
+      return Image.asset(
+        "morning.png",
+        width: 14,
+        height: 14,
+      );
+    }
+    if (event == "중식") {
+      return FaIcon(
+        FontAwesomeIcons.solidSun,
+        color: Colors.red,
+        size: 14,
+      );
+    }
+
+    if (event == "석식") {
+      return FaIcon(
+        FontAwesomeIcons.solidMoon,
+        color: Colors.yellow,
+        size: 14,
+      );
+    } else {
+      return Image.asset(
+        "brunch.png",
+        width: 14,
+        height: 14,
+      );
+    }
+  }
+
+  Widget _selectedBuilder(context, DateTime day, focusedDay) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.lightGreen[300],
+        shape: BoxShape.circle,
+      ),
+      child: Center(
+        child: Text(
+          day.day.toString(),
+        ),
+      ),
+    );
+  }
+
+  List<String> _getEventsForDay(DateTime day) {
     // 여기는 조식, 중식, 석식, 브런치 중 관리자가 입력했던 시간 때에 대한 정보가 있는 리스트가 있어야 됨.
-    List<String> event = MenuInputContainer(day: day).inputedTime;
+    List<String> event = MenuInputContainer(day: day).inputTime();
     return event;
   }
 
