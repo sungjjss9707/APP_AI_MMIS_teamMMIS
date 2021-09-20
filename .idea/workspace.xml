@@ -20,24 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="관리자 페이지 생성 9월 16일">
-      <change afterPath="$PROJECT_DIR$/admin/lib/components/menu_manage/menu_input_container.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/components/menu_manage/menu_input_form.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/page_util/calendar_util.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/size.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/style.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/assets/brunch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/assets/morning.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/button/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/button/custom_elevated_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/side_menu_bar.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/menu_manage/menu_input_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/menu_manage/menu_input_container.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_elevated_button.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,15 +61,15 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\components\menu_manage" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\components\textfield" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\components\button" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages\initialpages" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
     </key>
   </component>
   <component name="RunManager">
