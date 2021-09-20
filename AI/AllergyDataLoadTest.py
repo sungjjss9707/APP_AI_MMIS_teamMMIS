@@ -8,13 +8,13 @@ from pandas.core.frame import DataFrame
 # 데이터를 읽어옵니다
 unitNum = 1691
 data= pd.read_csv("Processed CSV Data Files/제" + str(unitNum) + "부대 메뉴정보.csv", encoding="UTF-8")
-len(data)
+data
 
 # %%
 #메뉴이름 알러지 정보 제거, 알러지 정보 배열 생성
 allergyList=['계란류', '우유', '메밀', '땅콩', '대두', '밀', '고등어', '게', '새우', '돼지고기', '복숭아', '토마토', '아황산류', '호두', '닭고기', '쇠고기', '오징어', '조개류', '잣']
 num = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19']
-allergyData = np.arange(20*6522).reshape(20, 6522)
+allergyData = np.arange(20*len(data)).reshape(20, len(data))
 
 
 for index, name in enumerate(data['메뉴이름']):
