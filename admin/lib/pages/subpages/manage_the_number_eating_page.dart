@@ -1,5 +1,5 @@
 // 식수 인원 관리 페이지
-import 'package:admin/components/number_eating/piechart.dart';
+import 'package:admin/components/number_eating/custom_piechart.dart';
 import 'package:admin/page_util/calendar_util.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -36,7 +36,9 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
           _pageTitle(),
           Divider(color: Colors.grey),
           _buildCalendar(),
-          PieChart(),
+          CustomPieChart(
+            date: _selectedDay,
+          ),
         ],
       ),
     );
