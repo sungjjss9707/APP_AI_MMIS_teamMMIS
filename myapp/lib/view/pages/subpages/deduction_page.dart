@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:intl/intl.dart';
-
-String changeDate(String date) {
-  return DateFormat('yyyy년 MM월 dd일').format(DateTime.parse(date)).toString();
-}
+import 'package:myapp/user/user.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class DeductionPage extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -20,44 +17,14 @@ class DeductionPage extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
-            DeductionCount(count: 5),
+            DeductionCount(),
             SizedBox(height: 20),
             Text("공제 내역",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
             Divider(),
-            DeductionHistory(
-                date: changeDate("20210101"),
-                time: "조식",
-                onTap: () {
-                  print("조식 확인");
-                }),
-            DeductionHistory(
-                date: changeDate("20210101"),
-                time: "중식",
-                onTap: () {
-                  print("중식 확인");
-                }),
-            DeductionHistory(
-                date: changeDate("20210101"),
-                time: "석식",
-                onTap: () {
-                  print("석식 확인");
-                }),
-            DeductionHistory(
-                date: changeDate("20210102"),
-                time: "조식",
-                onTap: () {
-                  print("조식 확인");
-                }),
-            DeductionHistory(
-                date: changeDate("20210103"),
-                time: "조식",
-                onTap: () {
-                  print("조식 확인");
-                }),
+            DeductionCalendar(),
           ],
         ),
       ),
@@ -66,8 +33,7 @@ class DeductionPage extends StatelessWidget {
 }
 
 class DeductionCount extends StatelessWidget {
-  int count;
-  DeductionCount({required this.count});
+  int count = countDeduction();
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -94,43 +60,37 @@ class DeductionCount extends StatelessWidget {
   }
 }
 
-class DeductionHistory extends StatelessWidget {
-  String date;
-  String time;
-  final onTap;
-  DeductionHistory(
-      {required this.date, required this.time, required this.onTap});
+int countDeduction() {
+  final notEatings = userNotEating;
+  int count = 0;
+  final years = notEatings.keys.toList();
+  for (int i = 0; i < notEatings.length; ++i) {
+    final months = notEatings[years[i]]!.keys.toList();
+    for (int j = 0; j < months.length; ++j) {
+      final days = notEatings[years[i]]![months[j]]!.keys.toList();
+      for (int k = 0; k < days.length; ++k) {
+        count += notEatings[years[i]]![months[j]]![days[k]]!.length;
+      }
+    }
+  }
+  return count;
+}
+
+class DeductionCalendar extends StatefulWidget {
+  @override
+  _DeductionCalendarState createState() => _DeductionCalendarState();
+}
+
+class _DeductionCalendarState extends State<DeductionCalendar> {
+  CalendarFormat _calendarFormat = CalendarFormat.month;
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Text(
-              "$date $time",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
-                color: Colors.black54,
-              ),
-            ),
-            Spacer(),
-            OutlinedButton(
-              child: Text(
-                "내역확인",
-                style: TextStyle(fontSize: 15, color: Colors.blue),
-              ),
-              style: OutlinedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                20,
-              ))),
-              onPressed: onTap,
-            ),
-          ],
-        ),
-        Divider(),
-      ],
+    return TableCalendar(
+      calendarFormat: _calendarFormat,
+      focusedDay: DateTime.now(),
+      firstDay: DateTime.utc(2021, 1, 1),
+      lastDay: DateTime.utc(2022, 12, 31),
+      locale: 'ko-KR',
     );
   }
 }

@@ -19,15 +19,16 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="관리자 페이지 생성 9월 16일">
-      <change afterPath="$PROJECT_DIR$/admin/lib/components/number_eating/piechart.dart" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공제페이지 달력 추가(손 보는 중)">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-20__7_51__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-20__7_51__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +57,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flutter_app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -188,44 +189,7 @@
     <MESSAGE value="date_functions 수정 중. &gt; menu box 디자인 수정" />
     <MESSAGE value="관리자 페이지 생성" />
     <MESSAGE value="관리자 페이지 생성 9월 16일" />
-    <option name="LAST_COMMIT_MESSAGE" value="관리자 페이지 생성 9월 16일" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="757" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1632023795807">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="757" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1632023795807" />
-    <state x="460" y="209" key="FileChooserDialogImpl" timestamp="1632122017036">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="460" y="209" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1632122017036" />
-    <state width="1867" height="268" key="GridCell.Tab.0.bottom" timestamp="1632127854890">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1867" height="268" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1632127854890" />
-    <state width="1867" height="268" key="GridCell.Tab.0.center" timestamp="1632127854890">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1867" height="268" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1632127854890" />
-    <state width="1867" height="268" key="GridCell.Tab.0.left" timestamp="1632127854890">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1867" height="268" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1632127854890" />
-    <state width="1867" height="268" key="GridCell.Tab.0.right" timestamp="1632127854890">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1867" height="268" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1632127854890" />
-    <state x="542" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1632207730695">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="542" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632207730695" />
-    <state x="314" y="235" key="run.anything.popup" timestamp="1631975738236">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="314" y="235" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1631975738236" />
-    <state x="671" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1632135634070">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="671" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1632135634070" />
+    <MESSAGE value="공제페이지 달력 추가(손 보는 중)" />
+    <option name="LAST_COMMIT_MESSAGE" value="공제페이지 달력 추가(손 보는 중)" />
   </component>
 </project>
