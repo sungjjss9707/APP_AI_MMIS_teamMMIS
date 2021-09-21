@@ -1,5 +1,6 @@
 // 메뉴 관리 페이지
 import 'package:admin/components/menu_manage/menu_input_container.dart';
+import 'package:admin/model/menu.dart';
 import 'package:admin/page_util/calendar_util.dart';
 import 'package:admin/size.dart';
 import 'package:admin/style.dart';
@@ -133,7 +134,7 @@ class _MenuManagePageState extends State<MenuManagePage> {
 
   List<String> _getEventsForDay(DateTime date) {
     // 여기는 조식, 중식, 석식, 브런치 중 관리자가 입력했던 시간 때에 대한 정보가 있는 리스트가 있어야 됨.
-    List<String> event = MenuInputContainer(date: date).inputTime();
+    List<String> event = getMenuData(date).keys.toList();
     return event;
   }
 

@@ -12,7 +12,7 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  int _selectedTapIndex = 0;
+  int _selectedTapIndex = 1;
 
   final List<String> sideMenuBarList = [
     "메뉴 입력",
