@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
+import 'package:myapp/view/components/custom_drawer.dart';
 
 class AppInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "앱정보",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
-        ),
-        centerTitle: true,
-      ),
+      drawer: CustomDrawer(),
+      appBar: subPageAppBar("앱정보"),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
@@ -40,9 +36,9 @@ class AppInfoPage extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Row(
+                        child: Wrap(
                           children: [
-                            Text("개인정보 이용 관련 내용들"),
+                            Text("개인정보 이용 관련 내용들" * 100),
                           ],
                         ),
                       ),
@@ -57,7 +53,7 @@ class AppInfoPage extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Row(
+                        child: Wrap(
                           children: [
                             Text("이용약관 내용들"),
                           ],

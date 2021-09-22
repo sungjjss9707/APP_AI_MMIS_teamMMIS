@@ -6,6 +6,7 @@ import 'package:myapp/model/menu.dart';
 import 'package:myapp/view/components/custom_banner.dart';
 import 'package:myapp/view/components/button/function_button.dart';
 import 'package:myapp/view/components/menu_box.dart';
+import 'package:myapp/view/pages/subpages/allergy_info_page.dart';
 import 'package:myapp/view/pages/subpages/deduction_page.dart';
 import 'package:myapp/view/pages/subpages/eating_schedule_page.dart';
 import 'package:myapp/view/pages/subpages/notice_page.dart';
@@ -126,7 +127,9 @@ class HomePage extends StatelessWidget {
         SizedBox(width: 8),
         FunctionButton(
           length: length,
-          onTap: () {},
+          onTap: () {
+            Get.to(() => AllergyInfoPage());
+          },
           icon: Icon(Icons.help, size: size),
           text: "알레르기 정보",
         )
