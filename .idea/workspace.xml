@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공제페이지 달력 추가(손 보는 중)">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-20__7_51__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-20__7_51__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/number_eating/custom_piechart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/number_eating/custom_piechart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

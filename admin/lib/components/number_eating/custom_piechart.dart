@@ -1,5 +1,6 @@
 import 'package:admin/model/numberOfEating.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class CustomPieChart extends StatelessWidget {
@@ -22,15 +23,11 @@ class CustomPieChart extends StatelessWidget {
           border: Border.all(color: Colors.black, width: 1),
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                _chart1(_notEatingData),
-                _chart2(_reasonNotEatingData)
-              ],
-            )
-          ],
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [_chart1(_notEatingData), _chart2(_reasonNotEatingData)],
+          ),
         ),
       ),
     );
@@ -38,8 +35,10 @@ class CustomPieChart extends StatelessWidget {
 
   Container _chart1(List<NotEatingData> _notEatingData) {
     return Container(
+      width: 350,
+      height: 300,
       child: SfCircularChart(
-        title: ChartTitle(text: "식수 인원"),
+        title: ChartTitle(text: "식수 인원(명)"),
         legend:
             Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
         tooltipBehavior: _tooltipBehavior1,
@@ -60,8 +59,10 @@ class CustomPieChart extends StatelessWidget {
 
   Container _chart2(List<ReasonNotEatingData> _reasonNotEatingData) {
     return Container(
+      width: 350,
+      height: 300,
       child: SfCircularChart(
-        title: ChartTitle(text: "불취식 사유"),
+        title: ChartTitle(text: "불취식 사유(명)"),
         legend:
             Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
         tooltipBehavior: _tooltipBehavior2,

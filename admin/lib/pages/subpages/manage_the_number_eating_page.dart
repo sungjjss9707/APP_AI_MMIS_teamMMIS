@@ -106,8 +106,7 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
 
   List<String> _getEventsForDay(DateTime date) {
     // 여기는 각 날의 식수 인원에 대한 정보가 있어야 됨.
-    List<String> number = [];
-    return number;
+    return [];
   }
 
   void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
