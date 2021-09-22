@@ -3,21 +3,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:myapp/date_functions.dart';
 import 'package:myapp/page_util/deduction_util.dart';
 import 'package:myapp/user/user.dart';
+import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
+import 'package:myapp/view/components/custom_drawer.dart';
 
 import 'package:table_calendar/table_calendar.dart';
 
 class DeductionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "공제",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white),
-        ),
-        elevation: 2,
-        centerTitle: true,
-      ),
+      drawer: CustomDrawer(),
+      appBar: subPageAppBar("공제내역"),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
