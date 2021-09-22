@@ -20,11 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공제페이지 달력 추가(손 보는 중)">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/menu_manage/marker_info.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/model/notice.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/number_eating/custom_piechart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/number_eating/custom_piechart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/textfield/custom_writing_area.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/textfield/custom_writing_area.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/notice_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/model/inform.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/model/inform.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631774249805</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="공제페이지 달력 추가(손 보는 중)">
+      <created>1632305199066</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1632305199066</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,5 +207,15 @@
     <MESSAGE value="관리자 페이지 생성 9월 16일" />
     <MESSAGE value="공제페이지 달력 추가(손 보는 중)" />
     <option name="LAST_COMMIT_MESSAGE" value="공제페이지 달력 추가(손 보는 중)" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1632305205453">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632305205453" />
+    <state x="260" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1632316674823">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="260" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632316674823" />
   </component>
 </project>

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  final String hint;
+  final String? hint;
   final String? value;
   final funValidate;
   final controller;
   //final String type;
 
   CustomTextFormField({
-    required this.hint,
+    this.hint,
     this.value,
     this.funValidate,
     this.controller,

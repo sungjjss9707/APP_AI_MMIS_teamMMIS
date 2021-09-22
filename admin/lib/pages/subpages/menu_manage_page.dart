@@ -1,4 +1,5 @@
 // 메뉴 관리 페이지
+import 'package:admin/components/menu_manage/marker_info.dart';
 import 'package:admin/components/menu_manage/menu_input_container.dart';
 import 'package:admin/model/menu.dart';
 import 'package:admin/page_util/calendar_util.dart';
@@ -56,32 +57,38 @@ class _MenuManagePageState extends State<MenuManagePage> {
     return Center(
       child: Container(
         width: 700,
-        child: TableCalendar(
-          calendarBuilders: CalendarBuilders(
-            selectedBuilder: _selectedBuilder,
-            singleMarkerBuilder: _singleMarkerBuilder,
-          ),
-          focusedDay: _focusedDay,
-          firstDay: kFirstDay,
-          lastDay: kLastDay,
-          calendarFormat: _calendarFormat,
-          selectedDayPredicate: (date) {
-            return isSameDay(_selectedDay, date);
-          },
-          onDaySelected: _onDaySelected,
-          eventLoader: _getEventsForDay,
-          onFormatChanged: (format) {
-            if (_calendarFormat != format) {
-              setState(
-                () {
-                  _calendarFormat = format;
-                },
-              );
-            }
-          },
-          onPageChanged: (focusedDay) {
-            _focusedDay = focusedDay;
-          },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TableCalendar(
+              calendarBuilders: CalendarBuilders(
+                selectedBuilder: _selectedBuilder,
+                singleMarkerBuilder: _singleMarkerBuilder,
+              ),
+              focusedDay: _focusedDay,
+              firstDay: kFirstDay,
+              lastDay: kLastDay,
+              calendarFormat: _calendarFormat,
+              selectedDayPredicate: (date) {
+                return isSameDay(_selectedDay, date);
+              },
+              onDaySelected: _onDaySelected,
+              eventLoader: _getEventsForDay,
+              onFormatChanged: (format) {
+                if (_calendarFormat != format) {
+                  setState(
+                    () {
+                      _calendarFormat = format;
+                    },
+                  );
+                }
+              },
+              onPageChanged: (focusedDay) {
+                _focusedDay = focusedDay;
+              },
+            ),
+            MarkerInfo(),
+          ],
         ),
       ),
     );

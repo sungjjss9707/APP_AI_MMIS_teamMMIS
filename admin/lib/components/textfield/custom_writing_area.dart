@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomWritingArea extends StatelessWidget {
-  final String hint;
+  final String? hint;
   final funValidate;
   final String? value;
 
-  const CustomWritingArea(
-      {required this.hint, required this.funValidate, this.value});
+  const CustomWritingArea({this.hint, required this.funValidate, this.value});
   @override
   Widget build(BuildContext context) {
     return Padding(

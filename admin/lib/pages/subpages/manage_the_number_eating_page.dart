@@ -36,9 +36,8 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
           _pageTitle(),
           Divider(color: Colors.grey),
           _buildCalendar(),
-          CustomPieChart(
-            date: _selectedDay,
-          ),
+          SizedBox(height: gap_l),
+          CustomPieChart(date: _selectedDay),
         ],
       ),
     );

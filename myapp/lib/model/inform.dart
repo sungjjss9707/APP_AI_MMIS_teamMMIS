@@ -1,3 +1,5 @@
+// 공지사항 더미
+
 class Inform {
   final String type;
   final String title;
