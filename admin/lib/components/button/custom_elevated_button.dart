@@ -4,8 +4,10 @@ class CustomElevatedButton extends StatelessWidget {
   final String text;
   final onPressed; //익명함수를 받을거임
   final double? width;
+  final Color? color;
 
-  const CustomElevatedButton({required this.text, this.onPressed, this.width});
+  const CustomElevatedButton(
+      {required this.text, this.onPressed, this.width, this.color});
 
   @override
   Widget build(BuildContext context) {

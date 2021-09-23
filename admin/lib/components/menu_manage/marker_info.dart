@@ -22,7 +22,7 @@ class MarkerInfo extends StatelessWidget {
           children: [
             Text("조식 : "),
             Image.asset(
-              "morning.png",
+              "brunch.png",
               width: 14,
               height: 14,
             ),

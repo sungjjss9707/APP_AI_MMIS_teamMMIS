@@ -97,7 +97,7 @@ class _MenuManagePageState extends State<MenuManagePage> {
   Widget _singleMarkerBuilder(context, date, event) {
     if (event == "조식") {
       return Image.asset(
-        "morning.png",
+        "brunch.png",
         width: 14,
         height: 14,
       );

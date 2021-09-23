@@ -4,16 +4,19 @@ class CustomWritingArea extends StatelessWidget {
   final String? hint;
   final funValidate;
   final String? value;
+  final controller;
 
-  const CustomWritingArea({this.hint, required this.funValidate, this.value});
+  const CustomWritingArea(
+      {this.hint, required this.funValidate, this.value, this.controller});
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
-        maxLines: 10,
+        maxLines: 15,
         initialValue: value,
         validator: funValidate,
+        controller: controller,
         decoration: InputDecoration(
             hintText: "Enter $hint",
             enabledBorder: OutlineInputBorder(
