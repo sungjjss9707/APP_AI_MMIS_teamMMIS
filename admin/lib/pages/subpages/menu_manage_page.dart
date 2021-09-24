@@ -1,4 +1,5 @@
 // 메뉴 관리 페이지
+import 'package:admin/components/home/customTitle.dart';
 import 'package:admin/components/menu_manage/marker_info.dart';
 import 'package:admin/components/menu_manage/menu_input_container.dart';
 import 'package:admin/model/menu.dart';
@@ -35,7 +36,7 @@ class _MenuManagePageState extends State<MenuManagePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _pageTitle(),
+          CustomTitle("메뉴 관리"),
           Divider(color: Colors.grey),
           SizedBox(width: gap_l),
           _buildCalendar(),
@@ -43,13 +44,6 @@ class _MenuManagePageState extends State<MenuManagePage> {
           MenuInputContainer(date: _selectedDay),
         ],
       ),
-    );
-  }
-
-  Widget _pageTitle() {
-    return Text(
-      "메뉴 관리",
-      style: h4(),
     );
   }
 

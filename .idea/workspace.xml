@@ -20,16 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공제페이지 달력 추가(손 보는 중)">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/dialog/notice_content_dialog.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/components/home/customTitle.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/model/survey.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/pages/sub_sub_pages/survey_result_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/button/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/button/custom_elevated_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/menu_manage/marker_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/menu_manage/marker_info.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/textfield/custom_writing_area.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/textfield/custom_writing_area.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/notice_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/suggestion_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/survey_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,15 +74,15 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\pages\sub_sub_pages" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\components\menu_manage" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\components\textfield" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\components\button" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\view\pages\initialpages" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
     </key>
   </component>
   <component name="RunManager">
@@ -200,5 +203,11 @@
     <MESSAGE value="관리자 페이지 생성 9월 16일" />
     <MESSAGE value="공제페이지 달력 추가(손 보는 중)" />
     <option name="LAST_COMMIT_MESSAGE" value="공제페이지 달력 추가(손 보는 중)" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1632471359512">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632471359512" />
   </component>
 </project>

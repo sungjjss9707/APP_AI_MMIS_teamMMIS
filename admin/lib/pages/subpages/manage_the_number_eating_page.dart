@@ -1,4 +1,5 @@
 // 식수 인원 관리 페이지
+import 'package:admin/components/home/customTitle.dart';
 import 'package:admin/components/number_eating/custom_piechart.dart';
 import 'package:admin/page_util/calendar_util.dart';
 import 'package:flutter/material.dart';
@@ -33,20 +34,13 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _pageTitle(),
+          CustomTitle("식수 인원 관리"),
           Divider(color: Colors.grey),
           _buildCalendar(),
           SizedBox(height: gap_l),
           CustomPieChart(date: _selectedDay),
         ],
       ),
-    );
-  }
-
-  Widget _pageTitle() {
-    return Text(
-      "식수 인원 관리",
-      style: h4(),
     );
   }
 

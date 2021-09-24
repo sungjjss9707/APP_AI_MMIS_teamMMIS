@@ -1,9 +1,8 @@
 // 공지사항 관리 페이지
 import 'package:admin/components/button/custom_elevated_button.dart';
-import 'package:admin/components/textfield/custom_text_form_field.dart';
-import 'package:admin/components/textfield/custom_writing_area.dart';
+import 'package:admin/components/dialog/notice_content_dialog.dart';
+import 'package:admin/components/home/customTitle.dart';
 import 'package:admin/model/notice.dart';
-import 'package:admin/page_util/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:number_pagination/number_pagination.dart';
 
@@ -35,36 +34,15 @@ class _NoticePageState extends State<NoticePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _pageTitle(),
+          CustomTitle("공지사항 관리"),
           Divider(color: Colors.grey),
-          _header(),
+          _contentHeader(),
           _noticeList(context),
-          Row(
-            children: [
-              Spacer(),
-              CustomElevatedButton(
-                text: "글쓰기",
-                onPressed: () {
-                  _showContentDialog(context, "", "");
-                },
-              ),
-            ],
-          ),
+          _buildWriteButton(context),
           _numberPagination(),
         ],
       ),
     );
-  }
-
-  Widget _pageTitle() {
-    return Text(
-      "공지사항 관리",
-      style: h4(),
-    );
-  }
-
-  Widget _header() {
-    return _contentHeader();
   }
 
   Row _contentHeader() {
@@ -155,6 +133,20 @@ class _NoticePageState extends State<NoticePage> {
     );
   }
 
+  Widget _buildWriteButton(BuildContext context) {
+    return Row(
+      children: [
+        Spacer(),
+        CustomElevatedButton(
+          text: "글쓰기",
+          onPressed: () {
+            _showContentDialog(context, "", "");
+          },
+        ),
+      ],
+    );
+  }
+
   Widget _numberPagination() {
     return NumberPagination(
       listner: (int selectedPage) {
@@ -226,68 +218,12 @@ class _NoticePageState extends State<NoticePage> {
 
   Future<dynamic> _showContentDialog(
       BuildContext context, String title, String content) {
-    TextEditingController titleController = TextEditingController();
-    TextEditingController contentController = TextEditingController();
-    titleController.text = title;
-    contentController.text = content;
     return showDialog(
       context: context,
       builder: (context) {
-        return SimpleDialog(
-          contentPadding: EdgeInsets.all(32),
-          children: [
-            Container(
-              width: 500,
-              height: 500,
-              child: Column(
-                children: [
-                  CustomTextFormField(
-                    controller: titleController,
-                    hint: "제목",
-                    funValidate: validateTitle(),
-                  ),
-                  CustomWritingArea(
-                    controller: contentController,
-                    hint: "내용",
-                    funValidate: validateContent(),
-                  ),
-                  Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      CustomElevatedButton(
-                        text: "수정",
-                        onPressed: () {
-                          if (titleController.text != title ||
-                              contentController.text != content) {
-                            setState(() {
-                              // 여기서 글을 수정된 내용을 서버로 통신.
-                              title = titleController.text;
-                              content = contentController.text;
-                            });
-                          }
-                        },
-                      ),
-                      SizedBox(width: gap_s),
-                      CustomElevatedButton(
-                        text: "삭제",
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                      SizedBox(width: gap_s),
-                      CustomElevatedButton(
-                        text: "닫기",
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ],
+        return NoticeContentDialog(
+          title: title,
+          content: content,
         );
       },
     );

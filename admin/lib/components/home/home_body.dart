@@ -4,6 +4,7 @@ import 'package:admin/pages/subpages/menu_manage_page.dart';
 import 'package:admin/pages/subpages/notice_page.dart';
 import 'package:admin/pages/subpages/suggestion_page.dart';
 import 'package:admin/pages/subpages/survey_page.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatefulWidget {
@@ -51,6 +52,7 @@ class _HomeBodyState extends State<HomeBody> {
 
   Widget _sideMenuBar() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: List.generate(
         sideMenuBarList.length,
         (index) => Container(
