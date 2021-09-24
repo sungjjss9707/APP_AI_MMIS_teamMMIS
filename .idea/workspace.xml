@@ -19,19 +19,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공제페이지 달력 추가(손 보는 중)">
-      <change afterPath="$PROJECT_DIR$/admin/lib/components/dialog/notice_content_dialog.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/components/home/customTitle.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/model/survey.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/pages/sub_sub_pages/survey_result_page.dart" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="설문조사 하는 중">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/notice_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/suggestion_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/pages/subpages/survey_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631774249805</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="설문조사 하는 중">
+      <created>1632480328182</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1632480328182</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,12 +198,21 @@
     <MESSAGE value="관리자 페이지 생성" />
     <MESSAGE value="관리자 페이지 생성 9월 16일" />
     <MESSAGE value="공제페이지 달력 추가(손 보는 중)" />
-    <option name="LAST_COMMIT_MESSAGE" value="공제페이지 달력 추가(손 보는 중)" />
+    <MESSAGE value="설문조사 하는 중" />
+    <option name="LAST_COMMIT_MESSAGE" value="설문조사 하는 중" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1632471359512">
+    <state x="678" y="217" key="FileChooserDialogImpl" timestamp="1632490467889">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632471359512" />
+    <state x="678" y="217" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1632490467889" />
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1632480360112">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632480360112" />
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1632480304088">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632480304088" />
   </component>
 </project>

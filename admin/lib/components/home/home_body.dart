@@ -21,7 +21,7 @@ class _HomeBodyState extends State<HomeBody> {
     "공지사항 관리",
     "건의사항 관리",
     "설문조사 관리",
-    "AI"
+    "AI 실험실"
   ];
 
   final List<Widget> pageList = [

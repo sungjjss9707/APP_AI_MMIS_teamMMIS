@@ -1,15 +1,12 @@
 // 공지사항 관리 페이지
 import 'package:admin/components/button/custom_elevated_button.dart';
 import 'package:admin/components/home/customTitle.dart';
-
-import 'package:admin/model/notice.dart';
 import 'package:admin/model/survey.dart';
 import 'package:admin/pages/sub_sub_pages/create_survey_page.dart';
 import 'package:admin/pages/sub_sub_pages/survey_result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:number_pagination/number_pagination.dart';
-
 import '../../size.dart';
 import '../../style.dart';
 
@@ -20,7 +17,7 @@ class SurveyPage extends StatefulWidget {
 
 class _SurveyPageState extends State<SurveyPage> {
   late int _currentPage;
-  List<Map> _dummyNotice = dummyNotice;
+  List<Survey> _dummySurvey = dummySurvey;
 
   @override
   void initState() {
@@ -159,9 +156,9 @@ class _SurveyPageState extends State<SurveyPage> {
           _currentPage = selectedPage;
         });
       },
-      totalPage: _dummyNotice.length % 15 == 0
-          ? _dummyNotice.length ~/ 15
-          : _dummyNotice.length ~/ 15 + 1,
+      totalPage: _dummySurvey.length % 15 == 0
+          ? _dummySurvey.length ~/ 15
+          : _dummySurvey.length ~/ 15 + 1,
       currentPage: _currentPage,
     );
   }
