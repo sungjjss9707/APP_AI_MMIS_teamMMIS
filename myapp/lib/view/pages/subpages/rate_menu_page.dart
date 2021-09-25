@@ -7,6 +7,7 @@ import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/button/back_button.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
+import 'package:myapp/view/components/nutrition_box.dart';
 import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
 class RateMenuPage extends StatefulWidget {
@@ -30,13 +31,6 @@ class _RateMenuPageState extends State<RateMenuPage> {
   bool isSave = false;
 
   _RateMenuPageState(this.date, this.time);
-  @override
-  void dispose() {
-    if (!isSave) {
-      // rating!.clear();
-    }
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +57,9 @@ class _RateMenuPageState extends State<RateMenuPage> {
         child: Column(
           children: [
             _arrowAndDate(), // < 날짜(석식) 취식여부 >
-            _menuAndRatings(),
+            _nutritionInfo(),
+            _menuLists(),
             _saveRating(),
-            Spacer(),
             _notEatingApplyButton(),
             _suggestingButton(),
           ],
@@ -76,7 +70,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
 
   Widget _arrowAndDate() {
     return Padding(
-      padding: const EdgeInsets.only(right: 8, left: 8, bottom: 16.0),
+      padding: const EdgeInsets.only(right: 8, left: 8, bottom: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -123,77 +117,116 @@ class _RateMenuPageState extends State<RateMenuPage> {
     );
   }
 
-  Widget _menuAndRatings() {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.generate(menuPlate!.length, (index) {
-          if (index != menuPlate!.length - 1)
+  Widget _nutritionInfo() => Theme(
+        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          title: Row(
+            children: [
+              Spacer(),
+              Text(
+                "-Kcal",
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 13,
+                ),
+              ),
+              Container(
+                height: 14,
+                child: VerticalDivider(
+                  color: Colors.black54,
+                ),
+              ),
+              Text(
+                "한끼 영양량",
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 13,
+                ),
+              )
+            ],
+          ),
+          children: [
+            NutritionBox(),
+          ],
+        ),
+      );
+
+  Widget _menuLists() {
+    return Expanded(
+      child: ListView(
+        children: List.generate(
+          menuPlate!.length,
+          (index) {
             return Column(
               children: [
-                _menuAndRating(menuPlate!, index),
-                SizedBox(height: 16),
+                _menuTitle(menuPlate!, index),
               ],
             );
-          return _menuAndRating(menuPlate!, index);
-        }),
+          },
+        ),
       ),
     );
   }
 
-  Widget _menuAndRating(List<String> menu, int index) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Text(
+  Widget _menuTitle(List<String> menu, int index) {
+    return Theme(
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+      child: ExpansionTile(
+        initiallyExpanded: false,
+        title: Text(
           menu[index],
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 14),
         ),
-        Spacer(),
-        RatingBar(
-          itemPadding: EdgeInsets.symmetric(horizontal: 1),
-          itemSize: 16,
-          initialRating: rating![index],
-          itemCount: 5,
-          unratedColor: Colors.pink.withAlpha(50),
-          allowHalfRating: false,
-          ratingWidget: RatingWidget(
-            full: Image.asset(
-              "hearts/heart.png",
-              color: Colors.pink,
-            ),
-            half: Image.asset(
-              "hearts/heart_half.png",
-              color: Colors.pink,
-            ),
-            empty: Image.asset(
-              "hearts/heart_border.png",
-              color: Colors.pink,
-            ),
-          ),
-          onRatingUpdate: (score) {
-            setState(() {
-              rating![index] = score;
-            });
-          },
-        )
-      ],
+        children: [
+          NutritionBox(),
+        ],
+      ),
     );
   }
 
-  Row _saveRating() {
-    return Row(
-      children: [
-        Spacer(),
-        TextButton(
-          onPressed: () {
-            isSave = true;
-            print(rating);
-            //여기서 통신해야 됨.
-          },
-          child: Text("저장하기"),
-        ),
-      ],
+  Widget _saveRating() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      child: Row(
+        children: [
+          RatingBar(
+            itemPadding: EdgeInsets.symmetric(horizontal: 1),
+            itemSize: 16,
+            initialRating: 0,
+            itemCount: 5,
+            unratedColor: Colors.red.withAlpha(50),
+            allowHalfRating: false,
+            ratingWidget: RatingWidget(
+              full: Image.asset(
+                "hearts/heart.png",
+                color: Colors.red,
+              ),
+              half: Image.asset(
+                "hearts/heart_half.png",
+                color: Colors.red,
+              ),
+              empty: Image.asset(
+                "hearts/heart_border.png",
+                color: Colors.grey,
+              ),
+            ),
+            onRatingUpdate: (score) {
+              setState(() {
+                print(score);
+              });
+            },
+          ),
+          Spacer(),
+          TextButton(
+            onPressed: () {
+              isSave = true;
+              print(rating);
+              //여기서 통신해야 됨.
+            },
+            child: Text("저장하기"),
+          ),
+        ],
+      ),
     );
   }
 
