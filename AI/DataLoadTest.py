@@ -33,7 +33,7 @@ for index, date in enumerate(data["날짜"]):
 data
 
 # %%
-# 날짜가 비어있는 열은 제외합니다.
+# 날짜가 비어있는 행은 제외합니다.
 data = data[data['날짜'].notna()]
 data = data.reset_index(drop=True)
 data
