@@ -1,6 +1,6 @@
 // 식수 인원 관리 페이지
 
-import 'package:admin/page_util/calendar_util.dart';
+import 'package:admin/util/calendar_util.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:admin/view/components/number_eating/custom_piechart.dart';
 import 'package:flutter/material.dart';

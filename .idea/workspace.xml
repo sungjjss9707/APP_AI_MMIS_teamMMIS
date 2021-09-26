@@ -8,42 +8,21 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="설문조사 하는 중">
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/button/back_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/button/back_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/button/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/button/custom_elevated_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/button/not_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/button/not_eating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/button/yes_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/button/yes_eating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/dialog/notice_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/home/customTitle.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/home/customTitle.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/home/home_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/home/home_body.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/home/home_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/home/home_header.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/menu_manage/marker_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/marker_info.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/menu_manage/menuInputTextField.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menuInputTextField.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/menu_manage/menu_input_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_container.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/menu_manage/menu_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/number_eating/custom_piechart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_piechart.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/textfield/custom_text_form_field_search.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_text_form_field_search.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/textfield/custom_writing_area.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_writing_area.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/sub_sub_pages/create_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/sub_sub_pages/survey_result_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/survey_result_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/AI_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/menu_manage_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/size.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/size.dart" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="admin파일 정리">
+      <change beforePath="$PROJECT_DIR$/admin/lib/page_util/calendar_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/calendar_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/page_util/reg_ex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/reg_ex.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/page_util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/validators.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/menu_manage_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +151,21 @@
       <option name="project" value="LOCAL" />
       <updated>1632548787146</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="admin파일 정리">
+      <created>1632667309041</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1632667309041</updated>
+    </task>
+    <task id="LOCAL-00010" summary="admin파일 정리">
+      <created>1632667341237</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1632667341237</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,13 +181,6 @@
               </option>
               <option name="FILTERS">
                 <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/yunho_admin" />
-                      </list>
-                    </value>
-                  </entry>
                   <entry key="user">
                     <value>
                       <list>
@@ -256,12 +242,13 @@
     <MESSAGE value="관리자 페이지 생성 9월 16일" />
     <MESSAGE value="공제페이지 달력 추가(손 보는 중)" />
     <MESSAGE value="설문조사 하는 중" />
-    <option name="LAST_COMMIT_MESSAGE" value="설문조사 하는 중" />
+    <MESSAGE value="admin파일 정리" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin파일 정리" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="180" y="189" key="Vcs.Push.Dialog.v2" timestamp="1632666815927">
+    <state x="180" y="189" key="Vcs.Push.Dialog.v2" timestamp="1632667326714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="180" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632666815927" />
+    <state x="180" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632667326714" />
   </component>
 </project>

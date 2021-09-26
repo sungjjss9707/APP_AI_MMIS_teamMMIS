@@ -1,4 +1,4 @@
-import 'package:admin/page_util/validators.dart';
+import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/textfield/custom_text_form_field.dart';
 

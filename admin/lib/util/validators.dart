@@ -1,4 +1,4 @@
-import 'package:admin/page_util/reg_ex.dart';
+import 'package:admin/util/reg_ex.dart';
 import 'package:validators/validators.dart';
 
 Function validateMilitaryNumber() {
