@@ -1,9 +1,11 @@
-import 'package:admin/components/button/custom_elevated_button.dart';
-import 'package:admin/components/textfield/custom_text_form_field.dart';
 import 'package:admin/page_util/validators.dart';
-import 'package:admin/pages/home_page.dart';
+import 'package:admin/view/components/button/custom_elevated_button.dart';
+import 'package:admin/view/components/textfield/custom_text_form_field.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'home_page.dart';
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();

@@ -1,12 +1,12 @@
 // 식수 인원 관리 페이지
-import 'package:admin/components/home/customTitle.dart';
-import 'package:admin/components/number_eating/custom_piechart.dart';
+
 import 'package:admin/page_util/calendar_util.dart';
+import 'package:admin/view/components/home/customTitle.dart';
+import 'package:admin/view/components/number_eating/custom_piechart.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-import '../../size.dart';
-import '../../style.dart';
+import '../../../size.dart';
 
 class ManageTheNumberEatingPage extends StatefulWidget {
   @override

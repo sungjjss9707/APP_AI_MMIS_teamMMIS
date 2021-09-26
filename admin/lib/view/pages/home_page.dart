@@ -1,5 +1,5 @@
-import 'package:admin/components/home/home_body.dart';
-import 'package:admin/components/home/home_header.dart';
+import 'package:admin/view/components/home/home_body.dart';
+import 'package:admin/view/components/home/home_header.dart';
 
 import 'package:flutter/material.dart';
 

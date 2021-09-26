@@ -1,23 +1,26 @@
 // 공지사항 관리 페이지
 
-import 'package:admin/components/dialog/suggestion_content_dialog.dart';
-import 'package:admin/components/home/customTitle.dart';
+import 'package:admin/model/survey.dart';
+import 'package:admin/view/components/button/custom_elevated_button.dart';
+import 'package:admin/view/components/home/customTitle.dart';
+import 'package:admin/view/pages/sub_sub_pages/create_survey_page.dart';
+import 'package:admin/view/pages/sub_sub_pages/survey_result_page.dart';
 
-import 'package:admin/model/notice.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:number_pagination/number_pagination.dart';
 
-import '../../size.dart';
-import '../../style.dart';
+import '../../../size.dart';
+import '../../../style.dart';
 
-class SuggestionPage extends StatefulWidget {
+class SurveyPage extends StatefulWidget {
   @override
-  _SuggestionPageState createState() => _SuggestionPageState();
+  _SurveyPageState createState() => _SurveyPageState();
 }
 
-class _SuggestionPageState extends State<SuggestionPage> {
+class _SurveyPageState extends State<SurveyPage> {
   late int _currentPage;
-  List<Map> _dummyNotice = dummyNotice;
+  List<Survey> _dummySurvey = dummySurvey;
 
   @override
   void initState() {
@@ -35,10 +38,11 @@ class _SuggestionPageState extends State<SuggestionPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomTitle("건의사항 관리"),
+          CustomTitle("설문조사"),
           Divider(color: Colors.grey),
           _contentHeader(),
           _noticeList(context),
+          _buildNewSurveyButton(),
           _numberPagination(),
         ],
       ),
@@ -97,39 +101,54 @@ class _SuggestionPageState extends State<SuggestionPage> {
   }
 
   Widget _noticeList(BuildContext context) {
-    String title;
-    String writer;
-    String date;
-    String content;
+    String title = '';
+    String writer = '';
+    String date = '';
     return Column(
       children: List.generate(15, (int index) {
         index += 15 * (_currentPage - 1);
         try {
-          Map notice = _dummyNotice[index];
-          title = notice["제목"];
-          writer = notice["작성자"];
-          date = notice["작성날짜"];
-          content = notice["내용"];
+          Survey survey = dummySurvey[index];
+
+          return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: InkWell(
+                onTap: () {
+                  Get.to(
+                    () => SurveyResultPage(
+                      title: survey.title,
+                      date: survey.date,
+                      questionSets: survey.questionSets,
+                      writer: survey.writer,
+                    ),
+                  );
+                },
+                child:
+                    _content(index, survey.title, survey.writer, survey.date),
+              ));
         } catch (e) {
-          title = "";
-          writer = "";
-          date = "";
-          content = "";
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: InkWell(
+              child: _content(index, title, writer, date),
+            ),
+          );
         }
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: title != ""
-              ? InkWell(
-                  onTap: () {
-                    _showContentDialog(context, title, content);
-                  },
-                  child: _content(index, title, writer, date),
-                )
-              : InkWell(
-                  child: _content(index, title, writer, date),
-                ),
-        );
       }),
+    );
+  }
+
+  Widget _buildNewSurveyButton() {
+    return Row(
+      children: [
+        CustomElevatedButton(
+          text: "새 설문조사 생성",
+          onPressed: () {
+            Get.to(() => CreateSurveyPage());
+          },
+        ),
+        Spacer(),
+      ],
     );
   }
 
@@ -140,9 +159,9 @@ class _SuggestionPageState extends State<SuggestionPage> {
           _currentPage = selectedPage;
         });
       },
-      totalPage: _dummyNotice.length % 15 == 0
-          ? _dummyNotice.length ~/ 15
-          : _dummyNotice.length ~/ 15 + 1,
+      totalPage: _dummySurvey.length % 15 == 0
+          ? _dummySurvey.length ~/ 15
+          : _dummySurvey.length ~/ 15 + 1,
       currentPage: _currentPage,
     );
   }
@@ -199,16 +218,6 @@ class _SuggestionPageState extends State<SuggestionPage> {
           ),
         ),
       ],
-    );
-  }
-
-  Future<dynamic> _showContentDialog(
-      BuildContext context, String title, String content) {
-    return showDialog(
-      context: context,
-      builder: (context) {
-        return SuggestionContentDialog(title: title, content: content);
-      },
     );
   }
 }

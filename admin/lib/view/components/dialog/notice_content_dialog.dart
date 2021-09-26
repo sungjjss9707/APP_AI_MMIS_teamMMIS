@@ -1,10 +1,10 @@
-import 'package:admin/components/button/custom_elevated_button.dart';
-import 'package:admin/components/textfield/custom_text_form_field.dart';
-import 'package:admin/components/textfield/custom_writing_area.dart';
 import 'package:admin/page_util/validators.dart';
+import 'package:admin/view/components/button/custom_elevated_button.dart';
+import 'package:admin/view/components/textfield/custom_text_form_field.dart';
+import 'package:admin/view/components/textfield/custom_writing_area.dart';
 import 'package:flutter/material.dart';
 
-import '../../size.dart';
+import '../../../size.dart';
 
 class NoticeContentDialog extends StatelessWidget {
   final String title;

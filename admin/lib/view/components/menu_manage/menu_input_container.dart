@@ -1,5 +1,5 @@
-import 'package:admin/components/menu_manage/menu_input_form.dart';
 import 'package:admin/model/menu.dart';
+import 'package:admin/view/components/menu_manage/menu_input_form.dart';
 
 import 'package:flutter/material.dart';
 

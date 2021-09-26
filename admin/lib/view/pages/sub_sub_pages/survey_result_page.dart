@@ -1,7 +1,7 @@
-import 'package:admin/components/home/customTitle.dart';
-import 'package:admin/components/home/home_header.dart';
 import 'package:admin/model/survey.dart';
 import 'package:admin/size.dart';
+import 'package:admin/view/components/home/customTitle.dart';
+import 'package:admin/view/components/home/home_header.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 

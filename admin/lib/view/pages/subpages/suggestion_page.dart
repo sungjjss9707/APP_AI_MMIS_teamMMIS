@@ -1,20 +1,20 @@
 // 공지사항 관리 페이지
-import 'package:admin/components/button/custom_elevated_button.dart';
-import 'package:admin/components/dialog/notice_content_dialog.dart';
-import 'package:admin/components/home/customTitle.dart';
+
 import 'package:admin/model/notice.dart';
+import 'package:admin/view/components/dialog/suggestion_content_dialog.dart';
+import 'package:admin/view/components/home/customTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:number_pagination/number_pagination.dart';
 
-import '../../size.dart';
-import '../../style.dart';
+import '../../../size.dart';
+import '../../../style.dart';
 
-class NoticePage extends StatefulWidget {
+class SuggestionPage extends StatefulWidget {
   @override
-  _NoticePageState createState() => _NoticePageState();
+  _SuggestionPageState createState() => _SuggestionPageState();
 }
 
-class _NoticePageState extends State<NoticePage> {
+class _SuggestionPageState extends State<SuggestionPage> {
   late int _currentPage;
   List<Map> _dummyNotice = dummyNotice;
 
@@ -34,18 +34,17 @@ class _NoticePageState extends State<NoticePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomTitle("공지사항 관리"),
+          CustomTitle("건의사항 관리"),
           Divider(color: Colors.grey),
           _contentHeader(),
           _noticeList(context),
-          _buildWriteButton(context),
           _numberPagination(),
         ],
       ),
     );
   }
 
-  Row _contentHeader() {
+  Widget _contentHeader() {
     return Row(
       children: [
         Expanded(
@@ -133,20 +132,6 @@ class _NoticePageState extends State<NoticePage> {
     );
   }
 
-  Widget _buildWriteButton(BuildContext context) {
-    return Row(
-      children: [
-        Spacer(),
-        CustomElevatedButton(
-          text: "글쓰기",
-          onPressed: () {
-            _showContentDialog(context, "", "");
-          },
-        ),
-      ],
-    );
-  }
-
   Widget _numberPagination() {
     return NumberPagination(
       listner: (int selectedPage) {
@@ -221,10 +206,7 @@ class _NoticePageState extends State<NoticePage> {
     return showDialog(
       context: context,
       builder: (context) {
-        return NoticeContentDialog(
-          title: title,
-          content: content,
-        );
+        return SuggestionContentDialog(title: title, content: content);
       },
     );
   }

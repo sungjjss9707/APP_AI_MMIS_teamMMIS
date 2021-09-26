@@ -1,10 +1,9 @@
-import 'package:admin/pages/subpages/AI_page.dart';
-import 'package:admin/pages/subpages/manage_the_number_eating_page.dart';
-import 'package:admin/pages/subpages/menu_manage_page.dart';
-import 'package:admin/pages/subpages/notice_page.dart';
-import 'package:admin/pages/subpages/suggestion_page.dart';
-import 'package:admin/pages/subpages/survey_page.dart';
-
+import 'package:admin/view/pages/subpages/AI_page.dart';
+import 'package:admin/view/pages/subpages/manage_the_number_eating_page.dart';
+import 'package:admin/view/pages/subpages/menu_manage_page.dart';
+import 'package:admin/view/pages/subpages/notice_page.dart';
+import 'package:admin/view/pages/subpages/suggestion_page.dart';
+import 'package:admin/view/pages/subpages/survey_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatefulWidget {
