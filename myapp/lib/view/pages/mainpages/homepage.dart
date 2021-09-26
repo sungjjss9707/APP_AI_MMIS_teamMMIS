@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/menu.dart';
+import 'package:myapp/model/popular_menu.dart';
 import 'package:myapp/view/components/custom_banner.dart';
 import 'package:myapp/view/components/button/function_button.dart';
 import 'package:myapp/view/components/menu_box.dart';
@@ -169,21 +170,21 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "1위. 비엔나 소세지 볶음",
+                  "1위. ${popularMenu["first"]}",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                     fontSize: 12,
                   ),
                 ),
                 Text(
-                  "2위. 삼계탕",
+                  "2위. ${popularMenu["second"]}",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                     fontSize: 12,
                   ),
                 ),
                 Text(
-                  "3위. 소고기 미역국",
+                  "3위. ${popularMenu["third"]}",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                     fontSize: 12,

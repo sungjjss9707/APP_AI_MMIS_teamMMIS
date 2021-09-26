@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'package:like_button/like_button.dart';
+import 'package:myapp/model/comments.dart';
+import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/button/back_button.dart';
 import 'package:myapp/view/pages/subpages/post_picture.dart';
 
@@ -74,7 +76,7 @@ class ShowPhotoOfMealPage extends StatelessWidget {
             context: context,
             barrierDismissible: false,
             builder: (context) {
-              return _MealPictureDialog(context, image, _imageWidth);
+              return MealPictureDialog(context, image, _imageWidth, index + 1);
             },
           );
         },
@@ -134,9 +136,28 @@ class ShowPhotoOfMealPage extends StatelessWidget {
     print(isLiked);
     return !isLiked;
   }
+}
 
-  SimpleDialog _MealPictureDialog(
-      BuildContext context, String image, double _imageWidth) {
+class MealPictureDialog extends StatefulWidget {
+  BuildContext context;
+  String image;
+  double _imageWidth;
+  int id;
+  MealPictureDialog(this.context, this.image, this._imageWidth, this.id);
+  @override
+  _MealPictureDialogState createState() =>
+      _MealPictureDialogState(context, image, _imageWidth, id);
+}
+
+class _MealPictureDialogState extends State<MealPictureDialog> {
+  BuildContext context;
+  String image;
+  double _imageWidth;
+  int id;
+  _MealPictureDialogState(this.context, this.image, this._imageWidth, this.id);
+  @override
+  Widget build(BuildContext context) {
+    TextEditingController commentController = TextEditingController();
     return SimpleDialog(
       contentPadding: const EdgeInsets.all(16),
       title: Column(
@@ -159,6 +180,38 @@ class ShowPhotoOfMealPage extends StatelessWidget {
           fit: BoxFit.contain,
           // width: _imageWidth * 1.5,
         ),
+        Divider(),
+        Row(
+          children: [
+            Expanded(
+              child: TextField(
+                  controller: commentController,
+                  maxLines: 1,
+                  decoration: InputDecoration(
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none),
+                  onSubmitted: (value) {
+                    setState(() {
+                      if (comments[id] != null) {
+                        comments[id]!
+                            .add({"userName": userName, "comment": value});
+                      } else {
+                        comments[id] = [
+                          {"userName": userName, "comment": value}
+                        ];
+                      }
+                      commentController.clear();
+                    });
+                  }),
+            ),
+          ],
+        ),
+        Divider(),
+        if (comments[id] != null)
+          ...comments[id]!.map((info) => ListTile(
+                title: Text(info["userName"]),
+                subtitle: Text(info["comment"]),
+              )),
         Divider(),
         Row(
           children: [
