@@ -32,6 +32,9 @@
 2. 조합 평가 인공지능
 - 새로운 메뉴 조합이 있을 시 그 조합의 종합점수를 산출합니다. 새로운 메뉴나 기존의 메뉴를 다른 조합으로 한 끼니를 만들었을 때 그 한 끼니의 종합 평가를 점수를 산출해 내는 모델입니다. 기존 조합의 평가 점수는 한 끼니의 별점 점수를 활용하고 인공지능 학습을 통해 새로운 조합의 점수가 더 높은 점수가 나오면 그 조합을 추천해 줍니다.
 
+## 서비스 플로우
+![myapp flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/myapp_flow.jpg)
+![admin flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/admin_flow.jpg)
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 * ECMAScript 6 지원 브라우저 사용
