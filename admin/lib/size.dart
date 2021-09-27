@@ -11,3 +11,7 @@ const double header_height = 620;
 double getBodyWidth(BuildContext context) {
   return MediaQuery.of(context).size.width - 200;
 }
+
+double getMediaQueryWidth(BuildContext context) {
+  return MediaQuery.of(context).size.width;
+}

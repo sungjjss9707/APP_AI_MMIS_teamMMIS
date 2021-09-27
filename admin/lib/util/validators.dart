@@ -15,7 +15,7 @@ Function validateMilitaryNumber() {
   };
 }
 
-Function validatePassWorld() {
+Function validatePassWord() {
   return (String? value) {
     if (value!.isEmpty) {
       return "비밀번호를 기입하십시오.";
@@ -46,7 +46,7 @@ Function validateEmail() {
 Function validateTitle() {
   return (String? value) {
     if (value!.isEmpty) {
-      return "공백이 들어갈 수 없습니다.";
+      return "제목을 입력해주세요.";
     } else if (value.length > 30) {
       return "제목이 너무 깁니다. 30자 이하로 쓰세요.";
     } else {

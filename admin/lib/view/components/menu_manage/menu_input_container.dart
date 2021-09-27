@@ -12,10 +12,26 @@ class MenuInputContainer extends StatelessWidget {
     return Center(
       child: Wrap(
         children: [
-          MenuInputForm(time: "조식", date: date),
-          MenuInputForm(time: "브런치", date: date),
-          MenuInputForm(time: "중식", date: date),
-          MenuInputForm(time: "석식", date: date),
+          MenuInputForm(
+            time: "조식",
+            date: date,
+            key: UniqueKey(),
+          ),
+          MenuInputForm(
+            time: "브런치",
+            date: date,
+            key: UniqueKey(),
+          ),
+          MenuInputForm(
+            time: "중식",
+            date: date,
+            key: UniqueKey(),
+          ),
+          MenuInputForm(
+            time: "석식",
+            date: date,
+            key: UniqueKey(),
+          ),
         ],
       ),
     );

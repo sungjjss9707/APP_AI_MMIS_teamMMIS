@@ -8,21 +8,20 @@ import '../../../size.dart';
 class MenuInputForm extends StatefulWidget {
   final String time;
   final DateTime date;
-  MenuInputForm({required this.time, required this.date});
+  MenuInputForm({Key? key, required this.time, required this.date})
+      : super(key: key);
 
   @override
-  _MenuInputFormState createState() => _MenuInputFormState(time, date);
+  _MenuInputFormState createState() => _MenuInputFormState();
 }
 
 class _MenuInputFormState extends State<MenuInputForm> {
   final _formKey = GlobalKey<FormState>();
-  final String time;
-  final DateTime date;
+
   List<TextEditingController> textEditingControllerList = [];
 
   List<MenuInputTextField> menuInputTextField = [];
 
-  _MenuInputFormState(this.time, this.date);
   @override
   void initState() {
     menuInputTextField
@@ -40,7 +39,6 @@ class _MenuInputFormState extends State<MenuInputForm> {
 
   @override
   Widget build(BuildContext context) {
-    print(date);
     return Container(
       width: 400,
       child: Form(
@@ -49,7 +47,7 @@ class _MenuInputFormState extends State<MenuInputForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
                 Text(
-                  "$time",
+                  "${widget.time}",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
@@ -101,7 +99,7 @@ class _MenuInputFormState extends State<MenuInputForm> {
                   onPressed: () {
                     menuInputTextFieldRemove(index);
                   },
-                  icon: Icon(Icons.backspace),
+                  icon: Icon(Icons.cancel),
                 )
               : Container(),
         ],
@@ -120,7 +118,7 @@ class _MenuInputFormState extends State<MenuInputForm> {
               for (MenuInputTextField i in menuInputTextField) {
                 if (i.controller.text.length != 0)
                   menuList.add(i.controller.text.trim());
-                addMenu(date, time, menuList);
+                addMenu(widget.date, widget.time, menuList);
               }
               showDialog(
                 context: context,

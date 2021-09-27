@@ -1,6 +1,7 @@
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/textfield/custom_text_form_field.dart';
+import 'package:admin/view/pages/join_page.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,7 +38,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     CustomTextFormField(
                       hint: "비밀번호",
-                      funValidate: validatePassWorld(),
+                      funValidate: validatePassWord(),
                     ),
                     SizedBox(height: 10),
                     CustomElevatedButton(
@@ -49,6 +50,13 @@ class LoginPage extends StatelessWidget {
                           Get.to(HomePage());
                         }
                       },
+                    ),
+                    SizedBox(height: 5),
+                    TextButton(
+                      onPressed: () {
+                        Get.to(() => JoinPage());
+                      },
+                      child: Text("회원가입"),
                     ),
                   ],
                 ),
