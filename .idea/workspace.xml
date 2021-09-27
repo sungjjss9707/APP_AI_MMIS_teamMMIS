@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="BranchesTreeState">
-    <expand />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
@@ -13,22 +18,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="admin파일 정리">
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/multipleChoice.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/short_answer.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/single_choice.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/single_choice_form_field.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_title_form_field.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/pages/join_page.dart" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="설문조사 생성 만드는 중">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/size.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/size.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/validators.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/home/home_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/home/home_header.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_container.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_title_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_title_form_field.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632667341237</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="설문조사 생성 만드는 중">
+      <created>1632737154419</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1632737154419</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,21 +251,22 @@
     <MESSAGE value="공제페이지 달력 추가(손 보는 중)" />
     <MESSAGE value="설문조사 하는 중" />
     <MESSAGE value="admin파일 정리" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin파일 정리" />
+    <MESSAGE value="설문조사 생성 만드는 중" />
+    <option name="LAST_COMMIT_MESSAGE" value="설문조사 생성 만드는 중" />
   </component>
   <component name="WindowStateProjectService">
     <state width="623" height="498" key="SwitcherDM" timestamp="1632724930026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1632724930026" />
-    <state x="180" y="189" key="Vcs.Push.Dialog.v2" timestamp="1632667326714">
+    <state x="180" y="189" key="Vcs.Push.Dialog.v2" timestamp="1632737212431">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="180" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632667326714" />
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1632737122513">
+    <state x="180" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632737212431" />
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1632738809895">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632737122513" />
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632738809895" />
     <state x="314" y="235" key="run.anything.popup" timestamp="1632727231975">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

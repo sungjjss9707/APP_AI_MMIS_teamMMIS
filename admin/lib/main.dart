@@ -14,7 +14,7 @@ class Admin extends StatelessWidget {
     return GetMaterialApp(
       title: "admin",
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: CreateSurveyPage(),
     );
   }
 }

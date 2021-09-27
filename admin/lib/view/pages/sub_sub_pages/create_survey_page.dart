@@ -7,7 +7,23 @@ import 'package:admin/view/components/survey/survey_title_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CreateSurveyPage extends StatelessWidget {
+class CreateSurveyPage extends StatefulWidget {
+  @override
+  _CreateSurveyPageState createState() => _CreateSurveyPageState();
+}
+
+class _CreateSurveyPageState extends State<CreateSurveyPage> {
+  List<SurveyQuestionFormField> _questionList = [];
+  @override
+  void initState() {
+    _questionList.add(
+      SurveyQuestionFormField(
+        funValidate: validateTitle(),
+      ),
+    );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double _width = getMediaQueryWidth(context);
@@ -46,7 +62,6 @@ class CreateSurveyPage extends StatelessWidget {
                           funValidate: validateTitle(),
                         ),
                         SurveyQuestionFormField(
-                          width: _surveyTileWidth,
                           funValidate: validateTitle(),
                         ),
                       ],

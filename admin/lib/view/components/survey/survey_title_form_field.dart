@@ -20,7 +20,7 @@ class SurveyTitleFormField extends StatelessWidget {
         border: Border.all(),
         borderRadius: BorderRadius.circular(10),
       ),
-      width: width,
+      width: getMediaQueryWidth(context) * 0.4,
       padding: const EdgeInsets.all(gap_m),
       child: Form(
         child: Column(

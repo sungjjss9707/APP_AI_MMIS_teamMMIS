@@ -6,10 +6,9 @@ import 'package:flutter/material.dart';
 import '../../../size.dart';
 
 class SurveyQuestionFormField extends StatefulWidget {
-  final double width;
   final funValidate;
 
-  SurveyQuestionFormField({required this.width, this.funValidate});
+  SurveyQuestionFormField({this.funValidate});
 
   @override
   _SurveyQuestionFormFieldState createState() =>
@@ -34,7 +33,7 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
         border: Border.all(),
         borderRadius: BorderRadius.circular(10),
       ),
-      width: widget.width,
+      width: getMediaQueryWidth(context) * 0.4,
       padding: const EdgeInsets.all(gap_m),
       child: Form(
         child: Column(
