@@ -19,16 +19,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="설문조사 생성 만드는 중">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-20__7_51__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-09-20_오후_7_51_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/model/ai_recommend.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/ai_test_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/home/home_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/home/home_header.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/multipleChoice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/multipleChoice.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/short_answer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/short_answer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/single_choice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/single_choice.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/single_choice_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/single_choice_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/eating_schedule_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,23 +257,5 @@
     <MESSAGE value="admin파일 정리" />
     <MESSAGE value="설문조사 생성 만드는 중" />
     <option name="LAST_COMMIT_MESSAGE" value="설문조사 생성 만드는 중" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="623" height="498" key="SwitcherDM" timestamp="1632724930026">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1632724930026" />
-    <state x="180" y="189" key="Vcs.Push.Dialog.v2" timestamp="1632737212431">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="180" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632737212431" />
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1632738809895">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632738809895" />
-    <state x="314" y="235" key="run.anything.popup" timestamp="1632727231975">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="314" y="235" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1632727231975" />
   </component>
 </project>

@@ -7,12 +7,14 @@ import 'package:myapp/model/popular_menu.dart';
 import 'package:myapp/view/components/custom_banner.dart';
 import 'package:myapp/view/components/button/function_button.dart';
 import 'package:myapp/view/components/menu_box.dart';
+import 'package:myapp/view/pages/subpages/ai_test_page.dart';
 import 'package:myapp/view/pages/subpages/allergy_info_page.dart';
 import 'package:myapp/view/pages/subpages/deduction_page.dart';
-import 'package:myapp/view/pages/subpages/eating_schedule_page.dart';
 import 'package:myapp/view/pages/subpages/notice_page.dart';
 import 'package:myapp/view/pages/subpages/suggestion_page.dart';
 import 'package:myapp/view/pages/subpages/survey_page.dart';
+
+import '../../../model/ai_recommend.dart';
 
 class HomePage extends StatelessWidget {
   late double length;
@@ -111,10 +113,10 @@ class HomePage extends StatelessWidget {
         FunctionButton(
           length: length,
           onTap: () {
-            Get.to(EatingSchedulePage());
+            Get.to(AiTestPage());
           },
           icon: Icon(Icons.no_meals, size: size),
-          text: "불취식 관리",
+          text: "AI 실험실",
         ),
         SizedBox(width: 8),
         FunctionButton(
@@ -217,39 +219,13 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "찹쌀밥",
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    fontSize: 12,
-                  ),
-                ),
-                Text(
-                  "삼계탕",
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    fontSize: 12,
-                  ),
-                ),
-                Text(
-                  "야채 샐러드",
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    fontSize: 12,
-                  ),
-                ),
-                Text(
-                  "배추김치",
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    fontSize: 12,
-                  ),
-                ),
-                Text(
-                  "요거트",
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    fontSize: 12,
+                ...aiRecommend.map(
+                  (value) => Text(
+                    value,
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      fontSize: 12,
+                    ),
                   ),
                 )
               ],
