@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:myapp/date_functions.dart';
+import 'package:myapp/model/menu_list.dart';
 import 'package:myapp/page_util/deduction_util.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
@@ -104,6 +105,9 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
             selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
             onDaySelected: _onDaySelected,
           ),
+          SizedBox(height: 10),
+          NoMenuText(
+              _selectedDay!.year, _selectedDay!.month, _selectedDay!.day),
           ...getEventsForDay(_selectedDay!).map((value) {
             return Column(
               children: [
@@ -132,6 +136,34 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
           }),
         ],
       ),
+    );
+  }
+}
+
+class NoMenuText extends StatelessWidget {
+  int year;
+  int month;
+  int day;
+  NoMenuText(this.year, this.month, this.day);
+  @override
+  Widget build(BuildContext context) {
+    if (checkDayMenuExistence(year, month, day)) {
+      return SizedBox();
+    }
+    return Row(
+      children: [
+        Expanded(
+          child: Center(
+            child: Text(
+              "식사 제공 없는 날",
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.cyan),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
