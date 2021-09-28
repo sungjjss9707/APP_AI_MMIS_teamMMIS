@@ -73,6 +73,8 @@ Function validateName() {
       return "공백으로 둘 수 없습니다.";
     } else if (value.length > 10) {
       return "입력된 글자가 너무 많습니다.";
+    } else {
+      return null;
     }
   };
 }
@@ -108,6 +110,8 @@ Function validateClass() {
       return "공백으로 둘 수 없습니다.";
     } else if (classNames.contains(value) != true) {
       return "입력값이 잘못되었습니다.";
+    } else {
+      return null;
     }
   };
 }
@@ -118,6 +122,8 @@ Function validateUnit() {
       return "공백으로 둘 수 없습니다.";
     } else if (value.length > 50) {
       return "입력된 글자가 너무 많습니다.";
+    } else {
+      return null;
     }
   };
 }
@@ -128,6 +134,8 @@ Function validateHeight() {
       return "공백으로 둘 수 없습니다.";
     } else if (double.tryParse(value) == null) {
       return "입력값이 잘못되었습니다.";
+    } else {
+      return null;
     }
   };
 }
