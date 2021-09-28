@@ -34,11 +34,8 @@ class _SingleChoiceState extends State<SingleChoice> {
     List<Widget> children = _choicesCustom();
     return Column(
       children: [
-        Form(
-          key: _formKey,
-          child: Column(
-            children: children,
-          ),
+        Column(
+          children: children,
         ),
         IconButton(
           onPressed: () {

@@ -34,15 +34,12 @@ class _MultipleChoiceState extends State<MultipleChoice> {
     List<Widget> children = _choicesCustom();
     return Column(
       children: [
-        Form(
-          key: _formKey,
-          child: Column(
-            children: children,
-          ),
+        Column(
+          children: children,
         ),
         IconButton(
           onPressed: () {
-            _singleChoiceFormFieldAdd();
+            _addSingleChoiceFormField();
           },
           icon: Icon(Icons.add),
         ),
@@ -67,7 +64,7 @@ class _MultipleChoiceState extends State<MultipleChoice> {
                   ),
                   onPressed: () {
                     setState(() {
-                      _singleChoiceFormFieldRemove(index);
+                      _removeSingleChoiceFormField(index);
                     });
                   },
                 )
@@ -77,13 +74,13 @@ class _MultipleChoiceState extends State<MultipleChoice> {
     );
   }
 
-  void _singleChoiceFormFieldAdd() {
+  void _addSingleChoiceFormField() {
     setState(() {
       choices.add(SingleChoiceFormField(index: choices.length));
     });
   }
 
-  void _singleChoiceFormFieldRemove(int index) {
+  void _removeSingleChoiceFormField(int index) {
     setState(() {
       choices.removeAt(index);
       for (SingleChoiceFormField i in choices) {

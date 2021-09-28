@@ -4,19 +4,21 @@ import '../../../size.dart';
 import '../../../style.dart';
 
 class SingleChoiceFormField extends StatelessWidget {
-  int index;
+  int? index;
   final controller = TextEditingController();
+  final bool? enabled;
 
-  SingleChoiceFormField({required this.index});
+  SingleChoiceFormField({this.index, this.enabled});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: TextFormField(
+        enabled: enabled == false ? false : true,
         controller: controller,
         style: subtitle2(),
         decoration: InputDecoration(
-          hintText: "옵션 ${index+1}",
+          hintText: index != null ? "옵션 ${index! + 1}" : "답변",
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.grey[200]!),
           ),

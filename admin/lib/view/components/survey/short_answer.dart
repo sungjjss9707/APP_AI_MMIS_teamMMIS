@@ -1,3 +1,4 @@
+import 'package:admin/view/components/survey/single_choice_form_field.dart';
 import 'package:flutter/material.dart';
 
 class ShortAnswer extends StatelessWidget {
@@ -5,6 +6,12 @@ class ShortAnswer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Row(
+      children: [
+        SingleChoiceFormField(
+          enabled: false,
+        ),
+      ],
+    );
   }
 }

@@ -1,5 +1,8 @@
+import 'dart:html';
+
 import 'package:admin/style.dart';
 import 'package:admin/view/components/survey/multipleChoice.dart';
+import 'package:admin/view/components/survey/short_answer.dart';
 import 'package:admin/view/components/survey/single_choice.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +10,9 @@ import '../../../size.dart';
 
 class SurveyQuestionFormField extends StatefulWidget {
   final funValidate;
-
-  SurveyQuestionFormField({this.funValidate});
+  int index;
+  SurveyQuestionFormField({Key? key, required this.index, this.funValidate})
+      : super(key: key);
 
   @override
   _SurveyQuestionFormFieldState createState() =>
@@ -18,10 +22,12 @@ class SurveyQuestionFormField extends StatefulWidget {
 class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
   final _questionController = TextEditingController();
   int? _selectedValue;
+  late bool _isCompulsory;
 
   @override
   void initState() {
     _selectedValue = 1;
+    _isCompulsory = true;
     super.initState();
   }
 
@@ -43,7 +49,25 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
                 ? SingleChoice()
                 : _selectedValue == 2
                     ? MultipleChoice()
-                    : Container(),
+                    : ShortAnswer(),
+            Row(
+              children: [
+                Spacer(),
+                Text("필수"),
+                SizedBox(width: gap_s),
+                Switch(
+                  value: _isCompulsory,
+                  onChanged: (value) {
+                    setState(() {
+                      if (_isCompulsory == true)
+                        _isCompulsory = false;
+                      else
+                        _isCompulsory = true;
+                    });
+                  },
+                )
+              ],
+            ),
           ],
         ),
       ),

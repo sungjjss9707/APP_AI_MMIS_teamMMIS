@@ -10,7 +10,7 @@ class HomeHeader extends StatelessWidget {
       child: Center(
         child: InkWell(
           onTap: () {
-            Get.to(() => HomePage());
+            Get.offAll(() => HomePage());
           },
           child: Text(
             "MMIS",

@@ -4,6 +4,7 @@ import 'package:admin/view/components/home/customTitle.dart';
 import 'package:admin/view/components/home/home_header.dart';
 import 'package:admin/view/components/survey/survey_question_form_field.dart';
 import 'package:admin/view/components/survey/survey_title_form_field.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,6 +19,8 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
   void initState() {
     _questionList.add(
       SurveyQuestionFormField(
+        key: UniqueKey(),
+        index: 0,
         funValidate: validateTitle(),
       ),
     );
@@ -36,7 +39,7 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
             width: _width,
             padding: EdgeInsets.all(gap_xl),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
@@ -52,21 +55,14 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                   ],
                 ),
                 Divider(color: Colors.grey),
-                Center(
-                  child: Container(
-                    width: _surveyTileWidth,
-                    child: Column(
-                      children: [
+                Column(
+                  children: <Widget>[
                         SurveyTitleFormField(
                           width: _surveyTileWidth,
                           funValidate: validateTitle(),
                         ),
-                        SurveyQuestionFormField(
-                          funValidate: validateTitle(),
-                        ),
-                      ],
-                    ),
-                  ),
+                      ] +
+                      _buildQuestionList(),
                 ),
               ],
             ),
@@ -74,5 +70,48 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
         ],
       ),
     );
+  }
+
+  void _addSurveyQuestionFormField() {
+    setState(() {
+      _questionList.add(SurveyQuestionFormField(
+          key: UniqueKey(), index: _questionList.length));
+    });
+  }
+
+  void _removeSurveyQuestionFormField(int index) {
+    setState(() {
+      _questionList.removeAt(index);
+      for (SurveyQuestionFormField i in _questionList) {
+        i.index = _questionList.indexOf(i);
+      }
+    });
+  }
+
+  List<Widget> _buildQuestionList() {
+    return List.generate(_questionList.length, (index) {
+      return Column(
+        children: [
+          _questionList[index],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                icon: Icon(Icons.add),
+                onPressed: () {
+                  _addSurveyQuestionFormField();
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.delete),
+                onPressed: () {
+                  _removeSurveyQuestionFormField(index);
+                },
+              )
+            ],
+          )
+        ],
+      );
+    });
   }
 }
