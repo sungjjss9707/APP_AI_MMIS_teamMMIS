@@ -1,4 +1,5 @@
 import 'package:admin/view/components/survey/single_choice_form_field.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../../size.dart';
@@ -9,22 +10,20 @@ class SingleChoice extends StatefulWidget {
 }
 
 class _SingleChoiceState extends State<SingleChoice> {
-  final _formKey = GlobalKey<FormState>();
-  final List<SingleChoiceFormField> choices = [];
-
+  final List<ChoiceFormField> choices = [];
   @override
   void initState() {
     choices.add(
-      SingleChoiceFormField(index: 0),
+      ChoiceFormField(index: 0),
     );
     choices.add(
-      SingleChoiceFormField(index: 1),
+      ChoiceFormField(index: 1),
     );
     choices.add(
-      SingleChoiceFormField(index: 2),
+      ChoiceFormField(index: 2),
     );
     choices.add(
-      SingleChoiceFormField(index: 3),
+      ChoiceFormField(index: 3),
     );
     super.initState();
   }
@@ -76,16 +75,24 @@ class _SingleChoiceState extends State<SingleChoice> {
 
   void _singleChoiceFormFieldAdd() {
     setState(() {
-      choices.add(SingleChoiceFormField(index: choices.length));
+      choices.add(ChoiceFormField(index: choices.length));
     });
   }
 
   void _singleChoiceFormFieldRemove(int index) {
     setState(() {
       choices.removeAt(index);
-      for (SingleChoiceFormField i in choices) {
+      for (ChoiceFormField i in choices) {
         i.index = choices.indexOf(i);
       }
     });
   }
+
+  // List getOptionData(int index) {
+  //   List optionData = [];
+  //   for (ChoiceFormField i in choices) {
+  //     optionData.add(i.controller.text.trim());
+  //   }
+  //   return optionData;
+  // }
 }

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../size.dart';
 import '../../../style.dart';
 
-class SingleChoiceFormField extends StatelessWidget {
+class ChoiceFormField extends StatelessWidget {
   int? index;
   final controller = TextEditingController();
   final bool? enabled;
 
-  SingleChoiceFormField({this.index, this.enabled});
+  ChoiceFormField({this.index, this.enabled});
 
   @override
   Widget build(BuildContext context) {

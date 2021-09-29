@@ -8,7 +8,7 @@ class ShortAnswer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SingleChoiceFormField(
+        ChoiceFormField(
           enabled: false,
         ),
       ],
