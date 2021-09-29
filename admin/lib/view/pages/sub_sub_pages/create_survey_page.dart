@@ -1,3 +1,4 @@
+import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/home/customTitle.dart';
@@ -14,6 +15,7 @@ class CreateSurveyPage extends StatefulWidget {
 }
 
 class _CreateSurveyPageState extends State<CreateSurveyPage> {
+  SurveyController s = Get.put(SurveyController());
   List<SurveyQuestionFormField> _questionList = [];
   @override
   void initState() {
@@ -46,6 +48,11 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                   children: [
                     CustomTitle("설문조사 생성"),
                     Spacer(),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text("올리기"),
+                    ),
+                    SizedBox(width: gap_m),
                     ElevatedButton(
                       onPressed: () {
                         Get.back();

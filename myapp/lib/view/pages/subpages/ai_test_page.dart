@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
+import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
 
 class AiTestPage extends StatelessWidget {
   @override
@@ -22,6 +24,7 @@ class MenuInputs extends StatefulWidget {
 
 class _MenuInputsState extends State<MenuInputs> {
   int count;
+  final _formKey = GlobalKey<FormState>();
   _MenuInputsState({required this.count});
   @override
   Widget build(BuildContext context) {
@@ -30,15 +33,15 @@ class _MenuInputsState extends State<MenuInputs> {
     return Padding(
       padding: EdgeInsets.all(10),
       child: Form(
+        key: _formKey,
         child: ListView(
           children: [
             ...List.generate(
-              count,
-              (e) => TextFormField(
-                controller: controllers[e],
-                validator: null,
-              ),
-            ),
+                count,
+                (e) => CustomTextFormField(
+                    hint: "메뉴 입력",
+                    funValidate: validateName(),
+                    controller: controllers[e])),
             Row(
               children: [
                 TextButton(
@@ -51,8 +54,20 @@ class _MenuInputsState extends State<MenuInputs> {
                 TextButton(
                     child: Text("제출"),
                     onPressed: () {
-                      for (int i = 0; i < count; ++i) {
-                        print(controllers[i].text);
+                      if (_formKey.currentState!.validate()) {
+                        for (int i = 0; i < count; ++i) {
+                          print(controllers[i].text);
+                        }
+                        showDialog(
+                          context: context,
+                          builder: (context) => SimpleDialog(
+                            title: Center(child: Text("결과")),
+                            contentPadding: const EdgeInsets.all(16),
+                            children: [
+                              Center(child: Text("예상점수")),
+                            ],
+                          ),
+                        );
                       }
                     }),
               ],

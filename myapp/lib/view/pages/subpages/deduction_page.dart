@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:myapp/date_functions.dart';
+import 'package:myapp/model/menu_list.dart';
 import 'package:myapp/page_util/deduction_util.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
@@ -17,8 +18,6 @@ class DeductionPage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            DeductionCount(),
-            SizedBox(height: 20),
             DeductionCalendar(),
           ],
         ),
@@ -91,6 +90,8 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
     return Expanded(
       child: ListView(
         children: [
+          DeductionCount(),
+          SizedBox(height: 20),
           TableCalendar(
             rangeSelectionMode: _rangeSelectionMode,
             calendarFormat: _calendarFormat,
@@ -104,7 +105,19 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
             selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
             onDaySelected: _onDaySelected,
           ),
-          ...getEventsForDay(_selectedDay!).map((value) {
+          SizedBox(height: 10),
+          NoMenuText(
+              _selectedDay!.year, _selectedDay!.month, _selectedDay!.day),
+          ...List.generate(
+              loadDayMenuExistence(_selectedDay!.year, _selectedDay!.month,
+                      _selectedDay!.day)
+                  .length, (index) {
+            if (loadDayMenuExistence(_selectedDay!.year, _selectedDay!.month,
+                    _selectedDay!.day)[index] ==
+                0) {
+              return SizedBox();
+            }
+            List<String> notEatingTimes = calDeduction()[0][_selectedDay];
             return Column(
               children: [
                 Container(
@@ -119,11 +132,23 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
                         final month = _selectedDay!.month;
                         final day = _selectedDay!.day;
                         String date = transformToDateForm(year, month, day);
-                        removeUserNotEating(date, value);
+                        if (notEatingTimes.contains(times[index])) {
+                          removeUserNotEating(date, times[index]);
+                        } else {
+                          addUserNotEating(date, times[index]);
+                        }
                       });
                     },
-                    title: Text("$value 불취식 취소",
-                        style: TextStyle(fontSize: 20, color: Colors.blue)),
+                    title: Text(
+                        "${times[index]} " +
+                            (notEatingTimes.contains(times[index])
+                                ? "불취식 취소"
+                                : "불취식 신청"),
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: notEatingTimes.contains(times[index])
+                                ? Colors.blue
+                                : Colors.red)),
                   ),
                 ),
                 SizedBox(height: 10),
@@ -132,6 +157,34 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
           }),
         ],
       ),
+    );
+  }
+}
+
+class NoMenuText extends StatelessWidget {
+  int year;
+  int month;
+  int day;
+  NoMenuText(this.year, this.month, this.day);
+  @override
+  Widget build(BuildContext context) {
+    if (checkDayMenuExistence(year, month, day)) {
+      return SizedBox();
+    }
+    return Row(
+      children: [
+        Expanded(
+          child: Center(
+            child: Text(
+              "식사 제공 없는 날",
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.cyan),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

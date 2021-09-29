@@ -10,21 +10,21 @@ class MultipleChoice extends StatefulWidget {
 
 class _MultipleChoiceState extends State<MultipleChoice> {
   final _formKey = GlobalKey<FormState>();
-  final List<SingleChoiceFormField> choices = [];
+  final List<ChoiceFormField> choices = [];
 
   @override
   void initState() {
     choices.add(
-      SingleChoiceFormField(index: 0),
+      ChoiceFormField(index: 0),
     );
     choices.add(
-      SingleChoiceFormField(index: 1),
+      ChoiceFormField(index: 1),
     );
     choices.add(
-      SingleChoiceFormField(index: 2),
+      ChoiceFormField(index: 2),
     );
     choices.add(
-      SingleChoiceFormField(index: 3),
+      ChoiceFormField(index: 3),
     );
     super.initState();
   }
@@ -76,14 +76,14 @@ class _MultipleChoiceState extends State<MultipleChoice> {
 
   void _addSingleChoiceFormField() {
     setState(() {
-      choices.add(SingleChoiceFormField(index: choices.length));
+      choices.add(ChoiceFormField(index: choices.length));
     });
   }
 
   void _removeSingleChoiceFormField(int index) {
     setState(() {
       choices.removeAt(index);
-      for (SingleChoiceFormField i in choices) {
+      for (ChoiceFormField i in choices) {
         i.index = choices.indexOf(i);
       }
     });

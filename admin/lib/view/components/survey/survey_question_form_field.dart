@@ -1,10 +1,12 @@
 import 'dart:html';
 
+import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/style.dart';
 import 'package:admin/view/components/survey/multipleChoice.dart';
 import 'package:admin/view/components/survey/short_answer.dart';
 import 'package:admin/view/components/survey/single_choice.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../size.dart';
 
@@ -23,7 +25,7 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
   final _questionController = TextEditingController();
   int? _selectedValue;
   late bool _isCompulsory;
-
+  List? _data;
   @override
   void initState() {
     _selectedValue = 1;
@@ -33,6 +35,7 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
 
   @override
   Widget build(BuildContext context) {
+    print(_data);
     return Container(
       margin: EdgeInsets.symmetric(vertical: gap_s),
       decoration: BoxDecoration(
