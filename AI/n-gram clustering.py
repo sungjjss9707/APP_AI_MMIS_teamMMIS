@@ -6,7 +6,6 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from pandas.core.frame import  DataFrame
 
-from gensim.models import Word2Vec
 #형태소 분석 패키지
 from konlpy.tag import Okt 
 from konlpy.tag import Komoran
@@ -17,95 +16,89 @@ data= pd.read_csv("All Menu (Various Versions)/ 국방부메뉴_v1.0.csv", encod
 data
 
 #%%
-# 형태소 분석 성능 TEST
-okt=Okt()
-komoran=Komoran()
-
-#%%
-# okt, komoran 이 사용 가능(절대적 우위 가리기 불가) & morphs
-# kkma는 시간이 오래 걸림/ hannanum은 위의 두 개 보다 성능 낮음
-menuTest = '주스망고코넛'
-print(okt.morphs(menuTest))
-print(komoran.nouns(menuTest))
-
-
-# %%
 # 정규 표현식을 통한 한글 외 문자 제거
 data['메뉴이름'] = data['메뉴이름'].str.replace("[^ㄱ-ㅎㅏ-ㅣ가-힣 ]","")
 
 #%%
-# Komoran 사용한 토큰화 작업
-komoran = Komoran()
-tokenized_data=[]
+# bigram/ trigram 만들기
+bigram=[]
+trigram =[]
 
-for menu in data['메뉴이름']:
-    temp_X = komoran.morphs(menu) #토큰화
-    
-    tokenized_data.append(temp_X)
-# %%
-#word2vec 사용
+# bigram
+for menuName in data['메뉴이름']:
+    temp=[]
+    if(len(menuName)==1) :
+        bigram.append([menuName])
+    else :
+        for i in range(len(menuName)-1):
+            
+            temp.append(str(menuName[i]+menuName[i+1]))
+        bigram.append(temp)        
 
-model = Word2Vec(sentences=tokenized_data, vector_size=100 , window=2, min_count=0, workers=4, sg=0)
-
-# %%
-#모델 작동 확인
-print(model.wv.most_similar("돼지고기"))
-
-# %%
-# 메뉴별 벡터 구하는 함수 
-def get_sentence_mean_vector(morphs):
-    vector=[]
-    for i in morphs:
-        try:
-            vector.append(model.wv[i])
-        except KeyError as e:
-            pass
-    try:
-        return np.mean(vector, axis=0)
-    except IndexError as e:
-        pass
-
-
-#%%
-# get_sentence_mean_vector 작동 확인
-
-vectors=[]
-
-for i in tokenized_data[12]:
-    vectors.append(model.wv[i])
-num = np.mean(vectors, axis=0)
-len(num)
+# tri-gram
+for menuName in data['메뉴이름']:
+    temp=[]
+    if(len(menuName)==1 or len(menuName)==2) :
+        trigram.append([menuName])
+    else :
+        for i in range(len(menuName)-2):
+            
+            temp.append(str(menuName[i]+menuName[i+1]+menuName[i+2]))    
+        trigram.append(temp)
 
 # %%
-#sentence vector data에 추가
+data.insert(2, 'bigram',bigram)
 
-sentence_vector=[]
+data.insert(3, 'trigram',trigram)
 
-for vectors in tokenized_data:
-    temp_X = get_sentence_mean_vector(vectors)
-    
-    sentence_vector.append(temp_X)
-
-data.insert(3, 'wv',sentence_vector)
-# %%
-#wv 열 확인
 data
 # %%
-#clustering
+# tf-idf 적용
+ 
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+bigram_tfidf_vectorizer=TfidfVectorizer
+trigram_tfidf_vectorizer=TfidfVectorizer
+
+#bigram/ trigram list 형태로 만듦
+bigramText = [" ".join(bigram) for bigram in data['bigram']]
+trigramText = [" ".join(trigram) for trigram in data['trigram']]
+
+#tfidf 진행
+bigram_tfidf_vectorizer = TfidfVectorizer(min_df = 3, ngram_range=(1,1))
+bigram_tfidf_vectorizer.fit(bigramText)
+
+trigram_tfidf_vectorizer = TfidfVectorizer(min_df = 3, ngram_range=(1,1))
+trigram_tfidf_vectorizer.fit(trigramText)
+
+#벡터로 변환
+bigram_vector = bigram_tfidf_vectorizer.transform(bigramText).toarray()
+trigram_vector=trigram_tfidf_vectorizer.transform(trigramText).toarray()
+
+
+# %%
+# k-means clustering
 
 from sklearn.cluster import KMeans
 
+bigram_dataList=[]
+for vectorList in bigram_vector:
+    bigram_dataList.append(vectorList.tolist())
 
-dataList=[]
-for vectorList in data['wv']:
-    dataList.append(vectorList.tolist())
+trigram_dataList=[]
+for vectorList in trigram_vector:
+    trigram_dataList.append(vectorList.tolist())
 
 num_clusters = 10
 
-
 k_means_clustering = KMeans(n_clusters=num_clusters)
-idx = k_means_clustering.fit_predict(dataList)
-data['category']=idx
+
+bigram_idx = k_means_clustering.fit_predict(bigram_dataList)
+trigram_idx = k_means_clustering.fit_predict(trigram_dataList)
+
+data['category_bigram']=bigram_idx
+data['category_trigram']=trigram_idx
+
 
 # %%
 #Embedding & 시각화
@@ -115,10 +108,10 @@ import pickle
 
 #%%
 #차원축소
-X = data['wv'].tolist()
-y = data['category'].tolist()
+X = bigram_vector.tolist()
+y = data['category_bigram'].tolist()
 
-tsne_filepath = 'tnse3000.pkl'
+tsne_filepath = 'tnse3000(n-gram).pkl'
 
 # File Cache
 if not os.path.exists(tsne_filepath):
@@ -150,7 +143,7 @@ colormap = {i: colors[i] for i in tsne_df['cluster_number'].unique()}
 
 # Create a list of colors for each value that we will be looking at.
 colors = [colormap[x] for x in tsne_df['cluster_number']]
-# %%
+
 tsne_df['color']=colors
 # %%
 # Bokeh Datasouce 만들기
