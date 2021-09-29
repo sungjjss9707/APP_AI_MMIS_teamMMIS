@@ -18,8 +18,6 @@ class DeductionPage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            DeductionCount(),
-            SizedBox(height: 20),
             DeductionCalendar(),
           ],
         ),
@@ -92,6 +90,8 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
     return Expanded(
       child: ListView(
         children: [
+          DeductionCount(),
+          SizedBox(height: 20),
           TableCalendar(
             rangeSelectionMode: _rangeSelectionMode,
             calendarFormat: _calendarFormat,
@@ -108,7 +108,16 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
           SizedBox(height: 10),
           NoMenuText(
               _selectedDay!.year, _selectedDay!.month, _selectedDay!.day),
-          ...getEventsForDay(_selectedDay!).map((value) {
+          ...List.generate(
+              loadDayMenuExistence(_selectedDay!.year, _selectedDay!.month,
+                      _selectedDay!.day)
+                  .length, (index) {
+            if (loadDayMenuExistence(_selectedDay!.year, _selectedDay!.month,
+                    _selectedDay!.day)[index] ==
+                0) {
+              return SizedBox();
+            }
+            List<String> notEatingTimes = calDeduction()[0][_selectedDay];
             return Column(
               children: [
                 Container(
@@ -123,11 +132,23 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
                         final month = _selectedDay!.month;
                         final day = _selectedDay!.day;
                         String date = transformToDateForm(year, month, day);
-                        removeUserNotEating(date, value);
+                        if (notEatingTimes.contains(times[index])) {
+                          removeUserNotEating(date, times[index]);
+                        } else {
+                          addUserNotEating(date, times[index]);
+                        }
                       });
                     },
-                    title: Text("$value 불취식 취소",
-                        style: TextStyle(fontSize: 20, color: Colors.blue)),
+                    title: Text(
+                        "${times[index]} " +
+                            (notEatingTimes.contains(times[index])
+                                ? "불취식 취소"
+                                : "불취식 신청"),
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: notEatingTimes.contains(times[index])
+                                ? Colors.blue
+                                : Colors.red)),
                   ),
                 ),
                 SizedBox(height: 10),
