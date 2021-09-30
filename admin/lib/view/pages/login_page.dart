@@ -6,7 +6,7 @@ import 'package:admin/view/pages/join_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'home_page.dart';
+import 'frame_page.dart';
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -47,7 +47,7 @@ class LoginPage extends StatelessWidget {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           ////////////////////////////////////////////////일단 true로 넣었는데 로그인 성공할때만 if문 통과해야함
-                          Get.to(HomePage());
+                          Get.to(FramePage());
                         }
                       },
                     ),

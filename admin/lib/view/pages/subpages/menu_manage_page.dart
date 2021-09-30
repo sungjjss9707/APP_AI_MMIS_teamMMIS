@@ -31,21 +31,17 @@ class _MenuManagePageState extends State<MenuManagePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: getBodyWidth(context),
-      padding: EdgeInsets.all(gap_xl),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomTitle("메뉴 관리"),
-          Divider(color: Colors.grey),
-          SizedBox(width: gap_l),
-          _buildCalendar(),
-          SizedBox(height: gap_m),
-          MenuInputContainer(date: _selectedDay),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CustomTitle("메뉴 관리"),
+        Divider(color: Colors.grey),
+        SizedBox(width: gap_l),
+        _buildCalendar(),
+        SizedBox(height: gap_m),
+        MenuInputContainer(date: _selectedDay),
+      ],
     );
   }
 

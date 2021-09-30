@@ -9,7 +9,7 @@ const double gap_xs = 5;
 const double header_height = 620;
 
 double getBodyWidth(BuildContext context) {
-  return MediaQuery.of(context).size.width - 200;
+  return MediaQuery.of(context).size.width;
 }
 
 double getMediaQueryWidth(BuildContext context) {

@@ -27,20 +27,16 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: getBodyWidth(context),
-      padding: EdgeInsets.all(gap_xl),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomTitle("식수 인원 관리"),
-          Divider(color: Colors.grey),
-          _buildCalendar(),
-          SizedBox(height: gap_l),
-          CustomPieChart(date: _selectedDay),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CustomTitle("식수 인원 관리"),
+        Divider(color: Colors.grey),
+        _buildCalendar(),
+        SizedBox(height: gap_l),
+        CustomPieChart(date: _selectedDay),
+      ],
     );
   }
 

@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:number_pagination/number_pagination.dart';
 
-import '../../../size.dart';
 import '../../../style.dart';
 
 class SurveyPage extends StatefulWidget {
@@ -30,22 +29,17 @@ class _SurveyPageState extends State<SurveyPage> {
 
   @override
   Widget build(BuildContext context) {
-    double _width = getBodyWidth(context);
-    return Container(
-      width: _width,
-      padding: EdgeInsets.all(gap_xl),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomTitle("설문조사"),
-          Divider(color: Colors.grey),
-          _contentHeader(),
-          _noticeList(context),
-          _buildNewSurveyButton(),
-          _numberPagination(),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CustomTitle("설문조사"),
+        Divider(color: Colors.grey),
+        _contentHeader(),
+        _noticeList(context),
+        _buildNewSurveyButton(),
+        _numberPagination(),
+      ],
     );
   }
 

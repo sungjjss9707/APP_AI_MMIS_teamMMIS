@@ -6,7 +6,6 @@ import 'package:admin/view/components/home/customTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:number_pagination/number_pagination.dart';
 
-import '../../../size.dart';
 import '../../../style.dart';
 
 class SuggestionPage extends StatefulWidget {
@@ -26,21 +25,16 @@ class _SuggestionPageState extends State<SuggestionPage> {
 
   @override
   Widget build(BuildContext context) {
-    double _width = getBodyWidth(context);
-    return Container(
-      width: _width,
-      padding: EdgeInsets.all(gap_xl),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomTitle("건의사항 관리"),
-          Divider(color: Colors.grey),
-          _contentHeader(),
-          _noticeList(context),
-          _numberPagination(),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CustomTitle("건의사항 관리"),
+        Divider(color: Colors.grey),
+        _contentHeader(),
+        _noticeList(context),
+        _numberPagination(),
+      ],
     );
   }
 
