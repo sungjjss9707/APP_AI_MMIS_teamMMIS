@@ -6,15 +6,13 @@ import 'package:get/get.dart';
 import '../../../size.dart';
 
 class SurveyTitleFormField extends StatelessWidget {
-  final double width;
   final titleController = TextEditingController();
   final explainController = TextEditingController();
   final funValidate;
 
-  SurveyTitleFormField({required this.width, this.funValidate});
+  SurveyTitleFormField({this.funValidate});
   @override
   Widget build(BuildContext context) {
-    SurveyController s = Get.find();
     titleController.text = "제목없는 설문지";
     explainController.text = "설명";
     return Container(

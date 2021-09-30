@@ -1,41 +1,39 @@
-import 'dart:html';
-
-import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/style.dart';
 import 'package:admin/view/components/survey/multipleChoice.dart';
 import 'package:admin/view/components/survey/short_answer.dart';
 import 'package:admin/view/components/survey/single_choice.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../size.dart';
 
 class SurveyQuestionFormField extends StatefulWidget {
   final funValidate;
   int index;
+
+  bool isCompulsory = false;
   SurveyQuestionFormField({Key? key, required this.index, this.funValidate})
       : super(key: key);
 
   @override
-  _SurveyQuestionFormFieldState createState() =>
-      _SurveyQuestionFormFieldState();
+  SurveyQuestionFormFieldState createState() => SurveyQuestionFormFieldState();
 }
 
-class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
-  final _questionController = TextEditingController();
+class SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
   int? _selectedValue;
-  late bool _isCompulsory;
-  List? _data;
+  final questionController = TextEditingController();
+  SingleChoice singleChoice = SingleChoice(
+    key: UniqueKey(),
+  );
+  MultipleChoice multipleChoice = MultipleChoice();
+  ShortAnswer shortAnswer = ShortAnswer();
   @override
   void initState() {
     _selectedValue = 1;
-    _isCompulsory = true;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    print(_data);
     return Container(
       margin: EdgeInsets.symmetric(vertical: gap_s),
       decoration: BoxDecoration(
@@ -49,23 +47,23 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
           children: [
             _questionAndDropdown(),
             _selectedValue == 1
-                ? SingleChoice()
+                ? singleChoice
                 : _selectedValue == 2
-                    ? MultipleChoice()
-                    : ShortAnswer(),
+                    ? multipleChoice
+                    : shortAnswer,
             Row(
               children: [
                 Spacer(),
                 Text("필수"),
                 SizedBox(width: gap_s),
                 Switch(
-                  value: _isCompulsory,
+                  value: widget.isCompulsory,
                   onChanged: (value) {
                     setState(() {
-                      if (_isCompulsory == true)
-                        _isCompulsory = false;
+                      if (widget.isCompulsory == true)
+                        widget.isCompulsory = false;
                       else
-                        _isCompulsory = true;
+                        widget.isCompulsory = true;
                     });
                   },
                 )
@@ -83,7 +81,7 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
         Expanded(
           child: TextFormField(
             style: h5(),
-            controller: _questionController,
+            controller: questionController,
             decoration: InputDecoration(
               hintText: "질문",
               enabledBorder: UnderlineInputBorder(
@@ -122,5 +120,12 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
         ),
       ],
     );
+  }
+
+  List getData() {
+    if (_selectedValue == 1) {
+      return singleChoice.createState().getData();
+    }
+    return [];
   }
 }

@@ -16,7 +16,10 @@ class CreateSurveyPage extends StatefulWidget {
 
 class _CreateSurveyPageState extends State<CreateSurveyPage> {
   SurveyController s = Get.put(SurveyController());
+  late SurveyTitleFormField surveyTitleFormField;
   List<SurveyQuestionFormField> _questionList = [];
+  RxBool upload = false.obs;
+
   @override
   void initState() {
     _questionList.add(
@@ -26,13 +29,14 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
         funValidate: validateTitle(),
       ),
     );
+    surveyTitleFormField = SurveyTitleFormField();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     double _width = getMediaQueryWidth(context);
-    double _surveyTileWidth = _width * 0.4;
+
     return Scaffold(
       body: ListView(
         children: [
@@ -49,7 +53,10 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                     CustomTitle("설문조사 생성"),
                     Spacer(),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _getTitleData();
+                        _getQuestionData();
+                      },
                       child: Text("올리기"),
                     ),
                     SizedBox(width: gap_m),
@@ -63,13 +70,8 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                 ),
                 Divider(color: Colors.grey),
                 Column(
-                  children: <Widget>[
-                        SurveyTitleFormField(
-                          width: _surveyTileWidth,
-                          funValidate: validateTitle(),
-                        ),
-                      ] +
-                      _buildQuestionList(),
+                  children:
+                      <Widget>[surveyTitleFormField] + _buildQuestionList(),
                 ),
               ],
             ),
@@ -77,6 +79,18 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
         ],
       ),
     );
+  }
+
+  void _getTitleData() {
+    print(surveyTitleFormField.titleController.text);
+    print(surveyTitleFormField.explainController.text);
+  }
+
+  void _getQuestionData() {
+    print('1');
+    for (SurveyQuestionFormField i in _questionList) {
+      print(i.createState().getData());
+    }
   }
 
   void _addSurveyQuestionFormField() {

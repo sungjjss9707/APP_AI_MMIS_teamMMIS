@@ -5,26 +5,30 @@ import 'package:flutter/material.dart';
 import '../../../size.dart';
 
 class SingleChoice extends StatefulWidget {
+  const SingleChoice({Key? key}) : super(key: key);
   @override
-  _SingleChoiceState createState() => _SingleChoiceState();
+  SingleChoiceState createState() => SingleChoiceState();
 }
 
-class _SingleChoiceState extends State<SingleChoice> {
+class SingleChoiceState extends State<SingleChoice> {
   final List<ChoiceFormField> choices = [];
   @override
   void initState() {
-    choices.add(
-      ChoiceFormField(index: 0),
-    );
-    choices.add(
-      ChoiceFormField(index: 1),
-    );
-    choices.add(
-      ChoiceFormField(index: 2),
-    );
-    choices.add(
-      ChoiceFormField(index: 3),
-    );
+    choices.addAll([
+      ChoiceFormField(
+        index: 0,
+      ),
+      ChoiceFormField(
+        index: 1,
+      ),
+      ChoiceFormField(
+        index: 2,
+      ),
+      ChoiceFormField(
+        index: 3,
+      ),
+    ]);
+
     super.initState();
   }
 
@@ -76,23 +80,22 @@ class _SingleChoiceState extends State<SingleChoice> {
   void _singleChoiceFormFieldAdd() {
     setState(() {
       choices.add(ChoiceFormField(index: choices.length));
+      // controllers.add(TextEditingController());
     });
   }
 
   void _singleChoiceFormFieldRemove(int index) {
     setState(() {
       choices.removeAt(index);
+      // controllers.removeAt(index);
       for (ChoiceFormField i in choices) {
         i.index = choices.indexOf(i);
       }
     });
   }
 
-  // List getOptionData(int index) {
-  //   List optionData = [];
-  //   for (ChoiceFormField i in choices) {
-  //     optionData.add(i.controller.text.trim());
-  //   }
-  //   return optionData;
-  // }
+  List<String> getData() {
+    print('3');
+    return choices.map((e) => e.controller.text).toList();
+  }
 }
