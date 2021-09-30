@@ -2,7 +2,7 @@
 
 
 # MMIS (군 급식 정보 체계)
-![Logo](https://logosbynick.com/wp-content/uploads/2018/03/final-logo-example.png)
+![Logo](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/horizontal_on_white_by_logaster.png)
 
 
 ## 프로잭트 소개
