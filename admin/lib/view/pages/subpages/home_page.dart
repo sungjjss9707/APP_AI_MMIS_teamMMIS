@@ -1,4 +1,5 @@
-import 'package:admin/view/components/home/customTitle.dart';
+import 'package:admin/size.dart';
+import 'package:admin/style.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,7 +9,42 @@ class HomePage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomTitle("홈"),
+        Container(
+          height: 600,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("food.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Align(
+            child: Opacity(
+              opacity: 0.7,
+              child: Container(
+                padding: EdgeInsets.all(gap_m),
+                width: 800,
+                height: 400,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey[300],
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      "MMIS 군 급식 정보 체계",
+                      style: h4(),
+                    ),
+                    Divider(),
+                    Text(
+                      "군 급식 정보 체계 관리자 홈페이지에 오신 것을 환영합니다. 부대원들에게 최고의 급식을 제공하기 위한 플랫폼입니다.",
+                      style: h5(),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }

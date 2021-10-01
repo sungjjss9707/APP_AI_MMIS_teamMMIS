@@ -2,12 +2,16 @@ import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/home/customTitle.dart';
-import 'package:admin/view/components/home/home_header.dart';
+
 import 'package:admin/view/components/survey/survey_question_form_field.dart';
 import 'package:admin/view/components/survey/survey_title_form_field.dart';
+import 'package:admin/view/pages/frame_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../style.dart';
+import '../login_page.dart';
 
 class CreateSurveyPage extends StatefulWidget {
   @override
@@ -38,9 +42,34 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
     double _width = getMediaQueryWidth(context);
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: InkWell(
+          onTap: () {
+            Get.offAll(() => FramePage());
+          },
+          child: Text(
+            "MMIS",
+            style: h4(),
+          ),
+        ),
+        actions: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  Get.offAll(() => LoginPage());
+                },
+                child: Text("로그아웃", style: h5()),
+              ),
+            ],
+          ),
+          SizedBox(width: gap_s),
+        ],
+      ),
       body: ListView(
         children: [
-          HomeHeader(),
           Container(
             width: _width,
             padding: EdgeInsets.all(gap_xl),

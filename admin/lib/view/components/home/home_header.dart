@@ -2,7 +2,7 @@ import 'package:admin/size.dart';
 
 import 'package:flutter/material.dart';
 
-class HomeHeader extends StatelessWidget {
+class HomeBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

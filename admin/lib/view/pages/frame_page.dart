@@ -71,14 +71,14 @@ class _FramePageState extends State<FramePage> {
             child: ListView(
               children: [
                 //HomeHeader(),
-                Align(
-                  child: SizedBox(
-                    width: openSideBar == true ? _width - 200 : _width,
-                    child: Padding(
-                      padding: const EdgeInsets.all(gap_xl),
-                      child: pageList[_selectedTapIndex],
-                    ),
-                  ),
+                SizedBox(
+                  width: openSideBar == true ? _width - 200 : _width,
+                  child: _selectedTapIndex == 0
+                      ? pageList[_selectedTapIndex]
+                      : Padding(
+                          padding: const EdgeInsets.all(gap_xl),
+                          child: pageList[_selectedTapIndex],
+                        ),
                 ),
               ],
             ),
@@ -144,7 +144,7 @@ class _FramePageState extends State<FramePage> {
                 _selectedTapIndex = index;
               });
             },
-            tileColor: Colors.lightGreen[400],
+            // tileColor: Colors.lightGreen[400],
             leading: pageIcon[index],
             title: Text(
               sideMenuBarList[index],

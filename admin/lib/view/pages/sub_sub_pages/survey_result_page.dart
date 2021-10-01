@@ -1,9 +1,14 @@
 import 'package:admin/model/survey.dart';
 import 'package:admin/size.dart';
 import 'package:admin/view/components/home/customTitle.dart';
-import 'package:admin/view/components/home/home_header.dart';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+
+import '../../../style.dart';
+import '../frame_page.dart';
+import '../login_page.dart';
 
 class SurveyResultPage extends StatelessWidget {
   final String title;
@@ -19,9 +24,34 @@ class SurveyResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: InkWell(
+          onTap: () {
+            Get.offAll(() => FramePage());
+          },
+          child: Text(
+            "MMIS",
+            style: h4(),
+          ),
+        ),
+        actions: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  Get.offAll(() => LoginPage());
+                },
+                child: Text("로그아웃", style: h5()),
+              ),
+            ],
+          ),
+          SizedBox(width: gap_s),
+        ],
+      ),
       body: ListView(
         children: [
-          HomeHeader(),
           Container(
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.all(gap_xl),
