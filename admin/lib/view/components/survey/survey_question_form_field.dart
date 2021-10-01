@@ -9,26 +9,28 @@ import '../../../size.dart';
 class SurveyQuestionFormField extends StatefulWidget {
   final funValidate;
   int index;
+  final questionController = TextEditingController();
+  SingleChoice? choiceType;
 
   bool isCompulsory = false;
   SurveyQuestionFormField({Key? key, required this.index, this.funValidate})
       : super(key: key);
 
   @override
-  SurveyQuestionFormFieldState createState() => SurveyQuestionFormFieldState();
+  _SurveyQuestionFormFieldState createState() =>
+      _SurveyQuestionFormFieldState();
 }
 
-class SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
+class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
   int? _selectedValue;
-  final questionController = TextEditingController();
-  SingleChoice singleChoice = SingleChoice(
-    key: UniqueKey(),
-  );
+
+  SingleChoice singleChoice = SingleChoice();
   MultipleChoice multipleChoice = MultipleChoice();
   ShortAnswer shortAnswer = ShortAnswer();
   @override
   void initState() {
     _selectedValue = 1;
+    widget.choiceType = singleChoice;
     super.initState();
   }
 
@@ -81,7 +83,7 @@ class SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
         Expanded(
           child: TextFormField(
             style: h5(),
-            controller: questionController,
+            controller: widget.questionController,
             decoration: InputDecoration(
               hintText: "질문",
               enabledBorder: UnderlineInputBorder(
@@ -100,6 +102,12 @@ class SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
           onChanged: (int? value) {
             setState(() {
               _selectedValue = value;
+              if (_selectedValue == 1)
+                widget.choiceType = singleChoice;
+              else if (_selectedValue == 2)
+                widget.choiceType = singleChoice;
+              else
+                widget.choiceType = singleChoice;
             });
           },
           value: _selectedValue,
@@ -120,12 +128,5 @@ class SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
         ),
       ],
     );
-  }
-
-  List getData() {
-    if (_selectedValue == 1) {
-      return singleChoice.createState().getData();
-    }
-    return [];
   }
 }

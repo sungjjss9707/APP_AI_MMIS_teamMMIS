@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import '../../../size.dart';
 
 class SingleChoice extends StatefulWidget {
-  const SingleChoice({Key? key}) : super(key: key);
+  final List<TextEditingController> textEditingControllers = [];
+  SingleChoice({Key? key}) : super(key: key);
   @override
   SingleChoiceState createState() => SingleChoiceState();
 }
@@ -14,17 +15,25 @@ class SingleChoiceState extends State<SingleChoice> {
   final List<ChoiceFormField> choices = [];
   @override
   void initState() {
+    widget.textEditingControllers.add(TextEditingController());
+    widget.textEditingControllers.add(TextEditingController());
+    widget.textEditingControllers.add(TextEditingController());
+    widget.textEditingControllers.add(TextEditingController());
     choices.addAll([
       ChoiceFormField(
+        controller: widget.textEditingControllers[0],
         index: 0,
       ),
       ChoiceFormField(
+        controller: widget.textEditingControllers[1],
         index: 1,
       ),
       ChoiceFormField(
+        controller: widget.textEditingControllers[2],
         index: 2,
       ),
       ChoiceFormField(
+        controller: widget.textEditingControllers[3],
         index: 3,
       ),
     ]);
@@ -79,7 +88,13 @@ class SingleChoiceState extends State<SingleChoice> {
 
   void _singleChoiceFormFieldAdd() {
     setState(() {
-      choices.add(ChoiceFormField(index: choices.length));
+      widget.textEditingControllers.add(TextEditingController());
+      choices.add(
+        ChoiceFormField(
+          index: choices.length,
+          controller: widget.textEditingControllers[choices.length],
+        ),
+      );
       // controllers.add(TextEditingController());
     });
   }
@@ -87,15 +102,11 @@ class SingleChoiceState extends State<SingleChoice> {
   void _singleChoiceFormFieldRemove(int index) {
     setState(() {
       choices.removeAt(index);
+      widget.textEditingControllers.removeAt(index);
       // controllers.removeAt(index);
       for (ChoiceFormField i in choices) {
         i.index = choices.indexOf(i);
       }
     });
-  }
-
-  List<String> getData() {
-    print('3');
-    return choices.map((e) => e.controller.text).toList();
   }
 }

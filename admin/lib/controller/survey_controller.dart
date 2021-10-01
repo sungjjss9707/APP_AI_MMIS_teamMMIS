@@ -1,7 +1,13 @@
+import 'package:admin/view/components/survey/survey_question_form_field.dart';
 import 'package:get/get.dart';
 
 class SurveyController extends GetxController {
-  RxString? title;
-  RxString? explain;
-  RxList<RxMap>? questions;
+  RxString? title = "".obs;
+  RxString? explain = "".obs;
+  RxList<SurveyQuestionFormField> questions = <SurveyQuestionFormField>[].obs;
+}
+
+class Question {
+  String? title;
+  List<String> choices = [];
 }

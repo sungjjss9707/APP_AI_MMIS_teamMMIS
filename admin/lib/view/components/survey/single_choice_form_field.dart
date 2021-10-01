@@ -5,10 +5,10 @@ import '../../../style.dart';
 
 class ChoiceFormField extends StatelessWidget {
   int? index;
-  final controller = TextEditingController();
+  final controller;
   final bool? enabled;
 
-  ChoiceFormField({this.index, this.enabled});
+  ChoiceFormField({this.index, this.enabled, this.controller});
 
   @override
   Widget build(BuildContext context) {

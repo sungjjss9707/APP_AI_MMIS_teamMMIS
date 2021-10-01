@@ -2,6 +2,7 @@ import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/home/customTitle.dart';
+import 'package:admin/view/components/survey/single_choice.dart';
 
 import 'package:admin/view/components/survey/survey_question_form_field.dart';
 import 'package:admin/view/components/survey/survey_title_form_field.dart';
@@ -21,18 +22,16 @@ class CreateSurveyPage extends StatefulWidget {
 class _CreateSurveyPageState extends State<CreateSurveyPage> {
   SurveyController s = Get.put(SurveyController());
   late SurveyTitleFormField surveyTitleFormField;
-  List<SurveyQuestionFormField> _questionList = [];
-  RxBool upload = false.obs;
 
   @override
   void initState() {
-    _questionList.add(
+    s.questions.add(
       SurveyQuestionFormField(
-        key: UniqueKey(),
         index: 0,
         funValidate: validateTitle(),
       ),
     );
+
     surveyTitleFormField = SurveyTitleFormField();
     super.initState();
   }
@@ -40,7 +39,6 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
   @override
   Widget build(BuildContext context) {
     double _width = getMediaQueryWidth(context);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -83,8 +81,23 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                     Spacer(),
                     ElevatedButton(
                       onPressed: () {
-                        _getTitleData();
-                        _getQuestionData();
+                        s.title!.value =
+                            surveyTitleFormField.titleController.text;
+                        s.explain!.value =
+                            surveyTitleFormField.explainController.text;
+                        print("--------");
+                        print(s.title);
+                        print(s.explain);
+                        for (SurveyQuestionFormField i in s.questions) {
+                          print(i.questionController.text);
+                          print(i.isCompulsory);
+                          print(i.choiceType);
+                          for (TextEditingController j
+                              in i.choiceType!.textEditingControllers) {
+                            print(j.text);
+                          }
+                        }
+                        print("-----");
                       },
                       child: Text("올리기"),
                     ),
@@ -110,39 +123,27 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
     );
   }
 
-  void _getTitleData() {
-    print(surveyTitleFormField.titleController.text);
-    print(surveyTitleFormField.explainController.text);
-  }
-
-  void _getQuestionData() {
-    print('1');
-    for (SurveyQuestionFormField i in _questionList) {
-      print(i.createState().getData());
-    }
-  }
-
   void _addSurveyQuestionFormField() {
     setState(() {
-      _questionList.add(SurveyQuestionFormField(
-          key: UniqueKey(), index: _questionList.length));
+      s.questions.add(
+          SurveyQuestionFormField(key: UniqueKey(), index: s.questions.length));
     });
   }
 
   void _removeSurveyQuestionFormField(int index) {
     setState(() {
-      _questionList.removeAt(index);
-      for (SurveyQuestionFormField i in _questionList) {
-        i.index = _questionList.indexOf(i);
+      s.questions.removeAt(index);
+      for (SurveyQuestionFormField i in s.questions) {
+        i.index = s.questions.indexOf(i);
       }
     });
   }
 
   List<Widget> _buildQuestionList() {
-    return List.generate(_questionList.length, (index) {
+    return List.generate(s.questions.length, (index) {
       return Column(
         children: [
-          _questionList[index],
+          s.questions[index],
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
