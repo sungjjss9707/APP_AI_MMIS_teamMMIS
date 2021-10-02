@@ -15,6 +15,7 @@ class SingleChoiceState extends State<SingleChoice> {
   final List<ChoiceFormField> choices = [];
   @override
   void initState() {
+    widget.textEditingControllers.clear();
     widget.textEditingControllers.add(TextEditingController());
     widget.textEditingControllers.add(TextEditingController());
     widget.textEditingControllers.add(TextEditingController());

@@ -2,7 +2,6 @@ import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/home/customTitle.dart';
-import 'package:admin/view/components/survey/single_choice.dart';
 
 import 'package:admin/view/components/survey/survey_question_form_field.dart';
 import 'package:admin/view/components/survey/survey_title_form_field.dart';
@@ -15,6 +14,7 @@ import '../../../style.dart';
 import '../login_page.dart';
 
 class CreateSurveyPage extends StatefulWidget {
+  const CreateSurveyPage({Key? key}) : super(key: key);
   @override
   _CreateSurveyPageState createState() => _CreateSurveyPageState();
 }
@@ -25,6 +25,7 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
 
   @override
   void initState() {
+    s.questions.clear();
     s.questions.add(
       SurveyQuestionFormField(
         index: 0,
@@ -85,16 +86,21 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                             surveyTitleFormField.titleController.text;
                         s.explain!.value =
                             surveyTitleFormField.explainController.text;
-                        print("--------");
+                        print("----------");
                         print(s.title);
                         print(s.explain);
+                        print("s.questions : ${s.questions.length}");
                         for (SurveyQuestionFormField i in s.questions) {
                           print(i.questionController.text);
                           print(i.isCompulsory);
-                          print(i.choiceType);
-                          for (TextEditingController j
-                              in i.choiceType!.textEditingControllers) {
-                            print(j.text);
+                          print("int ${i.selectedValue}");
+                          if (i.selectedValue == 1) {
+                            print(i.singleChoice);
+                            print(i.singleChoice.textEditingControllers.length);
+                            for (TextEditingController j
+                                in i.singleChoice.textEditingControllers) {
+                              print(j.text);
+                            }
                           }
                         }
                         print("-----");
