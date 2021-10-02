@@ -1,6 +1,8 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const mysql = require('mysql');
+const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
@@ -21,6 +23,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+const connection =   mysql.createPool({
+    user:'admin',
+    password:'05751234',
+    database: 'MMIS',
+    host:'mmis.cip9531xqh6o.ap-northeast-2.rds.amazonaws.com',
+});
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
