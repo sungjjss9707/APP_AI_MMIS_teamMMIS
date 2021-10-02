@@ -7,7 +7,7 @@ class SurveyController extends GetxController {
   RxList<SurveyQuestionFormField> questions = <SurveyQuestionFormField>[].obs;
 }
 
-class Question {
-  String? title;
-  List<String> choices = [];
+class QuestionType<T> {
+  T? type;
+  QuestionType(this.type);
 }
