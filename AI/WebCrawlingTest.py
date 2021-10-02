@@ -1,20 +1,46 @@
 #%%
 import pandas as pd
+from pandas.core.frame import DataFrame
 import requests
 from bs4 import BeautifulSoup
+import Levenshtein as lev
 
 # %%
-all_menu = pd.read_csv("All Menu (Various Versions)/ 국방부메뉴_v1.0.csv", index_col=0)
-all_menu
+# 검색 결과 불러오기
+search_result = pd.read_csv("Web Crawling Data/메뉴검색결과.csv", index_col=0)
+search_result
 
-#%%
+# %%
+# 정규 표현식을 통한 한글 외 문자 제거
+search_result['검색결과'] = search_result['검색결과'].str.replace("[^ㄱ-ㅎㅏ-ㅣ가-힣 ]","")
+search_result
+
+# %%
+# Levenshtein 거리를 사용하여 단어 두개의 비슷함을 측정하여 테이블에 추가합니다.
+lev_ratio = []
+for index, row in search_result.iterrows():
+    lev_ratio.append(lev.ratio(str(row['메뉴이름']), str(row['검색결과'])))
+search_result['Lev Ratio'] = lev_ratio
+search_result
+
+# %%
+# 메뉴이름마다 Levenshtein 값이 가장 높은 행를 가져옵니다.
+idx = search_result.groupby(['메뉴이름'])['Lev Ratio'].transform(max) == search_result['Lev Ratio']
+info_data = search_result[idx]
+info_data = info_data.drop_duplicates(subset=['메뉴이름'], keep='first')
+info_data = info_data.reset_index(drop=True)
+info_data
+
+# %%
+# 요청해야하는 URL주소를 가져옵니다.
 urls = []
-for name in all_menu['메뉴이름']:
-    url = 'https://www.fatsecret.kr/%EC%B9%BC%EB%A1%9C%EB%A6%AC-%EC%98%81%EC%96%91%EC%86%8C/search?q=' + str(name)
-    urls.append(url)
-urls 
+for part_url in info_data['URL']:
+    full_url = 'https://www.myfitnesspal.com' + str(part_url)
+    urls.append(full_url)
+urls
 
 # %%
+# 병렬로 10개씩 URL주소를 요청합니다.
 from concurrent.futures import ThreadPoolExecutor
 
 def get_url(url):
@@ -23,101 +49,65 @@ def get_url(url):
 with ThreadPoolExecutor(max_workers=10) as pool:
     response_list = list(pool.map(get_url,urls))
 
-for response in response_list:
-    print(response)
+# %%
+# 영양성분 정보를 가져옵니다.
+def get_nutrition_value(response_content: str) -> list:
+    soup = BeautifulSoup(response_content, 'lxml')
+    # 기준양 (그램)
+    quantity = soup.find("div", {"class": "MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"})
+    quantity = quantity.text
+    # 열량
+    calorie = soup.find("span", {"class": "title-cgZqW"})
+    calorie = calorie.text
+    # 탄수화물, 지방, 단백질
+    carb_fat_protein = soup.find_all("span", {"class": "title-1P2uF"})
+    carb = carb_fat_protein[0].text
+    carb = carb[:-1]
+    fat = carb_fat_protein[1].text
+    fat = fat[:-1]
+    protein = carb_fat_protein[2].text
+    protein = protein[:-1]
+    # 나트륨, 콜레스트롤
+    sodium_cholesterol = soup.find_all("div", {"class": "subtext-2_Vtc"})
+    sodium = sodium_cholesterol[2].text
+    sodium = sodium.split()[0]
+    cholesterol = sodium_cholesterol[3].text
+    cholesterol = cholesterol.split()[0]
+    # 리스트의 형태로 반환합니다.
+    return [quantity, calorie, carb, fat, protein, sodium, cholesterol]
 
 # %%
-def get_link_from_response(response: str) -> str:
-    soup = BeautifulSoup(response, 'lxml')
-    table = soup.find("table", {"class": "generic searchResult"})
-    if not table: return ""
-    row = table.find('tr')
-    link = row.find('a', href = True)
-    link = 'https://www.fatsecret.kr' + link['href']
-    return link
+# 모든 메뉴의 영양성분 정보를 가져옵니다.
+nutrition_value = pd.DataFrame(columns=['메뉴이름', '기준양', '기준열량', '탄수화물', '지방', '단백질', '나트륨', '콜레스트롤'])
+for index, response in enumerate(response_list):
+    nutritions = get_nutrition_value(response.content)
+    nutritions.insert(0, info_data['메뉴이름'][index])
+    nutrition_value = nutrition_value.append(pd.Series(nutritions, index=nutrition_value.columns), ignore_index=True)
+nutrition_value
 
 # %%
-url = urls[0]
-url
+# 현재 메뉴 정보 테이블를 가져옵니다.
+all_menu = pd.read_csv("All Menu (Various Versions)/국방부메뉴_v1.0.csv", index_col=0)
+all_menu
 
 # %%
-response = requests.get(url)
-response
+# 정규 표현식을 통한 한글 외 문자 제거
+all_menu['메뉴이름'] = all_menu['메뉴이름'].str.replace("[^ㄱ-ㅎㅏ-ㅣ가-힣 ]","")
+all_menu
 
 # %%
-soup = BeautifulSoup(response.text, 'lxml')
-soup
+# 영양성분을 테이블에 더해줍니다
+all_menu_with_nutrition = all_menu.merge(nutrition_value, how = 'inner', on = ['메뉴이름'])
+all_menu_with_nutrition
 
 # %%
-table = soup.find("table", {"class": "generic searchResult"})
-# if not table: continue
-table
+# 중복을 제외하고 순번을 재정렬합니다.
+all_menu_with_nutrition = all_menu_with_nutrition.drop_duplicates(subset=['메뉴이름'], keep='first')
+all_menu_with_nutrition = all_menu_with_nutrition.reset_index(drop=True)
+all_menu_with_nutrition
 
 # %%
-row = table.find('tr')
-row
+# 영양성분을 합한 테이블을 저장합니다.
+all_menu_with_nutrition.to_csv("All Menu (Various Versions)/국방부메뉴_v2.0.csv")
 
 # %%
-link = row.find('a', href = True)
-link = 'https://www.fatsecret.kr' + link['href']
-link
-
-# %%
-response = requests.get(link)
-soup = BeautifulSoup(response.content, 'lxml')
-soup
-
-# %%
-section = soup.find("div", {"class": "nutrition_facts international"})
-section
-
-# %%
-serving = section.find("div", {"class": "serving_size black serving_size_value"})
-serving = serving.text
-serving
-
-# %%
-nutrition_list1 = []
-for value in section.find_all("div", {"class": "nutrient black right tRight"}):
-    nutrition_list1.append(value.text)
-nutrition_list1 = nutrition_list1[1:]
-nutrition_list1
-
-# %%
-nutrition_list2 = []
-for value in section.find_all("div", {"class": "nutrient right tRight"}):
-    nutrition_list2.append(value.text)
-del nutrition_list2[1]
-nutrition_list2
-
-# %%
-nutrition_list = nutrition_list1 + nutrition_list2
-nutrition_list.append(serving)
-nutrition_list
-
-# %%
-nutrition_name = ["탄수화물", "단백질", "지방", "열량", "포화지방", "다불포화지방", "불포화지방", "콜레스테롤", "식이섬유", "나트륨", "칼륨", "기준양"]
-nutrition_name
-
-# %%
-url = urls[0]
-url
-
-# %%
-response = requests.get(url)
-response
-
-# %%
-if response.status_code == 200:
-    with open(str(all_menu['메뉴이름'][0]) + "_response.txt", "w") as file:
-        file.write(response.text)
-
-# %%
-with open(str(all_menu['메뉴이름'][0]) + "_response.txt", "r") as file:
-    response_text = file.read()
-response_text
-
-# %%
-soup = BeautifulSoup(response_text, 'lxml')
-soup
-
