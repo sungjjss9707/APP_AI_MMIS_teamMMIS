@@ -109,5 +109,3 @@ all_menu_with_nutrition
 # %%
 # 영양성분을 합한 테이블을 저장합니다.
 all_menu_with_nutrition.to_csv("All Menu (Various Versions)/국방부메뉴_v2.0.csv")
-
-# %%
