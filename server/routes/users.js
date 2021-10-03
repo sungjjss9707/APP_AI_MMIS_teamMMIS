@@ -15,7 +15,7 @@ const connection =   mysql.createPool({
 
 router.get('/', async (req, res) => {
   console.log('GET ALL seq');
-    
+    console.log(req.params, req.query);
     connection.query(`select * from board`, (error, results, fields) => {
 
         if (error) {
@@ -29,9 +29,10 @@ router.get('/', async (req, res) => {
 
 
 router.get('/:seq', async (req, res) => {
+    console.log(`GET ALL ${req.params.seq}`);
   console.log(req.params, req.query);
     
-    connection.query(`select * from board`, (error, results, fields) => {
+    connection.query(`select * from board where seq == ${req.params.seq};`, (error, results, fields) => {
 
         if (error) {
             console.log(error);
