@@ -90,12 +90,12 @@ class _SuggestionPageState extends State<SuggestionPage> {
   }
 
   Widget _noticeList(BuildContext context) {
-    String title;
-    String writer;
-    String date;
-    String content;
     return Column(
       children: List.generate(15, (int index) {
+        String title;
+        String writer;
+        String date;
+        String content;
         index += 15 * (_currentPage - 1);
         try {
           Map notice = _dummyNotice[index];

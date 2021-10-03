@@ -84,7 +84,7 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                       onPressed: () {
                         _getData();
                       },
-                      child: Text("올리기"),
+                      child: Text("생성하기"),
                     ),
                     SizedBox(width: gap_m),
                     ElevatedButton(
