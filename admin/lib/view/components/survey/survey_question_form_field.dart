@@ -59,6 +59,7 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
                 SizedBox(width: gap_s),
                 Switch(
                   value: widget.isCompulsory,
+                  activeColor: Colors.lightGreen,
                   onChanged: (value) {
                     setState(() {
                       if (widget.isCompulsory == true)
@@ -101,12 +102,6 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
           onChanged: (int? value) {
             setState(() {
               widget.selectedValue = value;
-              // if (widget.selectedValue == 1)
-              //   widget.questionType = QuestionType<SingleChoice>(singleChoice);
-              // else if (widget.selectedValue == 2)
-              //   widget.questionType = QuestionType<MultipleChoice>(multipleChoice);
-              // else
-              //   widget.questionType = QuestionType<ShortAnswer>(shortAnswer);
             });
           },
           value: widget.selectedValue,
