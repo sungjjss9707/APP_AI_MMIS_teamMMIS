@@ -14,9 +14,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       localizationsDelegates: [
+        // AssetLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
+      // localeResolutionCallback: (locale, supportedLocales) {
+      //   // Check if the current device locale is supported
+      //   for (var supportedLocale in supportedLocales) {
+      //     if (supportedLocale.languageCode == locale!.languageCode
+      //         /*  && supportedLocale.countryCode == locale.countryCode */
+      //         ) {
+      //       return supportedLocale;
+      //     }
+      //     return supportedLocales.first;
+      //   }
+      // },
       supportedLocales: [
         const Locale('ko', 'KR'),
       ],

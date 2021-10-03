@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:myapp/model/survey.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
 import 'package:myapp/view/components/textfield/custom_text_form_field_search.dart';
+import 'package:myapp/view/pages/subpages/do_survey_page.dart';
 
 class SurveyPage extends StatefulWidget {
   @override
@@ -21,18 +23,14 @@ class _SurveyPageState extends State<SurveyPage> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Form(
-              key: _formKey,
-              child: const CustomTextFormFieldSearch(
-                hint: "제목으로 검색해 보세요.",
-              ),
-            ),
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
                   Survey survey = dummySurvey[index];
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => DoSurveyPage());
+                    },
                     child: ListTile(
                       title: Text(
                         "${survey.title}",
@@ -57,5 +55,3 @@ class _SurveyPageState extends State<SurveyPage> {
     );
   }
 }
-
-class Notice {}
