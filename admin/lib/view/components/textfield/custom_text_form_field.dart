@@ -5,6 +5,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? value;
   final funValidate;
   final controller;
+  final enabled;
   //final String type;
 
   CustomTextFormField({
@@ -12,6 +13,7 @@ class CustomTextFormField extends StatelessWidget {
     this.value,
     this.funValidate,
     this.controller,
+    this.enabled,
   });
 
   @override
@@ -19,6 +21,7 @@ class CustomTextFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 5, bottom: 5),
       child: TextFormField(
+        enabled: enabled,
         controller: controller,
         initialValue: value ?? null, //널이면 빈칸 넣으란 말임
         validator: funValidate,
@@ -28,6 +31,12 @@ class CustomTextFormField extends StatelessWidget {
             borderRadius: BorderRadius.circular(7),
           ),
           focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(7),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(7),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(7),
           ),
         ),

@@ -3,6 +3,7 @@
 import 'package:admin/model/notice.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/dialog/notice_content_dialog.dart';
+import 'package:admin/view/components/dialog/notice_write_dialog.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:number_pagination/number_pagination.dart';
@@ -92,12 +93,12 @@ class _NoticePageState extends State<NoticePage> {
   }
 
   Widget _noticeList(BuildContext context) {
-    String title;
-    String writer;
-    String date;
-    String content;
     return Column(
       children: List.generate(15, (int index) {
+        String title;
+        String writer;
+        String date;
+        String content;
         index += 15 * (_currentPage - 1);
         try {
           Map notice = _dummyNotice[index];
@@ -135,7 +136,7 @@ class _NoticePageState extends State<NoticePage> {
         CustomElevatedButton(
           text: "글쓰기",
           onPressed: () {
-            _showContentDialog(context, "", "");
+            _showWriteDialog(context);
           },
         ),
       ],
@@ -220,6 +221,15 @@ class _NoticePageState extends State<NoticePage> {
           title: title,
           content: content,
         );
+      },
+    );
+  }
+
+  Future<dynamic> _showWriteDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return NoticeWriteDialog();
       },
     );
   }

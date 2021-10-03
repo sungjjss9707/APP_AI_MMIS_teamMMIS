@@ -55,7 +55,7 @@ class _FramePageState extends State<FramePage> {
   @override
   void initState() {
     openSideBar = false;
-    _selectedTapIndex = 0;
+    _selectedTapIndex = 4;
     super.initState();
   }
 

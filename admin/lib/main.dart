@@ -1,3 +1,4 @@
+import 'package:admin/theme.dart';
 import 'package:admin/view/pages/frame_page.dart';
 import 'package:admin/view/pages/sub_sub_pages/create_survey_page.dart';
 
@@ -14,7 +15,8 @@ class Admin extends StatelessWidget {
     return GetMaterialApp(
       title: "admin",
       debugShowCheckedModeBanner: false,
-      home: CreateSurveyPage(),
+      home: FramePage(),
+      theme: themeData,
     );
   }
 }
