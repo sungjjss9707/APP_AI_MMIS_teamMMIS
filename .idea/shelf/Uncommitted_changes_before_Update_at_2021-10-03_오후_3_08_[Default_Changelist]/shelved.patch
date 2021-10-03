@@ -1,0 +1,799 @@
+Index: admin/lib/view/pages/frame_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:admin/style.dart';\nimport 'package:admin/view/pages/login_page.dart';\n\nimport 'package:admin/view/pages/subpages/AI_page.dart';\nimport 'package:admin/view/pages/subpages/home_page.dart';\nimport 'package:admin/view/pages/subpages/manage_the_number_eating_page.dart';\nimport 'package:admin/view/pages/subpages/menu_manage_page.dart';\nimport 'package:admin/view/pages/subpages/notice_page.dart';\nimport 'package:admin/view/pages/subpages/suggestion_page.dart';\nimport 'package:admin/view/pages/subpages/survey_page.dart';\n\nimport 'package:flutter/material.dart';\nimport 'package:font_awesome_flutter/font_awesome_flutter.dart';\nimport 'package:get/get.dart';\n\nimport '../../size.dart';\n\nclass FramePage extends StatefulWidget {\n  @override\n  _FramePageState createState() => _FramePageState();\n}\n\nclass _FramePageState extends State<FramePage> {\n  final List<String> sideMenuBarList = [\n    \"홈\",\n    \"메뉴 관리\",\n    \"식수 인원\",\n    \"공지사항\",\n    \"건의사항\",\n    \"설문조사\",\n    \"AI 실험실\"\n  ];\n\n  final List<Widget> pageList = [\n    HomePage(),\n    MenuManagePage(),\n    ManageTheNumberEatingPage(),\n    NoticePage(),\n    SuggestionPage(),\n    SurveyPage(),\n    AIPage(),\n  ];\n  final List<FaIcon> pageIcon = [\n    FaIcon(Icons.home),\n    FaIcon(Icons.food_bank),\n    FaIcon(Icons.no_food),\n    FaIcon(Icons.campaign),\n    FaIcon(FontAwesomeIcons.exclamationCircle),\n    FaIcon(FontAwesomeIcons.poll),\n    FaIcon(FontAwesomeIcons.robot),\n  ];\n  late bool openSideBar;\n  late int _selectedTapIndex;\n\n  @override\n  void initState() {\n    openSideBar = false;\n    _selectedTapIndex = 0;\n    super.initState();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    final double _width = MediaQuery.of(context).size.width;\n    return Scaffold(\n      appBar: _buildAppBar(),\n      body: Row(\n        children: [\n          openSideBar == true ? _sideMenuBar() : Container(),\n          Expanded(\n            child: ListView(\n              children: [\n                //HomeHeader(),\n                SizedBox(\n                  width: openSideBar == true ? _width - 200 : _width,\n                  child: _selectedTapIndex == 0\n                      ? pageList[_selectedTapIndex]\n                      : Padding(\n                          padding: const EdgeInsets.all(gap_xl),\n                          child: pageList[_selectedTapIndex],\n                        ),\n                ),\n              ],\n            ),\n          ),\n        ],\n      ),\n    );\n  }\n\n  AppBar _buildAppBar() {\n    return AppBar(\n      backgroundColor: Colors.white,\n      leading: IconButton(\n          onPressed: () {\n            setState(() {\n              if (openSideBar == false)\n                openSideBar = true;\n              else\n                openSideBar = false;\n            });\n          },\n          icon: Icon(\n            Icons.menu,\n            color: Colors.black,\n          )),\n      title: InkWell(\n        onTap: () {\n          Get.offAll(() => FramePage());\n        },\n        child: Text(\n          \"MMIS\",\n          style: h4(),\n        ),\n      ),\n      actions: [\n        Column(\n          mainAxisAlignment: MainAxisAlignment.center,\n          children: [\n            InkWell(\n              onTap: () {\n                Get.offAll(() => LoginPage());\n              },\n              child: Text(\"로그아웃\", style: h5()),\n            ),\n          ],\n        ),\n        SizedBox(width: gap_s),\n      ],\n    );\n  }\n\n  Widget _sideMenuBar() {\n    return Column(\n      mainAxisAlignment: MainAxisAlignment.start,\n      children: List.generate(\n        sideMenuBarList.length,\n        (index) => Container(\n          width: 200,\n          height: 50,\n          child: ListTile(\n            onTap: () {\n              setState(() {\n                _selectedTapIndex = index;\n              });\n            },\n            // tileColor: Colors.lightGreen[400],\n            leading: pageIcon[index],\n            title: Text(\n              sideMenuBarList[index],\n              style: TextStyle(fontSize: 20),\n            ),\n          ),\n        ),\n      ),\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/view/pages/frame_page.dart	(revision 73c3e3d2f36e1a53312c9688055c1f72f9460d60)
++++ admin/lib/view/pages/frame_page.dart	(date 1633239352733)
+@@ -55,7 +55,7 @@
+   @override
+   void initState() {
+     openSideBar = false;
+-    _selectedTapIndex = 0;
++    _selectedTapIndex = 4;
+     super.initState();
+   }
+ 
+Index: admin/lib/controller/notice_controller.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/controller/notice_controller.dart	(date 1633241247536)
++++ admin/lib/controller/notice_controller.dart	(date 1633241247536)
+@@ -0,0 +1,3 @@
++import 'package:get/get.dart';
++
++class NoticeController extends GetxController {}
+Index: admin/lib/view/pages/subpages/suggestion_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// 공지사항 관리 페이지\n\nimport 'package:admin/model/notice.dart';\nimport 'package:admin/view/components/dialog/suggestion_content_dialog.dart';\nimport 'package:admin/view/components/home/customTitle.dart';\nimport 'package:flutter/material.dart';\nimport 'package:number_pagination/number_pagination.dart';\n\nimport '../../../style.dart';\n\nclass SuggestionPage extends StatefulWidget {\n  @override\n  _SuggestionPageState createState() => _SuggestionPageState();\n}\n\nclass _SuggestionPageState extends State<SuggestionPage> {\n  late int _currentPage;\n  List<Map> _dummyNotice = dummyNotice;\n\n  @override\n  void initState() {\n    _currentPage = 1;\n    super.initState();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      mainAxisAlignment: MainAxisAlignment.start,\n      crossAxisAlignment: CrossAxisAlignment.start,\n      children: [\n        CustomTitle(\"건의사항 관리\"),\n        Divider(color: Colors.grey),\n        _contentHeader(),\n        _noticeList(context),\n        _numberPagination(),\n      ],\n    );\n  }\n\n  Widget _contentHeader() {\n    return Row(\n      children: [\n        Expanded(\n          flex: 3,\n          child: Container(\n            child: Center(\n              child: Text(\n                \"번호\",\n                style: subtitle1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 10,\n          child: Container(\n            child: Center(\n              child: Text(\n                \"제목\",\n                style: subtitle1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 3,\n          child: Container(\n            child: Center(\n              child: Text(\n                \"작성자\",\n                style: subtitle1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 2,\n          child: Container(\n            child: Center(\n              child: Text(\n                \"작성날짜\",\n                style: subtitle1(),\n              ),\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n\n  Widget _noticeList(BuildContext context) {\n    String title;\n    String writer;\n    String date;\n    String content;\n    return Column(\n      children: List.generate(15, (int index) {\n        index += 15 * (_currentPage - 1);\n        try {\n          Map notice = _dummyNotice[index];\n          title = notice[\"제목\"];\n          writer = notice[\"작성자\"];\n          date = notice[\"작성날짜\"];\n          content = notice[\"내용\"];\n        } catch (e) {\n          title = \"\";\n          writer = \"\";\n          date = \"\";\n          content = \"\";\n        }\n        return Padding(\n          padding: const EdgeInsets.symmetric(vertical: 8.0),\n          child: title != \"\"\n              ? InkWell(\n                  onTap: () {\n                    _showContentDialog(context, title, content);\n                  },\n                  child: _content(index, title, writer, date),\n                )\n              : InkWell(\n                  child: _content(index, title, writer, date),\n                ),\n        );\n      }),\n    );\n  }\n\n  Widget _numberPagination() {\n    return NumberPagination(\n      listner: (int selectedPage) {\n        setState(() {\n          _currentPage = selectedPage;\n        });\n      },\n      totalPage: _dummyNotice.length % 15 == 0\n          ? _dummyNotice.length ~/ 15\n          : _dummyNotice.length ~/ 15 + 1,\n      currentPage: _currentPage,\n    );\n  }\n\n  Row _content(int index, String title, String writer, String date) {\n    return Row(\n      children: [\n        Expanded(\n          flex: 3,\n          child: Container(\n            height: 30,\n            child: Center(\n              child: Text(\n                title == \"\" ? \"\" : \"${index + 1}\",\n                style: body1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 10,\n          child: Container(\n            height: 30,\n            child: Center(\n              child: Text(\n                \"$title\",\n                style: body1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 3,\n          child: Container(\n            height: 30,\n            child: Center(\n              child: Text(\n                \"$writer\",\n                style: body1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 2,\n          child: Container(\n            height: 30,\n            child: Center(\n              child: Text(\n                \"$date\",\n                style: body1(),\n              ),\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n\n  Future<dynamic> _showContentDialog(\n      BuildContext context, String title, String content) {\n    return showDialog(\n      context: context,\n      builder: (context) {\n        return SuggestionContentDialog(title: title, content: content);\n      },\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/view/pages/subpages/suggestion_page.dart	(revision 73c3e3d2f36e1a53312c9688055c1f72f9460d60)
++++ admin/lib/view/pages/subpages/suggestion_page.dart	(date 1633237881322)
+@@ -90,12 +90,12 @@
+   }
+ 
+   Widget _noticeList(BuildContext context) {
+-    String title;
+-    String writer;
+-    String date;
+-    String content;
+-    return Column(
+-      children: List.generate(15, (int index) {
++    return Column(
++      children: List.generate(15, (int index) {
++        String title;
++        String writer;
++        String date;
++        String content;
+         index += 15 * (_currentPage - 1);
+         try {
+           Map notice = _dummyNotice[index];
+Index: admin/lib/view/components/textfield/custom_text_form_field.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\n\nclass CustomTextFormField extends StatelessWidget {\n  final String? hint;\n  final String? value;\n  final funValidate;\n  final controller;\n  //final String type;\n\n  CustomTextFormField({\n    this.hint,\n    this.value,\n    this.funValidate,\n    this.controller,\n  });\n\n  @override\n  Widget build(BuildContext context) {\n    return Padding(\n      padding: const EdgeInsets.only(top: 5, bottom: 5),\n      child: TextFormField(\n        controller: controller,\n        initialValue: value ?? null, //널이면 빈칸 넣으란 말임\n        validator: funValidate,\n        decoration: InputDecoration(\n          hintText: \"$hint\", //이렇게 넣는게 더 좋음 걍 힌트 하지말고\n          enabledBorder: OutlineInputBorder(\n            borderRadius: BorderRadius.circular(7),\n          ),\n          focusedBorder: OutlineInputBorder(\n            borderRadius: BorderRadius.circular(7),\n          ),\n        ),\n      ),\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/view/components/textfield/custom_text_form_field.dart	(revision 73c3e3d2f36e1a53312c9688055c1f72f9460d60)
++++ admin/lib/view/components/textfield/custom_text_form_field.dart	(date 1633235956630)
+@@ -5,6 +5,7 @@
+   final String? value;
+   final funValidate;
+   final controller;
++  final enabled;
+   //final String type;
+ 
+   CustomTextFormField({
+@@ -12,6 +13,7 @@
+     this.value,
+     this.funValidate,
+     this.controller,
++    this.enabled,
+   });
+ 
+   @override
+@@ -19,6 +21,7 @@
+     return Padding(
+       padding: const EdgeInsets.only(top: 5, bottom: 5),
+       child: TextFormField(
++        enabled: enabled,
+         controller: controller,
+         initialValue: value ?? null, //널이면 빈칸 넣으란 말임
+         validator: funValidate,
+@@ -29,6 +32,12 @@
+           ),
+           focusedBorder: OutlineInputBorder(
+             borderRadius: BorderRadius.circular(7),
++          ),
++          errorBorder: OutlineInputBorder(
++            borderRadius: BorderRadius.circular(7),
++          ),
++          focusedErrorBorder: OutlineInputBorder(
++            borderRadius: BorderRadius.circular(7),
+           ),
+         ),
+       ),
+Index: admin/lib/main.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:admin/view/pages/frame_page.dart';\nimport 'package:admin/view/pages/sub_sub_pages/create_survey_page.dart';\n\nimport 'package:flutter/material.dart';\nimport 'package:get/get.dart';\n\nvoid main() {\n  runApp(Admin());\n}\n\nclass Admin extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return GetMaterialApp(\n      title: \"admin\",\n      debugShowCheckedModeBanner: false,\n      home: CreateSurveyPage(),\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/main.dart	(revision 73c3e3d2f36e1a53312c9688055c1f72f9460d60)
++++ admin/lib/main.dart	(date 1633233741008)
+@@ -1,3 +1,4 @@
++import 'package:admin/theme.dart';
+ import 'package:admin/view/pages/frame_page.dart';
+ import 'package:admin/view/pages/sub_sub_pages/create_survey_page.dart';
+ 
+@@ -14,7 +15,8 @@
+     return GetMaterialApp(
+       title: "admin",
+       debugShowCheckedModeBanner: false,
+-      home: CreateSurveyPage(),
++      home: FramePage(),
++      theme: themeData,
+     );
+   }
+ }
+Index: admin/lib/view/components/textfield/custom_writing_area.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\n\nclass CustomWritingArea extends StatelessWidget {\n  final String? hint;\n  final funValidate;\n  final String? value;\n  final controller;\n\n  const CustomWritingArea(\n      {this.hint, required this.funValidate, this.value, this.controller});\n  @override\n  Widget build(BuildContext context) {\n    return Padding(\n      padding: const EdgeInsets.symmetric(vertical: 5),\n      child: TextFormField(\n        maxLines: 15,\n        initialValue: value,\n        validator: funValidate,\n        controller: controller,\n        decoration: InputDecoration(\n            hintText: \"Enter $hint\",\n            enabledBorder: OutlineInputBorder(\n              borderRadius: BorderRadius.circular(5),\n            ),\n            errorBorder: OutlineInputBorder(\n              borderRadius: BorderRadius.circular(5),\n            ),\n            focusedBorder: OutlineInputBorder(\n              borderRadius: BorderRadius.circular(1),\n            ),\n            focusedErrorBorder: OutlineInputBorder(\n              borderRadius: BorderRadius.circular(5),\n            )),\n      ),\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/view/components/textfield/custom_writing_area.dart	(revision 73c3e3d2f36e1a53312c9688055c1f72f9460d60)
++++ admin/lib/view/components/textfield/custom_writing_area.dart	(date 1633239620392)
+@@ -3,34 +3,40 @@
+ class CustomWritingArea extends StatelessWidget {
+   final String? hint;
+   final funValidate;
+-  final String? value;
+   final controller;
++  final enabled;
++  final maxLines;
+ 
+   const CustomWritingArea(
+-      {this.hint, required this.funValidate, this.value, this.controller});
++      {this.hint,
++      required this.funValidate,
++      this.controller,
++      this.enabled,
++      this.maxLines = 15});
+   @override
+   Widget build(BuildContext context) {
+     return Padding(
+       padding: const EdgeInsets.symmetric(vertical: 5),
+       child: TextFormField(
+-        maxLines: 15,
+-        initialValue: value,
++        maxLines: maxLines,
++        enabled: enabled,
+         validator: funValidate,
+         controller: controller,
+         decoration: InputDecoration(
+-            hintText: "Enter $hint",
+-            enabledBorder: OutlineInputBorder(
+-              borderRadius: BorderRadius.circular(5),
+-            ),
+-            errorBorder: OutlineInputBorder(
+-              borderRadius: BorderRadius.circular(5),
+-            ),
+-            focusedBorder: OutlineInputBorder(
+-              borderRadius: BorderRadius.circular(1),
+-            ),
+-            focusedErrorBorder: OutlineInputBorder(
+-              borderRadius: BorderRadius.circular(5),
+-            )),
++          hintText: "Enter $hint",
++          enabledBorder: OutlineInputBorder(
++            borderRadius: BorderRadius.circular(5),
++          ),
++          errorBorder: OutlineInputBorder(
++            borderRadius: BorderRadius.circular(5),
++          ),
++          focusedBorder: OutlineInputBorder(
++            borderRadius: BorderRadius.circular(1),
++          ),
++          focusedErrorBorder: OutlineInputBorder(
++            borderRadius: BorderRadius.circular(5),
++          ),
++        ),
+       ),
+     );
+   }
+Index: admin/lib/view/pages/subpages/notice_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// 공지사항 관리 페이지\n\nimport 'package:admin/model/notice.dart';\nimport 'package:admin/view/components/button/custom_elevated_button.dart';\nimport 'package:admin/view/components/dialog/notice_content_dialog.dart';\nimport 'package:admin/view/components/home/customTitle.dart';\nimport 'package:flutter/material.dart';\nimport 'package:number_pagination/number_pagination.dart';\n\nimport '../../../style.dart';\n\nclass NoticePage extends StatefulWidget {\n  @override\n  _NoticePageState createState() => _NoticePageState();\n}\n\nclass _NoticePageState extends State<NoticePage> {\n  late int _currentPage;\n  List<Map> _dummyNotice = dummyNotice;\n\n  @override\n  void initState() {\n    _currentPage = 1;\n    super.initState();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      mainAxisAlignment: MainAxisAlignment.start,\n      crossAxisAlignment: CrossAxisAlignment.start,\n      children: [\n        CustomTitle(\"공지사항 관리\"),\n        Divider(color: Colors.grey),\n        _contentHeader(),\n        _noticeList(context),\n        _buildWriteButton(context),\n        _numberPagination(),\n      ],\n    );\n  }\n\n  Row _contentHeader() {\n    return Row(\n      children: [\n        Expanded(\n          flex: 3,\n          child: Container(\n            child: Center(\n              child: Text(\n                \"번호\",\n                style: subtitle1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 10,\n          child: Container(\n            child: Center(\n              child: Text(\n                \"제목\",\n                style: subtitle1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 3,\n          child: Container(\n            child: Center(\n              child: Text(\n                \"작성자\",\n                style: subtitle1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 2,\n          child: Container(\n            child: Center(\n              child: Text(\n                \"작성날짜\",\n                style: subtitle1(),\n              ),\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n\n  Widget _noticeList(BuildContext context) {\n    String title;\n    String writer;\n    String date;\n    String content;\n    return Column(\n      children: List.generate(15, (int index) {\n        index += 15 * (_currentPage - 1);\n        try {\n          Map notice = _dummyNotice[index];\n          title = notice[\"제목\"];\n          writer = notice[\"작성자\"];\n          date = notice[\"작성날짜\"];\n          content = notice[\"내용\"];\n        } catch (e) {\n          title = \"\";\n          writer = \"\";\n          date = \"\";\n          content = \"\";\n        }\n        return Padding(\n          padding: const EdgeInsets.symmetric(vertical: 8.0),\n          child: title != \"\"\n              ? InkWell(\n                  onTap: () {\n                    _showContentDialog(context, title, content);\n                  },\n                  child: _content(index, title, writer, date),\n                )\n              : InkWell(\n                  child: _content(index, title, writer, date),\n                ),\n        );\n      }),\n    );\n  }\n\n  Widget _buildWriteButton(BuildContext context) {\n    return Row(\n      children: [\n        Spacer(),\n        CustomElevatedButton(\n          text: \"글쓰기\",\n          onPressed: () {\n            _showContentDialog(context, \"\", \"\");\n          },\n        ),\n      ],\n    );\n  }\n\n  Widget _numberPagination() {\n    return NumberPagination(\n      listner: (int selectedPage) {\n        setState(() {\n          _currentPage = selectedPage;\n        });\n      },\n      totalPage: _dummyNotice.length % 15 == 0\n          ? _dummyNotice.length ~/ 15\n          : _dummyNotice.length ~/ 15 + 1,\n      currentPage: _currentPage,\n    );\n  }\n\n  Row _content(int index, String title, String writer, String date) {\n    return Row(\n      children: [\n        Expanded(\n          flex: 3,\n          child: Container(\n            height: 30,\n            child: Center(\n              child: Text(\n                title == \"\" ? \"\" : \"${index + 1}\",\n                style: body1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 10,\n          child: Container(\n            height: 30,\n            child: Center(\n              child: Text(\n                \"$title\",\n                style: body1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 3,\n          child: Container(\n            height: 30,\n            child: Center(\n              child: Text(\n                \"$writer\",\n                style: body1(),\n              ),\n            ),\n          ),\n        ),\n        Expanded(\n          flex: 2,\n          child: Container(\n            height: 30,\n            child: Center(\n              child: Text(\n                \"$date\",\n                style: body1(),\n              ),\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n\n  Future<dynamic> _showContentDialog(\n      BuildContext context, String title, String content) {\n    return showDialog(\n      context: context,\n      builder: (context) {\n        return NoticeContentDialog(\n          title: title,\n          content: content,\n        );\n      },\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/view/pages/subpages/notice_page.dart	(revision 73c3e3d2f36e1a53312c9688055c1f72f9460d60)
++++ admin/lib/view/pages/subpages/notice_page.dart	(date 1633236643104)
+@@ -3,6 +3,7 @@
+ import 'package:admin/model/notice.dart';
+ import 'package:admin/view/components/button/custom_elevated_button.dart';
+ import 'package:admin/view/components/dialog/notice_content_dialog.dart';
++import 'package:admin/view/components/dialog/notice_write_dialog.dart';
+ import 'package:admin/view/components/home/customTitle.dart';
+ import 'package:flutter/material.dart';
+ import 'package:number_pagination/number_pagination.dart';
+@@ -92,12 +93,12 @@
+   }
+ 
+   Widget _noticeList(BuildContext context) {
+-    String title;
+-    String writer;
+-    String date;
+-    String content;
+-    return Column(
+-      children: List.generate(15, (int index) {
++    return Column(
++      children: List.generate(15, (int index) {
++        String title;
++        String writer;
++        String date;
++        String content;
+         index += 15 * (_currentPage - 1);
+         try {
+           Map notice = _dummyNotice[index];
+@@ -135,7 +136,7 @@
+         CustomElevatedButton(
+           text: "글쓰기",
+           onPressed: () {
+-            _showContentDialog(context, "", "");
++            _showWriteDialog(context);
+           },
+         ),
+       ],
+@@ -223,4 +224,13 @@
+       },
+     );
+   }
++
++  Future<dynamic> _showWriteDialog(BuildContext context) {
++    return showDialog(
++      context: context,
++      builder: (context) {
++        return NoticeWriteDialog();
++      },
++    );
++  }
+ }
+Index: admin/lib/theme.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/theme.dart	(date 1633233601242)
++++ admin/lib/theme.dart	(date 1633233601242)
+@@ -0,0 +1,24 @@
++import 'package:flutter/material.dart';
++
++ThemeData themeData = ThemeData(
++  backgroundColor: Colors.white,
++  elevatedButtonTheme: ElevatedButtonThemeData(
++    style: ButtonStyle(
++      backgroundColor: MaterialStateProperty.resolveWith((states) {
++        if (states.contains(MaterialState.pressed)) {
++          return Colors.lightGreen[500];
++        } else {
++          return Colors.lightGreen[400];
++        }
++      }),
++    ),
++  ),
++  textButtonTheme: TextButtonThemeData(
++    style: TextButton.styleFrom(
++      primary: Colors.lightGreen[500],
++    ),
++  ),
++  // iconTheme: IconThemeData(
++  //   color: Colors.lightGreen[400],
++  // ),
++);
+Index: admin/lib/view/components/dialog/notice_write_dialog.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/view/components/dialog/notice_write_dialog.dart	(date 1633239459717)
++++ admin/lib/view/components/dialog/notice_write_dialog.dart	(date 1633239459717)
+@@ -0,0 +1,76 @@
++import 'package:admin/util/validators.dart';
++import 'package:admin/view/components/button/custom_elevated_button.dart';
++import 'package:admin/view/components/textfield/custom_text_form_field.dart';
++import 'package:admin/view/components/textfield/custom_writing_area.dart';
++import 'package:flutter/material.dart';
++
++import '../../../size.dart';
++
++class NoticeWriteDialog extends StatefulWidget {
++  @override
++  _NoticeWriteDialogState createState() => _NoticeWriteDialogState();
++}
++
++class _NoticeWriteDialogState extends State<NoticeWriteDialog> {
++  final TextEditingController _titleController = TextEditingController();
++  final TextEditingController _contentController = TextEditingController();
++  final bool enabled = true;
++  final _formKey = GlobalKey<FormState>();
++
++  @override
++  Widget build(BuildContext context) {
++    return SimpleDialog(
++      contentPadding: EdgeInsets.all(32),
++      children: [
++        Container(
++          width: 500,
++          height: 500,
++          child: Form(
++            key: _formKey,
++            child: Column(
++              children: [
++                CustomTextFormField(
++                  enabled: enabled,
++                  controller: _titleController,
++                  hint: "제목",
++                  funValidate: validateTitle(),
++                ),
++                CustomWritingArea(
++                  enabled: enabled,
++                  controller: _contentController,
++                  hint: "내용",
++                  funValidate: validateContent(),
++                ),
++                Spacer(),
++                Row(
++                  mainAxisAlignment: MainAxisAlignment.end,
++                  children: [
++                    Padding(
++                      padding: const EdgeInsets.only(right: gap_s),
++                      child: CustomElevatedButton(
++                        text: "게시하기",
++                        onPressed: () {
++                          //여기서 게시하면 됨.
++                          String title = _titleController.text;
++                          String content = _contentController.text;
++                          print(title);
++                          print(content);
++                        },
++                      ),
++                    ),
++                    CustomElevatedButton(
++                      text: "닫기",
++                      onPressed: () {
++                        Navigator.pop(context);
++                      },
++                    ),
++                  ],
++                )
++              ],
++            ),
++          ),
++        ),
++      ],
++    );
++  }
++}
+Index: admin/lib/view/components/dialog/suggestion_content_dialog.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:admin/util/validators.dart';\nimport 'package:admin/view/components/button/custom_elevated_button.dart';\nimport 'package:admin/view/components/textfield/custom_text_form_field.dart';\nimport 'package:admin/view/components/textfield/custom_writing_area.dart';\nimport 'package:flutter/material.dart';\n\nimport '../../../size.dart';\n\nclass SuggestionContentDialog extends StatelessWidget {\n  final String title;\n  final String content;\n  final TextEditingController _titleController = TextEditingController();\n  final TextEditingController _contentController = TextEditingController();\n  SuggestionContentDialog({required this.title, required this.content});\n\n  @override\n  Widget build(BuildContext context) {\n    return SimpleDialog(\n      contentPadding: EdgeInsets.all(32),\n      children: [\n        Container(\n          width: 500,\n          height: 500,\n          child: Column(\n            children: [\n              CustomTextFormField(\n                controller: _titleController,\n                hint: \"제목\",\n                funValidate: validateTitle(),\n              ),\n              CustomWritingArea(\n                controller: _contentController,\n                hint: \"내용\",\n                funValidate: validateContent(),\n              ),\n              Spacer(),\n              Row(\n                mainAxisAlignment: MainAxisAlignment.end,\n                children: [\n                  SizedBox(width: gap_s),\n                  CustomElevatedButton(\n                    text: \"삭제\",\n                    onPressed: () {\n                      Navigator.pop(context);\n                    },\n                  ),\n                  SizedBox(width: gap_s),\n                  CustomElevatedButton(\n                    text: \"닫기\",\n                    onPressed: () {\n                      Navigator.pop(context);\n                    },\n                  ),\n                ],\n              )\n            ],\n          ),\n        ),\n      ],\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/view/components/dialog/suggestion_content_dialog.dart	(revision 73c3e3d2f36e1a53312c9688055c1f72f9460d60)
++++ admin/lib/view/components/dialog/suggestion_content_dialog.dart	(date 1633241079704)
+@@ -6,12 +6,30 @@
+ 
+ import '../../../size.dart';
+ 
+-class SuggestionContentDialog extends StatelessWidget {
++class SuggestionContentDialog extends StatefulWidget {
+   final String title;
+   final String content;
++
++  SuggestionContentDialog({required this.title, required this.content});
++
++  @override
++  _SuggestionContentDialog createState() => _SuggestionContentDialog();
++}
++
++class _SuggestionContentDialog extends State<SuggestionContentDialog> {
+   final TextEditingController _titleController = TextEditingController();
+   final TextEditingController _contentController = TextEditingController();
+-  SuggestionContentDialog({required this.title, required this.content});
++  final TextEditingController _commentController = TextEditingController();
++
++  final bool enabled = false;
++  final _formKey = GlobalKey<FormState>();
++
++  @override
++  void initState() {
++    _titleController.text = widget.title;
++    _contentController.text = widget.content;
++    super.initState();
++  }
+ 
+   @override
+   Widget build(BuildContext context) {
+@@ -20,42 +38,99 @@
+       children: [
+         Container(
+           width: 500,
+-          height: 500,
+-          child: Column(
+-            children: [
+-              CustomTextFormField(
+-                controller: _titleController,
+-                hint: "제목",
+-                funValidate: validateTitle(),
+-              ),
+-              CustomWritingArea(
+-                controller: _contentController,
+-                hint: "내용",
+-                funValidate: validateContent(),
+-              ),
+-              Spacer(),
+-              Row(
+-                mainAxisAlignment: MainAxisAlignment.end,
+-                children: [
+-                  SizedBox(width: gap_s),
+-                  CustomElevatedButton(
+-                    text: "삭제",
+-                    onPressed: () {
+-                      Navigator.pop(context);
+-                    },
+-                  ),
+-                  SizedBox(width: gap_s),
+-                  CustomElevatedButton(
+-                    text: "닫기",
+-                    onPressed: () {
+-                      Navigator.pop(context);
+-                    },
+-                  ),
+-                ],
+-              )
+-            ],
+-          ),
+-        ),
++          child: Form(
++            key: _formKey,
++            child: Column(
++              children: [
++                CustomTextFormField(
++                  enabled: enabled,
++                  controller: _titleController,
++                  hint: "제목",
++                  funValidate: validateTitle(),
++                ),
++                CustomWritingArea(
++                  enabled: enabled,
++                  controller: _contentController,
++                  hint: "내용",
++                  funValidate: validateContent(),
++                ),
++                _writtenComments(),
++                _writeComment(),
++                Row(
++                  mainAxisAlignment: MainAxisAlignment.end,
++                  children: [
++                    Padding(
++                      padding: const EdgeInsets.only(right: gap_s),
++                      child: CustomElevatedButton(
++                        text: "삭제",
++                        onPressed: () {
++                          // 건의사항 삭제
++                        },
++                      ),
++                    ),
++                    CustomElevatedButton(
++                      text: "닫기",
++                      onPressed: () {
++                        Navigator.pop(context);
++                      },
++                    ),
++                  ],
++                )
++              ],
++            ),
++          ),
++        ),
++      ],
++    );
++  }
++
++  Column _writtenComments() {
++    return Column(
++      children: List.generate(
++        1,
++        (index) => Row(
++          children: [
++            Expanded(
++              child: CustomWritingArea(
++                maxLines: 2,
++                enabled: false,
++                hint: "답변",
++                funValidate: validateContent(),
++              ),
++            ),
++            SizedBox(width: gap_xs),
++            TextButton(
++              onPressed: () {},
++              child: Text("수정"),
++            ),
++            SizedBox(width: gap_xs),
++            TextButton(
++              onPressed: () {},
++              child: Text("삭제"),
++            ),
++          ],
++        ),
++      ),
++    );
++  }
++
++  Widget _writeComment() {
++    return Row(
++      children: [
++        Expanded(
++          child: CustomWritingArea(
++            maxLines: 2,
++            enabled: true,
++            controller: _commentController,
++            hint: "답변",
++            funValidate: validateContent(),
++          ),
++        ),
++        SizedBox(width: gap_xs),
++        CustomElevatedButton(
++          text: "등록",
++          onPressed: () {},
++        )
+       ],
+     );
+   }
+Index: admin/lib/view/pages/sub_sub_pages/create_survey_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:admin/controller/survey_controller.dart';\nimport 'package:admin/size.dart';\nimport 'package:admin/util/validators.dart';\nimport 'package:admin/view/components/home/customTitle.dart';\n\nimport 'package:admin/view/components/survey/survey_question_form_field.dart';\nimport 'package:admin/view/components/survey/survey_title_form_field.dart';\nimport 'package:admin/view/pages/frame_page.dart';\nimport 'package:flutter/cupertino.dart';\nimport 'package:flutter/material.dart';\nimport 'package:get/get.dart';\n\nimport '../../../style.dart';\nimport '../login_page.dart';\n\nclass CreateSurveyPage extends StatefulWidget {\n  const CreateSurveyPage({Key? key}) : super(key: key);\n  @override\n  _CreateSurveyPageState createState() => _CreateSurveyPageState();\n}\n\nclass _CreateSurveyPageState extends State<CreateSurveyPage> {\n  SurveyController s = Get.put(SurveyController());\n  late SurveyTitleFormField surveyTitleFormField;\n\n  @override\n  void initState() {\n    s.questions.clear();\n    s.questions.add(\n      SurveyQuestionFormField(\n        index: 0,\n        funValidate: validateTitle(),\n      ),\n    );\n\n    surveyTitleFormField = SurveyTitleFormField();\n    super.initState();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    double _width = getMediaQueryWidth(context);\n    return Scaffold(\n      appBar: AppBar(\n        backgroundColor: Colors.white,\n        title: InkWell(\n          onTap: () {\n            Get.offAll(() => FramePage());\n          },\n          child: Text(\n            \"MMIS\",\n            style: h4(),\n          ),\n        ),\n        actions: [\n          Column(\n            mainAxisAlignment: MainAxisAlignment.center,\n            children: [\n              InkWell(\n                onTap: () {\n                  Get.offAll(() => LoginPage());\n                },\n                child: Text(\"로그아웃\", style: h5()),\n              ),\n            ],\n          ),\n          SizedBox(width: gap_s),\n        ],\n      ),\n      body: ListView(\n        children: [\n          Container(\n            width: _width,\n            padding: EdgeInsets.all(gap_xl),\n            child: Column(\n              crossAxisAlignment: CrossAxisAlignment.center,\n              mainAxisAlignment: MainAxisAlignment.start,\n              children: [\n                Row(\n                  children: [\n                    CustomTitle(\"설문조사 생성\"),\n                    Spacer(),\n                    ElevatedButton(\n                      onPressed: () {\n                        _getData();\n                      },\n                      child: Text(\"올리기\"),\n                    ),\n                    SizedBox(width: gap_m),\n                    ElevatedButton(\n                      onPressed: () {\n                        Get.back();\n                      },\n                      child: Text(\"목록\"),\n                    ),\n                  ],\n                ),\n                Divider(color: Colors.grey),\n                Column(\n                  children: <Widget>[\n                        surveyTitleFormField,\n                        _addAndRemoveQuestionForTitle(),\n                      ] +\n                      _buildQuestionList(),\n                ),\n              ],\n            ),\n          )\n        ],\n      ),\n    );\n  }\n\n  void _getData() {\n    s.title!.value = surveyTitleFormField.titleController.text;\n    s.explain!.value = surveyTitleFormField.explainController.text;\n    print(\"----------\");\n    print(s.title);\n    print(s.explain);\n    print(\"s.questions : ${s.questions.length}\");\n    for (SurveyQuestionFormField i in s.questions) {\n      print(i.questionController.text);\n      print(i.isCompulsory);\n      print(\"int ${i.selectedValue}\");\n      if (i.selectedValue == 1) {\n        print(i.singleChoice);\n        print(i.singleChoice.textEditingControllers.length);\n        for (TextEditingController j in i.singleChoice.textEditingControllers) {\n          print(j.text);\n        }\n      } else if (i.selectedValue == 2) {\n        print(i.multipleChoice);\n        print(i.multipleChoice.textEditingControllers.length);\n        for (TextEditingController j\n            in i.multipleChoice.textEditingControllers) {\n          print(j.text);\n        }\n      }\n    }\n    print(\"-----\");\n  }\n\n  void _addSurveyQuestionFormField() {\n    setState(() {\n      s.questions.add(\n          SurveyQuestionFormField(key: UniqueKey(), index: s.questions.length));\n    });\n  }\n\n  void _removeSurveyQuestionFormField(int index) {\n    setState(() {\n      s.questions.removeAt(index);\n      for (SurveyQuestionFormField i in s.questions) {\n        i.index = s.questions.indexOf(i);\n      }\n    });\n  }\n\n  List<Widget> _buildQuestionList() {\n    return List.generate(s.questions.length, (index) {\n      return Column(\n        children: [s.questions[index], _addAndRemoveQuestion(index)],\n      );\n    });\n  }\n\n  Widget _addAndRemoveQuestionForTitle() {\n    return Row(\n      mainAxisAlignment: MainAxisAlignment.center,\n      children: [\n        IconButton(\n          icon: Icon(Icons.add),\n          onPressed: () {\n            _addSurveyQuestionFormField();\n          },\n        ),\n      ],\n    );\n  }\n\n  Widget _addAndRemoveQuestion(int index) {\n    return Row(\n      mainAxisAlignment: MainAxisAlignment.center,\n      children: [\n        IconButton(\n          icon: Icon(Icons.add),\n          onPressed: () {\n            _addSurveyQuestionFormField();\n          },\n        ),\n        IconButton(\n          icon: Icon(Icons.delete),\n          onPressed: () {\n            _removeSurveyQuestionFormField(index);\n          },\n        )\n      ],\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/view/pages/sub_sub_pages/create_survey_page.dart	(revision 73c3e3d2f36e1a53312c9688055c1f72f9460d60)
++++ admin/lib/view/pages/sub_sub_pages/create_survey_page.dart	(date 1633237536105)
+@@ -84,7 +84,7 @@
+                       onPressed: () {
+                         _getData();
+                       },
+-                      child: Text("올리기"),
++                      child: Text("생성하기"),
+                     ),
+                     SizedBox(width: gap_m),
+                     ElevatedButton(
+Index: admin/lib/view/components/dialog/notice_content_dialog.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:admin/util/validators.dart';\r\nimport 'package:admin/view/components/button/custom_elevated_button.dart';\r\nimport 'package:admin/view/components/textfield/custom_text_form_field.dart';\r\nimport 'package:admin/view/components/textfield/custom_writing_area.dart';\r\nimport 'package:flutter/material.dart';\r\n\r\nimport '../../../size.dart';\r\n\r\nclass NoticeContentDialog extends StatelessWidget {\r\n  final String title;\r\n  final String content;\r\n  final TextEditingController _titleController = TextEditingController();\r\n  final TextEditingController _contentController = TextEditingController();\r\n  NoticeContentDialog({required this.title, required this.content});\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return SimpleDialog(\r\n      contentPadding: EdgeInsets.all(32),\r\n      children: [\r\n        Container(\r\n          width: 500,\r\n          height: 500,\r\n          child: Column(\r\n            children: [\r\n              CustomTextFormField(\r\n                controller: _titleController,\r\n                hint: \"제목\",\r\n                funValidate: validateTitle(),\r\n              ),\r\n              CustomWritingArea(\r\n                controller: _contentController,\r\n                hint: \"내용\",\r\n                funValidate: validateContent(),\r\n              ),\r\n              Spacer(),\r\n              Row(\r\n                mainAxisAlignment: MainAxisAlignment.end,\r\n                children: [\r\n                  CustomElevatedButton(\r\n                    text: \"수정\",\r\n                    onPressed: () {\r\n                      if (_titleController.text != title ||\r\n                          _contentController.text != content) {\r\n                        // 여기서 글을 수정된 내용을 서버로 통신.\r\n                        String newTitle = _titleController.text;\r\n                        String content = _contentController.text;\r\n                      }\r\n                    },\r\n                  ),\r\n                  SizedBox(width: gap_s),\r\n                  CustomElevatedButton(\r\n                    text: \"삭제\",\r\n                    onPressed: () {\r\n                      Navigator.pop(context);\r\n                    },\r\n                  ),\r\n                  SizedBox(width: gap_s),\r\n                  CustomElevatedButton(\r\n                    text: \"닫기\",\r\n                    onPressed: () {\r\n                      Navigator.pop(context);\r\n                    },\r\n                  ),\r\n                ],\r\n              )\r\n            ],\r\n          ),\r\n        ),\r\n      ],\r\n    );\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/view/components/dialog/notice_content_dialog.dart	(revision 73c3e3d2f36e1a53312c9688055c1f72f9460d60)
++++ admin/lib/view/components/dialog/notice_content_dialog.dart	(date 1633235813494)
+@@ -6,12 +6,29 @@
+ 
+ import '../../../size.dart';
+ 
+-class NoticeContentDialog extends StatelessWidget {
++class NoticeContentDialog extends StatefulWidget {
+   final String title;
+   final String content;
++
++  NoticeContentDialog({required this.title, required this.content});
++
++  @override
++  _NoticeContentDialogState createState() => _NoticeContentDialogState();
++}
++
++class _NoticeContentDialogState extends State<NoticeContentDialog> {
+   final TextEditingController _titleController = TextEditingController();
+   final TextEditingController _contentController = TextEditingController();
+-  NoticeContentDialog({required this.title, required this.content});
++  late bool enabled;
++  final _formKey = GlobalKey<FormState>();
++
++  @override
++  void initState() {
++    _titleController.text = widget.title;
++    _contentController.text = widget.content;
++    enabled = false;
++    super.initState();
++  }
+ 
+   @override
+   Widget build(BuildContext context) {
+@@ -21,50 +38,81 @@
+         Container(
+           width: 500,
+           height: 500,
+-          child: Column(
+-            children: [
+-              CustomTextFormField(
+-                controller: _titleController,
+-                hint: "제목",
+-                funValidate: validateTitle(),
+-              ),
+-              CustomWritingArea(
+-                controller: _contentController,
+-                hint: "내용",
+-                funValidate: validateContent(),
+-              ),
+-              Spacer(),
+-              Row(
+-                mainAxisAlignment: MainAxisAlignment.end,
+-                children: [
+-                  CustomElevatedButton(
+-                    text: "수정",
+-                    onPressed: () {
+-                      if (_titleController.text != title ||
+-                          _contentController.text != content) {
+-                        // 여기서 글을 수정된 내용을 서버로 통신.
+-                        String newTitle = _titleController.text;
+-                        String content = _contentController.text;
+-                      }
+-                    },
+-                  ),
+-                  SizedBox(width: gap_s),
+-                  CustomElevatedButton(
+-                    text: "삭제",
+-                    onPressed: () {
+-                      Navigator.pop(context);
+-                    },
+-                  ),
+-                  SizedBox(width: gap_s),
+-                  CustomElevatedButton(
+-                    text: "닫기",
+-                    onPressed: () {
+-                      Navigator.pop(context);
+-                    },
+-                  ),
+-                ],
+-              )
+-            ],
++          child: Form(
++            key: _formKey,
++            child: Column(
++              children: [
++                CustomTextFormField(
++                  enabled: enabled,
++                  controller: _titleController,
++                  hint: "제목",
++                  funValidate: validateTitle(),
++                ),
++                CustomWritingArea(
++                  enabled: enabled,
++                  controller: _contentController,
++                  hint: "내용",
++                  funValidate: validateContent(),
++                ),
++                Spacer(),
++                Row(
++                  mainAxisAlignment: MainAxisAlignment.end,
++                  children: [
++                    enabled == false
++                        ? Padding(
++                            padding: const EdgeInsets.only(right: gap_s),
++                            child: CustomElevatedButton(
++                              text: "수정하기",
++                              onPressed: () {
++                                setState(() {
++                                  enabled = true;
++                                });
++                              },
++                            ),
++                          )
++                        : Padding(
++                            padding: const EdgeInsets.only(right: gap_s),
++                            child: CustomElevatedButton(
++                              text: "수정완료",
++                              onPressed: () {
++                                if (_formKey.currentState!.validate()) {
++                                  if (_titleController.text != widget.title ||
++                                      _contentController.text !=
++                                          widget.content) {
++                                    // 여기서 글을 수정된 내용을 서버로 통신. 요청
++                                    String newTitle = _titleController.text;
++                                    String newContent = _contentController.text;
++                                    print("title $newTitle");
++                                    print("content $newContent");
++                                  }
++                                  setState(() {
++                                    enabled = false;
++                                  });
++                                }
++                              },
++                            ),
++                          ),
++                    enabled == false
++                        ? Padding(
++                            padding: const EdgeInsets.only(right: gap_s),
++                            child: CustomElevatedButton(
++                              text: "삭제",
++                              onPressed: () {
++                                Navigator.pop(context);
++                              },
++                            ),
++                          )
++                        : Container(),
++                    CustomElevatedButton(
++                      text: "닫기",
++                      onPressed: () {
++                        Navigator.pop(context);
++                      },
++                    ),
++                  ],
++                )
++              ],
++            ),
+           ),
+         ),
+       ],
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"NONE\" />\n  </component>\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"BRANCH:main\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </select>\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e\" name=\"Default Changelist\" comment=\"설문조사 생성 만드는 중\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/admin/lib/view/components/survey/multipleChoice.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/admin/lib/view/components/survey/multipleChoice.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/admin/lib/view/components/survey/single_choice.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/admin/lib/view/components/survey/single_choice.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"device_and_snapshot_combo_box_target[]\" />\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Dart File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitSEFilterConfiguration\">\n    <file-type-list>\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\n      <filtered-out-file-type name=\"TAG\" />\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\n    </file-type-list>\n  </component>\n  <component name=\"ProjectId\" id=\"1y2hunPBSVi8eVQ03IidzeIslyE\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"android.sdk.path\" value=\"$USER_HOME$/AppData/Local/Android/Sdk\" />\n    <property name=\"dart.analysis.tool.window.visible\" value=\"false\" />\n    <property name=\"io.flutter.reload.alreadyRun\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/admin/assets\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"dart.settings\" />\n    <property name=\"show.migrate.to.gradle.popup\" value=\"false\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\admin\\assets\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\admin\\lib\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS_real\\admin\\lib\\view\\pages\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\admin\\lib\\view\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\admin\\lib\\pages\\sub_sub_pages\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\admin\\assets\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\admin\\lib\\components\\menu_manage\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"main.dart\" type=\"FlutterRunConfigurationType\" factoryName=\"Flutter\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"filePath\" value=\"$PROJECT_DIR$/myapp/lib/main.dart\" />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Flutter.main.dart\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1631455816789</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1631455816789</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"9월 13일\">\n      <created>1631513931129</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631513931129</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"불취식 관리 더 해야 됨.\">\n      <created>1631525998050</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631525998050</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨.\">\n      <created>1631528414343</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631528414343</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"date_functions 수정 중. &gt; menu box 디자인 수정\">\n      <created>1631618221985</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631618221985</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"관리자 페이지 생성 9월 16일\">\n      <created>1631774127235</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631774127235</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"관리자 페이지 생성 9월 16일\">\n      <created>1631774249805</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631774249805</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"설문조사 하는 중\">\n      <created>1632480328182</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1632480328182</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"설문조사 하는 중\">\n      <created>1632548787146</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1632548787146</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"admin파일 정리\">\n      <created>1632667309041</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1632667309041</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"admin파일 정리\">\n      <created>1632667341237</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1632667341237</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"설문조사 생성 만드는 중\">\n      <created>1632737154419</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1632737154419</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"설문조사 생성 만드는 중\">\n      <created>1633003408114</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633003408114</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"13\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\n                <map>\n                  <entry key=\"Show.Git.Branches\" value=\"true\" />\n                </map>\n              </option>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"main\" />\n                      </list>\n                    </value>\n                  </entry>\n                  <entry key=\"user\">\n                    <value>\n                      <list>\n                        <option value=\"*\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"RECENT_FILTERS\">\n      <map>\n        <entry key=\"Branch\">\n          <value>\n            <list>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"origin/yunho_admin\" />\n                </option>\n              </RecentGroup>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"origin/main\" />\n                </option>\n              </RecentGroup>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"origin/yunho\" />\n                </option>\n              </RecentGroup>\n            </list>\n          </value>\n        </entry>\n        <entry key=\"User\">\n          <value>\n            <list>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"*\" />\n                </option>\n              </RecentGroup>\n            </list>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"9월 13일\" />\n    <MESSAGE value=\"불취식 관리 더 해야 됨.\" />\n    <MESSAGE value=\"불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨.\" />\n    <MESSAGE value=\"date_functions 수정 중. &gt; menu box 디자인 수정\" />\n    <MESSAGE value=\"관리자 페이지 생성\" />\n    <MESSAGE value=\"관리자 페이지 생성 9월 16일\" />\n    <MESSAGE value=\"공제페이지 달력 추가(손 보는 중)\" />\n    <MESSAGE value=\"설문조사 하는 중\" />\n    <MESSAGE value=\"admin파일 정리\" />\n    <MESSAGE value=\"설문조사 생성 만드는 중\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"설문조사 생성 만드는 중\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"624\" y=\"208\" key=\"#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog\" timestamp=\"1633014279538\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"624\" y=\"208\" key=\"#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1633014279538\" />\n    <state x=\"452\" y=\"189\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1633003411062\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"452\" y=\"189\" key=\"Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1633003411062\" />\n    <state x=\"709\" y=\"416\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1633009872429\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"709\" y=\"416\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1633009872429\" />\n    <state x=\"532\" y=\"237\" key=\"run.anything.popup\" timestamp=\"1633001540389\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"532\" y=\"237\" key=\"run.anything.popup/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1633001540389\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"Dart\">\n          <url>file://$PROJECT_DIR$/../../../../src/flutter/bin/cache/pkg/sky_engine/lib/ui/painting.dart</url>\n          <line>162</line>\n          <option name=\"timeStamp\" value=\"2\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 73c3e3d2f36e1a53312c9688055c1f72f9460d60)
++++ .idea/workspace.xml	(date 1633241300667)
+@@ -20,11 +20,19 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="설문조사 생성 만드는 중">
++      <change afterPath="$PROJECT_DIR$/admin/lib/controller/notice_controller.dart" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/admin/lib/theme.dart" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_write_dialog.dart" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/multipleChoice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/multipleChoice.dart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/single_choice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/single_choice.dart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_text_form_field.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_writing_area.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_writing_area.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -187,7 +195,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1633003408114</updated>
+     </task>
+-    <option name="localTasksCounter" value="13" />
++    <task id="LOCAL-00013" summary="설문조사 생성 만드는 중">
++      <created>1633228491520</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1633228491520</updated>
++    </task>
++    <option name="localTasksCounter" value="14" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -280,14 +295,14 @@
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="624" y="208" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1633014279538" />
+-    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633003411062">
++    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633228498322">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633003411062" />
+-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633009872429">
++    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633228498322" />
++    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633241300527">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633009872429" />
++    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633241300527" />
+     <state x="532" y="237" key="run.anything.popup" timestamp="1633001540389">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
