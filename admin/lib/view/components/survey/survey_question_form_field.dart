@@ -10,9 +10,12 @@ class SurveyQuestionFormField extends StatefulWidget {
   final funValidate;
   int index;
   final questionController = TextEditingController();
-  SingleChoice? choiceType;
-
+  dynamic questionType;
+  int? selectedValue;
   bool isCompulsory = false;
+  SingleChoice singleChoice = SingleChoice();
+  MultipleChoice multipleChoice = MultipleChoice();
+  ShortAnswer shortAnswer = ShortAnswer();
   SurveyQuestionFormField({Key? key, required this.index, this.funValidate})
       : super(key: key);
 
@@ -22,15 +25,11 @@ class SurveyQuestionFormField extends StatefulWidget {
 }
 
 class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
-  int? _selectedValue;
-
-  SingleChoice singleChoice = SingleChoice();
-  MultipleChoice multipleChoice = MultipleChoice();
-  ShortAnswer shortAnswer = ShortAnswer();
   @override
   void initState() {
-    _selectedValue = 1;
-    widget.choiceType = singleChoice;
+    widget.questionController.clear();
+    widget.selectedValue = 1;
+    widget.questionType = widget.singleChoice;
     super.initState();
   }
 
@@ -48,11 +47,11 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
         child: Column(
           children: [
             _questionAndDropdown(),
-            _selectedValue == 1
-                ? singleChoice
-                : _selectedValue == 2
-                    ? multipleChoice
-                    : shortAnswer,
+            widget.selectedValue == 1
+                ? widget.singleChoice
+                : widget.selectedValue == 2
+                    ? widget.multipleChoice
+                    : widget.shortAnswer,
             Row(
               children: [
                 Spacer(),
@@ -60,6 +59,7 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
                 SizedBox(width: gap_s),
                 Switch(
                   value: widget.isCompulsory,
+                  activeColor: Colors.lightGreen,
                   onChanged: (value) {
                     setState(() {
                       if (widget.isCompulsory == true)
@@ -101,16 +101,10 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
           elevation: 0,
           onChanged: (int? value) {
             setState(() {
-              _selectedValue = value;
-              if (_selectedValue == 1)
-                widget.choiceType = singleChoice;
-              else if (_selectedValue == 2)
-                widget.choiceType = singleChoice;
-              else
-                widget.choiceType = singleChoice;
+              widget.selectedValue = value;
             });
           },
-          value: _selectedValue,
+          value: widget.selectedValue,
           items: [
             DropdownMenuItem(
               child: Text("객관식 질문"),

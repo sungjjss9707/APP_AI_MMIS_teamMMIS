@@ -15,6 +15,7 @@ class SingleChoiceState extends State<SingleChoice> {
   final List<ChoiceFormField> choices = [];
   @override
   void initState() {
+    widget.textEditingControllers.clear();
     widget.textEditingControllers.add(TextEditingController());
     widget.textEditingControllers.add(TextEditingController());
     widget.textEditingControllers.add(TextEditingController());
@@ -49,11 +50,20 @@ class SingleChoiceState extends State<SingleChoice> {
         Column(
           children: children,
         ),
-        IconButton(
-          onPressed: () {
-            _singleChoiceFormFieldAdd();
-          },
-          icon: Icon(Icons.add),
+        SizedBox(height: gap_s),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: IconButton(
+            onPressed: () {
+              _ChoiceFormFieldAdd();
+            },
+            icon: Icon(
+              Icons.add,
+            ),
+          ),
         ),
       ],
     );
@@ -76,7 +86,7 @@ class SingleChoiceState extends State<SingleChoice> {
                   ),
                   onPressed: () {
                     setState(() {
-                      _singleChoiceFormFieldRemove(index);
+                      _ChoiceFormFieldRemove(index);
                     });
                   },
                 )
@@ -86,7 +96,7 @@ class SingleChoiceState extends State<SingleChoice> {
     );
   }
 
-  void _singleChoiceFormFieldAdd() {
+  void _ChoiceFormFieldAdd() {
     setState(() {
       widget.textEditingControllers.add(TextEditingController());
       choices.add(
@@ -99,7 +109,7 @@ class SingleChoiceState extends State<SingleChoice> {
     });
   }
 
-  void _singleChoiceFormFieldRemove(int index) {
+  void _ChoiceFormFieldRemove(int index) {
     setState(() {
       choices.removeAt(index);
       widget.textEditingControllers.removeAt(index);

@@ -2,7 +2,6 @@ import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/home/customTitle.dart';
-import 'package:admin/view/components/survey/single_choice.dart';
 
 import 'package:admin/view/components/survey/survey_question_form_field.dart';
 import 'package:admin/view/components/survey/survey_title_form_field.dart';
@@ -15,6 +14,7 @@ import '../../../style.dart';
 import '../login_page.dart';
 
 class CreateSurveyPage extends StatefulWidget {
+  const CreateSurveyPage({Key? key}) : super(key: key);
   @override
   _CreateSurveyPageState createState() => _CreateSurveyPageState();
 }
@@ -25,6 +25,7 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
 
   @override
   void initState() {
+    s.questions.clear();
     s.questions.add(
       SurveyQuestionFormField(
         index: 0,
@@ -81,23 +82,7 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                     Spacer(),
                     ElevatedButton(
                       onPressed: () {
-                        s.title!.value =
-                            surveyTitleFormField.titleController.text;
-                        s.explain!.value =
-                            surveyTitleFormField.explainController.text;
-                        print("--------");
-                        print(s.title);
-                        print(s.explain);
-                        for (SurveyQuestionFormField i in s.questions) {
-                          print(i.questionController.text);
-                          print(i.isCompulsory);
-                          print(i.choiceType);
-                          for (TextEditingController j
-                              in i.choiceType!.textEditingControllers) {
-                            print(j.text);
-                          }
-                        }
-                        print("-----");
+                        _getData();
                       },
                       child: Text("올리기"),
                     ),
@@ -112,8 +97,11 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                 ),
                 Divider(color: Colors.grey),
                 Column(
-                  children:
-                      <Widget>[surveyTitleFormField] + _buildQuestionList(),
+                  children: <Widget>[
+                        surveyTitleFormField,
+                        _addAndRemoveQuestionForTitle(),
+                      ] +
+                      _buildQuestionList(),
                 ),
               ],
             ),
@@ -121,6 +109,35 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
         ],
       ),
     );
+  }
+
+  void _getData() {
+    s.title!.value = surveyTitleFormField.titleController.text;
+    s.explain!.value = surveyTitleFormField.explainController.text;
+    print("----------");
+    print(s.title);
+    print(s.explain);
+    print("s.questions : ${s.questions.length}");
+    for (SurveyQuestionFormField i in s.questions) {
+      print(i.questionController.text);
+      print(i.isCompulsory);
+      print("int ${i.selectedValue}");
+      if (i.selectedValue == 1) {
+        print(i.singleChoice);
+        print(i.singleChoice.textEditingControllers.length);
+        for (TextEditingController j in i.singleChoice.textEditingControllers) {
+          print(j.text);
+        }
+      } else if (i.selectedValue == 2) {
+        print(i.multipleChoice);
+        print(i.multipleChoice.textEditingControllers.length);
+        for (TextEditingController j
+            in i.multipleChoice.textEditingControllers) {
+          print(j.text);
+        }
+      }
+    }
+    print("-----");
   }
 
   void _addSurveyQuestionFormField() {
@@ -142,27 +159,42 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
   List<Widget> _buildQuestionList() {
     return List.generate(s.questions.length, (index) {
       return Column(
-        children: [
-          s.questions[index],
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                icon: Icon(Icons.add),
-                onPressed: () {
-                  _addSurveyQuestionFormField();
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.delete),
-                onPressed: () {
-                  _removeSurveyQuestionFormField(index);
-                },
-              )
-            ],
-          )
-        ],
+        children: [s.questions[index], _addAndRemoveQuestion(index)],
       );
     });
+  }
+
+  Widget _addAndRemoveQuestionForTitle() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: () {
+            _addSurveyQuestionFormField();
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _addAndRemoveQuestion(int index) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: () {
+            _addSurveyQuestionFormField();
+          },
+        ),
+        IconButton(
+          icon: Icon(Icons.delete),
+          onPressed: () {
+            _removeSurveyQuestionFormField(index);
+          },
+        )
+      ],
+    );
   }
 }

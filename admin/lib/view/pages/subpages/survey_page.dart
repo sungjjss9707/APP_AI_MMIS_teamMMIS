@@ -138,7 +138,9 @@ class _SurveyPageState extends State<SurveyPage> {
         CustomElevatedButton(
           text: "새 설문조사 생성",
           onPressed: () {
-            Get.to(() => CreateSurveyPage());
+            Get.to(() => CreateSurveyPage(
+                  key: UniqueKey(),
+                ));
           },
         ),
         Spacer(),
