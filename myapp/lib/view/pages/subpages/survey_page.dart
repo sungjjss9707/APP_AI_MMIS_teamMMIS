@@ -23,12 +23,6 @@ class _SurveyPageState extends State<SurveyPage> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Form(
-              key: _formKey,
-              child: const CustomTextFormFieldSearch(
-                hint: "제목으로 검색해 보세요.",
-              ),
-            ),
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
@@ -61,5 +55,3 @@ class _SurveyPageState extends State<SurveyPage> {
     );
   }
 }
-
-class Notice {}

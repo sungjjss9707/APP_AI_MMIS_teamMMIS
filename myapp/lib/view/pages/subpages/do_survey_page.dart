@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/theme.dart';
 import 'package:research_package/model.dart';
 import 'package:research_package/research_package.dart';
 
@@ -8,9 +9,11 @@ class DoSurveyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     RPOrderedTask exampleTask = RPOrderedTask(
+      closeAfterFinished: true,
       identifier: "test",
       steps: [
         RPInstructionStep(
+          text: "제 3차 브런치 데이 설문조사",
           identifier: "instructionID",
           title: "Instructions",
         ),
@@ -19,18 +22,35 @@ class DoSurveyPage extends StatelessWidget {
             answerFormat: RPChoiceAnswerFormat(
               answerStyle: RPChoiceAnswerStyle.SingleChoice,
               choices: [
-                RPChoice(text: "1", value: 3),
-                RPChoice(text: "1", value: 2)
+                RPChoice(text: "먹음", value: 0),
+                RPChoice(text: "안먹음", value: 1),
               ],
             ),
             title: "example"),
-        RPCompletionStep(identifier: "completionId", title: "thank you"),
+        RPCompletionStep(
+            identifier: "completionId", title: "감사합니다.", text: "ok"),
       ],
     );
-    return RPUITask(
-      task: exampleTask,
-      onSubmit: (result) {},
-      onCancel: (result) {},
+    return Theme(
+      data: themeData.copyWith(
+        sliderTheme: SliderThemeData.fromPrimaryColors(
+          primaryColor: Colors.lightGreen,
+          primaryColorDark: Colors.lightGreen,
+          primaryColorLight: Colors.lightGreen,
+          valueIndicatorTextStyle: TextStyle(),
+        ),
+        accentColor: Colors.lightGreen,
+        accentIconTheme: IconThemeData(color: Colors.lightGreen),
+        buttonColor: Colors.lightGreen,
+        secondaryHeaderColor: Colors.lightGreen,
+      ),
+      child: RPUITask(
+        task: exampleTask,
+        onSubmit: (result) {
+          print(result.results.entries.first);
+        },
+        onCancel: (result) {},
+      ),
     );
   }
 }
