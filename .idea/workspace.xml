@@ -20,13 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공지사항 하는 중">
-      <change afterPath="$PROJECT_DIR$/admin/lib/domain/notice/notice.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/domain/notice/notice_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/domain/notice/notice_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/assets/lang/en.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/assets/lang/ko.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-03__4_05__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/notice_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/notice_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/json.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assets/json.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,16 +76,16 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_real\admin\lib\view\pages" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\pages\sub_sub_pages" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\components\menu_manage" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
     </key>
   </component>
   <component name="RunManager">
