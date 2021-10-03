@@ -12,7 +12,23 @@ const connection =   mysql.createPool({
 
 
 /* GET users listing. */
+
 router.get('/', async (req, res) => {
+  console.log('GET ALL seq');
+    
+    connection.query(`select * from board`, (error, results, fields) => {
+
+        if (error) {
+            console.log(error);
+        }else{
+            res.send(results[0]);
+            console.log(results);
+        }
+    })
+});
+
+
+router.get('/:seq', async (req, res) => {
   console.log(req.params, req.query);
     
     connection.query(`select * from board`, (error, results, fields) => {
