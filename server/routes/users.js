@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         if (error) {
             console.log(error);
         }else{
-            // res.send({result: 'success'});
+            res.send(results[0]);
             console.log(results);
         }
     })
