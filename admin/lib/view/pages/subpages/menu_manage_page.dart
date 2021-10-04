@@ -53,6 +53,7 @@ class _MenuManagePageState extends State<MenuManagePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TableCalendar(
+              locale: 'ko-KR',
               calendarBuilders: CalendarBuilders(
                 selectedBuilder: _selectedBuilder,
                 singleMarkerBuilder: _singleMarkerBuilder,
