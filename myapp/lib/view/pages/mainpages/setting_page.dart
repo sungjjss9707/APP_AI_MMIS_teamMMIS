@@ -3,22 +3,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:myapp/view/pages/subpages/inner_seeting_page.dart';
 
+import '../subpages/app_info_page.dart';
+import '../subpages/user_info_page.dart';
+
 class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 3,
       children: [
         ConfigItem(
-            icon: Icons.search,
-            text: "예시1",
+            icon: Icons.account_circle,
+            text: "회원정보",
             tap: () {
-              print("예시1");
+              Get.to(() => UserInfoPage());
             }),
         ConfigItem(
-            icon: Icons.account_circle,
-            text: "예시2",
+            icon: Icons.info,
+            text: "앱정보",
             tap: () {
-              print("예시2");
+              Get.to(() => AppInfoPage());
             }),
         ConfigItem(
             icon: CupertinoIcons.gear_alt_fill,
