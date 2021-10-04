@@ -24,6 +24,7 @@ Map<String, dynamic> DumSurvey = {
       "id": "1",
       "text": "예시 질문입니다.",
       "type": "객관식",
+      "isOptional": "yes",
       // 선지입니다.
       "options": [
         "매우 좋음",
@@ -37,6 +38,7 @@ Map<String, dynamic> DumSurvey = {
       "id": "2",
       "text": "예시 질문입니다.",
       "type": "다수선택",
+      "isOptional": "no",
       // 선지입니다.
       "options": [
         "매우 좋음",
@@ -50,6 +52,7 @@ Map<String, dynamic> DumSurvey = {
       "id": "3",
       "text": "예시 질문입니다.",
       "type": "단답식",
+      "isOptional": "no",
       // 선지입니다.
       "options": [],
     },
@@ -57,6 +60,7 @@ Map<String, dynamic> DumSurvey = {
       "id": "4",
       "text": "예시 질문입니다.",
       "type": "장문형",
+      "isOptional": "yes",
       // 선지입니다.
       "options": [],
     },

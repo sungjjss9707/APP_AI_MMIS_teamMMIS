@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/domain/survey/survey.dart';
 import 'package:survey_kit/survey_kit.dart';
 
+import '../../../theme.dart';
+
 class DoSurveyPage extends StatelessWidget {
   final RealSurvey survey;
   final SurveyController _surveyController = SurveyController();
@@ -13,7 +15,13 @@ class DoSurveyPage extends StatelessWidget {
     return SurveyKit(
       surveyController: _surveyController,
       task: _orderedTask(survey),
-      onResult: (SurveyResult result) {},
+      themeData: SurveyTheme(context),
+      onResult: (SurveyResult result) {
+        print("1${result.results[1].results[0].valueIdentifier}");
+        print("2${result.results[2].results[0].valueIdentifier}");
+        print("3${result.results[3].results[0].valueIdentifier}");
+        print("4${result.results[4].results[0].valueIdentifier}");
+      },
     );
   }
 
@@ -45,6 +53,7 @@ class DoSurveyPage extends StatelessWidget {
         return QuestionStep(
           title: questionTitle,
           isOptional: isOptional,
+          text: type == "다수선택" ? "한 개 이상 골라주세요." : "",
           answerFormat: type == "객관식"
               ? SingleChoiceAnswerFormat(
                   textChoices: convertToTextChoice(optionList))
@@ -52,7 +61,7 @@ class DoSurveyPage extends StatelessWidget {
                   ? MultipleChoiceAnswerFormat(
                       textChoices: convertToTextChoice(optionList))
                   : TextAnswerFormat(
-                      validationRegEx: 'abc',
+                      validationRegEx: "^(?!\s*\$).+",
                     ),
         );
       }),
