@@ -209,6 +209,7 @@ Map survey = {
       "id": "1",
       "text": "예시 질문입니다.",
       "type": "객관식",
+      "isOptional": "yes",
       // 선지입니다.
       "options": [
         "매우 좋음",
@@ -222,6 +223,7 @@ Map survey = {
       "id": "2",
       "text": "예시 질문입니다.",
       "type": "다수선택",
+      "isOptional": "yes",
       // 선지입니다.
       "options": [
         "매우 좋음",
@@ -235,13 +237,15 @@ Map survey = {
       "id": "3",
       "text": "예시 질문입니다.",
       "type": "단답식",
+      "isOptional": "yes",
       // 선지입니다.
       "options": [],
     },
     {
       "id": "4",
       "text": "예시 질문입니다.",
-      "type": "장문형",
+      "type": "객관식",
+      "isOptional": "no",
       // 선지입니다.
       "options": [],
     },
