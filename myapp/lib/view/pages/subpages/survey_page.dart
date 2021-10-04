@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/domain/survey/survey.dart';
 import 'package:myapp/model/survey.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
-import 'package:myapp/view/components/textfield/custom_text_form_field_search.dart';
 import 'package:myapp/view/pages/subpages/do_survey_page.dart';
 
 class SurveyPage extends StatefulWidget {
@@ -12,8 +12,6 @@ class SurveyPage extends StatefulWidget {
 }
 
 class _SurveyPageState extends State<SurveyPage> {
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +27,12 @@ class _SurveyPageState extends State<SurveyPage> {
                   Survey survey = dummySurvey[index];
                   return InkWell(
                     onTap: () {
-                      Get.to(() => DoSurveyPage());
+                      //통신 받아서 ,RealSurvey로 전달 (이름 나중에 Survey로 바꾸자!)
+                      Get.to(
+                        () => DoSurveyPage(
+                          RealSurvey("1", "", "", []),
+                        ),
+                      );
                     },
                     child: ListTile(
                       title: Text(
