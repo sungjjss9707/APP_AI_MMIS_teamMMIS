@@ -1,25 +1,27 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/domain/survey/survey.dart';
 import 'package:survey_kit/survey_kit.dart';
 
 class DoSurveyPage extends StatelessWidget {
   final RealSurvey survey;
-
-  const DoSurveyPage(this.survey);
+  final SurveyController _surveyController = SurveyController();
+  DoSurveyPage(this.survey);
 
   @override
   Widget build(BuildContext context) {
     return SurveyKit(
+      surveyController: _surveyController,
       task: _orderedTask(survey),
       onResult: (SurveyResult result) {},
     );
   }
 
   OrderedTask _orderedTask(RealSurvey survey) {
-    String id = survey.id;
-    String surveyTitle = survey.title;
-    String explain = survey.explain;
-    List<Map<String, dynamic>> questions = survey.questions;
+    String id = survey.id!;
+    String surveyTitle = survey.title!;
+    String explain = survey.explain!;
+    List<Map<String, dynamic>> questions = survey.questions!;
     return OrderedTask(
       id: TaskIdentifier(id: id),
       steps: List.generate(questions.length + 2, (index) {
@@ -33,11 +35,13 @@ class DoSurveyPage extends StatelessWidget {
           return CompletionStep(
               stepIdentifier: StepIdentifier(), title: "", text: "");
         }
-        Map<String, dynamic> question = questions[index - 2];
+        Map<String, dynamic> question = questions[index - 1];
         String questionTitle = question["text"];
         String type = question["type"];
         bool isOptional = question["isOptional"] == "yes" ? true : false;
-        List<String> optionList = question["option"];
+        List<dynamic> optionList_dynamic = question["options"];
+        List<String> optionList =
+            optionList_dynamic.map((e) => e.toString()).toList();
         return QuestionStep(
           title: questionTitle,
           isOptional: isOptional,
@@ -47,7 +51,9 @@ class DoSurveyPage extends StatelessWidget {
               : type == "다수선택"
                   ? MultipleChoiceAnswerFormat(
                       textChoices: convertToTextChoice(optionList))
-                  : TextAnswerFormat(),
+                  : TextAnswerFormat(
+                      validationRegEx: 'abc',
+                    ),
         );
       }),
     );

@@ -30,7 +30,7 @@ class _SurveyPageState extends State<SurveyPage> {
                       //통신 받아서 ,RealSurvey로 전달 (이름 나중에 Survey로 바꾸자!)
                       Get.to(
                         () => DoSurveyPage(
-                          RealSurvey("1", "", "", []),
+                          RealSurvey.fromJson(DumSurvey),
                         ),
                       );
                     },

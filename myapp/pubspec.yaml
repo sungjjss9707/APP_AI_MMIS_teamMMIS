@@ -39,7 +39,6 @@ dependencies:
   table_calendar: ^3.0.2
   flutter_localizations:
     sdk: flutter
-  research_package: ^0.6.5+1
   survey_kit: ^0.0.12
 
 
