@@ -4,7 +4,7 @@ const path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes');
-var boardRouter = require('./routes/board');
+var noticeRouter = require('./routes/notice');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 var app = express();
@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/board', boardRouter);
+app.use('/notice', noticeRouter);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
