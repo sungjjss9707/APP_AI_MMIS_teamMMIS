@@ -29,21 +29,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="surveycontroller, dto 완성">
-      <change afterPath="$PROJECT_DIR$/admin/lib/controller/admin_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/controller/dto/CM_request_dto.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/controller/dto/login_request_dto.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin_repository.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey_repository.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/util/convert_utf8.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/util/jwtToken.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/request_api_1.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/request_api_2.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/survey/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/json.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assets/json.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
