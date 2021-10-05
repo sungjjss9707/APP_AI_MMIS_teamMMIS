@@ -1,5 +1,6 @@
 import 'package:admin/theme.dart';
 import 'package:admin/view/pages/frame_page.dart';
+import 'package:admin/view/pages/login_page.dart';
 import 'package:admin/view/pages/sub_sub_pages/create_survey_page.dart';
 
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class Admin extends StatelessWidget {
       supportedLocales: [
         const Locale('ko', 'KR'),
       ],
-      home: FramePage(),
+      home: LoginPage(),
       theme: themeData,
     );
   }
