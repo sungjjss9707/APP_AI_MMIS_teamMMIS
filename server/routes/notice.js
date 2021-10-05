@@ -28,15 +28,21 @@ router.get('/', async (req, res) => {
 });
 router.post('/', async (req, res) => {
     console.log(`POST notice ${req.body}`);
-  console.log(req.params, req.query, req.body);
-    
-    connection.query(`insert into board (writer, subject, content, ins_user_id, ins_date) value (\'${req.body.writer}\', \'${req.body.subject}\', \'${req.body.content}\', \'${req.body.ins_user_id}\', now());`, (error, results, fields) => {
+    console.log(req.params, req.query, req.body);
+   //var body = req.body;
+	
+    var sql = `insert into board (writer, subject, content, ins_user_id, ins_date) value (\'${req.body.writer}\', \'${req.body.subject}\', \'${req.body.content}\', \'${req.body.ins_user_id}\',now());`;
+    connection.query(sql, (error, results, fields) => {
 
         if (error) {
             console.log(error);
         }else{
-            res.status(results[0]).send(body);
+            //res.status(results).send(req.body);
             console.log(results);
+	    //res.send({name : 'Minsu'});
+	    res.send(req.body);
+	    //res.send(results[0]);
+	   // res.status(200).send('OK');
         }
     })
 });
