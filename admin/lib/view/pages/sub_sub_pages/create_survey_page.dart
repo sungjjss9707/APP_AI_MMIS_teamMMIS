@@ -1,3 +1,4 @@
+import 'package:admin/controller/dto/survey_post_dto.dart';
 import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
@@ -20,13 +21,18 @@ class CreateSurveyPage extends StatefulWidget {
 }
 
 class _CreateSurveyPageState extends State<CreateSurveyPage> {
-  SurveyController s = Get.put(SurveyController());
+  SurveyController s = SurveyController();
   late SurveyTitleFormField surveyTitleFormField;
+  late List<SurveyQuestionFormField> questions;
+  late String title;
+  late String explain;
 
   @override
   void initState() {
-    s.questions.clear();
-    s.questions.add(
+    questions = <SurveyQuestionFormField>[];
+    title = "";
+    explain = "";
+    questions.add(
       SurveyQuestionFormField(
         index: 0,
         funValidate: validateTitle(),
@@ -82,7 +88,9 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                     Spacer(),
                     ElevatedButton(
                       onPressed: () {
-                        _getData();
+                        title = surveyTitleFormField.titleController.text;
+                        explain = surveyTitleFormField.explainController.text;
+                        SurveyPostDto(title, explain, questions).toJson();
                       },
                       child: Text("생성하기"),
                     ),
@@ -111,55 +119,26 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
     );
   }
 
-  void _getData() {
-    s.title!.value = surveyTitleFormField.titleController.text;
-    s.explain!.value = surveyTitleFormField.explainController.text;
-    print("----------");
-    print(s.title);
-    print(s.explain);
-    print("s.questions : ${s.questions.length}");
-    for (SurveyQuestionFormField i in s.questions) {
-      print(i.questionController.text);
-      print(i.isCompulsory);
-      print("int ${i.selectedValue}");
-      if (i.selectedValue == 1) {
-        print(i.singleChoice);
-        print(i.singleChoice.textEditingControllers.length);
-        for (TextEditingController j in i.singleChoice.textEditingControllers) {
-          print(j.text);
-        }
-      } else if (i.selectedValue == 2) {
-        print(i.multipleChoice);
-        print(i.multipleChoice.textEditingControllers.length);
-        for (TextEditingController j
-            in i.multipleChoice.textEditingControllers) {
-          print(j.text);
-        }
-      }
-    }
-    print("-----");
-  }
-
   void _addSurveyQuestionFormField() {
     setState(() {
-      s.questions.add(
-          SurveyQuestionFormField(key: UniqueKey(), index: s.questions.length));
+      questions.add(
+          SurveyQuestionFormField(key: UniqueKey(), index: questions.length));
     });
   }
 
   void _removeSurveyQuestionFormField(int index) {
     setState(() {
-      s.questions.removeAt(index);
-      for (SurveyQuestionFormField i in s.questions) {
-        i.index = s.questions.indexOf(i);
+      questions.removeAt(index);
+      for (SurveyQuestionFormField i in questions) {
+        i.index = questions.indexOf(i);
       }
     });
   }
 
   List<Widget> _buildQuestionList() {
-    return List.generate(s.questions.length, (index) {
+    return List.generate(questions.length, (index) {
       return Column(
-        children: [s.questions[index], _addAndRemoveQuestion(index)],
+        children: [questions[index], _addAndRemoveQuestion(index)],
       );
     });
   }

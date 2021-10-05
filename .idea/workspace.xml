@@ -9,6 +9,15 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
     <select>
       <path>
@@ -19,20 +28,22 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="설문조사 생성 만드는 중">
-      <change afterPath="$PROJECT_DIR$/admin/lib/controller/notice_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/theme.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_write_dialog.dart" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="surveycontroller, dto 완성">
+      <change afterPath="$PROJECT_DIR$/admin/lib/controller/admin_controller.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/controller/dto/CM_request_dto.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/controller/dto/login_request_dto.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/util/convert_utf8.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/util/jwtToken.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/survey/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_writing_area.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_writing_area.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +61,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="survey_kit_test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,12 +85,13 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin/lib/domain/admin" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\domain\admin" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
     </key>
@@ -98,6 +110,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Flutter.main.dart" />
+        <item itemvalue="Flutter.main.dart" />
+        <item itemvalue="Flutter.main.dart" />
         <item itemvalue="Flutter.main.dart" />
       </list>
     </recent_temporary>
@@ -202,7 +217,35 @@
       <option name="project" value="LOCAL" />
       <updated>1633228491520</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="공지사항 하는 중">
+      <created>1633241341657</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1633241341658</updated>
+    </task>
+    <task id="LOCAL-00015" summary="공지사항 하는 중">
+      <created>1633309489524</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1633309489524</updated>
+    </task>
+    <task id="LOCAL-00016" summary="공지사항 하는 중">
+      <created>1633311551664</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1633311551664</updated>
+    </task>
+    <task id="LOCAL-00017" summary="surveycontroller, dto 완성">
+      <created>1633414536787</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1633414536818</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -288,21 +331,51 @@
     <MESSAGE value="설문조사 하는 중" />
     <MESSAGE value="admin파일 정리" />
     <MESSAGE value="설문조사 생성 만드는 중" />
-    <option name="LAST_COMMIT_MESSAGE" value="설문조사 생성 만드는 중" />
+    <MESSAGE value="공지사항 하는 중" />
+    <MESSAGE value="surveycontroller, dto 완성" />
+    <option name="LAST_COMMIT_MESSAGE" value="surveycontroller, dto 완성" />
   </component>
   <component name="WindowStateProjectService">
     <state x="624" y="208" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1633014279538">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="624" y="208" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1633014279538" />
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633228498322">
+    <state x="493" y="240" key="AndroidProcessChooserDialog" timestamp="1633418297209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633228498322" />
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633241300527">
+    <state x="493" y="240" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1633418297209" />
+    <state width="1330" height="252" key="GridCell.Tab.0.bottom" timestamp="1633418528933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633241300527" />
+    <state width="1330" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1633418528933" />
+    <state width="1330" height="252" key="GridCell.Tab.0.center" timestamp="1633418528933">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1330" height="252" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1633418528933" />
+    <state width="1330" height="252" key="GridCell.Tab.0.left" timestamp="1633418528933">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1330" height="252" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1633418528933" />
+    <state width="1330" height="252" key="GridCell.Tab.0.right" timestamp="1633418528933">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1330" height="252" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1633418528933" />
+    <state width="623" height="498" key="SwitcherDM" timestamp="1633327021845">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633327021845" />
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633414546784">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633414546784" />
+    <state x="498" y="66" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1633270653530">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="498" y="66" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1633270653530" />
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633330257318">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633330257318" />
     <state x="532" y="237" key="run.anything.popup" timestamp="1633001540389">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

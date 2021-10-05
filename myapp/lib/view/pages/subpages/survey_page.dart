@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/domain/survey/survey.dart';
 import 'package:myapp/model/survey.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
-import 'package:myapp/view/components/textfield/custom_text_form_field_search.dart';
+import 'package:myapp/view/pages/subpages/do_survey_page.dart';
 
 class SurveyPage extends StatefulWidget {
   @override
@@ -10,8 +12,6 @@ class SurveyPage extends StatefulWidget {
 }
 
 class _SurveyPageState extends State<SurveyPage> {
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,18 +21,19 @@ class _SurveyPageState extends State<SurveyPage> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Form(
-              key: _formKey,
-              child: const CustomTextFormFieldSearch(
-                hint: "제목으로 검색해 보세요.",
-              ),
-            ),
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
                   Survey survey = dummySurvey[index];
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      //통신 받아서 ,RealSurvey로 전달 (이름 나중에 Survey로 바꾸자!)
+                      Get.to(
+                        () => DoSurveyPage(
+                          RealSurvey.fromJson(DumSurvey),
+                        ),
+                      );
+                    },
                     child: ListTile(
                       title: Text(
                         "${survey.title}",
@@ -57,5 +58,3 @@ class _SurveyPageState extends State<SurveyPage> {
     );
   }
 }
-
-class Notice {}

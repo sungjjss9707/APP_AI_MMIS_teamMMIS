@@ -1,11 +1,13 @@
 // 공지사항 관리 페이지
 
+import 'package:admin/controller/notice_controller.dart';
 import 'package:admin/model/notice.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/dialog/notice_content_dialog.dart';
 import 'package:admin/view/components/dialog/notice_write_dialog.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:number_pagination/number_pagination.dart';
 
 import '../../../style.dart';
@@ -18,6 +20,7 @@ class NoticePage extends StatefulWidget {
 class _NoticePageState extends State<NoticePage> {
   late int _currentPage;
   List<Map> _dummyNotice = dummyNotice;
+  final NoticeController n = Get.put(NoticeController());
 
   @override
   void initState() {
@@ -116,7 +119,7 @@ class _NoticePageState extends State<NoticePage> {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: title != ""
               ? InkWell(
-                  onTap: () {
+                  onTap: () async {
                     _showContentDialog(context, title, content);
                   },
                   child: _content(index, title, writer, date),

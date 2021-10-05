@@ -188,8 +188,37 @@ class _MealPictureDialogState extends State<MealPictureDialog> {
                   controller: commentController,
                   maxLines: 1,
                   decoration: InputDecoration(
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: Colors.black54,
+                        ),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: Colors.black54,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: Colors.black54,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: Colors.black54,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: Colors.black54,
+                        ),
+                      ),
+                      hintText: "댓글 입력"),
                   onSubmitted: (value) {
                     setState(() {
                       if (comments[id] != null) {
@@ -208,11 +237,34 @@ class _MealPictureDialogState extends State<MealPictureDialog> {
         ),
         Divider(),
         if (comments[id] != null)
-          ...comments[id]!.map((info) => ListTile(
-                title: Text(info["userName"]),
-                subtitle: Text(info["comment"]),
-              )),
-        Divider(),
+          ...List.generate(
+            comments[id]!.length,
+            (index) => Column(
+              children: [
+                ListTile(
+                  title: Text(comments[id]![index]["userName"]),
+                  subtitle: Text(comments[id]![index]["comment"]),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: TextButton(
+                      child: Text(
+                        "삭제",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black54,
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          comments[id]!.removeAt(index);
+                        });
+                      }),
+                ),
+                Divider(),
+              ],
+            ),
+          ),
         Row(
           children: [
             Spacer(),
