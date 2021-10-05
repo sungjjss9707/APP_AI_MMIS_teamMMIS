@@ -532,32 +532,478 @@ Map NoticePost = {
   "title": "글제목",
   "content": "글내용",
 };
-// * response : notice(방금 올린 것)
-
-// 5.2. 게시글 전체 목록보기(Get)사용자 또는 관리자가 게시글 목록을 불러옵니다.
+// * response :
+Map noticeResponse = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "3",
+    "title": "글제목.",
+    "content": "글내용.",
+    "writer": {
+      "id": "1",
+      "name": "관리자",
+      "militaryNumber": "12-33333",
+      "password": null,
+      "rank": "7급",
+      "unit": "xx사단",
+      "create": "2021-07-10T08:05:49.068049",
+      "update": "2021-07-10T08:05:49.068049",
+    },
+    "create": "2021-07-10T08:05:49.068049",
+    "update": "2021-07-10T08:05:49.068049",
+  },
+};
+// 5.2. 게시글 전체 목록보기(Get)
 // * route : notice/
 // * request : header에 유저 토큰, 혹은 관리자 토큰
-// * response : notice들의 collection
-// 5.3. 게시글 1개 보기(Get)사용자 또는 관리자가 게시글 목록을 불러옵니다. * route : notice/1/* request : header에 유저 토큰, 혹은 관리자 토큰* response : notice
-// 5.4. 게시글 수정(Put)관리자가 게시글을 수정합니다. * route : notice/1/* request : header에 관리자 토큰,body에 제목(title), 내용(content)* response : notice(수정된 데이터)
-// 5.5. 게시글 삭제 관리자가 게시글을 삭제합니다. * route : notice/1/* request : header에 관리자 토큰* response : -
+// * response : notice들의 collection (data에 리스트를 반환하면 되겠습니다.)
+
+// 5.3. 게시글 1개 보기(Get)사용자 또는 관리자가 게시글 목록을 불러옵니다.
+// * route : notice/1/
+// * request : header에 유저 토큰, 혹은 관리자 토큰
+// * response :
+Map noticeResponse1 = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "3",
+    "title": "글제목.",
+    "content": "글내용.",
+    "writer": {
+      "id": "1",
+      "name": "관리자",
+      "militaryNumber": "12-33333",
+      "password": null,
+      "rank": "7급",
+      "unit": "xx사단",
+      "create": "2021-07-10T08:05:49.068049",
+      "update": "2021-07-10T08:05:49.068049",
+    },
+    "create": "2021-07-10T08:05:49.068049",
+    "update": "2021-07-10T08:05:49.068049",
+  },
+};
+
+// 5.4. 게시글 수정(Put)
+// * route : notice/1/
+// * request : header에 관리자 토큰,
+// body:
+Map NoticePostPut = {
+  "title": "글제목1",
+  "content": "글내용1",
+};
+// * response :
+Map noticeResponse2 = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "3",
+    "title": "글제목1",
+    "content": "글내용1",
+    "writer": {
+      "id": "1",
+      "name": "관리자",
+      "militaryNumber": "12-33333",
+      "password": null,
+      "rank": "7급",
+      "unit": "xx사단",
+      "create": "2021-07-10T08:05:49.068049",
+      "update": "2021-07-10T08:05:49.068049",
+    },
+    "create": "2021-07-10T08:05:49.068049",
+    "update": "2021-07-10T08:05:49.068049",
+  },
+};
+
+// 5.5. 게시글 삭제(Delete)
+// * route : notice/1/
+// * request : header에 관리자 토큰
+// * response :
+Map noticeDelete = {
+  "code": "1",
+  "msg": "success",
+  "data": null,
+};
 //
 // 6.  건의사항
 // 공지사항과 다르게 관리자가 답변을 달 수 있습니다.
-// 6.1. 게시글 작성(Post)사용자가 새로운 게시글을 올립니다. * route : suggestion/* request : header에 사용자 토큰, body에 제목(title), 내용(content)* response : suggestion
-// 6.2. 게시글 전체 목록보기(Get)사용자 또는 관리자가 게시글 목록을 불러옵니다.* route : suggestion/* request : header에 유저 토큰, 혹은 관리자 토큰* response : suggestion의 collection
-// 6.3. 게시글 1개 보기(Get)사용자 또는 관리자가 게시글 목록을 불러옵니다. * route : suggestion/1* request : header에 유저 토큰, 혹은 관리자 토큰* response : suggestion
-// 6.4. 게시글 수정(Post)사용자가 게시글을 수정합니다. * request : header에 사용자 토큰, body에 제목, 내용 * response : 생성시간, 업데이트 시간
-// 6.5. 게시글에 댓글 달기(Post)관리자가 댓글을 답니다.* route : suggestion/comment* request : header에 관리자 토큰, body에 내용 (content)* response :  comment(suggestion 안에 데이터 형식 있음)
-// 6.6. 답변 수정하기(Put)* route : suggestion/comment/1* request : header에 관리자 토큰, body에 내용 (content)* response : comment(suggestion 안에 데이터 형식 있음)
-// 6.7. 게시글 삭제(Delete)* route : suggestion/1* request : header에 유저 혹은 관리자 토큰,* response : -
-// 6.8. 답변 삭제(Delete)* route : suggestion/comment/1* request : header에 관리자 토큰,* response : -
+// 6.1. 게시글 작성(Post)사용자가 새로운 게시글을 올립니다.
+// * route : suggestion/
+// * request : header에 사용자 토큰, body에 제목(title), 내용(content)
+// * response :
+Map suggestion = {
+  "id": "3",
+  "title": "제목입니다.",
+  "content": "내용입니다.",
+  //건의사항 게시자
+  "writer": {
+    "id": "1",
+    "name": "홍길동",
+    "militaryNumber": "12-33333",
+    "password": null,
+    "rank": "이병",
+    "unit": "xx사단",
+    "allergy": {"계란류": "1", "우유": "1"},
+    "create": "2021-07-10T08:05:49.068049",
+    "update": "2021-07-10T08:05:49.068049",
+  },
+  //댓글입니다. 리스트로 해서, 여러 댓글을 담으면 됩니다.
+  "comments": [],
+  "create": "2021-07-10T08:05:49.068049",
+  "update": "2021-07-10T08:05:49.068049",
+};
+// 6.2. 게시글 전체 목록보기(Get)
+// * route : suggestion/* request : header에 유저 토큰, 혹은 관리자 토큰
+// * response : suggestion의 collection (리스트 반환하면 될듯)
+
+// 6.3. 게시글 1개 보기(Get)
+// * route : suggestion/1
+// * request : header에 유저 토큰, 혹은 관리자 토큰
+// * response : suggestion
+
+// 6.4. 게시글 수정(Put)사용자가 게시글을 수정합니다.
+// * request : header에 사용자 토큰, body에 제목(title), 내용(content)
+// * response :
+Map suggestionPut = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "3",
+    "title": "제목입니다. 수정",
+    "content": "내용입니다. 수정",
+    //건의사항 게시자
+    "writer": {
+      "id": "1",
+      "name": "홍길동",
+      "militaryNumber": "12-33333",
+      "password": null,
+      "rank": "이병",
+      "unit": "xx사단",
+      "allergy": {"계란류": "1", "우유": "1"},
+      "create": "2021-07-10T08:05:49.068049",
+      "update": "2021-07-10T08:05:49.068049",
+    },
+    //댓글입니다. 리스트로 해서, 여러 댓글을 담으면 됩니다.
+    "comments": [],
+    "create": "2021-07-10T08:05:49.068049",
+    "update": "2021-07-10T08:05:49.068049",
+  },
+};
+
+// 6.5. 게시글에 댓글 달기(Post)관리자가 댓글을 답니다.
+// * route : suggestion/comment
+// * request : header에 관리자 토큰,
+//body :
+Map addComment = {
+  "content": "답글입니다.",
+};
+// * response :
+Map suggestionAddComment = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "3",
+    "title": "제목입니다.",
+    "content": "내용입니다.",
+    //건의사항 게시자
+    "writer": {
+      "id": "1",
+      "name": "홍길동",
+      "militaryNumber": "12-33333",
+      "password": null,
+      "rank": "이병",
+      "unit": "xx사단",
+      "allergy": {"계란류": "1", "우유": "1"},
+      "create": "2021-07-10T08:05:49.068049",
+      "update": "2021-07-10T08:05:49.068049",
+    },
+    //댓글입니다. 리스트로 해서, 여러 댓글을 담으면 됩니다.
+    "comments": [
+      {
+        "content": "답글입니다.",
+        //댓글 게시자
+        "writer": {
+          "id": "1",
+          "name": "김경수",
+          "militaryNumber": "12-33333",
+          "password": null,
+          "rank": "소위",
+          "unit": "xx사단",
+          "allergy": {"계란류": "1", "우유": "1"},
+          "create": "2021-07-10T08:05:49.068049",
+          "update": "2021-07-10T08:05:49.068049",
+        },
+      },
+    ],
+    "create": "2021-07-10T08:05:49.068049",
+    "update": "2021-07-10T08:05:49.068049",
+  }
+};
+
+// 6.6. 답변 수정하기(Put)
+// * route : suggestion/comment/1
+// * request : header에 관리자 토큰, body에 내용 (content)
+Map changeComment = {
+  "content": "답글입니다. 수정",
+};
+// * response :
+Map suggestionAddCommentChange = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "3",
+    "title": "제목입니다.",
+    "content": "내용입니다.",
+    //건의사항 게시자
+    "writer": {
+      "id": "1",
+      "name": "홍길동",
+      "militaryNumber": "12-33333",
+      "password": null,
+      "rank": "이병",
+      "unit": "xx사단",
+      "allergy": {"계란류": "1", "우유": "1"},
+      "create": "2021-07-10T08:05:49.068049",
+      "update": "2021-07-10T08:05:49.068049",
+    },
+    //댓글입니다. 리스트로 해서, 여러 댓글을 담으면 됩니다.
+    "comments": [
+      {
+        "content": "답글입니다. 수정",
+        //댓글 게시자
+        "writer": {
+          "id": "1",
+          "name": "김경수",
+          "militaryNumber": "12-33333",
+          "password": null,
+          "rank": "소위",
+          "unit": "xx사단",
+          "allergy": {"계란류": "1", "우유": "1"},
+          "create": "2021-07-10T08:05:49.068049",
+          "update": "2021-07-10T08:05:49.068049",
+        },
+      },
+    ],
+    "create": "2021-07-10T08:05:49.068049",
+    "update": "2021-07-10T08:05:49.068049",
+  }
+};
+
+// 6.7. 게시글 삭제(Delete)
+// * route : suggestion/1
+// * request : header에 유저 혹은 관리자 토큰,
+// * response :
+Map suggestionDelete = {
+  "code": "1",
+  "msg": "success",
+  "data": null,
+};
+// 6.8. 답변 삭제(Delete)
+// * route : suggestion/comment/1
+// * request : header에 관리자 토큰,
+// * response : -
+Map commentDelete = {
+  "code": "1",
+  "msg": "success",
+  "data": null,
+};
 // 7. 설문조사
-// 설문조사는 설문조사 제목, 설문조사 설명, 질문으로 이루어져 있으며, 질문은 질문제목, 질문타입(객관식(1개 고름), 객관식(다수 고를 수 있음), 주관식), 객관식의 경우 선지, 질문 필수 여부(반드시 응답해야 되는지)로 이루어져 있습니다.
-//
-// 7.1. 설문조사 생성(Post)관리자가 설문조사를 생성합니다. * route : survey/* request : header에 관리자 토큰, body에 설문조사 제목(title), 설문조사 설명(explain), 설문조사 질문들(questions)* response : survey
-// 7.2. 설문조사 전체 불러오기(Get)생성된 전체 설문조사를 불러옵니다. * route : survey/* request : header에 관리자 토큰* response : survey의 collection
-// 7.3. 설문조사 1개 불러오기(Get)* route : survey/1/* request : header에 관리자 토큰* response : 설문조사 제목, 설문조사 질문, 설문조사 응답
-// 7.4. 설문조사 제출하기(Put)* route : survey/1/result
-// 	* request : header에 유저 토큰, body에 설문조사 응답결과(result)	* response : 제출 시간
+
+// 7.1. 설문조사 생성(Post)관리자가 설문조사를 생성합니다.
+// * route : survey/
+// * request : header에 관리자 토큰,
+// body:
+Map SurveyPost = {
+  "title": "설문제목입니다.",
+  "explain": "설문설명입니다",
+  "questions": [
+    {
+      "id": "1",
+      "text": "예시 질문입니다.",
+      "type": "객관식",
+      "isOptional": "yes",
+// 선지입니다.
+      "options": [
+        "매우 좋음",
+        "좋음",
+        "보통",
+        "별로",
+        "아주 별로",
+      ],
+    },
+    {
+      "id": "2",
+      "text": "예시 질문입니다.",
+      "type": "다수선택",
+      "isOptional": "yes",
+// 선지입니다.
+      "options": [
+        "매우 좋음",
+        "좋음",
+        "보통",
+        "별로",
+        "아주 별로",
+      ],
+    },
+    {
+      "id": "3",
+      "text": "예시 질문입니다.",
+      "type": "단답식",
+      "isOptional": "yes",
+// 선지입니다.
+      "options": [],
+    },
+    {
+      "id": "4",
+      "text": "예시 질문입니다.",
+      "type": "객관식",
+      "isOptional": "no",
+// 선지입니다.
+      "options": [],
+    }
+  ]
+};
+// * response :
+Map responseSurvey = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "1",
+    "title": "설문제목입니다.",
+    "explain": "설문설명입니다",
+    "questions": [
+      {
+        "id": "1",
+        "text": "예시 질문입니다.",
+        "type": "객관식",
+        "isOptional": "yes",
+        // 선지입니다.
+        "options": [
+          "매우 좋음",
+          "좋음",
+          "보통",
+          "별로",
+          "아주 별로",
+        ],
+      },
+      {
+        "id": "2",
+        "text": "예시 질문입니다.",
+        "type": "다수선택",
+        "isOptional": "yes",
+        // 선지입니다.
+        "options": [
+          "매우 좋음",
+          "좋음",
+          "보통",
+          "별로",
+          "아주 별로",
+        ],
+      },
+      {
+        "id": "3",
+        "text": "예시 질문입니다.",
+        "type": "단답식",
+        "isOptional": "yes",
+        // 선지입니다.
+        "options": [],
+      },
+      {
+        "id": "4",
+        "text": "예시 질문입니다.",
+        "type": "객관식",
+        "isOptional": "no",
+        // 선지입니다.
+        "options": [],
+      },
+    ],
+    "result": [
+      [],
+      [],
+      [],
+      [],
+    ],
+    "create": "2021-07-10T08:05:49.068049",
+    "update": "2021-07-10T08:05:49.068049",
+  }
+};
+
+// 7.2. 설문조사 전체 불러오기(Get)생성된 전체 설문조사를 불러옵니다.
+// * route : survey/* request : header에 관리자 토큰
+// * response : survey의 collection (리스트로 하면 될듯)
+
+// 7.3. 설문조사 1개 불러오기(Get)
+// * route : survey/1/* request : header에 관리자 토큰
+// * response :
+Map responseSurvey1 = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "1",
+    "title": "설문제목입니다.",
+    "explain": "설문설명입니다",
+    "questions": [
+      {
+        "id": "1",
+        "text": "예시 질문입니다.",
+        "type": "객관식",
+        "isOptional": "yes",
+        // 선지입니다.
+        "options": [
+          "매우 좋음",
+          "좋음",
+          "보통",
+          "별로",
+          "아주 별로",
+        ],
+      },
+      {
+        "id": "2",
+        "text": "예시 질문입니다.",
+        "type": "다수선택",
+        "isOptional": "yes",
+        // 선지입니다.
+        "options": [
+          "매우 좋음",
+          "좋음",
+          "보통",
+          "별로",
+          "아주 별로",
+        ],
+      },
+      {
+        "id": "3",
+        "text": "예시 질문입니다.",
+        "type": "단답식",
+        "isOptional": "yes",
+        // 선지입니다.
+        "options": [],
+      },
+      {
+        "id": "4",
+        "text": "예시 질문입니다.",
+        "type": "객관식",
+        "isOptional": "no",
+        // 선지입니다.
+        "options": [],
+      },
+    ],
+    "result": [
+      [],
+      [],
+      [],
+      [],
+    ],
+    "create": "2021-07-10T08:05:49.068049",
+    "update": "2021-07-10T08:05:49.068049",
+  }
+};
+
+// 7.4. 설문조사 제출하기(Post)
+// * route : survey/1/result
+// 	* request : header에 유저 토큰,
+// 	body:
+Map SurveyResult = {};
+// 	* response : 제출 시간
 // 7.5. 설문조사 삭제(Delete)관리자가 생성한 설문조사를 삭제합니다. * route : survey/1/* request : header에 관리자 토큰* response : -

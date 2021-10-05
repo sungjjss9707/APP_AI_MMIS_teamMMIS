@@ -144,7 +144,7 @@ Map photoDatas = {
         "create": "2021-07-10T08:05:49.068049",
         "update": "2021-07-10T08:05:49.068049",
       },
-      "comment": [
+      "comments": [
         {
           "content": "댓글 내용입니다.",
           //댓글 게시자
@@ -184,7 +184,7 @@ Map photoDatas = {
         "create": "2021-07-10T08:05:49.068049",
         "update": "2021-07-10T08:05:49.068049",
       },
-      "comment": [
+      "comments": [
         {
           "content": "댓글 내용입니다.",
           //댓글 게시자
@@ -234,7 +234,7 @@ Map photoData = {
       "create": "2021-07-10T08:05:49.068049",
       "update": "2021-07-10T08:05:49.068049",
     },
-    "comment": [
+    "comments": [
       {
         "content": "댓글 내용입니다.",
         //댓글 게시자
@@ -288,7 +288,7 @@ Map PhotoPostDataResponse = {
       "create": "2021-07-10T08:05:49.068049",
       "update": "2021-07-10T08:05:49.068049",
     },
-    "comment": [],
+    "comments": [],
     "create": "2021-07-10T08:05:49.068049",
     "update": "2021-07-10T08:05:49.068049",
   },
@@ -329,7 +329,7 @@ Map addCommentData = {
       "create": "2021-07-10T08:05:49.068049",
       "update": "2021-07-10T08:05:49.068049",
     },
-    "comment": [
+    "comments": [
       {
         "content": "댓글 내용입니다.",
         //댓글 게시자
