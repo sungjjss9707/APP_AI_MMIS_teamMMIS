@@ -29,11 +29,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="surveycontroller, dto 완성">
-      <change afterPath="$PROJECT_DIR$/assets/request_api_1.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/request_api_2.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/json.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assets/json.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/request_api_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assets/request_api_2.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633414536818</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="surveycontroller, dto 완성">
+      <created>1633446067459</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1633446067459</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -354,10 +358,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633327021845" />
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633414546784">
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633446728582">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633414546784" />
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633446728582" />
     <state x="498" y="66" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1633270653530">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

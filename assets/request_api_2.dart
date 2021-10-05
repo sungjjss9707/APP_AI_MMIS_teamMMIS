@@ -376,25 +376,162 @@ Map DietPutResponse = {
 // 4.1. 식수 인원 데이터 가져오기(Get)
 // * route : noteating/2021/3/14/조식
 // * request : header에 관리자 토큰
-// * response : notEating
+// * response :
+Map numOfPeople = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "3",
+    // 총인원은 default 값으로 100명 있으면 좋겠음.
+    "totalNumberOfPeople": "100",
+    "reason": {
+      // 각 리스트에 불취식 신청한 사람들이 담김.
+      "당직": [],
+      "휴가": [
+        {
+          "id": "1",
+          "name": "홍길동",
+          "militaryNumber": "12-33333",
+          "password": null,
+          "rank": "이병",
+          "unit": "xx사단",
+          "allergy": {"계란류": "1", "우유": "1"},
+          "create": "2021-07-10T08:05:49.068049",
+          "update": "2021-07-10T08:05:49.068049",
+        },
+      ],
+      "외출": [],
+      "근무": [],
+      "기타": [],
+    },
+  },
+};
 
 // 4.2. 총인원 수정하기(Put)
 // * route : noteating/2021/3/14/조식
-// * request : header에 관리자 토큰, body에 총원
-// * response : notEating(수정된 데이터)
+// * request : header에 관리자 토큰,
+// body:
+Map changeTotal = {
+  "totalNumberOfPeople": "40",
+};
+// * response :
+Map numOfPeopleChange = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "3",
+    "totalNumberOfPeople": "40",
+    "reason": {
+      "당직": [],
+      "휴가": [
+        {
+          "id": "1",
+          "name": "홍길동",
+          "militaryNumber": "12-33333",
+          "password": null,
+          "rank": "이병",
+          "unit": "xx사단",
+          "allergy": {"계란류": "1", "우유": "1"},
+          "create": "2021-07-10T08:05:49.068049",
+          "update": "2021-07-10T08:05:49.068049",
+        },
+      ],
+      "외출": [],
+      "근무": [],
+      "기타": [],
+    },
+  },
+};
 
-// 4.3. 불취식 신청하기(Post)유저정보를 불취식 신청-사유 리스트에 저장합니다. * route : noteating/2021/3/14/조식
+// 4.3. 불취식 신청하기(Post)유저정보를 불취식 신청-사유 리스트에 저장합니다.
+// * route : noteating/2021/3/14/조식
 // * request : header에 유저토큰,
-// * response : -
+// * response :
+Map SubmitNotEating = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "3",
+    "totalNumberOfPeople": "40",
+    "reason": {
+      "당직": [],
+      "휴가": [
+        {
+          "id": "1",
+          "name": "홍길동",
+          "militaryNumber": "12-33333",
+          "password": null,
+          "rank": "이병",
+          "unit": "xx사단",
+          "allergy": {"계란류": "1", "우유": "1"},
+          "create": "2021-07-10T08:05:49.068049",
+          "update": "2021-07-10T08:05:49.068049",
+        },
+        {
+          "id": "1",
+          "name": "고영희",
+          "militaryNumber": "12-33333",
+          "password": null,
+          "rank": "병장",
+          "unit": "xx사단",
+          "allergy": {"계란류": "0", "우유": "1"},
+          "create": "2021-07-10T08:05:49.068049",
+          "update": "2021-07-10T08:05:49.068049",
+        },
+      ],
+      "외출": [],
+      "근무": [],
+      "기타": [],
+    },
+  },
+};
+
 // 4.4. 불취식 신청 취소하기(Delete)
 // * route : noteating/2021/3/14/조식/reason
-// * request : header에 유저 토큰, 날짜(year, month, day, time), 사유
-// * response : notEating(수정된 데이터)
+// * request : header에 유저 토큰,
+//body :
+Map requestCancel = {
+  "reason": "당직",
+};
+
+// * response :
+Map CancelNotEating = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "id": "3",
+    "totalNumberOfPeople": "40",
+    "reason": {
+      "당직": [],
+      "휴가": [
+        {
+          "id": "1",
+          "name": "고영희",
+          "militaryNumber": "12-33333",
+          "password": null,
+          "rank": "병장",
+          "unit": "xx사단",
+          "allergy": {"계란류": "0", "우유": "1"},
+          "create": "2021-07-10T08:05:49.068049",
+          "update": "2021-07-10T08:05:49.068049",
+        },
+      ],
+      "외출": [],
+      "근무": [],
+      "기타": [],
+    },
+  },
+};
 
 // 5. 공지사항
-// 5.1. 게시글 작성(Post)관리자가 새로운 게시글을 올립니다.
+// 5.1. 게시글 작성(Post)
 // * route : notice/
-// * request : header에 관리자 토큰, body에 제목(title), 내용(content)
+// * request : header에 관리자 토큰,
+// body :
+Map NoticePost = {
+  "title": "글제목",
+  "content": "글내용",
+};
 // * response : notice(방금 올린 것)
 
 // 5.2. 게시글 전체 목록보기(Get)사용자 또는 관리자가 게시글 목록을 불러옵니다.
