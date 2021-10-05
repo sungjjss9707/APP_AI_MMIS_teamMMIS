@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
         if (error) {
             console.log(error);
         }else{
-            res.send(results[0], req.body);
+            res.status(status).send(body);
             console.log(results);
         }
     })
