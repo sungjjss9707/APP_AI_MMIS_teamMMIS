@@ -1,13 +1,13 @@
-import 'package:admin/view/components/survey/survey_question_form_field.dart';
+import 'package:admin/domain/survey/survey.dart';
+
 import 'package:get/get.dart';
 
 class SurveyController extends GetxController {
-  RxString? title = "".obs;
-  RxString? explain = "".obs;
-  RxList<SurveyQuestionFormField> questions = <SurveyQuestionFormField>[].obs;
-}
+  final surveys = <Survey>[].obs;
+  final notice = Survey().obs;
 
-class QuestionType<T> {
-  T? type;
-  QuestionType(this.type);
+  @override
+  void onInit() {
+    super.onInit();
+  }
 }

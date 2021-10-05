@@ -29,11 +29,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공지사항 하는 중">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/controller/dto/survey_post_dto.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/host.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/survey/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/survey/survey.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/survey_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/survey_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/notice/notice_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/notice/notice_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/survey/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -12,7 +12,7 @@ class SurveyQuestionFormField extends StatefulWidget {
   final questionController = TextEditingController();
   dynamic questionType;
   int? selectedValue;
-  bool isCompulsory = false;
+  bool isOptional = false;
   SingleChoice singleChoice = SingleChoice();
   MultipleChoice multipleChoice = MultipleChoice();
   ShortAnswer shortAnswer = ShortAnswer();
@@ -58,14 +58,14 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
                 Text("필수"),
                 SizedBox(width: gap_s),
                 Switch(
-                  value: widget.isCompulsory,
+                  value: widget.isOptional,
                   activeColor: Colors.lightGreen,
                   onChanged: (value) {
                     setState(() {
-                      if (widget.isCompulsory == true)
-                        widget.isCompulsory = false;
+                      if (widget.isOptional == true)
+                        widget.isOptional = false;
                       else
-                        widget.isCompulsory = true;
+                        widget.isOptional = true;
                     });
                   },
                 )
