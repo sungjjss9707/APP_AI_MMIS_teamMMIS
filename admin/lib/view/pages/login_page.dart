@@ -2,6 +2,7 @@ import 'package:admin/controller/admin_controller.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
+import 'package:admin/view/components/login_and_join/tag_and_textformfield.dart';
 import 'package:admin/view/components/textfield/custom_text_form_field.dart';
 import 'package:admin/view/pages/join_page.dart';
 
@@ -26,24 +27,31 @@ class LoginPage extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(gap_m),
             width: 400,
-            height: 400,
+            height: 500,
             child: Column(
               children: [
                 Text(
                   "MMIS 관리자 체계 로그인",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                CustomTextFormField(
+                SizedBox(
+                  height: 30,
+                ),
+                TagAndTextFormField(
+                  text: "군번",
                   controller: _militaryNumber,
-                  hint: "군번",
                   funValidate: validateMilitaryNumber(),
                 ),
-                CustomTextFormField(
+                TagAndTextFormField(
+                  text: "비밀번호",
                   controller: _password,
-                  hint: "비밀번호",
                   funValidate: validatePassWord(),
+                  obscureText: true,
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 20),
                 CustomElevatedButton(
                   width: double.infinity,
                   text: "로그인",
@@ -61,7 +69,7 @@ class LoginPage extends StatelessWidget {
                     }
                   },
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 10),
                 TextButton(
                   onPressed: () {
                     Get.to(() => JoinPage());
