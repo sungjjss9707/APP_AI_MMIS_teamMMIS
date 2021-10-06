@@ -12,12 +12,16 @@ from konlpy.tag import Komoran
 
 # %%
 #데이터 불러오기
-data= pd.read_csv("All Menu (Various Versions)/ 국방부메뉴_v1.0.csv", encoding="UTF-8")
+data= pd.read_csv("All Menu (Various Versions)/국방부메뉴_v2.0.csv", encoding="UTF-8")
 data
 
-#%%
 # 정규 표현식을 통한 한글 외 문자 제거
 data['메뉴이름'] = data['메뉴이름'].str.replace("[^ㄱ-ㅎㅏ-ㅣ가-힣 ]","")
+data['메뉴이름'] = data['메뉴이름'].str.replace(" ","")
+# 중복 제거
+
+data = data.drop_duplicates(['메뉴이름'], ignore_index=True)
+
 
 #%%
 # bigram/ trigram 만들기
@@ -47,6 +51,7 @@ for menuName in data['메뉴이름']:
         trigram.append(temp)
 
 # %%
+# data축에 삽입
 data.insert(2, 'bigram',bigram)
 
 data.insert(3, 'trigram',trigram)
@@ -68,7 +73,7 @@ trigramText = [" ".join(trigram) for trigram in data['trigram']]
 bigram_tfidf_vectorizer = TfidfVectorizer(min_df = 3, ngram_range=(1,1))
 bigram_tfidf_vectorizer.fit(bigramText)
 
-trigram_tfidf_vectorizer = TfidfVectorizer(min_df = 3, ngram_range=(1,1))
+trigram_tfidf_vectorizer = TfidfVectorizer(min_df = 2, ngram_range=(1,1))
 trigram_tfidf_vectorizer.fit(trigramText)
 
 #벡터로 변환
@@ -100,6 +105,19 @@ data['category_bigram']=bigram_idx
 data['category_trigram']=trigram_idx
 
 
+#%%
+# list로 cluster 결과 확인
+clusterNum = 0
+clustred_data=pd.DataFrame()
+clustred_data.insert(0, '메뉴이름', data['메뉴이름'])
+clustred_data.insert(0, 'category_bigram', data['category_bigram'])
+clustred_data.insert(0, 'category_trigram', data['category_trigram'])
+clustred_data
+
+with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+    print(clustred_data.loc[clustred_data['category_bigram']==clusterNum])
+
+
 # %%
 #Embedding & 시각화
 from sklearn.manifold import TSNE
@@ -108,10 +126,10 @@ import pickle
 
 #%%
 #차원축소
-X = bigram_vector.tolist()
+X = trigram_vector.tolist()
 y = data['category_bigram'].tolist()
 
-tsne_filepath = 'tnse3000(n-gram).pkl'
+"""tsne_filepath = 'tnse3000(w2v).pkl'
 
 # File Cache
 if not os.path.exists(tsne_filepath):
@@ -121,7 +139,10 @@ if not os.path.exists(tsne_filepath):
         pickle.dump(tsne_points, f)
 else: #cache hits
     with open(tsne_filepath, 'rb') as f:
-        tsne_points=pickle.load(f)
+        tsne_points=pickle.load(f)"""
+
+tsne=TSNE(random_state=42)
+tsne_points = tsne.fit_transform(X)
 
 tsne_df = pd.DataFrame(tsne_points, index=range(len(X)), columns=['x_coord', 'y_coord'])
 tsne_df['menu_name']=data['메뉴이름'].tolist()
@@ -189,3 +210,48 @@ tsne_plot.outline_line_color = None
 show(tsne_plot)
 
 # %%
+# 유사 메뉴 추천 
+
+from sklearn.metrics.pairwise import cosine_similarity
+import warnings; warnings.filterwarnings('ignore')
+
+#%%
+# 코사인 유사도 계산
+menuNameSimilarity = cosine_similarity(bigram_dataList, bigram_dataList)
+
+# 유사도 정렬
+menu_sim_sorted_idx = menuNameSimilarity.argsort()[:, ::-1]
+
+#%%
+# 유사 메뉴 추천 함수
+def find_sim_menu(data, sorted_idx, name, number=10):
+    title_menu=data[data['메뉴이름']==name]
+
+    title_menu_idx = title_menu.index.values
+
+    top_sim_idx = menu_sim_sorted_idx[title_menu_idx, :number]
+    
+    top_sim_idx = top_sim_idx.reshape(-1,)
+    similar_menu = data.iloc[top_sim_idx]['메뉴이름']
+
+    similar_menu_list =[]
+    for sim_menu in similar_menu:
+        similar_menu_list.append(sim_menu)
+
+
+    return similar_menu_list
+
+
+
+#%%
+# 메뉴 추천
+recommendMenu = '부추비빔밥'
+
+similar_menus=find_sim_menu(data, menu_sim_sorted_idx, recommendMenu)
+
+
+similar_menus
+
+#%%
+np.save('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/menu_sim_sorted_idx',menu_sim_sorted_idx)
+data.to_csv('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/data.csv')

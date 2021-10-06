@@ -1,5 +1,6 @@
 #%%
 #패키지 불러오기
+from bokeh.models.textures import Texture
 import pandas as pd
 import numpy as np
 import matplotlib as mpl
@@ -12,47 +13,56 @@ from konlpy.tag import Okt
 from konlpy.tag import Komoran
 
 # %%
-#데이터 불러오기
-data= pd.read_csv("All Menu (Various Versions)/ 국방부메뉴_v1.0.csv", encoding="UTF-8")
+# 데이터 불러오기
+data= pd.read_csv("All Menu (Various Versions)/국방부메뉴_v2.1.csv", encoding="UTF-8")
 data
-
-#%%
-# 형태소 분석 성능 TEST
-okt=Okt()
-komoran=Komoran()
-
-#%%
-# okt, komoran 이 사용 가능(절대적 우위 가리기 불가) & morphs
-# kkma는 시간이 오래 걸림/ hannanum은 위의 두 개 보다 성능 낮음
-menuTest = '주스망고코넛'
-print(okt.morphs(menuTest))
-print(komoran.nouns(menuTest))
-
 
 # %%
 # 정규 표현식을 통한 한글 외 문자 제거
 data['메뉴이름'] = data['메뉴이름'].str.replace("[^ㄱ-ㅎㅏ-ㅣ가-힣 ]","")
+data['메뉴이름'] = data['메뉴이름'].str.replace(" ","")
+# 중복 제거
+
+data = data.drop_duplicates(['메뉴이름'], ignore_index=True)
+
+#%% 정규화
+print(data[:103].mean())
+
+"""normalization_df = (df - df.mean())/df.std()
+normalization_df.head()"""
+
+"104 탕수육, 489 북경식탕수육(꿔바로우), 1705 사천식탕수육, 후르츠탕수육"
+
+"""열량            239.023226
+탄수화물           28.668782
+지방              7.347292
+단백질            11.419169
+나트륨                  inf
+콜레스트롤          27.948121"""
 
 #%%
+data
+#%%
 # Komoran 사용한 토큰화 작업
+# okt, komoran 이 사용 가능(절대적 우위 가리기 불가) & morphs
+# kkma는 시간이 오래 걸림/ hannanum은 위의 두 개 보다 성능 낮음
+
 komoran = Komoran()
+okt=Okt()
 tokenized_data=[]
 
 for menu in data['메뉴이름']:
     temp_X = komoran.morphs(menu) #토큰화
-    
     tokenized_data.append(temp_X)
+
 # %%
-#word2vec 사용
+# word2vec 사용
 
 model = Word2Vec(sentences=tokenized_data, vector_size=100 , window=2, min_count=0, workers=4, sg=0)
 
 # %%
-#모델 작동 확인
-print(model.wv.most_similar("돼지고기"))
-
-# %%
 # 메뉴별 벡터 구하는 함수 
+
 def get_sentence_mean_vector(morphs):
     vector=[]
     for i in morphs:
@@ -65,19 +75,8 @@ def get_sentence_mean_vector(morphs):
     except IndexError as e:
         pass
 
-
-#%%
-# get_sentence_mean_vector 작동 확인
-
-vectors=[]
-
-for i in tokenized_data[12]:
-    vectors.append(model.wv[i])
-num = np.mean(vectors, axis=0)
-len(num)
-
 # %%
-#sentence vector data에 추가
+# sentence vector를 data에 추가
 
 sentence_vector=[]
 
@@ -87,14 +86,11 @@ for vectors in tokenized_data:
     sentence_vector.append(temp_X)
 
 data.insert(3, 'wv',sentence_vector)
+
 # %%
-#wv 열 확인
-data
-# %%
-#clustering
+# clustering -> 추천 잘 될 수 있는지 시각화 용도
 
 from sklearn.cluster import KMeans
-
 
 dataList=[]
 for vectorList in data['wv']:
@@ -102,23 +98,23 @@ for vectorList in data['wv']:
 
 num_clusters = 10
 
-
 k_means_clustering = KMeans(n_clusters=num_clusters)
 idx = k_means_clustering.fit_predict(dataList)
 data['category']=idx
 
 # %%
-#Embedding & 시각화
+# Embedding & 시각화 위해 import
 from sklearn.manifold import TSNE
 import os.path
 import pickle
 
 #%%
-#차원축소
+# 차원축소(2차원으로)
+
 X = data['wv'].tolist()
 y = data['category'].tolist()
 
-tsne_filepath = 'tnse3000(w2v).pkl'
+"""tsne_filepath = 'tnse3000(w2v).pkl'
 
 # File Cache
 if not os.path.exists(tsne_filepath):
@@ -128,7 +124,10 @@ if not os.path.exists(tsne_filepath):
         pickle.dump(tsne_points, f)
 else: #cache hits
     with open(tsne_filepath, 'rb') as f:
-        tsne_points=pickle.load(f)
+        tsne_points=pickle.load(f)"""
+
+tsne=TSNE(random_state=42)
+tsne_points = tsne.fit_transform(X)
 
 tsne_df = pd.DataFrame(tsne_points, index=range(len(X)), columns=['x_coord', 'y_coord'])
 tsne_df['menu_name']=data['메뉴이름'].tolist()
@@ -150,7 +149,7 @@ colormap = {i: colors[i] for i in tsne_df['cluster_number'].unique()}
 
 # Create a list of colors for each value that we will be looking at.
 colors = [colormap[x] for x in tsne_df['cluster_number']]
-# %%
+
 tsne_df['color']=colors
 # %%
 # Bokeh Datasouce 만들기
@@ -195,4 +194,52 @@ tsne_plot.outline_line_color = None
 # 짠!
 show(tsne_plot)
 
+# %%
+# 유사 메뉴 추천 
+
+from sklearn.metrics.pairwise import cosine_similarity
+import warnings; warnings.filterwarnings('ignore')
+
+#%%
+# 코사인 유사도 계산
+menuNameSimilarity = cosine_similarity(dataList, dataList)
+
+# 유사도 정렬
+menu_sim_sorted_idx = menuNameSimilarity.argsort()[:, ::-1]
+
+#%%
+# 유사 메뉴 추천 함수
+def find_sim_menu(data, sorted_idx, name, number=10):
+    title_menu=data[data['메뉴이름']==name]
+
+    title_menu_idx = title_menu.index.values
+
+    top_sim_idx = menu_sim_sorted_idx[title_menu_idx, :number]
+    
+    top_sim_idx = top_sim_idx.reshape(-1,)
+    similar_menu = data.iloc[top_sim_idx]['메뉴이름']
+
+    similar_menu_list =[]
+    for sim_menu in similar_menu:
+        similar_menu_list.append(sim_menu)
+
+
+    return similar_menu_list
+
+
+
+# %%
+# 메뉴 추천
+recommendMenu = '부추비빔밥'
+
+similar_menus=find_sim_menu(data, menu_sim_sorted_idx, recommendMenu)
+
+
+similar_menus
+
+# %%
+# 서비스 작동을 위한 배열 저장
+
+np.save('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/menu_sim_sorted_idx',menu_sim_sorted_idx)
+data.to_csv('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/data.csv')
 # %%
