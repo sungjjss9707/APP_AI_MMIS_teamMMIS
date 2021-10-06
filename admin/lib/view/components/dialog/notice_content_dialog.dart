@@ -1,16 +1,20 @@
+import 'package:admin/controller/notice_controller.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/textfield/custom_text_form_field.dart';
 import 'package:admin/view/components/textfield/custom_writing_area.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../size.dart';
 
 class NoticeContentDialog extends StatefulWidget {
   final String title;
   final String content;
+  final int id;
 
-  NoticeContentDialog({required this.title, required this.content});
+  NoticeContentDialog(
+      {required this.title, required this.content, required this.id});
 
   @override
   _NoticeContentDialogState createState() => _NoticeContentDialogState();
@@ -32,6 +36,7 @@ class _NoticeContentDialogState extends State<NoticeContentDialog> {
 
   @override
   Widget build(BuildContext context) {
+    NoticeController n = Get.find();
     return SimpleDialog(
       contentPadding: EdgeInsets.all(32),
       children: [
@@ -79,7 +84,14 @@ class _NoticeContentDialogState extends State<NoticeContentDialog> {
                                   if (_titleController.text != widget.title ||
                                       _contentController.text !=
                                           widget.content) {
-                                    // 여기서 글을 수정된 내용을 서버로 통신. 요청
+                                    try {
+                                      n.updateById(
+                                          widget.id,
+                                          _titleController.text,
+                                          _contentController.text);
+                                    } catch (e) {
+                                      Get.snackbar("", "수정 실패");
+                                    }
                                     String newTitle = _titleController.text;
                                     String newContent = _contentController.text;
                                     print("title $newTitle");

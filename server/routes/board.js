@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     })
 });
 
-
+/*
 router.get('/:seq', async (req, res) => {
     console.log(`GET ALL ${req.params.seq}`);
   console.log(req.params, req.query);
@@ -42,5 +42,5 @@ router.get('/:seq', async (req, res) => {
         }
     })
 });
-
+*/
 module.exports = router;

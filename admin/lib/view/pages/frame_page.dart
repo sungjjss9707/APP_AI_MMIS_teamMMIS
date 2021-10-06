@@ -152,32 +152,4 @@ class _FramePageState extends State<FramePage> {
       ],
     );
   }
-
-  // Widget _sideMenuBar() {
-  //   return Container(
-  //     width: 200,
-  //     child: Column(
-  //       mainAxisAlignment: MainAxisAlignment.start,
-  //       children: List.generate(
-  //         sideMenuBarList.length,
-  //         (index) => Container(
-  //           height: 50,
-  //           child: ListTile(
-  //             onTap: () {
-  //               setState(() {
-  //                 _selectedTapIndex = index;
-  //               });
-  //             },
-  //             // tileColor: Colors.lightGreen[400],
-  //             leading: pageIcon[index],
-  //             title: Text(
-  //               sideMenuBarList[index],
-  //               style: TextStyle(fontSize: 20),
-  //             ),
-  //           ),
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
 }

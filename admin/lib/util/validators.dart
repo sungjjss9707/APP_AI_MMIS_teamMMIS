@@ -66,3 +66,13 @@ Function validateContent() {
     }
   };
 }
+
+Function validateIsEmpty() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "공백이 들어갈 수 없습니다.";
+    } else {
+      return null;
+    }
+  };
+}
