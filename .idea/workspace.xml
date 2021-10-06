@@ -29,7 +29,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공지사항 통신 준비 완료">
+      <change afterPath="$PROJECT_DIR$/admin/lib/controller/ai_controller.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/controller/dto/ai_request_dto.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/AI/ai.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/AI/ai_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/domain/AI/ai_repository.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
