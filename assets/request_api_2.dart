@@ -989,12 +989,8 @@ Map responseSurvey1 = {
         "options": [],
       },
     ],
-    "result": [
-      [],
-      [],
-      [],
-      [],
-    ],
+    // "result"에는 제출된 결과의 리스트가 요소로 저장됩니다.
+    "result": [],
     "create": "2021-07-10T08:05:49.068049",
     "update": "2021-07-10T08:05:49.068049",
   }
@@ -1004,6 +1000,53 @@ Map responseSurvey1 = {
 // * route : survey/1/result
 // 	* request : header에 유저 토큰,
 // 	body:
-Map SurveyResult = {};
-// 	* response : 제출 시간
-// 7.5. 설문조사 삭제(Delete)관리자가 생성한 설문조사를 삭제합니다. * route : survey/1/* request : header에 관리자 토큰* response : -
+Map PostResult = {
+  "result": [
+    {
+      "id": "1",
+      "type": "객관식",
+      "answer": [
+        "매우좋음",
+      ],
+    },
+    {
+      "id": "2",
+      "type": "다수선택",
+      "answer": [
+        "매우좋음",
+        "좋음",
+      ],
+    },
+    {
+      "id": "3",
+      "type": "객관식",
+      "answer": [
+        "3",
+      ],
+    },
+    {
+      "id": "4",
+      "type": "단답형",
+      "answer": [
+        "단답형 답입니다.",
+      ],
+    }
+  ],
+};
+
+// * response :
+Map SurveyPostResponse = {
+  "code": "1",
+  "msg": "success",
+  "data": null,
+};
+
+// 7.5. 설문조사 삭제(Delete)관리자가 생성한 설문조사를 삭제합니다.
+// * route : survey/1/
+// * request : headers에 관리자 토큰
+// * response :
+Map SurveyDeleteResponse = {
+  "code": "1",
+  "msg": "success",
+  "data": null,
+};
