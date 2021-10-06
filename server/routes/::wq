@@ -14,7 +14,7 @@ const connection =   mysql.createPool({
 /* GET users listing. */
 
 router.get('/', async (req, res) => {
-  console.log('GET ALL seq');
+  console.log('GET all notice');
     console.log(req.params, req.query);
     connection.query(`select * from board`, (error, results, fields) => {
 
@@ -26,13 +26,26 @@ router.get('/', async (req, res) => {
         }
     })
 });
+router.post('/', async (req, res) => {
+    console.log(`POST notice ${req.body}`);
+  console.log(req.params, req.query, req.body);
+    
+    connection.query(`insert into board (writer, subject, content, ins_user_id, ins_date) value (\'${req.body.writer}\', \'${req.body.subject}\', \'${req.body.content}\', \'${req.body.ins_user_id}\', now());`, (error, results, fields) => {
 
-/*
+        if (error) {
+            console.log(error);
+        }else{
+            res.status(results[0]).send(body);
+            console.log(results);
+        }
+    })
+});
+
 router.get('/:seq', async (req, res) => {
-    console.log(`GET ALL ${req.params.seq}`);
+    console.log(`GET all ${req.params.seq}`);
   console.log(req.params, req.query);
     
-    connection.query(`select * from board where seq = \"${req.params.seq}\";`, (error, results, fields) => {
+    connection.query(`select * from board where seq = \'${req.params.seq}\';`, (error, results, fields) => {
 
         if (error) {
             console.log(error);
@@ -42,5 +55,5 @@ router.get('/:seq', async (req, res) => {
         }
     })
 });
-*/
+
 module.exports = router;

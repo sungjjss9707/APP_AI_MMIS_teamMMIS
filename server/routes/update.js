@@ -17,9 +17,10 @@ router.put('/:seq', async (req, res) => {
     console.log(`put updeate ${req.body}`);
     //console.log(req.params, req.query, req.body);
    //var body = req.body;
+    var new_subject = req.body.newsubject;
     var new_content = req.body.newcontent;
     console.log(new_content);
-    var sql = `UPDATE board SET content =\'${new_content}\' where seq = \'${req.params.seq}\';`;
+    var sql = `UPDATE board SET subject =\'${new_subject}\', content =\'${new_content}\' where seq = \'${req.params.seq}\';`;
     connection.query(sql, (error, results, fields) => {
 
         if (error) {
