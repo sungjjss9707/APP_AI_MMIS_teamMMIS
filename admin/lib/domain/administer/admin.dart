@@ -23,10 +23,10 @@ class Administer {
 
   Administer.fromJson(Map<String, dynamic> json)
       : id = json["id"],
-        username = json["이름"],
-        militaryNumber = json["군번"],
-        rank = json["계급"],
-        unit = json["소속"],
+        username = json["name"],
+        militaryNumber = json["militaryNumber"],
+        rank = json["rank"],
+        unit = json["unit"],
         created = DateFormat("yyyy-mm-dd").parse(json["created"]),
         updated = DateFormat("yyyy-mm-dd").parse(json["updated"]);
 }

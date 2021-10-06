@@ -29,15 +29,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="api 문서 수정 완료">
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/login_and_join/tag_and_textformfield.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/controller/dto/join_request_dto.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/controller/dto/notice_save_or_update_dto.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/util/convertDateTime.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/util/military_info.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/login_and_join/tag_and_textAheadFormField.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021-10-04__10_05__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021-10-04__10_05__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-03__3_08__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-03__3_08__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-04__9_16__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-04__9_16__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/admin_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/admin_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/login_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/dto/login_request_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/notice_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/notice_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/administer/admin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/administer/admin_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/administer/admin_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/notice/notice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/notice/notice.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/notice/notice_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/notice/notice_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/notice/notice_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/notice/notice_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/validators.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_write_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_write_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/login_and_join/tag_and_textformfield.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/login_and_join/tag_and_textformfield.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/join_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,6 +378,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="493" y="240" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1633418297209" />
+    <state x="678" y="217" key="FileChooserDialogImpl" timestamp="1633495496245">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="678" y="217" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1633495496245" />
     <state width="1330" height="252" key="GridCell.Tab.0.bottom" timestamp="1633418528933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

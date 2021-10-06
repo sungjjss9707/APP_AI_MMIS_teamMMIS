@@ -1,8 +1,10 @@
+import 'package:admin/controller/notice_controller.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/textfield/custom_text_form_field.dart';
 import 'package:admin/view/components/textfield/custom_writing_area.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../size.dart';
 
@@ -16,6 +18,7 @@ class _NoticeWriteDialogState extends State<NoticeWriteDialog> {
   final TextEditingController _contentController = TextEditingController();
   final bool enabled = true;
   final _formKey = GlobalKey<FormState>();
+  final NoticeController n = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +52,13 @@ class _NoticeWriteDialogState extends State<NoticeWriteDialog> {
                       padding: const EdgeInsets.only(right: gap_s),
                       child: CustomElevatedButton(
                         text: "게시하기",
-                        onPressed: () {
-                          //여기서 게시하면 됨.
+                        onPressed: () async {
+                          try {
+                            await n.save(
+                                _titleController.text, _contentController.text);
+                          } catch (e) {
+                            Get.snackbar("", "게시 실패");
+                          }
                           String title = _titleController.text;
                           String content = _contentController.text;
                           print(title);

@@ -1,7 +1,6 @@
 // 공지사항 관리 페이지
 
 import 'package:admin/controller/notice_controller.dart';
-import 'package:admin/model/notice.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/dialog/notice_content_dialog.dart';
 import 'package:admin/view/components/dialog/notice_write_dialog.dart';
@@ -19,7 +18,6 @@ class NoticePage extends StatefulWidget {
 
 class _NoticePageState extends State<NoticePage> {
   late int _currentPage;
-  List<Map> _dummyNotice = dummyNotice;
   final NoticeController n = Get.put(NoticeController());
 
   @override
@@ -96,39 +94,43 @@ class _NoticePageState extends State<NoticePage> {
   }
 
   Widget _noticeList(BuildContext context) {
-    return Column(
-      children: List.generate(15, (int index) {
-        String title;
-        String writer;
-        String date;
-        String content;
-        index += 15 * (_currentPage - 1);
-        try {
-          Map notice = _dummyNotice[index];
-          title = notice["제목"];
-          writer = notice["작성자"];
-          date = notice["작성날짜"];
-          content = notice["내용"];
-        } catch (e) {
-          title = "";
-          writer = "";
-          date = "";
-          content = "";
-        }
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: title != ""
-              ? InkWell(
-                  onTap: () async {
-                    _showContentDialog(context, title, content);
-                  },
-                  child: _content(index, title, writer, date),
-                )
-              : InkWell(
-                  child: _content(index, title, writer, date),
-                ),
-        );
-      }),
+    return Obx(
+      () => Column(
+        children: List.generate(15, (int index) {
+          String title;
+          String writer;
+          String date;
+          String content;
+          int id;
+          index += 15 * (_currentPage - 1);
+          try {
+            title = n.notices[index].title!;
+            writer = "관리자";
+            date = n.notices[index].updated.toString();
+            content = n.notices[index].content!;
+            id = n.notices[index].id!;
+          } catch (e) {
+            title = "";
+            writer = "";
+            date = "";
+            content = "";
+            id = -1;
+          }
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: title != ""
+                ? InkWell(
+                    onTap: () async {
+                      _showContentDialog(context, title, content, id);
+                    },
+                    child: _content(index, title, writer, date),
+                  )
+                : InkWell(
+                    child: _content(index, title, writer, date),
+                  ),
+          );
+        }),
+      ),
     );
   }
 
@@ -153,9 +155,9 @@ class _NoticePageState extends State<NoticePage> {
           _currentPage = selectedPage;
         });
       },
-      totalPage: _dummyNotice.length % 15 == 0
-          ? _dummyNotice.length ~/ 15
-          : _dummyNotice.length ~/ 15 + 1,
+      totalPage: n.notices.length % 15 == 0
+          ? n.notices.length ~/ 15
+          : n.notices.length ~/ 15 + 1,
       currentPage: _currentPage,
     );
   }
@@ -216,13 +218,14 @@ class _NoticePageState extends State<NoticePage> {
   }
 
   Future<dynamic> _showContentDialog(
-      BuildContext context, String title, String content) {
+      BuildContext context, String title, String content, int id) {
     return showDialog(
       context: context,
       builder: (context) {
         return NoticeContentDialog(
           title: title,
           content: content,
+          id: id,
         );
       },
     );

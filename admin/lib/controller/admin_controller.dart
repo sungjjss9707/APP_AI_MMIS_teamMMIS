@@ -19,4 +19,15 @@ class AdministerController extends GetxController {
       return -1;
     }
   }
+
+  Future<int> join(String name, String militaryNumber, String password,
+      String rank, String unit) async {
+    int code = await _administerRepository.join(
+        name, militaryNumber, password, rank, unit);
+    if (code == 1) {
+      return 1;
+    } else {
+      return -1;
+    }
+  }
 }

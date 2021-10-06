@@ -1,9 +1,13 @@
+import 'package:admin/controller/admin_controller.dart';
+import 'package:admin/util/military_info.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
+import 'package:admin/view/components/login_and_join/tag_and_textAheadFormField.dart';
 import 'package:admin/view/components/login_and_join/tag_and_textformfield.dart';
+import 'package:admin/view/pages/frame_page.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
+
 import 'package:get/get.dart';
 
 import 'login_page.dart';
@@ -15,117 +19,103 @@ class JoinPage extends StatelessWidget {
   final _password = TextEditingController();
   final _passwordConfirm = TextEditingController();
   final _unit = TextEditingController();
+  final _rank = TextEditingController();
+  final a = Get.put(AdministerController());
 
   @override
   Widget build(BuildContext context) {
-    double _height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: ListView(
-        children: [
-          SizedBox(height: _height > 400 ? _height * 0.5 - 200 : 0),
-          Center(
-            child: Form(
-              key: _formKey,
-              //한번에 서버로 날릴거라 이 네개를 폼으로 묶는게 좋음
-              child: Container(
-                height: 600,
-                width: 400,
-                child: Column(
+      body: Center(
+        child: Form(
+          key: _formKey,
+          //한번에 서버로 날릴거라 이 네개를 폼으로 묶는게 좋음
+          child: Container(
+            width: 400,
+            height: 800,
+            child: Column(
+              children: [
+                Text(
+                  "MMIS 관리자 체계 회원가입",
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Column(
                   children: [
-                    Text(
-                      "MMIS 관리자 체계 회원가입",
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                    ),
-                    Column(
-                      children: [
-                        TypeAheadFormField(
-                          onSuggestionSelected: (String suggestion) {
-                            _unit.text = suggestion;
-                          },
-                          itemBuilder: (context, String suggestion) {
-                            return ListTile(
-                              title: Text(suggestion),
-                            );
-                          },
-                          suggestionsCallback: (pattern) {
-                            return MilitaryUnit.getSuggestions(pattern);
-                          },
-                        ),
-                        TagAndTextFormField(
-                          text: "군번",
-                          controller: _militaryNumber,
-                          funValidate: validateMilitaryNumber(),
-                        ),
-                        TagAndTextFormField(
-                          text: "이름",
-                          controller: _name,
-                          funValidate: validateMilitaryNumber(),
-                        ),
-                        TagAndTextFormField(
-                          text: "비밀번호",
-                          controller: _password,
-                          funValidate: validateMilitaryNumber(),
-                        ),
-                        TagAndTextFormField(
-                          text: "비밀번호확인",
-                          controller: _passwordConfirm,
-                          funValidate: validateMilitaryNumber(),
-                        )
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    CustomElevatedButton(
-                      width: double.infinity,
-                      text: "회원가입",
-                      onPressed: () {
-                        if (_formKey.currentState!.validate() &&
-                            _password.text == _passwordConfirm.text) {
-                          Get.to(() => LoginPage());
-                        }
+                    TagAndTextAheadFormField(
+                      funValidate: validateIsEmpty(),
+                      text: "소속",
+                      controller: _unit,
+                      suggestionsCallback: (pattern) {
+                        // 여기서는 부대 이름이 들어가야 됨.
+                        return MilitaryUnit.getSuggestions(pattern);
                       },
                     ),
-                    SizedBox(height: 5),
-                    TextButton(
-                      onPressed: () {
-                        Get.to(() => LoginPage());
+                    TagAndTextAheadFormField(
+                      funValidate: validateIsEmpty(),
+                      text: "계급",
+                      controller: _rank,
+                      suggestionsCallback: (pattern) {
+                        // 여기서는 부대 이름이 들어가야 됨.
+                        return Rank.getSuggestions(pattern);
                       },
-                      child: Text("이미 회원이신가요?"),
                     ),
+                    TagAndTextFormField(
+                      text: "군번",
+                      controller: _militaryNumber,
+                      funValidate: validateMilitaryNumber(),
+                    ),
+                    TagAndTextFormField(
+                      text: "이름",
+                      controller: _name,
+                      funValidate: validateIsEmpty(),
+                    ),
+                    TagAndTextFormField(
+                      obscureText: true,
+                      text: "비밀번호",
+                      controller: _password,
+                      funValidate: validatePassWord(),
+                    ),
+                    TagAndTextFormField(
+                      obscureText: true,
+                      text: "비밀번호확인",
+                      controller: _passwordConfirm,
+                      funValidate: validatePassWord(),
+                    )
                   ],
                 ),
-              ),
+                SizedBox(height: 10),
+                CustomElevatedButton(
+                  width: double.infinity,
+                  text: "회원가입",
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate() &&
+                        _password.text == _passwordConfirm.text) {
+                      int code = await a.join(
+                          _name.text.trim(),
+                          _militaryNumber.text.trim(),
+                          _password.text.trim(),
+                          _rank.text.trim(),
+                          _unit.text.trim());
+                      if (code == 1) {
+                        Get.to(() => FramePage());
+                      } else {}
+                    }
+                  },
+                ),
+                SizedBox(height: 10),
+                TextButton(
+                  onPressed: () {
+                    Get.to(() => LoginPage());
+                  },
+                  child: Text("이미 회원이신가요?"),
+                ),
+              ],
             ),
           ),
-          SizedBox(height: _height > 400 ? _height * 0.5 - 200 : 0),
-        ],
+        ),
       ),
     );
-  }
-}
-
-class MilitaryUnit {
-  static final List<String> units = [
-    '공군 제xx전투비행단',
-    '육군 제**사단',
-    '육군 제**사단',
-    '육군 제**사단',
-    '육군 제**사단',
-    '육군 1xx연대',
-    '해병대 xx부대',
-    '국방부 ??정책과',
-    '국방부 xx정책과',
-    '공군 제a전투비행단',
-    '공군 제b전투비행단',
-    '공군 제c전투비행단',
-    '공군 제d전투비행단',
-    '공군 제e전투비행단',
-  ];
-
-  static List<String> getSuggestions(String query) {
-    List<String> matches = <String>[];
-    matches.addAll(units);
-    matches.retainWhere((s) => s.toLowerCase().contains(query.toLowerCase()));
-    return matches;
   }
 }

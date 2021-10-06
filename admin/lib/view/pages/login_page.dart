@@ -3,7 +3,6 @@ import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/login_and_join/tag_and_textformfield.dart';
-import 'package:admin/view/components/textfield/custom_text_form_field.dart';
 import 'package:admin/view/pages/join_page.dart';
 
 import 'package:flutter/material.dart';

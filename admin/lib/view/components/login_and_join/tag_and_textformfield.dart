@@ -34,6 +34,7 @@ class TagAndTextFormField extends StatelessWidget {
           controller: controller,
           funValidate: funValidate,
         ),
+        SizedBox(height: gap_xs),
       ],
     );
   }

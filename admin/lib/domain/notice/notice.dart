@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class Notice {
   final int? id;
   final String? title;
@@ -12,4 +14,10 @@ class Notice {
     this.created,
     this.updated,
   });
+  Notice.fromJson(Map<String, dynamic> json)
+      : id = json["id"],
+        title = json["title"],
+        content = json["content"],
+        created = DateFormat("yyyy-mm-dd").parse(json["created"]),
+        updated = DateFormat("yyyy-mm-dd").parse(json["updated"]);
 }
