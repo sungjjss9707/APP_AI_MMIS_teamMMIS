@@ -1,26 +1,11 @@
 class AIReqDto {
-  final String? rice;
-  final String? mainDish;
-  final String? soup;
-  final String? serveDish;
-  final String? vegetable;
-  final String? dessert;
+  final List<String>? menus;
 
   AIReqDto(
-    this.rice,
-    this.mainDish,
-    this.soup,
-    this.serveDish,
-    this.vegetable,
-    this.dessert,
+    this.menus,
   );
 
   Map<String, dynamic> toJson() => {
-        "rice": rice,
-        "mainDish": mainDish,
-        "soup": soup,
-        "serveDish": serveDish,
-        "vegetable": vegetable,
-        "desert": dessert,
+        "menus": menus,
       };
 }
