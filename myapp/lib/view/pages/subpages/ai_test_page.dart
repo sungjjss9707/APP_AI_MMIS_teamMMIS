@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/page_util/validators.dart';
+import 'package:myapp/view/components/ai_menu_input_form.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
+import 'package:myapp/view/components/button/custom_elevated_button.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
-import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
 
 class AiTestPage extends StatelessWidget {
   @override
@@ -10,67 +10,40 @@ class AiTestPage extends StatelessWidget {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: subPageAppBar("AI 실험실"),
-      body: MenuInputs(count: 3),
-    );
-  }
-}
-
-class MenuInputs extends StatefulWidget {
-  int count;
-  MenuInputs({required this.count});
-  @override
-  _MenuInputsState createState() => _MenuInputsState(count: count);
-}
-
-class _MenuInputsState extends State<MenuInputs> {
-  int count;
-  final _formKey = GlobalKey<FormState>();
-  _MenuInputsState({required this.count});
-  @override
-  Widget build(BuildContext context) {
-    List<TextEditingController> controllers =
-        List.generate(count, (i) => TextEditingController());
-    return Padding(
-      padding: EdgeInsets.all(10),
-      child: Form(
-        key: _formKey,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            ...List.generate(
-                count,
-                (e) => CustomTextFormField(
-                    hint: "메뉴 입력",
-                    funValidate: validateName(),
-                    controller: controllers[e])),
-            Row(
-              children: [
-                TextButton(
-                    child: Text("메뉴 추가"),
-                    onPressed: () {
-                      setState(() {
-                        count++;
-                      });
-                    }),
-                TextButton(
-                    child: Text("제출"),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        for (int i = 0; i < count; ++i) {
-                          print(controllers[i].text);
-                        }
-                        showDialog(
-                          context: context,
-                          builder: (context) => SimpleDialog(
-                            title: Center(child: Text("결과")),
-                            contentPadding: const EdgeInsets.all(16),
-                            children: [
-                              Center(child: Text("예상점수")),
-                            ],
-                          ),
-                        );
-                      }
-                    }),
-              ],
+            Text(
+              "급식이 1.0.0",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 8),
+            Text(
+              "급식이 1.0.0은 급식 관리자들이 메뉴를 구성할 때, 도와주는 인공지능 모델입니다. 식단을 입력하면, 부대원들에 대한 이 식단의 적합도와 대체 추천 식단을 구해 줍니다. 구성한 식단을 테스트해보세요.",
+              style: TextStyle(color: Colors.grey),
+            ),
+            SizedBox(height: 32),
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey[200]!),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    "식단을 테스트해 보세요.",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  AIMenuInputForm(),
+                ],
+              ),
+            ),
+            CustomElevatedButton(
+              funpageRoute: () {},
+              text: "입력 !",
+              width: double.infinity,
             ),
           ],
         ),

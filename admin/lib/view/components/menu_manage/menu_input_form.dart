@@ -1,6 +1,6 @@
 import 'package:admin/model/menu.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
-import 'package:admin/view/components/menu_manage/menuInputTextField.dart';
+import 'package:admin/view/components/textfield/menuInputTextField.dart';
 import 'package:flutter/material.dart';
 
 import '../../../size.dart';

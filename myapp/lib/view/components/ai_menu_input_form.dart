@@ -1,6 +1,6 @@
-import 'package:admin/util/validators.dart';
-import 'package:admin/view/components/textfield/menuInputTextField.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/page_util/validators.dart';
+import 'package:myapp/view/components/textfield/menu_input_textfield.dart';
 
 import '../../../size.dart';
 
@@ -81,52 +81,33 @@ class _AIMenuInputFormState extends State<AIMenuInputForm> {
                   onPressed: () {
                     menuInputTextFieldAdd();
                   },
-                  icon: Icon(Icons.add),
+                  icon: Icon(
+                    Icons.add,
+                    color: Colors.black,
+                  ),
                 )
               : IconButton(
                   onPressed: () {
                     menuInputTextFieldRemove(index);
                   },
-                  icon: Icon(Icons.delete),
+                  icon: Icon(
+                    Icons.delete,
+                    color: Colors.black,
+                  ),
                 ),
           index > 0 && index == menuInputTextField.length - 1
               ? IconButton(
                   onPressed: () {
                     menuInputTextFieldRemove(index);
                   },
-                  icon: Icon(Icons.delete),
+                  icon: Icon(
+                    Icons.delete,
+                    color: Colors.black,
+                  ),
                 )
               : IconButton(onPressed: () {}, icon: Container()),
         ],
       ),
     );
   }
-
-  // Widget _buttons() {
-  //   return Row(
-  //     children: [
-  //       CustomElevatedButton(
-  //         text: "저장",
-  //         onPressed: () {
-  //           if (_formKey.currentState!.validate()) {
-  //             List<String> menuList = [];
-  //             for (MenuInputTextField i in menuInputTextField) {
-  //               if (i.controller.text.length != 0)
-  //                 menuList.add(i.controller.text.trim());
-  //               addMenu(widget.date, widget.time, menuList);
-  //             }
-  //             showDialog(
-  //               context: context,
-  //               builder: (context) => AlertDialog(
-  //                 content: Text("저장되었습니다."),
-  //               ),
-  //             );
-  //           }
-  //         },
-  //       ),
-  //       SizedBox(width: gap_m),
-  //       CustomElevatedButton(text: "취소"),
-  //     ],
-  //   );
-  // }
 }
