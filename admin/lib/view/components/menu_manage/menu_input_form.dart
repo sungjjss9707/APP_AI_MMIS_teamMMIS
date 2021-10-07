@@ -84,7 +84,7 @@ class _MenuInputFormState extends State<MenuInputForm> {
       menuInputTextField.length,
       (index) => Row(
         children: [
-          menuInputTextField[index],
+          Flexible(child: menuInputTextField[index]),
           SizedBox(width: gap_xs),
           index == menuInputTextField.length - 1
               ? IconButton(
@@ -93,15 +93,20 @@ class _MenuInputFormState extends State<MenuInputForm> {
                   },
                   icon: Icon(Icons.add),
                 )
-              : Container(),
-          index > 0
+              : IconButton(
+                  onPressed: () {
+                    menuInputTextFieldRemove(index);
+                  },
+                  icon: Icon(Icons.delete),
+                ),
+          index > 0 && index == menuInputTextField.length - 1
               ? IconButton(
                   onPressed: () {
                     menuInputTextFieldRemove(index);
                   },
-                  icon: Icon(Icons.cancel),
+                  icon: Icon(Icons.delete),
                 )
-              : Container(),
+              : IconButton(onPressed: () {}, icon: Container()),
         ],
       ),
     );

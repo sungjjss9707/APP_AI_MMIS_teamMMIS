@@ -56,15 +56,17 @@ class LoginPage extends StatelessWidget {
                   text: "로그인",
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      try {
-                        int result = await a.login(
-                            _militaryNumber.text.trim(), _password.text.trim());
-                        if (result == 1) {
-                          Get.to(() => FramePage());
-                        } else {
-                          Get.snackbar("로그인 시도", "로그인 실패");
-                        }
-                      } catch (e) {}
+                      Get.to(() => FramePage());
+                      // try {
+                      //   int result = await a.login(
+                      //       _militaryNumber.text.trim(), _password.text.trim());
+                      //   if (result == 1) {
+                      //     Get.to(() => FramePage());
+                      //   } else {
+                      //     Get.snackbar("로그인 시도", "로그인 실패");
+                      //   }
+                      // } catch (e) {
+                      // }
                     }
                   },
                 ),

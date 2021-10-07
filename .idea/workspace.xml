@@ -28,17 +28,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공지사항 통신 준비 완료">
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/ai/ai_menu_input_form.dart" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="AI 페이지 디자인 중">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/AI/ai_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/AI/ai_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/style.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/style.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/util/military_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/Info.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/validators.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menuInputTextField.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menuInputTextField.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/join_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -269,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633507466104</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="AI 페이지 디자인 중">
+      <created>1633592149597</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1633592149597</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -359,7 +360,8 @@
     <MESSAGE value="surveycontroller, dto 완성" />
     <MESSAGE value="api 문서 수정 완료" />
     <MESSAGE value="공지사항 통신 준비 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="공지사항 통신 준비 완료" />
+    <MESSAGE value="AI 페이지 디자인 중" />
+    <option name="LAST_COMMIT_MESSAGE" value="AI 페이지 디자인 중" />
   </component>
   <component name="WindowStateProjectService">
     <state x="624" y="208" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1633014279538">
@@ -394,18 +396,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633590592333" />
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633507470843">
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633592160074">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633507470843" />
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633592160074" />
     <state x="498" y="66" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1633270653530">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="498" y="66" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1633270653530" />
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633446780548">
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633592123390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633446780548" />
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633592123390" />
     <state x="532" y="237" key="run.anything.popup" timestamp="1633001540389">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

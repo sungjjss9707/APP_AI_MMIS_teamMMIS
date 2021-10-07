@@ -6,6 +6,7 @@ import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 // AI 이용 페이지
@@ -82,7 +83,7 @@ class _AIPageState extends State<AIPage> {
                 yesInput = false;
               });
             },
-            text: "입력!",
+            text: "입력 !",
             width: double.infinity,
           )
         ],
@@ -118,7 +119,25 @@ class _AIPageState extends State<AIPage> {
                   style: TextStyle(
                       fontSize: 60,
                       fontWeight: FontWeight.bold,
-                      color: Colors.green),
+                      color: Colors.lightGreen),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "좋음 ",
+                      style: TextStyle(
+                          fontSize: 60,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.lightGreen),
+                    ),
+                    FaIcon(
+                      // 보통은 meh, 별로는 frown
+                      FontAwesomeIcons.smile,
+                      size: 60,
+                      color: Colors.lightGreen,
+                    ),
+                  ],
                 ),
                 Spacer(),
               ],
