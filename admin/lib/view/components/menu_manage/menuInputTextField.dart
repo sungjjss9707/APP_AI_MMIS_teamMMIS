@@ -1,5 +1,7 @@
 import 'package:admin/size.dart';
+import 'package:admin/util/Info.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 
 class MenuInputTextField extends StatelessWidget {
   int index;
@@ -10,6 +12,7 @@ class MenuInputTextField extends StatelessWidget {
   final bool isFirst;
   final addOnPressed;
   final backOnPressed;
+
   //final String type;
 
   MenuInputTextField({
@@ -25,24 +28,45 @@ class MenuInputTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: gap_xs),
-      child: SizedBox(
-        width: 220,
-        height: 40,
-        child: TextFormField(
+      padding: const EdgeInsets.symmetric(vertical: gap_s),
+      child: TypeAheadFormField(
+        validator: funValidate,
+        suggestionsBoxVerticalOffset: 2,
+        textFieldConfiguration: TextFieldConfiguration(
           controller: controller,
-          initialValue: value ?? null, //널이면 빈칸 넣으란 말임
-          validator: funValidate,
           decoration: InputDecoration(
             hintText: "$hint", //이렇게 넣는게 더 좋음 걍 힌트 하지말고
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(7),
             ),
             focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.lightGreen[600]!,
+                width: 2,
+              ),
+              borderRadius: BorderRadius.circular(7),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(7),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.lightGreen[600]!,
+                width: 2,
+              ),
               borderRadius: BorderRadius.circular(7),
             ),
           ),
         ),
+        onSuggestionSelected: (String suggestion) {
+          controller.text = suggestion;
+        },
+        itemBuilder: (context, String suggestion) {
+          return ListTile(
+            title: Text(suggestion),
+          );
+        },
+        suggestionsCallback: (pattern) => Menus.getSuggestions(pattern),
       ),
     );
   }

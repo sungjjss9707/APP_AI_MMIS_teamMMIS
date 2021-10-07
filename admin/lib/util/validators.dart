@@ -1,3 +1,4 @@
+import 'package:admin/util/Info.dart';
 import 'package:admin/util/reg_ex.dart';
 import 'package:validators/validators.dart';
 
@@ -74,5 +75,16 @@ Function validateIsEmpty() {
     } else {
       return null;
     }
+  };
+}
+
+Function validateMenu() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "공백이 들어갈 수 없습니다.";
+    } else if (!Menus.menus.contains(value)) {
+      return "없는 메뉴입니다.";
+    } else
+      return null;
   };
 }

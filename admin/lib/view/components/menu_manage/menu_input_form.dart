@@ -85,7 +85,7 @@ class _MenuInputFormState extends State<MenuInputForm> {
       (index) => Row(
         children: [
           menuInputTextField[index],
-          SizedBox(width: gap_m),
+          SizedBox(width: gap_xs),
           index == menuInputTextField.length - 1
               ? IconButton(
                   onPressed: () {

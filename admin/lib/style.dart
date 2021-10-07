@@ -23,3 +23,7 @@ TextStyle overLine({Color mColor = Colors.black}) {
 TextStyle body1({Color mColor = Colors.black}) {
   return TextStyle(fontSize: 16, color: mColor);
 }
+
+TextStyle body1_grey({Color mColor = Colors.grey}) {
+  return TextStyle(fontSize: 16, color: mColor);
+}

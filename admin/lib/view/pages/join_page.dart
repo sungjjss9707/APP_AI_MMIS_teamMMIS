@@ -1,5 +1,5 @@
 import 'package:admin/controller/admin_controller.dart';
-import 'package:admin/util/military_info.dart';
+import 'package:admin/util/Info.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/login_and_join/tag_and_textAheadFormField.dart';

@@ -71,3 +71,29 @@ class MilitaryUnit {
     return matches;
   }
 }
+
+class Menus {
+  static final List<String> menus = [
+    '쌀밥',
+    '콩밥',
+    '김치찌개',
+    '부대찌개',
+    '계란말이',
+    '삼겹살구이',
+    '배추김치',
+    '배추 된장국',
+    '콩자반',
+    '돼지불고기',
+    '김치볶음',
+    '닭죽',
+    '닭갈비',
+    '비엔나소세지볶음',
+  ];
+
+  static List<String> getSuggestions(String query) {
+    List<String> matches = <String>[];
+    matches.addAll(menus);
+    matches.retainWhere((s) => s.toLowerCase().contains(query.toLowerCase()));
+    return matches;
+  }
+}

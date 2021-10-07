@@ -57,7 +57,7 @@ class _FramePageState extends State<FramePage> {
   @override
   void initState() {
     openSideBar = false;
-    _selectedTapIndex = 0;
+    _selectedTapIndex = 6;
     super.initState();
   }
 
@@ -105,21 +105,14 @@ class _FramePageState extends State<FramePage> {
   }
 
   Widget _body() {
-    return Row(
+    return ListView(
       children: [
-        // openSideBar == true ? _sideMenuBar() : Container(),
-        Expanded(
-          child: ListView(
-            children: [
-              _selectedTapIndex == 0
-                  ? pageList[_selectedTapIndex]
-                  : Padding(
-                      padding: const EdgeInsets.all(gap_xl),
-                      child: pageList[_selectedTapIndex],
-                    ),
-            ],
-          ),
-        ),
+        _selectedTapIndex == 0
+            ? pageList[_selectedTapIndex]
+            : Padding(
+                padding: const EdgeInsets.all(gap_xl),
+                child: pageList[_selectedTapIndex],
+              ),
       ],
     );
   }
