@@ -40,7 +40,13 @@ class _MenuInputFormState extends State<MenuInputForm> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey[200]!),
+        borderRadius: BorderRadius.circular(5),
+      ),
+      padding: const EdgeInsets.all(gap_s),
+      margin: const EdgeInsets.all(gap_m),
+      width: 350,
       child: Form(
         key: _formKey,
         child: Column(

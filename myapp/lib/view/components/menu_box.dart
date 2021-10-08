@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/model/menu.dart';
+import 'package:myapp/model/diet.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/button/yes_eating.dart';
 import 'package:myapp/view/pages/subpages/rate_menu_page.dart';

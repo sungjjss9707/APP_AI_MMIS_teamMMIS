@@ -1,4 +1,5 @@
 import 'package:admin/model/menu.dart';
+import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/menu_manage/menu_input_form.dart';
 
 import 'package:flutter/material.dart';
@@ -10,27 +11,39 @@ class MenuInputContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Wrap(
+      child: Column(
         children: [
-          MenuInputForm(
-            time: "조식",
-            date: date,
-            key: UniqueKey(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CustomElevatedButton(
+                text: "메뉴 추가",
+              ),
+            ],
           ),
-          MenuInputForm(
-            time: "브런치",
-            date: date,
-            key: UniqueKey(),
-          ),
-          MenuInputForm(
-            time: "중식",
-            date: date,
-            key: UniqueKey(),
-          ),
-          MenuInputForm(
-            time: "석식",
-            date: date,
-            key: UniqueKey(),
+          Wrap(
+            children: [
+              MenuInputForm(
+                time: "조식",
+                date: date,
+                key: UniqueKey(),
+              ),
+              MenuInputForm(
+                time: "브런치",
+                date: date,
+                key: UniqueKey(),
+              ),
+              MenuInputForm(
+                time: "중식",
+                date: date,
+                key: UniqueKey(),
+              ),
+              MenuInputForm(
+                time: "석식",
+                date: date,
+                key: UniqueKey(),
+              ),
+            ],
           ),
         ],
       ),
