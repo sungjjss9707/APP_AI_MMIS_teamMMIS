@@ -3,6 +3,7 @@ import 'package:admin/domain/administer/admin_repository.dart';
 
 import 'package:get/get.dart';
 
+//완
 class AdministerController extends GetxController {
   final AdministerRepository _administerRepository = AdministerRepository();
   final RxBool isLogin = false.obs; // UI가 관찰 가능한 변수 => 변경 => UI가 자동 업데이트

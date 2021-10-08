@@ -3,6 +3,7 @@ import 'package:admin/domain/suggestion/suggestion.dart';
 import 'package:admin/domain/suggestion/suggestion_repository.dart';
 import 'package:get/get.dart';
 
+//미완
 class SuggestionController extends GetxController {
   final SuggestionRepository _suggestionRepository = SuggestionRepository();
   final suggestions = <Suggestion>[].obs;

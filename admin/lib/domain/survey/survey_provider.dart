@@ -3,5 +3,7 @@ import 'package:get/get.dart';
 import '../host.dart';
 
 class SurveyProvider extends GetConnect {
-  Future<Response> findById(int id) => get("$host/board/$id");
+  Future<Response> postSurvey(Map data) => post("$host/survey", data);
+
+  Future<Response> findAll() => get("$host/survey");
 }

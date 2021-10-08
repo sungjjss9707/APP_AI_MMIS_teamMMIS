@@ -2,6 +2,7 @@ import 'package:admin/domain/notice/notice.dart';
 import 'package:admin/domain/notice/notice_repository.dart';
 import 'package:get/get.dart';
 
+//완
 class NoticeController extends GetxController {
   final NoticeRepository _noticeRepository = NoticeRepository();
   final notices = <Notice>[].obs;

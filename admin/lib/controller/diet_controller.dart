@@ -2,6 +2,7 @@ import 'package:admin/domain/diet/diet.dart';
 import 'package:admin/domain/diet/diet_repository.dart';
 import 'package:get/get.dart';
 
+//미완
 class DietController extends GetxController {
   final DietRepository _dietRepository = DietRepository();
   final diet = Diet().obs;

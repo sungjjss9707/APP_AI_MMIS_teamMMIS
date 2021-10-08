@@ -1,4 +1,4 @@
-import 'package:admin/controller/dto/survey_post_dto.dart';
+
 import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
@@ -87,10 +87,14 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                     CustomTitle("설문조사 생성"),
                     Spacer(),
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         title = surveyTitleFormField.titleController.text;
                         explain = surveyTitleFormField.explainController.text;
-                        SurveyPostDto(title, explain, questions).toJson();
+                        final sc = Get.put(SurveyController());
+                        int a =  await sc.postSurvey(title, explain, questions);
+                        if(a==1){
+                          Get.back();
+                        }
                       },
                       child: Text("생성하기"),
                     ),

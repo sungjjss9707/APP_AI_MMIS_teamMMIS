@@ -1,3 +1,4 @@
+import 'package:admin/controller/menu_controller.dart';
 import 'package:admin/util/Info.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
@@ -5,6 +6,7 @@ import 'package:admin/view/components/login_and_join/tag_and_textformfield.dart'
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 import '../../../size.dart';
 import '../../../style.dart';
@@ -14,7 +16,7 @@ class NewMenuInputDialog extends StatelessWidget {
   late final List<TextEditingController> _nutritionInfoList;
   final _formKey = GlobalKey<FormState>();
 
-  final Map _allergy = {
+  final Map<String, String> _allergy = {
     "계란류": "0",
     "우유": "0",
     "메밀": "0",
@@ -38,8 +40,8 @@ class NewMenuInputDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<dynamic> allergyList = [];
-    _nutritionInfoList =
-        List.generate(nutritionName.length, (index) => TextEditingController());
+    _nutritionInfoList = List.generate(
+        nutritionName.length, (index) => TextEditingController(text: "0"));
     return SimpleDialog(
       title: Text(
         "메뉴 입력",
@@ -82,10 +84,19 @@ class NewMenuInputDialog extends StatelessWidget {
                       Spacer(),
                       CustomElevatedButton(
                         text: "확인",
-                        onPressed: () {
-                          print(_menuName.text);
-                          print(_convertNutritionInfo(_nutritionInfoList));
-                          print(_allergy);
+                        onPressed: () async {
+                          if (_formKey.currentState!.validate()) {
+                            final m = Get.put(MenuController());
+                            await m.save(
+                                _menuName.text,
+                                _convertNutritionInfo(_nutritionInfoList),
+                                _allergy);
+                            print(_menuName.text);
+                            print(_convertNutritionInfo(_nutritionInfoList));
+                            print(_allergy);
+                            // 연결 후 팝업창 닫음
+                            Navigator.pop(context);
+                          }
                         },
                       ),
                       SizedBox(width: gap_m),
