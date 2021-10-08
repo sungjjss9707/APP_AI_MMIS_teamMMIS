@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:myapp/view/pages/initialpages/login_page.dart';
 
 import 'view/pages/initialpages/framepage.dart';
 
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
       title: "MMIS project myapp",
       debugShowCheckedModeBanner: false,
       theme: themeData,
-      home: FramePage(),
+      home: LoginPage(),
     );
   }
 }

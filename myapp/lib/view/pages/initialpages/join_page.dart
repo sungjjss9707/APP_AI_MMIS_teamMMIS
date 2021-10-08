@@ -43,8 +43,6 @@ class JoinPage extends StatelessWidget {
     TextEditingController classController = TextEditingController();
     TextEditingController armyController = TextEditingController();
     TextEditingController unitController = TextEditingController();
-    TextEditingController heightController = TextEditingController();
-    TextEditingController weightController = TextEditingController();
     final allergies = allergyName;
     //이름쓰는칸, 군번쓰는칸, 계급쓰는칸, 회원가입버튼 네개로 이루어짐
     return Form(
@@ -68,24 +66,9 @@ class JoinPage extends StatelessWidget {
             controller: classController,
           ),
           CustomTextFormField(
-            hint: "군",
-            funValidate: null,
-            controller: armyController,
-          ),
-          CustomTextFormField(
             hint: "소속",
             funValidate: null,
             controller: unitController,
-          ),
-          CustomTextFormField(
-            hint: "키",
-            funValidate: null,
-            controller: heightController,
-          ),
-          CustomTextFormField(
-            hint: "몸무게",
-            funValidate: null,
-            controller: weightController,
           ),
           SizedBox(height: 10),
           Center(
@@ -106,8 +89,6 @@ class JoinPage extends StatelessWidget {
                 army = armyController.text;
                 unit = unitController.text;
                 classes = classController.text;
-                height = double.parse(heightController.text);
-                weight = double.parse(weightController.text);
                 userAllergy = {...localUserAllergy};
                 Get.to(() => LoginPage());
                 Get.snackbar("저장완료", "정보가 저장되었습니다.",

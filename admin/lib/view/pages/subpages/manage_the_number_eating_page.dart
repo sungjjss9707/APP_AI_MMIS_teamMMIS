@@ -1,8 +1,10 @@
 // 식수 인원 관리 페이지
 
 import 'package:admin/util/calendar_util.dart';
+import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:admin/view/components/number_eating/custom_piechart.dart';
+import 'package:admin/view/components/number_eating/total_num_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -34,6 +36,20 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
         CustomTitle("식수 인원 관리"),
         Divider(color: Colors.grey),
         _buildCalendar(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            CustomElevatedButton(
+              text: "총인원 수정",
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => TotalNumDialog(10),
+                );
+              },
+            ),
+          ],
+        ),
         SizedBox(height: gap_l),
         CustomPieChart(date: _selectedDay),
       ],

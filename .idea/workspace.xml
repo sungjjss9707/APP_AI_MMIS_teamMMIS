@@ -29,21 +29,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="메뉴 관리 페이지 하는 중">
+      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/total_num_dialog.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021-10-04__10_05__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021-10-04__10_05__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-03__3_08__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-03__3_08__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-04__9_16__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-04__9_16__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/survey_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/survey_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/survey/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/survey/survey_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/survey/survey_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/model/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/model/survey.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/validators.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_container.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/newMenuInputDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/newMenuInputDialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/menu_manage_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/model/menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/model/menu.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/model/menu_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/model/menu_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/user/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/user/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/request_api_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assets/request_api_2.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/join_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -404,6 +408,12 @@
     <MESSAGE value="mypp AI페이지 디자인 완료" />
     <MESSAGE value="메뉴 관리 페이지 하는 중" />
     <option name="LAST_COMMIT_MESSAGE" value="메뉴 관리 페이지 하는 중" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633708334799">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633708334799" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

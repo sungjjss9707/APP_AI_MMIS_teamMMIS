@@ -56,6 +56,18 @@ Function validateTitle() {
   };
 }
 
+Function validateNumeric() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "빈칸을 채우세요";
+    } else if (!isNumeric(value)) {
+      return "숫자만 넣어주세요";
+    } else {
+      return null;
+    }
+  };
+}
+
 Function validateContent() {
   return (String? value) {
     if (value!.isEmpty) {

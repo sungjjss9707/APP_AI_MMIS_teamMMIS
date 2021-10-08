@@ -19,7 +19,7 @@ class SurveyPage extends StatefulWidget {
 
 class _SurveyPageState extends State<SurveyPage> {
   late int _currentPage;
-  List<Survey> _dummySurvey = dummySurvey;
+  List<FakeSurvey> _dummySurvey = dummySurvey;
 
   @override
   void initState() {
@@ -102,7 +102,7 @@ class _SurveyPageState extends State<SurveyPage> {
       children: List.generate(15, (int index) {
         index += 15 * (_currentPage - 1);
         try {
-          Survey survey = dummySurvey[index];
+          FakeSurvey survey = dummySurvey[index];
 
           return Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
