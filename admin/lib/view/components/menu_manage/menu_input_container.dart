@@ -1,4 +1,4 @@
-import 'package:admin/model/menu.dart';
+import 'package:admin/model/diet.dart';
 import 'package:admin/style.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';

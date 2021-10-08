@@ -1,6 +1,6 @@
 // 메뉴 관리 페이지
 
-import 'package:admin/model/menu.dart';
+import 'package:admin/model/diet.dart';
 
 import 'package:admin/size.dart';
 import 'package:admin/util/calendar_util.dart';

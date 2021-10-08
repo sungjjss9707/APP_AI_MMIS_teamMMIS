@@ -104,6 +104,24 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
             locale: 'ko-KR',
             selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
             onDaySelected: _onDaySelected,
+            calendarBuilders: CalendarBuilders(
+              markerBuilder: (context, date, events) {
+                if (events.isNotEmpty) {
+                  return Container(
+                    width: 20,
+                    height: 20,
+                    child: Center(
+                        child: Text(events.length.toString(),
+                            style: TextStyle(fontWeight: FontWeight.bold))),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.orange,
+                    ),
+                  );
+                }
+                return SizedBox();
+              },
+            ),
           ),
           SizedBox(height: 10),
           NoMenuText(
@@ -117,7 +135,7 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
                 0) {
               return SizedBox();
             }
-            List<String> notEatingTimes = calDeduction()[0][_selectedDay];
+            List<String> notEatingTimes = calDeduction()[0][_selectedDay] ?? [];
             return Column(
               children: [
                 Container(
@@ -137,6 +155,8 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
                         } else {
                           addUserNotEating(date, times[index]);
                         }
+                        notEatingDays = calDeduction()[0];
+                        notEatingTimes = calDeduction()[0][_selectedDay] ?? [];
                       });
                     },
                     title: Text(

@@ -40,6 +40,8 @@ void addUserNotEating(String date, String time) {
     };
   } else if (userNotEating[year]![month]![day] == null) {
     userNotEating[year]![month]![day] = [time];
+  } else if (userNotEating[year]![month]![day]!.contains(time)) {
+    return;
   } else {
     userNotEating[year]![month]![day]!.add(time);
   }
