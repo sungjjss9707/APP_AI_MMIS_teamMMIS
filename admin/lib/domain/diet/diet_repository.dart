@@ -1,10 +1,12 @@
 import 'package:admin/controller/dto/CM_request_dto.dart';
 import 'package:admin/controller/dto/diet_save_dto.dart';
 import 'package:admin/controller/dto/diet_update_dto.dart';
-import 'package:admin/domain/menu/diet.dart';
-import 'package:admin/domain/menu/diet_provider.dart';
+
 import 'package:admin/util/convert_utf8.dart';
 import 'package:get/get.dart';
+
+import 'diet.dart';
+import 'diet_provider.dart';
 
 class DietRepository {
   final DietProvider _dietProvider = DietProvider();
