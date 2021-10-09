@@ -487,8 +487,8 @@ Map SubmitNotEating = {
 };
 
 // 4.4. 불취식 신청 취소하기(Delete)
-// * route : noteating/2021/3/14/조식/reason
-// * request : header에 유저 토큰,
+// * route : note큰,ating/2021/3/14/조식/reason
+// // * request : header에 유저 토
 //body :
 Map requestCancel = {
   "reason": "당직",

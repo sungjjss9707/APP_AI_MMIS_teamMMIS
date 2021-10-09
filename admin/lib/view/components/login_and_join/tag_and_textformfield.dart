@@ -8,12 +8,14 @@ class TagAndTextFormField extends StatelessWidget {
   final controller;
   final funValidate;
   final obscureText;
+  final hint;
 
   const TagAndTextFormField(
       {this.text = "",
       this.controller,
       this.funValidate,
-      this.obscureText = false});
+      this.obscureText = false,
+      this.hint});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class TagAndTextFormField extends StatelessWidget {
         SizedBox(height: gap_xs),
         CustomTextFormField(
           obscureText: obscureText,
-          hint: "",
+          hint: hint ?? "",
           enabledBorderSide: true,
           controller: controller,
           funValidate: funValidate,

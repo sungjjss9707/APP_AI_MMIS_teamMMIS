@@ -1,11 +1,14 @@
 // 식수 인원 관리 페이지
 
+import 'package:admin/controller/not_eating_controller.dart';
 import 'package:admin/util/calendar_util.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:admin/view/components/number_eating/custom_piechart.dart';
 import 'package:admin/view/components/number_eating/total_num_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../../size.dart';
@@ -20,6 +23,7 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   late DateTime _selectedDay;
+  final not = Get.put(NotEatingController());
 
   @override
   void initState() {
@@ -44,7 +48,7 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
               onPressed: () {
                 showDialog(
                   context: context,
-                  builder: (context) => TotalNumDialog(10),
+                  builder: (context) => TotalNumDialog(_selectedDay),
                 );
               },
             ),

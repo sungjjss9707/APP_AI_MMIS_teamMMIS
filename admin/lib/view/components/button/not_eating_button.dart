@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NotEating extends StatelessWidget {
+class NotEatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
