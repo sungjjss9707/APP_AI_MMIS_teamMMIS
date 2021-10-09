@@ -33,7 +33,7 @@ List<Comment> convertToResult(List<Map<String, dynamic>> rawData) {
   List<Comment> result = <Comment>[];
   for (Map<String, dynamic> i in rawData) {
     result.add(
-      Comment(i["id"], i["title"], i["writer"], i["created"], i["updated"]),
+      Comment(i["id"], i["content"], i["writer"], i["created"], i["updated"]),
     );
   }
   return result;
@@ -41,14 +41,14 @@ List<Comment> convertToResult(List<Map<String, dynamic>> rawData) {
 
 class Comment {
   final int? id;
-  final String? title;
+  final String? content;
   final String? writer;
   final DateTime? created;
   final DateTime? updated;
 
   Comment(
     this.id,
-    this.title,
+    this.content,
     this.writer,
     this.created,
     this.updated,

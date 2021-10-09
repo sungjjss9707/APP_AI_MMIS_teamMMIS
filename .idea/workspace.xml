@@ -28,32 +28,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="메뉴 관리 페이지 하는 중">
-      <change afterPath="$PROJECT_DIR$/admin/lib/controller/dto/comment_save_or_update_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="건의사항 하는 중">
+      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/suggestion/written_comment_box.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/admin_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/admin_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/CM_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/dto/CM_request_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/join_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/dto/join_request_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/administer/admin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/administer/admin_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/administer/admin_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/administer/admin_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/host.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/host.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_repository.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/util/convert_utf8.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/convert_utf8.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/validators.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/join_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/request_api_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assets/request_api_2.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,11 +82,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\suggestion" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller\dto" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\admin\lib\view\components\textfield" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_real\admin\lib\view\pages" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib" />
@@ -320,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633675397630</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="건의사항 하는 중">
+      <created>1633764260926</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1633764260926</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -413,13 +401,22 @@
     <MESSAGE value="AI 페이지 디자인 중" />
     <MESSAGE value="mypp AI페이지 디자인 완료" />
     <MESSAGE value="메뉴 관리 페이지 하는 중" />
-    <option name="LAST_COMMIT_MESSAGE" value="메뉴 관리 페이지 하는 중" />
+    <MESSAGE value="건의사항 하는 중" />
+    <option name="LAST_COMMIT_MESSAGE" value="건의사항 하는 중" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633708334799">
+    <state x="543" y="305" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1633766468953">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633708334799" />
+    <state x="543" y="305" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1633766468953" />
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633764263219">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633764263219" />
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633764233814">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633764233814" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

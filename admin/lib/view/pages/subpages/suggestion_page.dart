@@ -1,7 +1,7 @@
 // 공지사항 관리 페이지
 
 import 'package:admin/controller/suggestion_controller.dart';
-import 'package:admin/model/notice.dart';
+
 import 'package:admin/view/components/dialog/suggestion_content_dialog.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class SuggestionPage extends StatefulWidget {
 
 class _SuggestionPageState extends State<SuggestionPage> {
   late int _currentPage;
-  List<Map> _dummyNotice = dummyNotice;
+
   final s = Get.put(SuggestionController());
 
   @override
@@ -203,13 +203,12 @@ class _SuggestionPageState extends State<SuggestionPage> {
   }
 
   Future<dynamic> _showContentDialog(
-      BuildContext context, String title, String content, int id) {
+      BuildContext context, String title, String content, int id) async {
+    await s.findById(id);
     return showDialog(
       context: context,
       builder: (context) {
         return SuggestionContentDialog(
-          title: title,
-          content: content,
           id: id,
         );
       },
