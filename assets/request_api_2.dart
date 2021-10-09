@@ -692,7 +692,7 @@ Map suggestionPut = {
 };
 
 // 6.5. 게시글에 댓글 달기(Post)관리자가 댓글을 답니다.
-// * route : suggestion/comment
+// * route : suggestion/1/comment
 // * request : header에 관리자 토큰,
 //body :
 Map addComment = {
@@ -742,7 +742,7 @@ Map suggestionAddComment = {
 };
 
 // 6.6. 답변 수정하기(Put)
-// * route : suggestion/comment/1
+// * route : suggestion/1/comment/1
 // * request : header에 관리자 토큰, body에 내용 (content)
 Map changeComment = {
   "content": "답글입니다. 수정",
@@ -770,6 +770,7 @@ Map suggestionAddCommentChange = {
     //댓글입니다. 리스트로 해서, 여러 댓글을 담으면 됩니다.
     "comments": [
       {
+        "id": "1",
         "content": "답글입니다. 수정",
         //댓글 게시자
         "writer": {
@@ -800,7 +801,7 @@ Map suggestionDelete = {
   "data": null,
 };
 // 6.8. 답변 삭제(Delete)
-// * route : suggestion/comment/1
+// * route : suggestion/1/comment/1
 // * request : header에 관리자 토큰,
 // * response : -
 Map commentDelete = {

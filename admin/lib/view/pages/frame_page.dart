@@ -1,3 +1,4 @@
+import 'package:admin/controller/admin_controller.dart';
 import 'package:admin/style.dart';
 import 'package:admin/view/pages/login_page.dart';
 
@@ -63,13 +64,13 @@ class _FramePageState extends State<FramePage> {
 
   @override
   Widget build(BuildContext context) {
-    // final double _width = MediaQuery.of(context).size.width;
+    final a = Get.put(AdministerController());
     return Scaffold(
       appBar: _buildAppBar(),
       body: CollapsibleSidebar(
         items: _generateCollapsibleItem(),
         body: _body(),
-        title: "관리자",
+        title: "${a.principal.value.username}",
         toggleTitle: "접기",
         backgroundColor: Colors.lightGreen,
         selectedIconBox: Colors.lightGreen[800]!,

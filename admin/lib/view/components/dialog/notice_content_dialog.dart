@@ -92,10 +92,6 @@ class _NoticeContentDialogState extends State<NoticeContentDialog> {
                                     } catch (e) {
                                       Get.snackbar("", "수정 실패");
                                     }
-                                    String newTitle = _titleController.text;
-                                    String newContent = _contentController.text;
-                                    print("title $newTitle");
-                                    print("content $newContent");
                                   }
                                   setState(() {
                                     enabled = false;

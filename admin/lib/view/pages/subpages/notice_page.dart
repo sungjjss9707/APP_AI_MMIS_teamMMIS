@@ -118,7 +118,7 @@ class _NoticePageState extends State<NoticePage> {
           }
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: title != ""
+            child: id != -1
                 ? InkWell(
                     onTap: () async {
                       _showContentDialog(context, title, content, id);

@@ -24,8 +24,8 @@ Function validatePassWord() {
       return "비밀번호는 영문과 숫자만 가능합니다.";
     } else if (value.length > 15) {
       return "비밀번호는 15자 이하로 해주십시오.";
-    } else if (value.length < 5) {
-      return "비밀번호는 5자 이상으로 해주십시오.";
+    } else if (value.length < 4) {
+      return "비밀번호는 4자 이상으로 해주십시오.";
     } else {
       return null;
     }

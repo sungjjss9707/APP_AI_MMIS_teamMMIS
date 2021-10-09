@@ -1,16 +1,20 @@
+import 'package:admin/controller/suggestion_controller.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/textfield/custom_text_form_field.dart';
 import 'package:admin/view/components/textfield/custom_writing_area.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../size.dart';
 
 class SuggestionContentDialog extends StatefulWidget {
   final String title;
   final String content;
+  final int id;
 
-  SuggestionContentDialog({required this.title, required this.content});
+  SuggestionContentDialog(
+      {required this.title, required this.content, required this.id});
 
   @override
   _SuggestionContentDialog createState() => _SuggestionContentDialog();
@@ -23,6 +27,7 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
 
   final bool enabled = false;
   final _formKey = GlobalKey<FormState>();
+  SuggestionController s = Get.find();
 
   @override
   void initState() {

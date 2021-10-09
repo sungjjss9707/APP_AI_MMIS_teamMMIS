@@ -25,8 +25,8 @@ class Administer {
       : id = json["id"],
         username = json["name"],
         militaryNumber = json["militaryNumber"],
-        rank = json["rank"],
-        unit = json["unit"],
-        created = DateFormat("yyyy-mm-dd").parse(json["created"]),
-        updated = DateFormat("yyyy-mm-dd").parse(json["updated"]);
+        rank = json["grade"],
+        unit = json["belong"],
+        created = DateFormat("yyyy-mm-dd").parse(json["createtime"]),
+        updated = DateFormat("yyyy-mm-dd").parse(json["updatetime"]);
 }

@@ -99,7 +99,7 @@ class JoinPage extends StatelessWidget {
                           _rank.text.trim(),
                           _unit.text.trim());
                       if (code == 1) {
-                        Get.to(() => FramePage());
+                        Get.to(() => LoginPage());
                       } else {}
                     }
                   },

@@ -1,9 +1,11 @@
 // 공지사항 관리 페이지
 
+import 'package:admin/controller/suggestion_controller.dart';
 import 'package:admin/model/notice.dart';
 import 'package:admin/view/components/dialog/suggestion_content_dialog.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:number_pagination/number_pagination.dart';
 
 import '../../../style.dart';
@@ -16,6 +18,7 @@ class SuggestionPage extends StatefulWidget {
 class _SuggestionPageState extends State<SuggestionPage> {
   late int _currentPage;
   List<Map> _dummyNotice = dummyNotice;
+  final s = Get.put(SuggestionController());
 
   @override
   void initState() {
@@ -32,7 +35,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
         CustomTitle("건의사항 관리"),
         Divider(color: Colors.grey),
         _contentHeader(),
-        _noticeList(context),
+        _suggestionList(context),
         _numberPagination(),
       ],
     );
@@ -89,40 +92,44 @@ class _SuggestionPageState extends State<SuggestionPage> {
     );
   }
 
-  Widget _noticeList(BuildContext context) {
-    return Column(
-      children: List.generate(15, (int index) {
-        String title;
-        String writer;
-        String date;
-        String content;
-        index += 15 * (_currentPage - 1);
-        try {
-          Map notice = _dummyNotice[index];
-          title = notice["제목"];
-          writer = notice["작성자"];
-          date = notice["작성날짜"];
-          content = notice["내용"];
-        } catch (e) {
-          title = "";
-          writer = "";
-          date = "";
-          content = "";
-        }
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: title != ""
-              ? InkWell(
-                  onTap: () {
-                    _showContentDialog(context, title, content);
-                  },
-                  child: _content(index, title, writer, date),
-                )
-              : InkWell(
-                  child: _content(index, title, writer, date),
-                ),
-        );
-      }),
+  Widget _suggestionList(BuildContext context) {
+    return Obx(
+      () => Column(
+        children: List.generate(15, (int index) {
+          String title;
+          String writer;
+          String date;
+          String content;
+          int id;
+          index += 15 * (_currentPage - 1);
+          try {
+            title = s.suggestions[index].title!;
+            writer = "관리자";
+            date = s.suggestions[index].updated.toString();
+            content = s.suggestions[index].content!;
+            id = s.suggestions[index].id!;
+          } catch (e) {
+            title = "";
+            writer = "";
+            date = "";
+            content = "";
+            id = -1;
+          }
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: id != -1
+                ? InkWell(
+                    onTap: () {
+                      _showContentDialog(context, title, content, id);
+                    },
+                    child: _content(index, title, writer, date),
+                  )
+                : InkWell(
+                    child: _content(index, title, writer, date),
+                  ),
+          );
+        }),
+      ),
     );
   }
 
@@ -133,9 +140,9 @@ class _SuggestionPageState extends State<SuggestionPage> {
           _currentPage = selectedPage;
         });
       },
-      totalPage: _dummyNotice.length % 15 == 0
-          ? _dummyNotice.length ~/ 15
-          : _dummyNotice.length ~/ 15 + 1,
+      totalPage: s.suggestions.length % 15 == 0
+          ? s.suggestions.length ~/ 15
+          : s.suggestions.length ~/ 15 + 1,
       currentPage: _currentPage,
     );
   }
@@ -196,11 +203,15 @@ class _SuggestionPageState extends State<SuggestionPage> {
   }
 
   Future<dynamic> _showContentDialog(
-      BuildContext context, String title, String content) {
+      BuildContext context, String title, String content, int id) {
     return showDialog(
       context: context,
       builder: (context) {
-        return SuggestionContentDialog(title: title, content: content);
+        return SuggestionContentDialog(
+          title: title,
+          content: content,
+          id: id,
+        );
       },
     );
   }
