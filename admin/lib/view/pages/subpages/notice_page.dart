@@ -1,10 +1,12 @@
 // 공지사항 관리 페이지
 
 import 'package:admin/controller/notice_controller.dart';
+import 'package:admin/util/editDateFormat.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/dialog/notice_content_dialog.dart';
 import 'package:admin/view/components/dialog/notice_write_dialog.dart';
 import 'package:admin/view/components/home/customTitle.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:number_pagination/number_pagination.dart';
@@ -47,12 +49,10 @@ class _NoticePageState extends State<NoticePage> {
       children: [
         Expanded(
           flex: 3,
-          child: Container(
-            child: Center(
-              child: Text(
-                "번호",
-                style: subtitle1(),
-              ),
+          child: Center(
+            child: Text(
+              "번호",
+              style: subtitle1(),
             ),
           ),
         ),
@@ -80,12 +80,10 @@ class _NoticePageState extends State<NoticePage> {
         ),
         Expanded(
           flex: 2,
-          child: Container(
-            child: Center(
-              child: Text(
-                "작성날짜",
-                style: subtitle1(),
-              ),
+          child: Center(
+            child: Text(
+              "작성날짜",
+              style: subtitle1(),
             ),
           ),
         ),
@@ -106,7 +104,7 @@ class _NoticePageState extends State<NoticePage> {
           try {
             title = n.notices[index].title!;
             writer = "관리자";
-            date = n.notices[index].updated.toString();
+            date = editDateFormat(n.notices[index].updated!);
             content = n.notices[index].content!;
             id = n.notices[index].id!;
           } catch (e) {
@@ -149,16 +147,18 @@ class _NoticePageState extends State<NoticePage> {
   }
 
   Widget _numberPagination() {
-    return NumberPagination(
-      listner: (int selectedPage) {
-        setState(() {
-          _currentPage = selectedPage;
-        });
-      },
-      totalPage: n.notices.length % 15 == 0
-          ? n.notices.length ~/ 15
-          : n.notices.length ~/ 15 + 1,
-      currentPage: _currentPage,
+    return Obx(
+      () => NumberPagination(
+        listner: (int selectedPage) {
+          setState(() {
+            _currentPage = selectedPage;
+          });
+        },
+        totalPage: n.notices.length % 15 == 0
+            ? n.notices.length ~/ 15
+            : n.notices.length ~/ 15 + 1,
+        currentPage: _currentPage,
+      ),
     );
   }
 

@@ -16,7 +16,7 @@ class NewMenuInputDialog extends StatelessWidget {
   final _menuName = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-
+  final MenuController menuCon = Get.find();
   final Map<String, String> _allergy = {
     "계란류": "0",
     "우유": "0",
@@ -95,10 +95,8 @@ class NewMenuInputDialog extends StatelessWidget {
                                 _menuName.text,
                                 _convertNutritionInfo(_nutritionInfoList),
                                 _allergy);
-                            print(_menuName.text);
-                            print(_convertNutritionInfo(_nutritionInfoList));
-                            print(_allergy);
                             // 연결 후 팝업창 닫음
+                            _setMenus();
                             Navigator.pop(context);
                           }
                         },
@@ -119,6 +117,11 @@ class NewMenuInputDialog extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Future<void> _setMenus() async {
+    await menuCon.findAll();
+    Menus.menus = menuCon.menus.map((e) => e.name ?? "").toList();
   }
 
   Widget _nutritionInfo(List<TextEditingController> list) {

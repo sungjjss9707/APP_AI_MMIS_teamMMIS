@@ -6,7 +6,7 @@ class CMRespDto {
   CMRespDto({this.code, this.msg, this.data});
 
   CMRespDto.fromJson(Map<String, dynamic> json)
-      : code = int.parse(json["code"]),
+      : code = json["code"],
         msg = json["msg"],
         data = json["data"];
 }

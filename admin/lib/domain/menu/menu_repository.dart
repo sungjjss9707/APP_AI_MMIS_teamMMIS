@@ -1,5 +1,6 @@
 import 'package:admin/controller/dto/CM_request_dto.dart';
 import 'package:admin/controller/dto/menu_save_dto.dart';
+import 'package:admin/domain/menu/menu.dart';
 import 'package:admin/domain/menu/menu_provider.dart';
 import 'package:admin/util/convert_utf8.dart';
 import 'package:get/get.dart';
@@ -14,9 +15,38 @@ class MenuRepository {
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
-    if (cmRespDto.code == 1)
+    if (cmRespDto.code == 1) {
+      print(cmRespDto.code);
+      print(cmRespDto.data);
       return 1;
-    else
+    } else
       return -1;
+  }
+
+  Future<List<Menu>> findAll() async {
+    Response response = await _menuProvider.findAll();
+    dynamic body = response.body;
+    dynamic convertBody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+    if (cmRespDto.code == 1) {
+      List<dynamic> temp = cmRespDto.data;
+      List<Menu> menus = temp.map((menu) => Menu.fromJson(menu)).toList();
+      return menus;
+    } else {
+      return <Menu>[];
+    }
+  }
+
+  Future<Menu> findByName(String menuName) async {
+    Response response = await _menuProvider.findByName(menuName);
+    dynamic body = response.body;
+    dynamic convertBody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+    if (cmRespDto.code == 1) {
+      Menu menu = Menu.fromJson(cmRespDto.data);
+      return menu;
+    } else {
+      return Menu();
+    }
   }
 }

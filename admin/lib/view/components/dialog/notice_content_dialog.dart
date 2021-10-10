@@ -105,8 +105,9 @@ class _NoticeContentDialogState extends State<NoticeContentDialog> {
                             padding: const EdgeInsets.only(right: gap_s),
                             child: CustomElevatedButton(
                               text: "삭제",
-                              onPressed: () {
-                                Navigator.pop(context);
+                              onPressed: () async {
+                                int a = await n.deleteById(widget.id);
+                                if (a == 1) Navigator.pop(context);
                               },
                             ),
                           )

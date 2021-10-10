@@ -73,7 +73,7 @@ class MilitaryUnit {
 }
 
 class Menus {
-  static final List<String> menus = [
+  static List<String> menus = [
     '쌀밥',
     '콩밥',
     '김치찌개',

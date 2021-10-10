@@ -63,6 +63,7 @@ class NoticeRepository {
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+
     if (cmRespDto.code == 1) {
       List<dynamic> temp = cmRespDto.data;
       List<Notice> notices =

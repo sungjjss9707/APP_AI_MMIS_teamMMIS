@@ -21,15 +21,17 @@ class NoticeController extends GetxController {
 
   Future<void> findAll() async {
     List<Notice> notices = await _noticeRepository.findAll();
-    this.notices.value = notices;
+    this.notices.value = notices.reversed.toList();
   }
 
-  Future<void> deleteById(int id) async {
-    int result = await _noticeRepository.deleteById(id);
-    if (result == 1) {
+  Future<int> deleteById(int id) async {
+    int a = await _noticeRepository.deleteById(id);
+    if (a == 1) {
       List<Notice> result = notices.where((post) => post.id != id).toList();
       notices.value = result;
+      return a;
     }
+    return -1;
   }
 
   Future<void> updateById(int id, String title, String content) async {
@@ -44,7 +46,7 @@ class NoticeController extends GetxController {
   Future<void> save(String title, String content) async {
     Notice notice = await _noticeRepository.save(title, content);
     if (notice.id != null) {
-      this.notices.add(notice);
+      this.notices.insert(0, notice);
     }
   }
 }

@@ -135,7 +135,9 @@ class _SurveyPageState extends State<SurveyPage> {
   Widget _buildNewSurveyButton() {
     return Row(
       children: [
+        Spacer(),
         CustomElevatedButton(
+          textSize: 20,
           text: "새 설문조사 생성",
           onPressed: () {
             Get.to(() => CreateSurveyPage(
@@ -143,7 +145,6 @@ class _SurveyPageState extends State<SurveyPage> {
                 ));
           },
         ),
-        Spacer(),
       ],
     );
   }
