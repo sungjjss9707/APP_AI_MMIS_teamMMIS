@@ -373,7 +373,7 @@ Map DietPutResponse = {
 // 너무 길어져서 굳이 예시를 하지는 않겠습니다.
 
 // 4. 식수 인원 관리
-// 4.1. 식수 인원 데이터 가져오기(Get)
+// 4.1. 식수 인원 데이터 가져오기(Get) time기준
 // * route : noteating/2021/3/14/조식
 // * request : header에 관리자 토큰
 // * response :
@@ -407,7 +407,118 @@ Map numOfPeople = {
   },
 };
 
-// 4.2. 총인원 수정하기(Put)
+// 4.2. 식수 인원 데이터 가져오기(Get)
+// * route : noteating/2021/3/14/ (Get) 하루 기준
+// * request : header에 관리자 토큰
+// * response :
+Map numOfPeoples = {
+  "code": "1",
+  "msg": "success",
+  "data": {
+    "조식": {
+      "id": "3",
+      // 총인원은 default 값으로 100명 있으면 좋겠음.
+      "totalNumberOfPeople": "100",
+      "reason": {
+        // 각 리스트에 불취식 신청한 사람들이 담김.
+        "당직": [],
+        "휴가": [
+          {
+            "id": "1",
+            "name": "홍길동",
+            "militaryNumber": "12-33333",
+            "password": null,
+            "rank": "이병",
+            "unit": "xx사단",
+            "allergy": {"계란류": "1", "우유": "1"},
+            "create": "2021-07-10T08:05:49.068049",
+            "update": "2021-07-10T08:05:49.068049",
+          },
+        ],
+        "외출": [],
+        "근무": [],
+        "기타": [],
+      },
+    },
+    "브런치": {
+      "id": "3",
+      // 총인원은 default 값으로 100명 있으면 좋겠음.
+      "totalNumberOfPeople": "100",
+      "reason": {
+        // 각 리스트에 불취식 신청한 사람들이 담김.
+        "당직": [],
+        "휴가": [
+          {
+            "id": "1",
+            "name": "홍길동",
+            "militaryNumber": "12-33333",
+            "password": null,
+            "rank": "이병",
+            "unit": "xx사단",
+            "allergy": {"계란류": "1", "우유": "1"},
+            "create": "2021-07-10T08:05:49.068049",
+            "update": "2021-07-10T08:05:49.068049",
+          },
+        ],
+        "외출": [],
+        "근무": [],
+        "기타": [],
+      },
+    },
+    "중식": {
+      "id": "3",
+      // 총인원은 default 값으로 100명 있으면 좋겠음.
+      "totalNumberOfPeople": "100",
+      "reason": {
+        // 각 리스트에 불취식 신청한 사람들이 담김.
+        "당직": [],
+        "휴가": [
+          {
+            "id": "1",
+            "name": "홍길동",
+            "militaryNumber": "12-33333",
+            "password": null,
+            "rank": "이병",
+            "unit": "xx사단",
+            "allergy": {"계란류": "1", "우유": "1"},
+            "create": "2021-07-10T08:05:49.068049",
+            "update": "2021-07-10T08:05:49.068049",
+          },
+        ],
+        "외출": [],
+        "근무": [],
+        "기타": [],
+      },
+    },
+    "석식": {
+      "id": "3",
+      // 총인원은 default 값으로 100명 있으면 좋겠음.
+      "totalNumberOfPeople": "100",
+      "reason": {
+        // 각 리스트에 불취식 신청한 사람들이 담김.
+        "당직": [],
+        "휴가": [
+          {
+            "id": "1",
+            "name": "홍길동",
+            "militaryNumber": "12-33333",
+            "password": null,
+            "rank": "이병",
+            "unit": "xx사단",
+            "allergy": {"계란류": "1", "우유": "1"},
+            "create": "2021-07-10T08:05:49.068049",
+            "update": "2021-07-10T08:05:49.068049",
+          },
+        ],
+        "외출": [],
+        "근무": [],
+        "기타": [],
+      },
+    },
+  },
+};
+
+// 4.3. 총인원 수정하기(Put)
 // * route : noteating/2021/3/14/조식
 // * request : header에 관리자 토큰,
 // body:
@@ -443,9 +554,9 @@ Map numOfPeopleChange = {
   },
 };
 
-// 4.3. 불취식 신청하기(Post)유저정보를 불취식 신청-사유 리스트에 저장합니다.
+// 4.4. 불취식 신청하기(Post)유저정보를 불취식 신청-사유 리스트에 저장합니다.
 // * route : noteating/2021/3/14/조식
-// * request : header에 유저토큰,
+// * request : header에 유저토큰, 유저정보
 // * response :
 Map SubmitNotEating = {
   "code": "1",
@@ -486,8 +597,8 @@ Map SubmitNotEating = {
   },
 };
 
-// 4.4. 불취식 신청 취소하기(Delete)
-// * route : note큰,ating/2021/3/14/조식/reason
+// 4.5. 불취식 신청 취소하기(Delete)
+// * route : noteating/2021/3/14/조식/reason
 // // * request : header에 유저 토
 //body :
 Map requestCancel = {
