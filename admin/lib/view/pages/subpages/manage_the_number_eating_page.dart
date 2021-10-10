@@ -2,6 +2,7 @@
 
 import 'package:admin/controller/not_eating_controller.dart';
 import 'package:admin/util/calendar_util.dart';
+import 'package:admin/util/editDateFormat.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:admin/view/components/number_eating/custom_piechart.dart';
@@ -24,15 +25,20 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
   DateTime _focusedDay = DateTime.now();
   late DateTime _selectedDay;
   final not = Get.put(NotEatingController());
-
+  late bool tableOrGraph;
   @override
   void initState() {
     _selectedDay = _focusedDay;
+    tableOrGraph = true;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final String year = getYear(_selectedDay);
+    final String month = getMonth(_selectedDay);
+    final String day = getDay(_selectedDay);
+    _findByDate(year, month, day);
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,16 +54,51 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
               onPressed: () {
                 showDialog(
                   context: context,
-                  builder: (context) => TotalNumDialog(_selectedDay),
+                  builder: (context) {
+                    List<String> totalNumberOfPeopleList = not.notEatings
+                        .map((e) => e.totalNumberOfPeople ?? "100")
+                        .toList();
+                    return TotalNumDialog(
+                        _selectedDay, totalNumberOfPeopleList);
+                  },
                 );
               },
             ),
           ],
         ),
         SizedBox(height: gap_l),
-        CustomPieChart(date: _selectedDay),
+        Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: tableOrGraph == true
+                          ? Colors.lightGreen
+                          : Colors.lightBlue),
+                  onPressed: () {
+                    setState(() {
+                      if (tableOrGraph == true)
+                        tableOrGraph = false;
+                      else
+                        tableOrGraph = true;
+                    });
+                  },
+                  child: Text(tableOrGraph ? "자세히 보기" : "간단히 보기"),
+                ),
+              ],
+            ),
+            SizedBox(height: gap_m),
+            CustomPieChart(date: _selectedDay),
+          ],
+        ),
       ],
     );
+  }
+
+  Future<void> _findByDate(String year, month, day) async {
+    await not.findByDate(year, month, day);
   }
 
   Widget _buildCalendar() {

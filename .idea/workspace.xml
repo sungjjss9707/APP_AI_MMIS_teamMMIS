@@ -29,10 +29,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-03__3_08__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-03_오후_3_08_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/request_api_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assets/request_api_2.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/not_eating_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/not_eating_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_piechart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_piechart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/total_num_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/total_num_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633852160879</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
+      <created>1633874285485</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1633874285485</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -433,10 +443,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633850539224" />
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633852167939">
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633874291455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633852167939" />
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633874291455" />
     <state x="709" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633764233814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
