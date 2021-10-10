@@ -1,4 +1,5 @@
 import 'package:admin/model/numberOfEating.dart';
+import 'package:admin/util/editDateFormat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -13,6 +14,9 @@ class CustomPieChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String year = getYear(date);
+    String month = getYear(date);
+    String day = getYear(date);
     final notEatingInfo = getNotEatingInfo(date);
     final List<NotEatingData> _notEatingData = getNotEatingData(notEatingInfo);
     final List<ReasonNotEatingData> _reasonNotEatingData =

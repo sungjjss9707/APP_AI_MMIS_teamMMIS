@@ -2,17 +2,21 @@ String editDateFormat(DateTime dateTime) {
   return "${dateTime.year}-${dateTime.month}-${dateTime.day}";
 }
 
-String getYear(DateTime dateTime){
+String getYear(DateTime dateTime) {
   return dateTime.year.toString();
 }
 
-String getMonth(DateTime dateTime){
+String getMonth(DateTime dateTime) {
   return dateTime.month.toString();
 }
 
-
-String getDay(DateTime dateTime){
+String getDay(DateTime dateTime) {
   return dateTime.day.toString();
 }
 
-class EatingTime {"조식", "브런치", "중식", "석식"};
+class EatingTime {
+  final String breakfast = "조식";
+  final String brunch = "브런치";
+  final String lunch = "중식";
+  final String dinner = "석식";
+}
