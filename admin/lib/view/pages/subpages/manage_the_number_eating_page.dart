@@ -66,6 +66,7 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
         width: 700,
         child: TableCalendar(
           locale: 'ko-KR',
+          calendarStyle: CalendarStyle(),
           calendarBuilders: CalendarBuilders(
             selectedBuilder: _selectedBuilder,
             singleMarkerBuilder: _singleMarkerBuilder,

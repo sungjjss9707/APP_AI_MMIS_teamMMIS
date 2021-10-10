@@ -28,27 +28,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="건의사항 하는 중">
-      <change afterPath="$PROJECT_DIR$/admin/lib/util/editDateFormat.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/CM_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/dto/CM_request_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/menu_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/menu_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/notice_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/notice_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/menu/menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/menu/menu.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/menu/menu_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/menu/menu_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/menu/menu_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/menu/menu_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/notice/notice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/notice/notice.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/notice/notice_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/notice/notice_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/notice/notice_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/notice/notice_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/util/Info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/Info.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/button/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/button/custom_elevated_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_write_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_write_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/newMenuInputDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/newMenuInputDialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/menu_manage_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/editDateFormat.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/util/editDateFormat.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,7 +306,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633764260926</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
+      <created>1633850366997</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1633850366997</updated>
+    </task>
+    <task id="LOCAL-00029" summary="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
+      <created>1633850374904</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1633850374904</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -416,13 +414,18 @@
     <MESSAGE value="mypp AI페이지 디자인 완료" />
     <MESSAGE value="메뉴 관리 페이지 하는 중" />
     <MESSAGE value="건의사항 하는 중" />
-    <option name="LAST_COMMIT_MESSAGE" value="건의사항 하는 중" />
+    <MESSAGE value="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료" />
   </component>
   <component name="WindowStateProjectService">
     <state x="543" y="305" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1633766468953">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="543" y="305" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1633766468953" />
+    <state width="623" height="498" key="SwitcherDM" timestamp="1633850539224">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633850539224" />
     <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1633764263219">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
