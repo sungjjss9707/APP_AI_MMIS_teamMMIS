@@ -1,14 +1,14 @@
-class Survey {
+class FakeSurvey {
   final String title;
   final String writer;
   final String date;
   final List<Map> questionSets;
 
-  Survey(this.title, this.writer, this.date, this.questionSets);
+  FakeSurvey(this.title, this.writer, this.date, this.questionSets);
 }
 
-List<Survey> dummySurvey = [
-  Survey("1. 예시설문조사입니다.", "관리자", "2021.09.23", [
+List<FakeSurvey> dummySurvey = [
+  FakeSurvey("1. 예시설문조사입니다.", "관리자", "2021.09.23", [
     {
       "질문": "가장 좋아하는 메뉴는 무엇입니까?",
       "선지": ["돈가스", "치킨", "라면", "김치"],

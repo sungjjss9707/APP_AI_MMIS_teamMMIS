@@ -56,13 +56,10 @@ class _NoticeWriteDialogState extends State<NoticeWriteDialog> {
                           try {
                             await n.save(
                                 _titleController.text, _contentController.text);
+                            Navigator.pop(context);
                           } catch (e) {
                             Get.snackbar("", "게시 실패");
                           }
-                          String title = _titleController.text;
-                          String content = _contentController.text;
-                          print(title);
-                          print(content);
                         },
                       ),
                     ),

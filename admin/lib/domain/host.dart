@@ -1,1 +1,1 @@
-const host = "http://cors-anywhere.herokuapp.com/http://52.78.37.19:8080";
+const host = "http://cors-anywhere.herokuapp.com/http://15.164.129.36:8080";

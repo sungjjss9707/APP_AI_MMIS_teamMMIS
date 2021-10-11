@@ -18,6 +18,6 @@ class Notice {
       : id = json["id"],
         title = json["title"],
         content = json["content"],
-        created = DateFormat("yyyy-mm-dd").parse(json["created"]),
-        updated = DateFormat("yyyy-mm-dd").parse(json["updated"]);
+        created = DateFormat("yyyy-MM-dd").parse(json["createtime"]),
+        updated = DateFormat("yyyy-MM-dd").parse(json["updatetime"]);
 }

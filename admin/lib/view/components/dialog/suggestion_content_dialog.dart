@@ -1,16 +1,18 @@
+import 'package:admin/controller/suggestion_controller.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
+import 'package:admin/view/components/suggestion/written_comment_box.dart';
 import 'package:admin/view/components/textfield/custom_text_form_field.dart';
 import 'package:admin/view/components/textfield/custom_writing_area.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../size.dart';
 
 class SuggestionContentDialog extends StatefulWidget {
-  final String title;
-  final String content;
+  final int id;
 
-  SuggestionContentDialog({required this.title, required this.content});
+  SuggestionContentDialog({required this.id});
 
   @override
   _SuggestionContentDialog createState() => _SuggestionContentDialog();
@@ -19,15 +21,26 @@ class SuggestionContentDialog extends StatefulWidget {
 class _SuggestionContentDialog extends State<SuggestionContentDialog> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _contentController = TextEditingController();
-  final TextEditingController _commentController = TextEditingController();
+  final TextEditingController _postCommentController = TextEditingController();
+  late List<WrittenCommentBox> _writtenCommentsList;
 
   final bool enabled = false;
   final _formKey = GlobalKey<FormState>();
+  SuggestionController s = Get.find();
 
   @override
-  void initState() {
-    _titleController.text = widget.title;
-    _contentController.text = widget.content;
+  Future<void> initState() async {
+    _titleController.text = s.suggestion.value.title!;
+    _contentController.text = s.suggestion.value.content!;
+    _writtenCommentsList =
+        List.generate(s.suggestion.value.comments!.length, (index) {
+      WrittenCommentBox writtenCommentBox = WrittenCommentBox(
+        enabled: true,
+      );
+      writtenCommentBox.controller.text =
+          s.suggestion.value.comments![index].content ?? "";
+      return WrittenCommentBox();
+    });
     super.initState();
   }
 
@@ -63,7 +76,9 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
                       padding: const EdgeInsets.only(right: gap_s),
                       child: CustomElevatedButton(
                         text: "삭제",
-                        onPressed: () {
+                        onPressed: () async {
+                          await s.deleteById(widget.id);
+                          Navigator.pop(context);
                           // 건의사항 삭제
                         },
                       ),
@@ -84,32 +99,43 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
     );
   }
 
-  Column _writtenComments() {
-    return Column(
-      children: List.generate(
-        1,
-        (index) => Row(
-          children: [
-            Expanded(
-              child: CustomWritingArea(
-                maxLines: 2,
-                enabled: false,
-                hint: "답변",
-                funValidate: validateContent(),
-              ),
+  Widget _writtenComments() {
+    return Obx(
+      () => Column(
+        children: List.generate(_writtenCommentsList.length, (index) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: gap_m),
+            child: Row(
+              children: [
+                Expanded(
+                  child: _writtenCommentsList[index],
+                ),
+                SizedBox(width: gap_xs),
+                TextButton(
+                  onPressed: () {
+                    setState(() async {
+                      await s.updateComment(
+                          widget.id,
+                          s.suggestion.value.comments![index].id!,
+                          _writtenCommentsList[index].controller.text);
+                    });
+                  },
+                  child: Text("수정"),
+                ),
+                SizedBox(width: gap_s),
+                TextButton(
+                  onPressed: () {
+                    setState(() async {
+                      await s.deleteComment(
+                          widget.id, s.suggestion.value.comments![index].id!);
+                    });
+                  },
+                  child: Text("삭제"),
+                ),
+              ],
             ),
-            SizedBox(width: gap_xs),
-            TextButton(
-              onPressed: () {},
-              child: Text("수정"),
-            ),
-            SizedBox(width: gap_xs),
-            TextButton(
-              onPressed: () {},
-              child: Text("삭제"),
-            ),
-          ],
-        ),
+          );
+        }),
       ),
     );
   }
@@ -121,7 +147,7 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
           child: CustomWritingArea(
             maxLines: 2,
             enabled: true,
-            controller: _commentController,
+            controller: _postCommentController,
             hint: "답변",
             funValidate: validateContent(),
           ),
@@ -129,7 +155,9 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
         SizedBox(width: gap_xs),
         CustomElevatedButton(
           text: "등록",
-          onPressed: () {},
+          onPressed: () async {
+            await s.postComment(widget.id, _postCommentController.text);
+          },
         )
       ],
     );

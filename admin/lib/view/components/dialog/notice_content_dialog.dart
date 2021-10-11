@@ -92,10 +92,6 @@ class _NoticeContentDialogState extends State<NoticeContentDialog> {
                                     } catch (e) {
                                       Get.snackbar("", "수정 실패");
                                     }
-                                    String newTitle = _titleController.text;
-                                    String newContent = _contentController.text;
-                                    print("title $newTitle");
-                                    print("content $newContent");
                                   }
                                   setState(() {
                                     enabled = false;
@@ -109,8 +105,9 @@ class _NoticeContentDialogState extends State<NoticeContentDialog> {
                             padding: const EdgeInsets.only(right: gap_s),
                             child: CustomElevatedButton(
                               text: "삭제",
-                              onPressed: () {
-                                Navigator.pop(context);
+                              onPressed: () async {
+                                int a = await n.deleteById(widget.id);
+                                if (a == 1) Navigator.pop(context);
                               },
                             ),
                           )

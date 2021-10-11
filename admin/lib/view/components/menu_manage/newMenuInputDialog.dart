@@ -11,11 +11,12 @@ import 'package:get/get.dart';
 import '../../../size.dart';
 import '../../../style.dart';
 
+// 사이즈 문제 해결해야 됨.
 class NewMenuInputDialog extends StatelessWidget {
   final _menuName = TextEditingController();
-  late final List<TextEditingController> _nutritionInfoList;
-  final _formKey = GlobalKey<FormState>();
 
+  final _formKey = GlobalKey<FormState>();
+  final MenuController menuCon = Get.find();
   final Map<String, String> _allergy = {
     "계란류": "0",
     "우유": "0",
@@ -39,8 +40,11 @@ class NewMenuInputDialog extends StatelessWidget {
   };
   @override
   Widget build(BuildContext context) {
+    double _height = MediaQuery.of(context).size.height > 864
+        ? 800
+        : MediaQuery.of(context).size.height - 64;
     List<dynamic> allergyList = [];
-    _nutritionInfoList = List.generate(
+    List<TextEditingController> _nutritionInfoList = List.generate(
         nutritionName.length, (index) => TextEditingController(text: "0"));
     return SimpleDialog(
       title: Text(
@@ -51,7 +55,7 @@ class NewMenuInputDialog extends StatelessWidget {
       children: [
         Container(
           width: 500,
-          height: 800,
+          height: _height,
           child: Form(
             key: _formKey,
             child: ListView(
@@ -74,7 +78,7 @@ class NewMenuInputDialog extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: gap_m),
-                _nutritionInfo(),
+                _nutritionInfo(_nutritionInfoList),
                 SizedBox(height: gap_m),
                 _allergyInfo(allergyList),
                 SizedBox(height: gap_m),
@@ -91,10 +95,8 @@ class NewMenuInputDialog extends StatelessWidget {
                                 _menuName.text,
                                 _convertNutritionInfo(_nutritionInfoList),
                                 _allergy);
-                            print(_menuName.text);
-                            print(_convertNutritionInfo(_nutritionInfoList));
-                            print(_allergy);
                             // 연결 후 팝업창 닫음
+                            _setMenus();
                             Navigator.pop(context);
                           }
                         },
@@ -117,7 +119,12 @@ class NewMenuInputDialog extends StatelessWidget {
     );
   }
 
-  Widget _nutritionInfo() {
+  Future<void> _setMenus() async {
+    await menuCon.findAll();
+    Menus.menus = menuCon.menus.map((e) => e.name ?? "").toList();
+  }
+
+  Widget _nutritionInfo(List<TextEditingController> list) {
     return Container(
       padding: const EdgeInsets.all(gap_m),
       decoration: BoxDecoration(
@@ -142,8 +149,8 @@ class NewMenuInputDialog extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: gap_m),
                   child: TagAndTextFormField(
-                    controller: _nutritionInfoList[index],
-                    funValidate: validateIsEmpty(),
+                    controller: list[index],
+                    funValidate: validateNumeric(),
                     text: nutritionName[index],
                   ),
                 ),

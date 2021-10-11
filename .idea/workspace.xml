@@ -28,29 +28,27 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="메뉴 관리 페이지 하는 중">
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021-10-04__10_05__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021-10-04__10_05__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-03__3_08__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-03__3_08__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021-10-04__10_05__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021-10-04_오전_10_05_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-04__9_16__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-04__9_16__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_container.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/menu_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/menu_manage_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/model/menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/model/menu.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/model/menu_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/model/menu_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/user/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/user/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/function_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/function_button.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\1\.android\avd\Pixel_3a_API_30.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -85,24 +83,24 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/myapp/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\suggestion" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller\dto" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\admin\lib\view\components\textfield" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_real\admin\lib\view\pages" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\page_util" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\domain\admin" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\admin\lib\view\components\textfield" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_real\admin\lib\view\pages" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\pages\sub_sub_pages" />
     </key>
   </component>
   <component name="RunManager">
@@ -310,7 +308,42 @@
       <option name="project" value="LOCAL" />
       <updated>1633675397630</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="건의사항 하는 중">
+      <created>1633764260926</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1633764260926</updated>
+    </task>
+    <task id="LOCAL-00028" summary="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
+      <created>1633850366997</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1633850366997</updated>
+    </task>
+    <task id="LOCAL-00029" summary="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
+      <created>1633850374904</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1633850374904</updated>
+    </task>
+    <task id="LOCAL-00030" summary="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
+      <created>1633852160879</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1633852160879</updated>
+    </task>
+    <task id="LOCAL-00031" summary="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
+      <created>1633874285485</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1633874285485</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -403,7 +436,9 @@
     <MESSAGE value="AI 페이지 디자인 중" />
     <MESSAGE value="mypp AI페이지 디자인 완료" />
     <MESSAGE value="메뉴 관리 페이지 하는 중" />
-    <option name="LAST_COMMIT_MESSAGE" value="메뉴 관리 페이지 하는 중" />
+    <MESSAGE value="건의사항 하는 중" />
+    <MESSAGE value="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

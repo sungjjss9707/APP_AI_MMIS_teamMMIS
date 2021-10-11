@@ -17,7 +17,7 @@ class JoinReqDto {
         "name": name,
         "militaryNumber": militaryNumber,
         "password": password,
-        "rank": rank,
-        "unit": unit,
+        "grade": rank,
+        "belong": unit,
       };
 }

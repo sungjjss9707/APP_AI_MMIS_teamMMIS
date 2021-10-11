@@ -12,13 +12,11 @@ class AdministerController extends GetxController {
   Future<int> login(String militaryNumber, String password) async {
     Administer principal =
         await _administerRepository.login(militaryNumber, password);
+    this.principal.value = principal;
     if (principal.id != null) {
-      this.isLogin.value = true;
-      this.principal.value = principal;
       return 1;
-    } else {
-      return -1;
     }
+    return -1;
   }
 
   Future<int> join(String name, String militaryNumber, String password,

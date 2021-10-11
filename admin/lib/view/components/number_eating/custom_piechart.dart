@@ -1,6 +1,8 @@
+import 'package:admin/controller/not_eating_controller.dart';
 import 'package:admin/model/numberOfEating.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class CustomPieChart extends StatelessWidget {
@@ -10,9 +12,13 @@ class CustomPieChart extends StatelessWidget {
   final TooltipBehavior _tooltipBehavior2 =
       TooltipBehavior(enable: true, duration: 0.5);
   CustomPieChart({required this.date});
+  final NotEatingController not = Get.find();
 
   @override
   Widget build(BuildContext context) {
+    //조식, 브런치, 중식, 석식의 불취식 인원의 reason Map list 길이는 4임.
+    final List reasonList =
+        not.notEatings.map((notEating) => notEating.reason).toList();
     final notEatingInfo = getNotEatingInfo(date);
     final List<NotEatingData> _notEatingData = getNotEatingData(notEatingInfo);
     final List<ReasonNotEatingData> _reasonNotEatingData =

@@ -1,8 +1,10 @@
 // 메뉴 관리 페이지
 
-import 'package:admin/model/diet.dart';
+import 'package:admin/controller/menu_controller.dart';
+import 'package:admin/model/menu.dart';
 
 import 'package:admin/size.dart';
+import 'package:admin/util/Info.dart';
 import 'package:admin/util/calendar_util.dart';
 
 import 'package:admin/view/components/home/customTitle.dart';
@@ -10,6 +12,7 @@ import 'package:admin/view/components/menu_manage/marker_info.dart';
 import 'package:admin/view/components/menu_manage/menu_input_container.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 import 'package:table_calendar/table_calendar.dart';
 
@@ -22,10 +25,12 @@ class _MenuManagePageState extends State<MenuManagePage> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   late DateTime _selectedDay;
+  final menuCon = Get.put(MenuController());
 
   @override
-  void initState() {
+  initState() {
     _selectedDay = _focusedDay;
+    _setMenus();
     super.initState();
   }
 
@@ -85,6 +90,11 @@ class _MenuManagePageState extends State<MenuManagePage> {
         ),
       ),
     );
+  }
+
+  Future<void> _setMenus() async {
+    await menuCon.findAll();
+    Menus.menus = menuCon.menus.map((e) => e.name ?? "").toList();
   }
 
   Widget _singleMarkerBuilder(context, date, event) {
