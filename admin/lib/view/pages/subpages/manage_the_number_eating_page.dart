@@ -1,11 +1,13 @@
 // 식수 인원 관리 페이지
 
 import 'package:admin/controller/not_eating_controller.dart';
+import 'package:admin/domain/not_eating/not_eating.dart';
 import 'package:admin/util/calendar_util.dart';
 import 'package:admin/util/editDateFormat.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/home/customTitle.dart';
-import 'package:admin/view/components/number_eating/custom_piechart.dart';
+
+import 'package:admin/view/components/number_eating/custom_detail_table.dart';
 import 'package:admin/view/components/number_eating/total_num_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,61 +41,65 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
     final String month = getMonth(_selectedDay);
     final String day = getDay(_selectedDay);
     _findByDate(year, month, day);
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTitle("식수 인원 관리"),
-        Divider(color: Colors.grey),
-        _buildCalendar(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            CustomElevatedButton(
-              text: "총인원 수정",
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    List<String> totalNumberOfPeopleList = not.notEatings
-                        .map((e) => e.totalNumberOfPeople ?? "100")
-                        .toList();
-                    return TotalNumDialog(
-                        _selectedDay, totalNumberOfPeopleList);
-                  },
-                );
-              },
-            ),
-          ],
-        ),
-        SizedBox(height: gap_l),
-        Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: tableOrGraph == true
-                          ? Colors.lightGreen
-                          : Colors.lightBlue),
-                  onPressed: () {
-                    setState(() {
-                      if (tableOrGraph == true)
-                        tableOrGraph = false;
-                      else
-                        tableOrGraph = true;
-                    });
-                  },
-                  child: Text(tableOrGraph ? "자세히 보기" : "간단히 보기"),
-                ),
-              ],
-            ),
-            SizedBox(height: gap_m),
-            CustomPieChart(date: _selectedDay),
-          ],
-        ),
-      ],
+    return Obx(
+      () => Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomTitle("식수 인원 관리"),
+          Divider(color: Colors.grey),
+          _buildCalendar(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CustomElevatedButton(
+                text: "총인원 수정",
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      List<NotEating> temp = not.notEatings.values.toList();
+                      List<String> totalNumberOfPeopleList =
+                          temp.map((e) => e.totalNumberOfPeople!).toList();
+                      return TotalNumDialog(
+                          _selectedDay, totalNumberOfPeopleList);
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
+          SizedBox(height: gap_l),
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: tableOrGraph == true
+                            ? Colors.lightGreen
+                            : Colors.lightBlue),
+                    onPressed: () {
+                      setState(() {
+                        if (tableOrGraph == true)
+                          tableOrGraph = false;
+                        else
+                          tableOrGraph = true;
+                      });
+                    },
+                    child: Text(tableOrGraph ? "자세히 보기" : "간단히 보기"),
+                  ),
+                ],
+              ),
+              SizedBox(height: gap_m),
+              CustomDetailTable(
+                not.notEatings,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

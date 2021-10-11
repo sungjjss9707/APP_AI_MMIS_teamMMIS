@@ -1,7 +1,7 @@
 class NotEating {
   final int? id;
   final String? totalNumberOfPeople;
-  final Map<String, List>? reason;
+  final Map<String, dynamic>? reason;
 
   NotEating({this.id, this.totalNumberOfPeople, this.reason});
 
@@ -11,18 +11,38 @@ class NotEating {
         reason = json["reason"];
 }
 
-class Reason {
-  final List? reasonBreakFast;
-  final List? reasonBrunch;
-  final List? reasonLunch;
-  final List? reasonDinner;
+Map<String, List> convertReasonForDetailTable(
+    Map<String, NotEating> notEatings) {
+  Map<String, List> result = {};
+  for (String key in notEatings.keys) {
+    NotEating notEating = notEatings[key]!;
+    List d = notEating.reason!["당직"];
+    List h = notEating.reason!["휴가"];
+    List w = notEating.reason!["외출"];
+    List g = notEating.reason!["근무"];
+    List other = notEating.reason!["기타"];
+    for (Map<String, dynamic> user in d) {
+      user["notEatingReason"] = "당직";
+    }
+    for (Map<String, dynamic> user in h) {
+      user["notEatingReason"] = "휴가";
+    }
+    for (Map<String, dynamic> user in w) {
+      user["notEatingReason"] = "외출";
+    }
+    for (Map<String, dynamic> user in g) {
+      user["notEatingReason"] = "근무";
+    }
+    for (Map<String, dynamic> user in other) {
+      user["notEatingReason"] = "기타";
+    }
+    result[key] = d + h + w + g + other;
+  }
+  return result;
+}
 
-  Reason(this.reasonBreakFast, this.reasonBrunch, this.reasonLunch,
-      this.reasonDinner);
-
-  Reason.fromNotEatings(List<NotEating> notEatings)
-      : reasonBreakFast = notEatings[0].reason!.values.toList(),
-        reasonBrunch = notEatings[1].reason!.values.toList(),
-        reasonLunch = notEatings[2].reason!.values.toList(),
-        reasonDinner = notEatings[3].reason!.values.toList();
+Map<String, int> convertReasonForSimpleTable(
+    Map<String, NotEating> notEatings) {
+  Map<String, List> a = convertReasonForDetailTable(notEatings);
+  return a.map((key, value) => MapEntry(key, value.length));
 }

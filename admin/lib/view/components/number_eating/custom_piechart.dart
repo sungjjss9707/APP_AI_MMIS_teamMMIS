@@ -17,8 +17,6 @@ class CustomPieChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //조식, 브런치, 중식, 석식의 불취식 인원의 reason Map list 길이는 4임.
-    final List reasonList =
-        not.notEatings.map((notEating) => notEating.reason).toList();
     final notEatingInfo = getNotEatingInfo(date);
     final List<NotEatingData> _notEatingData = getNotEatingData(notEatingInfo);
     final List<ReasonNotEatingData> _reasonNotEatingData =

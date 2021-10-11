@@ -29,14 +29,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/custom_table.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_detail_table.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_simple_table.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-04__9_16__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-04_오후_9_16_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/not_eating_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/not_eating_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/custom_table.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_piechart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_piechart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,19 +86,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\suggestion" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller\dto" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\admin\lib\view\components\textfield" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_real\admin\lib\view\pages" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\page_util" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\domain\admin" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\number_eating" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\suggestion" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller\dto" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\admin\lib\view\components\textfield" />
     </key>
   </component>
   <component name="RunManager">

@@ -22,19 +22,22 @@ class NotEatingRepository {
     return NotEating();
   }
 
-  Future<List<NotEating>> findByDate(
+  Future<Map<String, NotEating>> findByDate(
       String year, String month, String day) async {
     Response response = await _notEatingProvider.findByDate(year, month, day);
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+    Map<String, NotEating> notEatings = {};
     if (cmRespDto.code == 1) {
-      Map<String, Map<String, dynamic>> temp = cmRespDto.data;
-      List<NotEating> notEatings =
-          temp.values.map((e) => NotEating.fromJson(e)).toList();
-      return notEatings;
+      Map<String, dynamic> temp = cmRespDto.data;
+
+      notEatings["조식"] = NotEating.fromJson(temp["조식"]);
+      notEatings["브런치"] = NotEating.fromJson(temp["브런치"]);
+      notEatings["중식"] = NotEating.fromJson(temp["중식"]);
+      notEatings["석식"] = NotEating.fromJson(temp["석식"]);
     }
-    return <NotEating>[];
+    return notEatings;
   }
 
   Future<NotEating> changeTotalNumOfPeople(String year, String month,
