@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -7,6 +9,9 @@ import 'package:myapp/model/comments.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/button/back_button.dart';
 import 'package:myapp/view/pages/subpages/post_picture.dart';
+
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
 class ShowPhotoOfMealPage extends StatelessWidget {
   @override
@@ -34,6 +39,14 @@ class ShowPhotoOfMealPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _base64ex() async {
+    ByteData bytes = await rootBundle.load("meal_photos/example_1.jpg");
+    var buffer = bytes.buffer;
+    String m = base64.encode(Uint8List.view(buffer));
+    print(m.length);
+    print(m.runtimeType);
   }
 
   Widget _buildHeader(BuildContext context) {
