@@ -1,3 +1,13 @@
+# 모듈 import
+import pandas as pd
+import numpy as np
+from pandas.core.frame import  DataFrame
+from itertools import product
+
+"""# 필요 data 읽기
+data = pd.read_csv("/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/data.csv", encoding="UTF-8")
+menu_sim_sorted_idx=np.load("/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/menu_sim_sorted_idx.npy")
+"""
 # 유사 메뉴 추천 함수
 
 def find_sim_menu(data, menu_sim_sorted_idx, name, number=10):
@@ -18,9 +28,10 @@ def find_sim_menu(data, menu_sim_sorted_idx, name, number=10):
         similar_menu_list.append(sim_menu)
 
 
-    return similar_menu_list[1:6]
+    return similar_menu_list[1:4]
 
 # 메뉴 점수 예측
-def predictScore():
-    return 80
+def predictScore(menuList):
+    return np.random.randint(80,100)
+
 

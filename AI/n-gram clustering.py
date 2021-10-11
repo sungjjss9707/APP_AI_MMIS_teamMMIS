@@ -12,7 +12,7 @@ from konlpy.tag import Komoran
 
 # %%
 #데이터 불러오기
-data= pd.read_csv("All Menu (Various Versions)/국방부메뉴_v2.0.csv", encoding="UTF-8")
+data= pd.read_csv("All Menu (Various Versions)/국방부메뉴_v2.1.csv", encoding="UTF-8")
 data
 
 # 정규 표현식을 통한 한글 외 문자 제거
@@ -21,6 +21,16 @@ data['메뉴이름'] = data['메뉴이름'].str.replace(" ","")
 # 중복 제거
 
 data = data.drop_duplicates(['메뉴이름'], ignore_index=True)
+
+# 정규화
+
+for i in data:
+    if(i in ['계란류', '우유', '메밀', '땅콩', '대두', '밀', '고등어', '게', '새우', '돼지고기', '복숭아', '토마토', '아황산류', '호두', '닭고기', '쇠고기', '오징어', '조개류', '잣']):
+        data[i] = data[i]/500
+    if i in ['열량', '탄수화물', '지방', '단백질', '나트륨', '콜레스트롤']:
+        data[i] = ((data[i]-data[i].mean())/data[i].std())/500
+data
+
 
 
 #%%
