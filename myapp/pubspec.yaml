@@ -41,6 +41,7 @@ dependencies:
     sdk: flutter
   survey_kit: ^0.0.12
   flutter_typeahead: ^3.2.1
+  flutter_screenutil: ^5.0.0+2
 
 
 

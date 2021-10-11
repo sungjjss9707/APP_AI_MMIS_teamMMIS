@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/menu.dart';
@@ -17,16 +18,18 @@ import 'package:myapp/view/pages/subpages/survey_page.dart';
 
 import '../../../model/ai_recommend.dart';
 
-class HomePage extends StatelessWidget {
-  late double length;
+class HomePage extends StatefulWidget {
   @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
-    length = (MediaQuery.of(context).size.width - 32) / 3;
     return ListView(
       children: [
         _menuList(),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: _functionButtons(),
         ),
         Padding(
@@ -73,33 +76,30 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildButtonSet1() {
-    final double size = length / 4;
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         FunctionButton(
-          length: length,
           onTap: () {
             Get.to(() => NoticePage());
           },
-          icon: Icon(Icons.campaign, size: size),
+          icon: Icons.campaign,
           text: "공지사항",
         ),
         SizedBox(width: 8),
         FunctionButton(
-          length: length,
           onTap: () {
             Get.to(() => SuggestionPage());
           },
-          icon: FaIcon(FontAwesomeIcons.exclamationCircle, size: size),
+          icon: FontAwesomeIcons.exclamationCircle,
           text: "건의사항",
         ),
         SizedBox(width: 8),
         FunctionButton(
-          length: length,
           onTap: () {
             Get.to(() => SurveyPage());
           },
-          icon: FaIcon(FontAwesomeIcons.poll, size: size),
+          icon: FontAwesomeIcons.poll,
           text: "설문조사",
         ),
       ],
@@ -107,34 +107,30 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildButtonSet2() {
-    final double size = length / 4;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         FunctionButton(
-          length: length,
           onTap: () {
             Get.to(AiTestPage());
           },
-          icon: Icon(Icons.no_meals, size: size),
+          icon: Icons.no_meals,
           text: "AI 실험실",
         ),
         SizedBox(width: 8),
         FunctionButton(
-          length: length,
           onTap: () {
             Get.to(() => DeductionPage());
           },
-          icon: Icon(Icons.payment, size: size),
+          icon: Icons.payment,
           text: "공제내역",
         ),
         SizedBox(width: 8),
         FunctionButton(
-          length: length,
           onTap: () {
             Get.to(() => AllergyInfoPage());
           },
-          icon: Icon(Icons.help, size: size),
+          icon: Icons.help,
           text: "알레르기 정보",
         )
       ],

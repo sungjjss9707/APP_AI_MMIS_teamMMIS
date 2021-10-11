@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/menu.dart';
 //import 'package:myapp/model/diet.dart';
@@ -27,7 +28,7 @@ class MenuBox extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(2),
           height: 120,
-          width: 90,
+          width: (0.2).sw,
           decoration: BoxDecoration(
             border: _isToday == false
                 ? Border.all(color: Colors.black45, width: 2)
