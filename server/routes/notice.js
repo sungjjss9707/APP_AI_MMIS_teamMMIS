@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         if (error) {
             console.log(error);
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results};
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results};
             res.send(noticeresponse);
            // console.log(results);
         }
@@ -34,9 +34,9 @@ router.get('/:seq', async (req, res) => {
 
         if (error) {
             console.log(error);
-	    res.send({"code" : "-1"});
+	    res.send({"code" : -1});
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results[0]};
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results[0]};
             res.send(noticeresponse);
           //  console.log(results);
         }
@@ -78,14 +78,14 @@ router.post('/', async (req, res) => {
 
 	 if (error) {
             console.log(error);
-	    res.send({"code" : "-1"});
+	    res.send({"code" : -1});
         }else{
 	    var newsql = `select * from board where writer = \'${writer}\' and title = \'${req.body.title}\' and content = \'${req.body.content}\';`; 
 		console.log(newsql);
 		connection.query(newsql,(error1, results1, fields1) => {
                 //mybody = results1[0];
 		//console.log(results1[0]);
-		var noticeresponse = {"code" : "1", "msg" : "success", "data" : results1[0]};
+		var noticeresponse = {"code" : 1, "msg" : "success", "data" : results1[0]};
 		//res.send(results1[0]);
 		res.send(noticeresponse);
             })
@@ -106,13 +106,13 @@ router.put('/:seq', async (req, res) => {
         var mybody;
         if (error) {
             console.log(error);
-	    res.send({"code" : "-1"});
+	    res.send({"code" : -1});
         }else{
 	     ////////////////////////////////////////////////////////////////////////////////////////////////////////
 	    var newsql = `select * from board where id = \'${req.params.seq}\';`;
 	    connection.query(newsql,(error1, results1, fields1) => {
                 mybody = results1[0];
-	        var noticeresponse = {"code" : "1", "msg" : "success", "data" : results1[0]};
+	        var noticeresponse = {"code" : 1, "msg" : "success", "data" : results1[0]};
 
 		console.log(mybody);
 		res.send(noticeresponse);
@@ -138,7 +138,7 @@ router.delete('/:seq', async (req, res) => {
             console.log(error);
         }else{
             console.log(results);
-            res.send({"code" : "1", "msg" : "success"});
+            res.send({"code" : 1, "msg" : "success"});
 	   // res.send("delete success");
         }
     })
