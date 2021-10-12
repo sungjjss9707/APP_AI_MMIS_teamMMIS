@@ -20,14 +20,14 @@ class MenuBox extends StatelessWidget {
     Menu menu =
         dummyMenu.firstWhere((e) => e.date == this.date && e.time == this.time);
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.w),
       child: InkWell(
         onTap: () {
           Get.to(() => RateMenuPage(date, time));
         },
         child: Container(
-          padding: EdgeInsets.all(2),
-          height: 120,
+          padding: EdgeInsets.all(2.w),
+          height: 100.h,
           width: (0.2).sw,
           decoration: BoxDecoration(
             border: _isToday == false
@@ -56,7 +56,7 @@ class MenuBox extends StatelessWidget {
   Widget _buildMenuHeader(Menu menu) {
     return Text(
       "${getMonthDayAndWeekdayInKorean(menu.date)} (${menu.time})",
-      style: TextStyle(fontSize: 9),
+      style: TextStyle(fontSize: 8.sp),
     );
   }
 
@@ -69,7 +69,7 @@ class MenuBox extends StatelessWidget {
               menu.menuPlate.length,
               (index) => Text(
                 "${menu.menuPlate[index]}",
-                style: TextStyle(fontSize: 9),
+                style: TextStyle(fontSize: 8.sp),
               ),
             ),
           )

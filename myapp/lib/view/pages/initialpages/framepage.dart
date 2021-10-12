@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
 
@@ -33,7 +34,7 @@ class _FramePageState extends State<FramePage> {
     return AppBar(
       title: Text(
         getTodayInKorean(),
-        style: TextStyle(fontSize: 16),
+        style: TextStyle(fontSize: 14.sp),
       ),
       actions: [
         Column(
@@ -43,7 +44,7 @@ class _FramePageState extends State<FramePage> {
             Text("${classes} ${userName}님"),
           ],
         ),
-        SizedBox(width: 4),
+        SizedBox(width: 4.w),
       ],
     );
   }
@@ -51,9 +52,9 @@ class _FramePageState extends State<FramePage> {
   Widget _buildBottomNavigationBar() {
     return BottomNavigationBar(
       backgroundColor: Colors.lightGreen[50],
-      unselectedFontSize: 10,
-      selectedFontSize: 10,
-      iconSize: 20,
+      unselectedFontSize: 10.sp,
+      selectedFontSize: 10.sp,
+      iconSize: 20.r,
       currentIndex: _selectedTapIndex,
       onTap: (index) {
         setState(() {

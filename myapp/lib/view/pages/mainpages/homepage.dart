@@ -33,11 +33,11 @@ class _HomePageState extends State<HomePage> {
           child: _functionButtons(),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: CustomBanner(),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: _recommendation(),
         ),
       ],
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _menuList() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.only(bottom: 16.h),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
@@ -64,11 +64,11 @@ class _HomePageState extends State<HomePage> {
 
   Widget _functionButtons() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.only(bottom: 16.h),
       child: Column(
         children: [
           _buildButtonSet1(),
-          SizedBox(height: 16),
+          SizedBox(height: 16.h),
           _buildButtonSet2(),
         ],
       ),
@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
           icon: FontAwesomeIcons.exclamationCircle,
           text: "건의사항",
         ),
-        SizedBox(width: 8),
+        SizedBox(width: 8.w),
         FunctionButton(
           onTap: () {
             Get.to(() => SurveyPage());
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
           icon: Icons.no_meals,
           text: "AI 실험실",
         ),
-        SizedBox(width: 8),
+        SizedBox(width: 8.w),
         FunctionButton(
           onTap: () {
             Get.to(() => DeductionPage());
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
           icon: Icons.payment,
           text: "공제내역",
         ),
-        SizedBox(width: 8),
+        SizedBox(width: 8.w),
         FunctionButton(
           onTap: () {
             Get.to(() => AllergyInfoPage());
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _popularMenu(),
-        SizedBox(width: 8),
+        SizedBox(width: 8.w),
         _AIRecommendation(),
       ],
     );
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _popularMenu() {
     return Container(
-      height: 200,
+      height: 200.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
             "우리 부대 인기 메뉴는?",
             style: TextStyle(
               decoration: TextDecoration.underline,
-              fontSize: 14,
+              fontSize: 12.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -172,21 +172,21 @@ class _HomePageState extends State<HomePage> {
                   "1위. ${popularMenu["first"]}",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
-                    fontSize: 12,
+                    fontSize: 10.sp,
                   ),
                 ),
                 Text(
                   "2위. ${popularMenu["second"]}",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
-                    fontSize: 12,
+                    fontSize: 10.sp,
                   ),
                 ),
                 Text(
                   "3위. ${popularMenu["third"]}",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
-                    fontSize: 12,
+                    fontSize: 10.sp,
                   ),
                 ),
               ],
@@ -199,7 +199,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _AIRecommendation() {
     return Container(
-      height: 200,
+      height: 200.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
             "AI가 추전해주는 부대 식단!",
             style: TextStyle(
               decoration: TextDecoration.underline,
-              fontSize: 14,
+              fontSize: 12.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -221,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                     value,
                     style: TextStyle(
                       decoration: TextDecoration.underline,
-                      fontSize: 12,
+                      fontSize: 10.sp,
                     ),
                   ),
                 )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/pages/initialpages/login_page.dart';
@@ -10,11 +11,11 @@ import 'package:myapp/view/pages/subpages/user_info_page.dart';
 class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.7,
+      width: 1.sw * 0.7,
       height: double.infinity,
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(10.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -22,18 +23,18 @@ class CustomDrawer extends StatelessWidget {
               "$classes $userName",
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 30,
+                  fontSize: 25.sp,
                   color: Colors.black),
             ),
             Text(
               "$army $unit",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 15,
+                fontSize: 13.sp,
                 color: Colors.black54,
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 8.h),
             Divider(),
             DrawerLine(
               iconName: Icons.account_circle,
@@ -95,11 +96,11 @@ class DrawerLine extends StatelessWidget {
           Row(
             children: [
               Icon(iconName),
-              SizedBox(width: 10),
+              SizedBox(width: 8.w),
               Text(text,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 18.sp,
                       color: Colors.black54)),
             ],
           ),

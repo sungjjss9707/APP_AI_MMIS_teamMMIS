@@ -52,7 +52,7 @@ class _FunctionButtonState extends State<FunctionButton> {
               text,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 13,
+                fontSize: 12.sp,
               ),
             ),
           ],

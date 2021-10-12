@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/user/user.dart';
 import 'package:myapp/view/components/textfield/user_info_text_form_field.dart';
@@ -14,17 +15,17 @@ class UserInfoPage extends StatelessWidget {
           "회원정보",
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 20,
+            fontSize: 18.sp,
           ),
         ),
         centerTitle: true,
       ),
       body: Padding(
         padding: EdgeInsets.only(
-          top: 30,
-          left: 20,
-          right: 20,
-          bottom: 30,
+          top: 30.h,
+          left: 20.w,
+          right: 20.w,
+          bottom: 30.h,
         ),
         child: ListView(
           children: [
@@ -57,7 +58,7 @@ class UserInfoPage extends StatelessWidget {
             Center(
               child: Text(
                 "알레르기 정보",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
               ),
             ),
             UserInfoRadio(text: "갑각류", enabled: false),
@@ -70,13 +71,13 @@ class UserInfoPage extends StatelessWidget {
             UserInfoRadio(text: "조개", enabled: false),
             UserInfoRadio(text: "콩", enabled: false),
             Divider(),
-            SizedBox(height: 10),
+            SizedBox(height: 8.h),
             Center(
               child: OutlinedButton(
                 child: Text(
                   "수정하기",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18.sp,
                       color: Colors.green,
                       fontWeight: FontWeight.bold),
                 ),

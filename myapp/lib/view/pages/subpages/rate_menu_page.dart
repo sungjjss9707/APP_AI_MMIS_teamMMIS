@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/date_functions.dart';
 //import 'package:myapp/model/diet.dart';
@@ -128,7 +129,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
                 "-Kcal",
                 style: TextStyle(
                   color: Colors.black54,
-                  fontSize: 13,
+                  fontSize: 12.sp,
                 ),
               ),
               Container(
@@ -141,7 +142,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
                 "한끼 영양량",
                 style: TextStyle(
                   color: Colors.black54,
-                  fontSize: 13,
+                  fontSize: 12.sp,
                 ),
               )
             ],
@@ -176,7 +177,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
         initiallyExpanded: false,
         title: Text(
           menu[index],
-          style: TextStyle(fontSize: 14),
+          style: TextStyle(fontSize: 13.sp),
         ),
         children: [
           NutritionBox(),

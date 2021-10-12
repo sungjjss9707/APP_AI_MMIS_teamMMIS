@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:like_button/like_button.dart';
 import 'package:myapp/model/comments.dart';
@@ -79,7 +80,7 @@ class ShowPhotoOfMealPage extends StatelessWidget {
   }
 
   Widget _buildGridViewItem(BuildContext context, int index) {
-    double _imageWidth = MediaQuery.of(context).size.width * 0.5;
+    double _imageWidth = (0.5).sw;
     String image = "meal_photos/example_${index + 1}.jpg";
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4.0),
@@ -123,11 +124,11 @@ class ShowPhotoOfMealPage extends StatelessWidget {
                     children: [
                       Text(
                         "제8전투비행단",
-                        style: TextStyle(fontSize: 10),
+                        style: TextStyle(fontSize: 9.sp),
                       ),
                       Text(
                         "2021년 9월 8일 (석식)",
-                        style: TextStyle(fontSize: 10),
+                        style: TextStyle(fontSize: 9.sp),
                       ),
                     ],
                   ),
@@ -202,31 +203,31 @@ class _MealPictureDialogState extends State<MealPictureDialog> {
                   maxLines: 1,
                   decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10.sp),
                         borderSide: BorderSide(
                           color: Colors.black54,
                         ),
                       ),
                       disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10.sp),
                         borderSide: BorderSide(
                           color: Colors.black54,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10.sp),
                         borderSide: BorderSide(
                           color: Colors.black54,
                         ),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10.sp),
                         borderSide: BorderSide(
                           color: Colors.black54,
                         ),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10.sp),
                         borderSide: BorderSide(
                           color: Colors.black54,
                         ),
@@ -255,8 +256,10 @@ class _MealPictureDialogState extends State<MealPictureDialog> {
             (index) => Column(
               children: [
                 ListTile(
-                  title: Text(comments[id]![index]["userName"]),
-                  subtitle: Text(comments[id]![index]["comment"]),
+                  title: Text(comments[id]![index]["userName"],
+                      style: TextStyle(fontSize: 14.sp)),
+                  subtitle: Text(comments[id]![index]["comment"],
+                      style: TextStyle(fontSize: 12.sp)),
                 ),
                 Align(
                   alignment: Alignment.topRight,
@@ -264,7 +267,7 @@ class _MealPictureDialogState extends State<MealPictureDialog> {
                       child: Text(
                         "삭제",
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 12.sp,
                           color: Colors.black54,
                         ),
                       ),
