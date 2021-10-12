@@ -10,11 +10,18 @@ import 'package:get/get.dart';
 import '../../../size.dart';
 
 class MenuInputForm extends StatefulWidget {
+  final String year;
+  final String month;
+  final String day;
   final String time;
-  final DateTime date;
   final List<String>? menus;
   MenuInputForm(
-      {Key? key, required this.time, required this.date, required this.menus})
+      {Key? key,
+      required this.time,
+      required this.menus,
+      required this.year,
+      required this.month,
+      required this.day})
       : super(key: key);
 
   @override
@@ -24,15 +31,15 @@ class MenuInputForm extends StatefulWidget {
 class _MenuInputFormState extends State<MenuInputForm> {
   final _formKey = GlobalKey<FormState>();
   final DietController dietCon = Get.find();
-
+  late bool enableInput;
   List<TextEditingController> textEditingControllerList = [];
-
   List<MenuInputTextField> menuInputTextField = [];
 
   @override
   void initState() {
     menuInputTextField
         .add(MenuInputTextField(index: menuInputTextField.length));
+    enableInput = widget.menus == null ? true : false;
     super.initState();
   }
 
@@ -46,18 +53,18 @@ class _MenuInputFormState extends State<MenuInputForm> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.menus == null
-        ? Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(5),
-            ),
-            padding: const EdgeInsets.all(gap_m),
-            margin: const EdgeInsets.all(gap_m),
-            width: 350,
-            child: Form(
-              key: _formKey,
-              child: Column(
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey[300]!),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      padding: const EdgeInsets.all(gap_m),
+      margin: const EdgeInsets.all(gap_m),
+      width: 350,
+      child: Form(
+        key: _formKey,
+        child: enableInput == true
+            ? Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                       Text(
@@ -72,13 +79,29 @@ class _MenuInputFormState extends State<MenuInputForm> {
                     [
                       _buttons(),
                     ],
+              )
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ShowMenuList(
+                    time: "${widget.time}",
+                    menus: widget.menus,
+                  ),
+                  SizedBox(height: gap_s),
+                  widget.menus != null
+                      ? CustomElevatedButton(
+                          text: "수정하기",
+                          onPressed: () {
+                            setState(() {
+                              enableInput = true;
+                            });
+                          },
+                        )
+                      : Container(),
+                ],
               ),
-            ),
-          )
-        : ShowMenuList(
-            time: "조식",
-            menus: widget.menus,
-          );
+      ),
+    );
   }
 
   void menuInputTextFieldAdd() {
@@ -103,7 +126,7 @@ class _MenuInputFormState extends State<MenuInputForm> {
       (index) => Row(
         children: [
           Flexible(child: menuInputTextField[index]),
-          SizedBox(width: gap_xs),
+          SizedBox(height: gap_xs),
           index == menuInputTextField.length - 1
               ? IconButton(
                   onPressed: () {
@@ -135,13 +158,15 @@ class _MenuInputFormState extends State<MenuInputForm> {
       children: [
         CustomElevatedButton(
           text: "저장",
-          onPressed: () {
+          onPressed: () async {
             if (_formKey.currentState!.validate()) {
               List<String> menuList = [];
               for (MenuInputTextField i in menuInputTextField) {
                 if (i.controller.text.length != 0)
                   menuList.add(i.controller.text.trim());
-                addMenu(widget.date, widget.time, menuList);
+                final DietController dietCon = Get.find();
+                await dietCon.saveDiet(widget.year, widget.month, widget.day,
+                    widget.time, menuList);
               }
               showDialog(
                 context: context,
@@ -153,7 +178,14 @@ class _MenuInputFormState extends State<MenuInputForm> {
           },
         ),
         SizedBox(width: gap_m),
-        CustomElevatedButton(text: "취소"),
+        CustomElevatedButton(
+          text: "취소",
+          onPressed: () {
+            setState(() {
+              enableInput = false;
+            });
+          },
+        ),
       ],
     );
   }

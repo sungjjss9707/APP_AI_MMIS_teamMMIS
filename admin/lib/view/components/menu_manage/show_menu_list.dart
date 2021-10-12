@@ -10,28 +10,23 @@ class ShowMenuList extends StatelessWidget {
   const ShowMenuList({this.menus, required this.time});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 350,
-      margin: const EdgeInsets.all(gap_m),
-      padding: const EdgeInsets.all(gap_m),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            time,
-            style: subtitle1(),
-          ),
-          menus != null
-              ? Column(
-                  children: menus!.map((e) => Text(e, style: body1())).toList(),
-                )
-              : Text("입력된 정보가 없습니다."),
-        ],
-      ),
-    );
+    return menus != null
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "${time}",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              SizedBox(height: gap_s),
+              Column(
+                children: menus!.map((e) => Text(e, style: body1())).toList(),
+              ),
+            ],
+          )
+        : Center(child: Text("입력된 정보가 없습니다."));
   }
 }

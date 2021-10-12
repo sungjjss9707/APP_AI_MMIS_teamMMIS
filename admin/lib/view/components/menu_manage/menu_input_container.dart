@@ -4,7 +4,6 @@ import 'package:admin/util/editDateFormat.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/menu_manage/menu_input_form.dart';
 import 'package:admin/view/components/menu_manage/newMenuInputDialog.dart';
-import 'package:admin/view/components/menu_manage/show_menu_list.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -46,26 +45,34 @@ class MenuInputContainer extends StatelessWidget {
                 return Wrap(
                   children: [
                     MenuInputForm(
+                      year: year,
+                      month: month,
+                      day: day,
                       time: "조식",
-                      date: date,
                       menus: _menuForDays["조식"],
                       key: UniqueKey(),
                     ),
                     MenuInputForm(
+                      year: year,
+                      month: month,
+                      day: day,
                       time: "브런치",
-                      date: date,
                       menus: _menuForDays["브런치"],
                       key: UniqueKey(),
                     ),
                     MenuInputForm(
+                      year: year,
+                      month: month,
+                      day: day,
                       time: "중식",
-                      date: date,
                       menus: _menuForDays["중식"],
                       key: UniqueKey(),
                     ),
                     MenuInputForm(
+                      year: year,
+                      month: month,
+                      day: day,
                       time: "석식",
-                      date: date,
                       menus: _menuForDays["석식"],
                       key: UniqueKey(),
                     ),
@@ -92,8 +99,7 @@ class MenuInputContainer extends StatelessWidget {
         result["브런치"] = menus;
       else if (a == "중식")
         result["중식"] = menus;
-      else
-        result["석식"] = menus;
+      else if (a == "석식") result["석식"] = menus;
     }
     _menuForDays.addAll(result);
     return result;
