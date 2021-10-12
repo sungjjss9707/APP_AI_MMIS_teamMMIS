@@ -70,7 +70,7 @@ $ yarn start or npm run start
 ## 팀 정보 (Team Information)
 - 최윤호 (potatohead12@gmail.com), Github Id: potatohead12
 - 문철운 (heiyin315@gmail.com), Github Id: cjfdns007
-- 성민 (pho0570), Github Id: mini-777
+- 성민 (pho0570@gmail.com), Github Id: mini-777
 - 성준혁 (), Github Id: 
 - 최민호 (minhochoi.korea@gmail.com), Github Id: Paspachu
 - 홍유찬 (hychan0709@gmail.com), Github Id: onlyshine
