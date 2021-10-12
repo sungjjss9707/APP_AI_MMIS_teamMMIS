@@ -1,18 +1,18 @@
 class Diet {
-  final List<String>? menus;
-  final int? id;
+  final List<dynamic>? menus;
+  final String? now;
 
-  Diet({this.id, this.menus});
+  Diet({this.now, this.menus});
 
-  Diet.fromJsonMonth(Map<String, dynamic> json)
+  Diet.fromJson(Map<String, dynamic> json)
       : menus = json["menus"],
-        id = json["id"];
-  Diet.fromJDay(Map<String, dynamic> json)
-      : menus = json["menus"],
-        id = json["id"];
-  Diet.fromJsonTime(Map<String, dynamic> json)
-      : menus = json["menus"],
-        id = json["id"];
+        now = json["now"];
+  // Diet.fromJDay(Map<String, dynamic> json)
+  //     : menus = json["menus"],
+  //       now = json["now"];
+  // Diet.fromJsonTime(Map<String, dynamic> json)
+  //     : menus = json["menus"],
+  //       now = json["now"];
 }
 
 dietMonth(Map<String, dynamic> json) {

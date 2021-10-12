@@ -1,14 +1,20 @@
+import 'package:admin/controller/diet_controller.dart';
 import 'package:admin/model/menu.dart';
+
 import 'package:admin/view/components/button/custom_elevated_button.dart';
+import 'package:admin/view/components/menu_manage/show_menu_list.dart';
 import 'package:admin/view/components/textfield/menuInputTextField.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../size.dart';
 
 class MenuInputForm extends StatefulWidget {
   final String time;
   final DateTime date;
-  MenuInputForm({Key? key, required this.time, required this.date})
+  final List<String>? menus;
+  MenuInputForm(
+      {Key? key, required this.time, required this.date, required this.menus})
       : super(key: key);
 
   @override
@@ -17,6 +23,7 @@ class MenuInputForm extends StatefulWidget {
 
 class _MenuInputFormState extends State<MenuInputForm> {
   final _formKey = GlobalKey<FormState>();
+  final DietController dietCon = Get.find();
 
   List<TextEditingController> textEditingControllerList = [];
 
@@ -39,34 +46,39 @@ class _MenuInputFormState extends State<MenuInputForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey[200]!),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      padding: const EdgeInsets.all(gap_s),
-      margin: const EdgeInsets.all(gap_m),
-      width: 350,
-      child: Form(
-        key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-                Text(
-                  "${widget.time}",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ] +
-              _menuInputTextFieldGenerate() +
-              [
-                _buttons(),
-              ],
-        ),
-      ),
-    );
+    return widget.menus == null
+        ? Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            padding: const EdgeInsets.all(gap_m),
+            margin: const EdgeInsets.all(gap_m),
+            width: 350,
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                      Text(
+                        "${widget.time}",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ] +
+                    _menuInputTextFieldGenerate() +
+                    [
+                      _buttons(),
+                    ],
+              ),
+            ),
+          )
+        : ShowMenuList(
+            time: "조식",
+            menus: widget.menus,
+          );
   }
 
   void menuInputTextFieldAdd() {

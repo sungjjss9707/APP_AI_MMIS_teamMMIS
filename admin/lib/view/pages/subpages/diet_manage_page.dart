@@ -1,5 +1,6 @@
 // 메뉴 관리 페이지
 
+import 'package:admin/controller/diet_controller.dart';
 import 'package:admin/controller/menu_controller.dart';
 import 'package:admin/model/menu.dart';
 
@@ -16,16 +17,17 @@ import 'package:get/get.dart';
 
 import 'package:table_calendar/table_calendar.dart';
 
-class MenuManagePage extends StatefulWidget {
+class DietManagePage extends StatefulWidget {
   @override
-  _MenuManagePageState createState() => _MenuManagePageState();
+  _DietManagePageState createState() => _DietManagePageState();
 }
 
-class _MenuManagePageState extends State<MenuManagePage> {
+class _DietManagePageState extends State<DietManagePage> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   late DateTime _selectedDay;
   final menuCon = Get.put(MenuController());
+  final dietCon = Get.put(DietController());
 
   @override
   initState() {

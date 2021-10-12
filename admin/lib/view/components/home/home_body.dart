@@ -1,6 +1,6 @@
 import 'package:admin/view/pages/subpages/AI_page.dart';
 import 'package:admin/view/pages/subpages/manage_the_number_eating_page.dart';
-import 'package:admin/view/pages/subpages/menu_manage_page.dart';
+import 'package:admin/view/pages/subpages/diet_manage_page.dart';
 import 'package:admin/view/pages/subpages/notice_page.dart';
 import 'package:admin/view/pages/subpages/suggestion_page.dart';
 import 'package:admin/view/pages/subpages/survey_page.dart';
@@ -24,7 +24,7 @@ class _HomeBodyState extends State<HomeBody> {
   ];
 
   final List<Widget> pageList = [
-    MenuManagePage(),
+    DietManagePage(),
     ManageTheNumberEatingPage(),
     NoticePage(),
     SuggestionPage(),

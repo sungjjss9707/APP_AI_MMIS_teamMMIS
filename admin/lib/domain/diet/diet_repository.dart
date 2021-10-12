@@ -11,31 +11,45 @@ import 'diet_provider.dart';
 class DietRepository {
   final DietProvider _dietProvider = DietProvider();
 
-  Future<void> findMonth(String year, String month) async {
+  Future<List<Diet>> findMonth(String year, String month) async {
     Response response = await _dietProvider.findMonth(year, month);
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+    if (cmRespDto.code == 1) {
+      List<dynamic> temp = cmRespDto.data;
+      List<Diet> diets = temp.map((e) => Diet.fromJson(e)).toList();
+      return diets;
+    }
+    return <Diet>[];
   }
 
-  Future<void> findDay(String year, String month, String day) async {
+  Future<List<Diet>> findDay(String year, String month, String day) async {
     Response response = await _dietProvider.findDay(year, month, day);
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+    if (cmRespDto.code == 1) {
+      List<dynamic> temp = cmRespDto.data;
+
+      List<Diet> diets = temp.map((e) => Diet.fromJson(e)).toList();
+      return diets;
+    }
+    return <Diet>[];
   }
 
-  Future<Diet> findTime(
+  Future<List<Diet>> findTime(
       String year, String month, String day, String time) async {
     Response response = await _dietProvider.findTime(year, month, day, time);
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
     if (cmRespDto.code == 1) {
-      Diet diet = Diet.fromJsonTime(cmRespDto.data);
-      return diet;
+      List<dynamic> temp = cmRespDto.data;
+      List<Diet> diets = temp.map((e) => Diet.fromJson(e)).toList();
+      return diets;
     }
-    return Diet();
+    return <Diet>[];
   }
 
   Future<int> saveDiet(String year, String month, String day, String time,
