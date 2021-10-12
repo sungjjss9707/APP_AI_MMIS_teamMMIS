@@ -83,14 +83,14 @@ class _AIMenuInputFormState extends State<AIMenuInputForm> {
                   onPressed: () {
                     menuInputTextFieldRemove(index);
                   },
-                  icon: Icon(Icons.delete),
+                  icon: Icon(Icons.close),
                 ),
           index > 0 && index == widget.menuInputTextField.length - 1
               ? IconButton(
                   onPressed: () {
                     menuInputTextFieldRemove(index);
                   },
-                  icon: Icon(Icons.delete),
+                  icon: Icon(Icons.close),
                 )
               : IconButton(onPressed: () {}, icon: Container()),
         ],

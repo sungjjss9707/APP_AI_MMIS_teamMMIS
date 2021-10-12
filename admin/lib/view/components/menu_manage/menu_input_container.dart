@@ -57,7 +57,7 @@ class MenuInputContainer extends StatelessWidget {
     );
   }
 
-  List<String> inputTime() {
+  List<String> _inputTime() {
     return getMenuData(date).keys.toList();
   }
 }

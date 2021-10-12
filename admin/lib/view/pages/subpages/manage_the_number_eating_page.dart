@@ -8,7 +8,9 @@ import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 
 import 'package:admin/view/components/number_eating/custom_detail_table.dart';
+import 'package:admin/view/components/number_eating/custom_simple_table.dart';
 import 'package:admin/view/components/number_eating/total_num_dialog.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,11 +29,12 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
   DateTime _focusedDay = DateTime.now();
   late DateTime _selectedDay;
   final not = Get.put(NotEatingController());
-  late bool tableOrGraph;
+  late bool _simpleOrDetail;
+  final double _containerWidth = 700;
   @override
   void initState() {
     _selectedDay = _focusedDay;
-    tableOrGraph = true;
+    _simpleOrDetail = true;
     super.initState();
   }
 
@@ -41,64 +44,77 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
     final String month = getMonth(_selectedDay);
     final String day = getDay(_selectedDay);
     _findByDate(year, month, day);
-    return Obx(
-      () => Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomTitle("식수 인원 관리"),
-          Divider(color: Colors.grey),
-          _buildCalendar(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              CustomElevatedButton(
-                text: "총인원 수정",
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      List<NotEating> temp = not.notEatings.values.toList();
-                      List<String> totalNumberOfPeopleList =
-                          temp.map((e) => e.totalNumberOfPeople!).toList();
-                      return TotalNumDialog(
-                          _selectedDay, totalNumberOfPeopleList);
-                    },
-                  );
-                },
-              ),
-            ],
-          ),
-          SizedBox(height: gap_l),
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        primary: tableOrGraph == true
-                            ? Colors.lightGreen
-                            : Colors.lightBlue),
-                    onPressed: () {
-                      setState(() {
-                        if (tableOrGraph == true)
-                          tableOrGraph = false;
-                        else
-                          tableOrGraph = true;
-                      });
-                    },
-                    child: Text(tableOrGraph ? "자세히 보기" : "간단히 보기"),
-                  ),
-                ],
-              ),
-              SizedBox(height: gap_m),
-              CustomDetailTable(
-                not.notEatings,
-              ),
-            ],
-          ),
-        ],
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CustomTitle("식수 인원 관리"),
+        Divider(color: Colors.grey),
+        _buildCalendar(),
+        _changeTotalNum(context),
+        SizedBox(height: gap_l),
+        _showData(),
+      ],
+    );
+  }
+
+  Widget _changeTotalNum(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        CustomElevatedButton(
+          text: "총인원 수정",
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                List<NotEating> temp = not.notEatings.values.toList();
+                List<String> totalNumberOfPeopleList =
+                    temp.map((e) => e.totalNumberOfPeople ?? "0").toList();
+                return TotalNumDialog(_selectedDay, totalNumberOfPeopleList);
+              },
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _showData() {
+    return Center(
+      child: Container(
+        width: _containerWidth,
+        padding: const EdgeInsets.all(gap_m),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: _simpleOrDetail == true
+                      ? Colors.lightGreen
+                      : Colors.lightBlue),
+              onPressed: () {
+                setState(() {
+                  if (_simpleOrDetail == true)
+                    _simpleOrDetail = false;
+                  else
+                    _simpleOrDetail = true;
+                });
+              },
+              child: Text(_simpleOrDetail ? "명단보기" : "불취식 인원 수 보기"),
+            ),
+            SizedBox(height: gap_m),
+            Center(
+              child: _simpleOrDetail == true
+                  ? CustomSimpleTable(not.notEatings)
+                  : CustomDetailTable(not.notEatings),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -110,7 +126,7 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
   Widget _buildCalendar() {
     return Center(
       child: Container(
-        width: 700,
+        width: _containerWidth,
         child: TableCalendar(
           locale: 'ko-KR',
           calendarStyle: CalendarStyle(),

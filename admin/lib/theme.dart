@@ -3,14 +3,8 @@ import 'package:flutter/material.dart';
 ThemeData themeData = ThemeData(
   backgroundColor: Colors.white,
   elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.pressed)) {
-          return Colors.lightGreen[500];
-        } else {
-          return Colors.lightGreen[400];
-        }
-      }),
+    style: ElevatedButton.styleFrom(
+      primary: Colors.lightGreen,
     ),
   ),
   textButtonTheme: TextButtonThemeData(

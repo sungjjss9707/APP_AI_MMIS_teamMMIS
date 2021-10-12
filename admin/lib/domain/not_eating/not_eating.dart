@@ -46,3 +46,9 @@ Map<String, int> convertReasonForSimpleTable(
   Map<String, List> a = convertReasonForDetailTable(notEatings);
   return a.map((key, value) => MapEntry(key, value.length));
 }
+
+Map<String, String> convertTotalNumForSimpleTable(
+    Map<String, NotEating> notEatings) {
+  return notEatings
+      .map((key, value) => MapEntry(key, value.totalNumberOfPeople!));
+}
