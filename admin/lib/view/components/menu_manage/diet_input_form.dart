@@ -1,5 +1,4 @@
 import 'package:admin/controller/diet_controller.dart';
-import 'package:admin/model/menu.dart';
 
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/menu_manage/show_menu_list.dart';
@@ -164,16 +163,20 @@ class _MenuInputFormState extends State<MenuInputForm> {
               for (MenuInputTextField i in menuInputTextField) {
                 if (i.controller.text.length != 0)
                   menuList.add(i.controller.text.trim());
-                final DietController dietCon = Get.find();
-                await dietCon.saveDiet(widget.year, widget.month, widget.day,
-                    widget.time, menuList);
               }
+              await dietCon.saveDiet(
+                  widget.year, widget.month, widget.day, widget.time, menuList);
+              widget.menus!.clear();
+              widget.menus!.addAll(menuList);
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
                   content: Text("저장되었습니다."),
                 ),
               );
+              setState(() {
+                enableInput = false;
+              });
             }
           },
         ),

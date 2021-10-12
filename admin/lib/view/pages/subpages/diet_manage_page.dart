@@ -2,19 +2,16 @@
 
 import 'package:admin/controller/diet_controller.dart';
 import 'package:admin/controller/menu_controller.dart';
-import 'package:admin/model/menu.dart';
-
+import 'package:admin/domain/diet/diet.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/Info.dart';
 import 'package:admin/util/calendar_util.dart';
-
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:admin/view/components/menu_manage/marker_info.dart';
-import 'package:admin/view/components/menu_manage/menu_input_container.dart';
+import 'package:admin/view/components/menu_manage/diet_input_container.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-
 import 'package:table_calendar/table_calendar.dart';
 
 class DietManagePage extends StatefulWidget {
@@ -73,7 +70,6 @@ class _DietManagePageState extends State<DietManagePage> {
                 return isSameDay(_selectedDay, date);
               },
               onDaySelected: _onDaySelected,
-              eventLoader: _getEventsForDay,
               onFormatChanged: (format) {
                 if (_calendarFormat != format) {
                   setState(
@@ -143,12 +139,15 @@ class _DietManagePageState extends State<DietManagePage> {
       ),
     );
   }
-
-  List<String> _getEventsForDay(DateTime date) {
-    // 여기는 조식, 중식, 석식, 브런치 중 관리자가 입력했던 시간 때에 대한 정보가 있는 리스트가 있어야 됨.
-    List<String> event = getMenuData(date).keys.toList();
-    return event;
-  }
+  // 시간 남으면 하자....
+  // Future<List<String>> _getEventsForDay(DateTime date) async {
+  //   // 여기는 조식, 중식, 석식, 브런치 중 관리자가 입력했던 시간 때에 대한 정보가 있는 리스트가 있어야 됨.
+  //   String year = getYear(date);
+  //   String month = getMonth(date);
+  //   Map<String, List<String>> eventMap = await _editMenuForDays(year, month);
+  //   List<String>
+  //   return event;
+  // }
 
   void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
     if (!isSameDay(_selectedDay, selectedDay)) {
@@ -157,5 +156,23 @@ class _DietManagePageState extends State<DietManagePage> {
         _focusedDay = focusedDay;
       });
     }
+  }
+
+  Future<Map<String, List<String>>> _editMenuForDays(String year, month) async {
+    await dietCon.findMonth(year, month);
+    Map<String, List<String>> result = {};
+    for (Diet diet in dietCon.diets) {
+      String a = diet.now!.substring(diet.now!.length - 2, diet.now!.length);
+      List<String> menus =
+          diet.menus!.map((e) => e["name"].toString()).toList();
+      if (a == "조식")
+        result["조식"] = menus;
+      else if (a == "브런치")
+        result["브런치"] = menus;
+      else if (a == "중식")
+        result["중식"] = menus;
+      else if (a == "석식") result["석식"] = menus;
+    }
+    return result;
   }
 }

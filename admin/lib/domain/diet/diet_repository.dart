@@ -54,7 +54,7 @@ class DietRepository {
 
   Future<int> saveDiet(String year, String month, String day, String time,
       List<String> diets) async {
-    DietSaveDto dietSaveDto = DietSaveDto(year, month, day, diets);
+    DietSaveDto dietSaveDto = DietSaveDto(year, month, day, time, diets);
     Response response = await _dietProvider.saveDiet(dietSaveDto.toJson());
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
