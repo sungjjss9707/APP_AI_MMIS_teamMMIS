@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:like_button/like_button.dart';
 import 'package:myapp/model/comments.dart';
-import 'package:myapp/user/user.dart';
+import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/button/back_button.dart';
 import 'package:myapp/view/pages/subpages/post_picture.dart';
 

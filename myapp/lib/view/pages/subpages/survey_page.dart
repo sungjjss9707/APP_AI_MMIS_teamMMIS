@@ -24,13 +24,13 @@ class _SurveyPageState extends State<SurveyPage> {
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  Survey survey = dummySurvey[index];
+                  DummySurvey survey = dummySurvey[index];
                   return InkWell(
                     onTap: () {
                       //통신 받아서 ,RealSurvey로 전달 (이름 나중에 Survey로 바꾸자!)
                       Get.to(
                         () => DoSurveyPage(
-                          RealSurvey.fromJson(DumSurvey),
+                          Survey.fromJson(DumSurvey),
                         ),
                       );
                     },

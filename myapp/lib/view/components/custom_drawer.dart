@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:myapp/user/user.dart';
+import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/pages/initialpages/login_page.dart';
 import 'package:myapp/view/pages/subpages/app_info_page.dart';
 import 'package:myapp/view/pages/subpages/deduction_page.dart';

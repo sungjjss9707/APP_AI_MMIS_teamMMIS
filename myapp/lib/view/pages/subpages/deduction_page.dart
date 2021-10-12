@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:myapp/date_functions.dart';
 import 'package:myapp/model/menu_list.dart';
 import 'package:myapp/page_util/deduction_util.dart';
-import 'package:myapp/user/user.dart';
+import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
 

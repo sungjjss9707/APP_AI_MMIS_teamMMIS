@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/page_util/validators.dart';
-import 'package:myapp/user/user.dart';
+import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/textfield/user_info_text_form_field.dart';
 import 'package:myapp/view/components/user_info_radio.dart';
 import 'package:myapp/view/pages/initialpages/framepage.dart';

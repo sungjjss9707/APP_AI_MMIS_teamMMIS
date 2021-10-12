@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/allergy.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/page_util/validators.dart';
-import 'package:myapp/user/user.dart';
+import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/button/custom_elevated_button.dart';
 import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
 import 'package:myapp/view/components/user_info_radio.dart';
@@ -11,6 +12,7 @@ import 'login_page.dart';
 
 class JoinPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
+  final UserController u = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

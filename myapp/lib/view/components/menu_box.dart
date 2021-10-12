@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/menu.dart';
 //import 'package:myapp/model/diet.dart';
-import 'package:myapp/user/user.dart';
+import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/button/yes_eating.dart';
 import 'package:myapp/view/pages/subpages/rate_menu_page.dart';
 import '../../date_functions.dart';

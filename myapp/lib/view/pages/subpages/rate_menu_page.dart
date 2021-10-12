@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:myapp/date_functions.dart';
 //import 'package:myapp/model/diet.dart';
 import 'package:myapp/model/menu.dart';
-import 'package:myapp/user/user.dart';
+import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/button/back_button.dart';
 import 'package:myapp/view/components/custom_drawer.dart';

@@ -1,13 +1,12 @@
-class RealSurvey {
+class Survey {
   String? id;
   String? title;
   String? explain;
   List<Map<String, dynamic>>? questions;
   String? createTime;
-  RealSurvey(
-      {this.id, this.title, this.explain, this.questions, this.createTime});
+  Survey({this.id, this.title, this.explain, this.questions, this.createTime});
 
-  RealSurvey.fromJson(Map<String, dynamic> json)
+  Survey.fromJson(Map<String, dynamic> json)
       : id = json["id"],
         title = json["title"],
         explain = json["explain"],

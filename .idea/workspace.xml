@@ -29,36 +29,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="식단 관리 하는 중">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/allergy.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/allergy.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/appBar/sub_page_appbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/appBar/sub_page_appbar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/function_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/function_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/not_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/not_eating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/yes_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/yes_eating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_banner.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_banner.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/user_info_radio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/user_info_radio.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/setting_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/setting_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/allergy_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/allergy_info_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/diet_save_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/dto/diet_save_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/diet/diet_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/diet/diet_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/diet_input_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/diet_input_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -471,6 +454,24 @@
     <MESSAGE value="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료" />
     <MESSAGE value="식단 관리 하는 중" />
     <option name="LAST_COMMIT_MESSAGE" value="식단 관리 하는 중" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="623" height="498" key="SwitcherDM" timestamp="1633953324159">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633953324159" />
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1634027172697">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634027172697" />
+    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633950410763">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633950410763" />
+    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1634003707032">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634003707032" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/view/components/button/custom_elevated_button.dart';
 import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
@@ -9,6 +10,9 @@ import 'join_page.dart';
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
+  final u = Get.put(UserController());
+  final _militaryNumber = TextEditingController();
+  final _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +32,10 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
+            Image.asset(
+              "logo/logo_mmis.png",
+              fit: BoxFit.cover,
+            ),
             _loginForm(), ////////////////////////밑에 만들어놈
           ],
         ),
@@ -43,10 +51,13 @@ class LoginPage extends StatelessWidget {
       child: Column(
         children: [
           CustomTextFormField(
+            controller: _militaryNumber,
             hint: "군번",
             funValidate: validateMilitaryNumber(),
           ),
           CustomTextFormField(
+            controller: _password,
+            obscureText: true,
             hint: "비밀번호",
             funValidate: validatePassWorld(),
           ),
@@ -54,9 +65,10 @@ class LoginPage extends StatelessWidget {
           CustomElevatedButton(
             width: double.infinity,
             text: "로그인",
-            funpageRoute: () {
-              if (true) {
-                ////////////////////////////////////////////////일단 true로 넣었는데 로그인 성공할때만 if문 통과해야함
+            funpageRoute: () async {
+              if (_formKey.currentState!.validate()) {
+                await u.login(
+                    _militaryNumber.text.trim(), _password.text.trim());
                 Get.to(FramePage());
               }
             },
