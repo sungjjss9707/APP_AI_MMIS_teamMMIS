@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/diet_controller.dart';
-import 'package:myapp/model/menu.dart';
 import 'package:myapp/model/popular_menu.dart';
 import 'package:myapp/view/components/custom_banner.dart';
 import 'package:myapp/view/components/button/function_button.dart';
@@ -43,7 +42,6 @@ class _HomePageState extends State<HomePage> {
         : now.hour < 13
             ? 1
             : 2;
-
     super.initState();
   }
 
@@ -68,17 +66,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _menuList() {
-    Map<String, List<String>> menuList = _createMenuList();
+    Map<String, List<String>> menuMap = _createMenuList();
     return Padding(
       padding: EdgeInsets.only(bottom: 16.h),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
           children: List.generate(
-            menuList.length,
+            menuMap.length,
             (index) {
-              return MenuBox(menuList.keys.toList()[index], dummyMenu[0].time,
-                  menuList.values.toList()[index]);
+              return MenuBox(menuMap.keys.toList()[index],
+                  menuMap.values.toList()[index], menuMap);
             },
           ),
         ),
@@ -260,8 +258,6 @@ class _HomePageState extends State<HomePage> {
   Map<String, List<String>> _createMenuList() {
     int count = -2;
     Map<String, List<String>> result = {};
-    // result["$nowYear/$nowMonth/$nowDay/$nowTime"] =
-    //     diet.dietsConvert["$nowYear/$nowMonth/$nowDay/$nowTime"] ?? [];
     while (count <= 2) {
       DateTime particularDay = now.add(Duration(days: count));
       result[
@@ -288,6 +284,7 @@ class _HomePageState extends State<HomePage> {
           [];
       count += 1;
     }
+
     return result;
   }
 }

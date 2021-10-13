@@ -3,35 +3,41 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/date_functions.dart';
-import 'package:myapp/model/menu.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/button/back_button.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
 import 'package:myapp/view/components/nutrition_box.dart';
+import 'package:myapp/view/components/total_nutrtion_box.dart';
 import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
 class RateMenuPage extends StatefulWidget {
-  final String date;
-  final String time;
-
-  const RateMenuPage(this.date, this.time);
+  final String dateAndTime;
+  final Map<String, List<String>> menuMap;
+  const RateMenuPage(
+    this.dateAndTime,
+    this.menuMap, {
+    Key? key,
+  }) : super(key: key);
   @override
-  _RateMenuPageState createState() => _RateMenuPageState(date, time);
+  _RateMenuPageState createState() => _RateMenuPageState(dateAndTime);
 }
 
 class _RateMenuPageState extends State<RateMenuPage> {
-  String date, time; // 오늘 날짜
-  String? beforeDate, beforeTime, afterDate, afterTime; // 어제, 내일 날짜
-  Menu? menu;
-  List<String>? menuPlate;
+  String dateAndTime;
+  String? beforeDateAndTime,
+      beforeTime,
+      afterDateAndTime,
+      afterTime; // 어제, 내일 날짜
   int? index;
   bool isLeft = false, isRight = false;
   bool? isEating;
   bool isSave = false;
   late double initialRate;
   late double rate;
-  _RateMenuPageState(this.date, this.time);
+  late String time;
+  late List<String> menuList;
+  _RateMenuPageState(this.dateAndTime);
 
   @override
   void initState() {
@@ -42,19 +48,18 @@ class _RateMenuPageState extends State<RateMenuPage> {
 
   @override
   Widget build(BuildContext context) {
-    isEating = checkIfEating(date, time);
-    menu = getMenuByDateAndTime(date, time, dummyMenu);
-    menuPlate = menu!.menuPlate;
-    index = getMenuIndexByDateAndTime(date, time, dummyMenu);
+    time = getTimeFromDateAndTime(dateAndTime);
+    List<String> menuKeys = widget.menuMap.keys.toList();
+    isEating = checkIfEating(dateAndTime, time);
+    index = menuKeys.indexOf(dateAndTime);
+    menuList = widget.menuMap[dateAndTime] ?? [];
     if (index != 0) {
       isLeft = true;
-      beforeDate = dummyMenu[index! - 1].date;
-      beforeTime = dummyMenu[index! - 1].time;
+      beforeDateAndTime = menuKeys[index! - 1];
     }
-    if (index != dummyMenu.length - 1) {
+    if (index != menuKeys.length - 1) {
       isRight = true;
-      afterDate = dummyMenu[index! + 1].date;
-      afterTime = dummyMenu[index! + 1].time;
+      afterDateAndTime = menuKeys[index! + 1];
     }
     return Scaffold(
       drawer: CustomDrawer(),
@@ -85,9 +90,8 @@ class _RateMenuPageState extends State<RateMenuPage> {
             onPressed: () {
               if (isLeft == true) {
                 setState(() {
-                  date = beforeDate!;
-                  time = beforeTime!;
                   isLeft = isRight = false;
+                  dateAndTime = beforeDateAndTime!;
                 });
               }
             },
@@ -98,15 +102,15 @@ class _RateMenuPageState extends State<RateMenuPage> {
           ),
           Spacer(),
           Center(
-              child: Text("${getMonthDayAndWeekdayInKorean(date)} (${time})")),
+              child:
+                  Text("${getMonthDayAndWeekdayInKorean(dateAndTime)} $time")),
           Spacer(),
           IconButton(
             onPressed: () {
               if (isRight == true) {
                 setState(() {
-                  date = afterDate!;
-                  time = afterTime!;
                   isLeft = isRight = false;
+                  dateAndTime = afterDateAndTime!;
                 });
               }
             },
@@ -150,7 +154,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
             ],
           ),
           children: [
-            NutritionBox(),
+            TotalNutritionBox(),
           ],
         ),
       );
@@ -159,11 +163,11 @@ class _RateMenuPageState extends State<RateMenuPage> {
     return Expanded(
       child: ListView(
         children: List.generate(
-          menuPlate!.length,
+          menuList.length,
           (index) {
             return Column(
               children: [
-                _menuTitle(menuPlate!, index),
+                _menuTitle(menuList, index),
               ],
             );
           },
@@ -183,7 +187,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
           style: TextStyle(fontSize: 13.sp),
         ),
         children: [
-          NutritionBox(),
+          NutritionBox(menu[index]),
         ],
       ),
     );
@@ -206,6 +210,9 @@ class _RateMenuPageState extends State<RateMenuPage> {
               style: TextStyle(
                 fontSize: 14.sp,
               ),
+            ),
+            SizedBox(
+              height: 4.h,
             ),
             Row(
               children: [
@@ -260,7 +267,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
         onPressed: () {
           setState(() {
             if (isEating!) {
-              addUserNotEating(date, time);
+              addUserNotEating(dateAndTime, time);
               isEating = false;
               showDialog(
                 context: context,
@@ -273,7 +280,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
                 ),
               );
             } else {
-              removeUserNotEating(date, time);
+              removeUserNotEating(dateAndTime, time);
               isEating = true;
               showDialog(
                 context: context,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NutritionBox extends StatelessWidget {
+  final String menuName;
   final carbohydrate;
   final protein;
   final fat;
@@ -10,17 +11,19 @@ class NutritionBox extends StatelessWidget {
   final TextStyle _textStyle = TextStyle(fontSize: 12, color: Colors.black54);
 
   NutritionBox(
-      {this.carbohydrate = "-",
-      this.protein = "-",
-      this.fat = "-",
-      this.salt = "-",
-      this.cholesterol = "-"});
-  NutritionBox.fromJson(Map<String, dynamic> nutrition)
-      : carbohydrate = nutrition["탄수화물"] ?? "-",
-        protein = nutrition["단백질"] ?? "-",
-        fat = nutrition["지방"] ?? "-",
-        salt = nutrition["나트륨"] ?? "-",
-        cholesterol = nutrition["콜레스테롤"] ?? "-";
+    this.menuName, {
+    this.carbohydrate = "-",
+    this.protein = "-",
+    this.fat = "-",
+    this.salt = "-",
+    this.cholesterol = "-",
+  });
+  // NutritionBox.fromJson(Map<String, dynamic> nutrition)
+  //     : carbohydrate = nutrition["탄수화물"] ?? "-",
+  //       protein = nutrition["단백질"] ?? "-",
+  //       fat = nutrition["지방"] ?? "-",
+  //       salt = nutrition["나트륨"] ?? "-",
+  //       cholesterol = nutrition["콜레스테롤"] ?? "-";
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:myapp/user/user_ex.dart';
 
 final List<String> weekdayList = ["월", "화", "수", "목", "금", "토", "일"];
 String getToday() {
@@ -27,15 +28,28 @@ String transformToDateForm(int year, int month, int day) {
   return formatter.format(now);
 }
 
-String getMonthDayAndWeekdayInKorean(String date) {
-  DateTime dateTime = DateTime.parse(date);
-  int month = dateTime.month;
-  int day = dateTime.day;
-  int weekInt = dateTime.weekday;
+String getMonthDayAndWeekdayInKorean(String dateAndTime) {
+  DateTime _date = DateFormat("yyyy/MM/dd").parse(dateAndTime);
+  int month = _date.month;
+  int day = _date.day;
+  int weekInt = _date.weekday;
   String weekday = weekdayList[weekInt - 1];
   return "$month월 $day일($weekday)";
 }
 
 String getKoreanWeekDay(DateTime date) {
   return weekdayList[date.weekday - 1];
+}
+
+String getTimeFromDateAndTime(String dateAndTime) {
+  String validate =
+      dateAndTime.substring(dateAndTime.length - 2, dateAndTime.length - 1);
+  String time = validate == "석"
+      ? "석식"
+      : validate == "중"
+          ? "중식"
+          : validate == "조"
+              ? "조식"
+              : "브런치";
+  return time;
 }

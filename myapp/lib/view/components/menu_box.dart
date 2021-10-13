@@ -8,20 +8,34 @@ import '../../date_functions.dart';
 import 'button/not_eating.dart';
 
 class MenuBox extends StatelessWidget {
-  final String date;
-  final String time;
+  final String dateAndTime;
+  final Map<String, List<String>> menuMap;
   final List<String> menuList;
-  const MenuBox(this.date, this.time, this.menuList);
+  const MenuBox(this.dateAndTime, this.menuList, this.menuMap);
   @override
   Widget build(BuildContext context) {
     bool _isToday;
-    this.date == getToday() ? _isToday = true : _isToday = false;
+    this.dateAndTime == getToday() ? _isToday = true : _isToday = false;
+    String validate =
+        dateAndTime.substring(dateAndTime.length - 2, dateAndTime.length - 1);
+    final String time = validate == "석"
+        ? "석식"
+        : validate == "중"
+            ? "중식"
+            : validate == "조"
+                ? "조식"
+                : "브런치";
 
     return Padding(
       padding: EdgeInsets.all(8.w),
       child: InkWell(
         onTap: () {
-          Get.to(() => RateMenuPage(date, time));
+          Get.to(
+            () => RateMenuPage(
+              dateAndTime,
+              menuMap,
+            ),
+          );
         },
         child: Container(
           padding: EdgeInsets.all(2.w),
@@ -45,7 +59,7 @@ class MenuBox extends StatelessWidget {
               // 취식, 불취식 표시
               menuList.length == 0
                   ? Container()
-                  : _buildCheckIfEating()
+                  : _buildCheckIfEating(time)
                       ? YesEating()
                       : NotEating(),
             ],
@@ -57,7 +71,7 @@ class MenuBox extends StatelessWidget {
 
   Widget _buildMenuHeader() {
     return Text(
-      "$date",
+      "$dateAndTime",
       style: TextStyle(fontSize: 8.sp),
     );
   }
@@ -88,5 +102,7 @@ class MenuBox extends StatelessWidget {
           );
   }
 
-  bool _buildCheckIfEating() => checkIfEating(date, time);
+  bool _buildCheckIfEating(String time) {
+    return checkIfEating(dateAndTime, time);
+  }
 }

@@ -19,7 +19,7 @@ Map<String, Map<String, Map<String, List<String>>>> userNotEating = {
 }; // 2021, 3, 4, 석식 이런 식으로 데이터가 들어감.
 
 List<String> splitDate(String date) {
-  DateTime _date = DateFormat("yyyy-MM-dd").parse(date);
+  DateTime _date = DateFormat("yyyy/MM/dd").parse(date);
   return [_date.year.toString(), _date.month.toString(), _date.day.toString()];
 }
 

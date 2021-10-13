@@ -29,33 +29,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="식단 관리 하는 중">
-      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Black.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Bold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Light.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Medium.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Regular.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Thin.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/diet_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/notice_controller.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/view/components/total_nutrtion_box.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/date_functions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/date_functions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/diet/diet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/diet/diet.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/diet/diet_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/diet/diet_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/notice/notice_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/notice/notice_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/appBar/sub_page_appbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/appBar/sub_page_appbar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_banner.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_banner.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/user/user_ex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/user/user_ex.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/nutrition_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/nutrition_box.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -377,7 +358,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634027168741</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="식단 관리 하는 중">
+      <created>1634111065967</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1634111065967</updated>
+    </task>
+    <task id="LOCAL-00036" summary="식단 관리 하는 중">
+      <created>1634111076169</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1634111076169</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -480,10 +475,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633953324159" />
-    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1634027172697">
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1634111079063">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634027172697" />
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634111079063" />
     <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1633950410763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -492,10 +487,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634104180037" />
-    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1634003707032">
+    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1634113244851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634003707032" />
+    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634113244851" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
