@@ -164,15 +164,20 @@ class _HomePageState extends State<HomePage> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _popularMenu(),
+        Expanded(flex: 1, child: _popularMenu()),
         SizedBox(width: 8.w),
-        _AIRecommendation(),
+        Expanded(flex: 1, child: _AIRecommendation()),
       ],
     );
   }
 
   Widget _popularMenu() {
     return Container(
+      padding: EdgeInsets.all(8.r),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10.r),
+      ),
       height: 200.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -221,6 +226,11 @@ class _HomePageState extends State<HomePage> {
 
   Widget _AIRecommendation() {
     return Container(
+      padding: EdgeInsets.all(8.r),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10.r),
+      ),
       height: 200.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -14,7 +14,6 @@ class DoSurveyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Container(
         child: SurveyKit(
           surveyController: _surveyController,

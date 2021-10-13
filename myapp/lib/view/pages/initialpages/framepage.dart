@@ -35,14 +35,20 @@ class _FramePageState extends State<FramePage> {
     return AppBar(
       title: Text(
         getTodayInKorean(),
-        style: TextStyle(fontSize: 14.sp),
+        style: TextStyle(fontSize: 14.sp, color: Colors.white),
       ),
       actions: [
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(unit),
-            Text("${classes} ${userName}님"),
+            Text(
+              unit,
+              style: TextStyle(color: Colors.white),
+            ),
+            Text(
+              "${classes} ${userName}님",
+              style: TextStyle(color: Colors.white),
+            ),
           ],
         ),
         SizedBox(width: 4.w),
@@ -52,7 +58,7 @@ class _FramePageState extends State<FramePage> {
 
   Widget _buildBottomNavigationBar() {
     return BottomNavigationBar(
-      backgroundColor: Colors.lightGreen[50],
+      backgroundColor: Colors.grey[200],
       unselectedFontSize: 10.sp,
       selectedFontSize: 10.sp,
       iconSize: 20.r,
