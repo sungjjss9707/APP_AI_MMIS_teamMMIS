@@ -7,15 +7,4 @@ class Diet {
   Diet.fromJson(Map<String, dynamic> json)
       : menus = json["menus"],
         now = json["now"];
-  // Diet.fromJDay(Map<String, dynamic> json)
-  //     : menus = json["menus"],
-  //       now = json["now"];
-  // Diet.fromJsonTime(Map<String, dynamic> json)
-  //     : menus = json["menus"],
-  //       now = json["now"];
-}
-
-dietMonth(Map<String, dynamic> json) {
-  List days = json.keys.toList();
-  for (String day in days) {}
 }

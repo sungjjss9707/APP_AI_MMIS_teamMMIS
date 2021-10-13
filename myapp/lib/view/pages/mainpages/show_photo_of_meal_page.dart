@@ -56,11 +56,11 @@ class ShowPhotoOfMealPage extends StatelessWidget {
       child: Row(
         children: [
           Icon(Icons.whatshot),
-          SizedBox(width: 2),
+          SizedBox(width: 2.w),
           Text(
             "우리 부대 급식 자랑",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 24.r,
               fontWeight: FontWeight.bold,
             ),
           ),

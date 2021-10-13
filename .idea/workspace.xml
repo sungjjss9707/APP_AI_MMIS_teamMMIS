@@ -29,13 +29,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="식단 관리 하는 중">
+      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Black.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Bold.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Light.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Medium.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Regular.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Thin.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/diet_controller.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/notice_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/diet_save_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/dto/diet_save_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/diet/diet_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/diet/diet_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/diet_input_container.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/menu_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/diet_input_form.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/date_functions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/date_functions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/diet/diet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/diet/diet.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/diet/diet_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/diet/diet_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/notice/notice_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/notice/notice_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/appBar/sub_page_appbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/appBar/sub_page_appbar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_banner.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_banner.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/nutrition_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/nutrition_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,24 +96,24 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/myapp/lib/controller" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\page_util" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\domain\admin" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\assets\font" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\number_eating" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\suggestion" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller\dto" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\admin\lib\view\components\textfield" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\controller" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\assets" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\page_util" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\domain\admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -468,6 +488,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1633950410763" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1634104180037">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634104180037" />
     <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1634003707032">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

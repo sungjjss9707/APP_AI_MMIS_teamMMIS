@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/diet_controller.dart';
 import 'package:myapp/model/menu.dart';
-//import 'package:myapp/model/diet.dart';
 import 'package:myapp/model/popular_menu.dart';
 import 'package:myapp/view/components/custom_banner.dart';
 import 'package:myapp/view/components/button/function_button.dart';
@@ -24,6 +24,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //나중에 로그인할 때 불러오는 걸로 하자.
+  final diet = Get.put(DietController());
+  final DateTime now = DateTime.now();
+  late String nowYear;
+  late String nowMonth;
+  late String nowDay;
+  late int nowTime;
+  final List<String> time = ["조식", "중식", "석식"];
+
+  @override
+  void initState() {
+    nowYear = now.year.toString();
+    nowMonth = now.month.toString();
+    nowDay = now.day.toString();
+    nowTime = now.hour > 0 && now.hour < 9
+        ? 0
+        : now.hour < 13
+            ? 1
+            : 2;
+
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return ListView(
       children: [
@@ -45,17 +68,18 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _menuList() {
+    Map<String, List<String>> menuList = _createMenuList();
     return Padding(
       padding: EdgeInsets.only(bottom: 16.h),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
           children: List.generate(
-            dummyMenu.length,
-            (index) => MenuBox(
-              dummyMenu[index].date,
-              dummyMenu[index].time,
-            ),
+            menuList.length,
+            (index) {
+              return MenuBox(menuList.keys.toList()[index], dummyMenu[0].time,
+                  menuList.values.toList()[index]);
+            },
           ),
         ),
       ),
@@ -231,5 +255,39 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  Map<String, List<String>> _createMenuList() {
+    int count = -2;
+    Map<String, List<String>> result = {};
+    // result["$nowYear/$nowMonth/$nowDay/$nowTime"] =
+    //     diet.dietsConvert["$nowYear/$nowMonth/$nowDay/$nowTime"] ?? [];
+    while (count <= 2) {
+      DateTime particularDay = now.add(Duration(days: count));
+      result[
+          "${particularDay.year}/${particularDay.month}/${particularDay.day}/조식"] = diet
+                  .dietsConvert[
+              "${particularDay.year}/${particularDay.month}/${particularDay.day}/조식"] ??
+          [];
+      if (diet.dietsConvert[
+              "${particularDay.year}/${particularDay.month}/${particularDay.day}/브런치"] !=
+          null)
+        result[
+            "${particularDay.year}/${particularDay.month}/${particularDay.day}/브런치"] = diet
+                .dietsConvert[
+            "${particularDay.year}/${particularDay.month}/${particularDay.day}/브런치"]!;
+      result[
+          "${particularDay.year}/${particularDay.month}/${particularDay.day}/중식"] = diet
+                  .dietsConvert[
+              "${particularDay.year}/${particularDay.month}/${particularDay.day}/중식"] ??
+          [];
+      result[
+          "${particularDay.year}/${particularDay.month}/${particularDay.day}/석식"] = diet
+                  .dietsConvert[
+              "${particularDay.year}/${particularDay.month}/${particularDay.day}/석식"] ??
+          [];
+      count += 1;
+    }
+    return result;
   }
 }

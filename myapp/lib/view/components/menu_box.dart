@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:myapp/model/menu.dart';
-//import 'package:myapp/model/diet.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/button/yes_eating.dart';
 import 'package:myapp/view/pages/subpages/rate_menu_page.dart';
@@ -12,13 +10,13 @@ import 'button/not_eating.dart';
 class MenuBox extends StatelessWidget {
   final String date;
   final String time;
-  const MenuBox(this.date, this.time);
+  final List<String> menuList;
+  const MenuBox(this.date, this.time, this.menuList);
   @override
   Widget build(BuildContext context) {
     bool _isToday;
     this.date == getToday() ? _isToday = true : _isToday = false;
-    Menu menu =
-        dummyMenu.firstWhere((e) => e.date == this.date && e.time == this.time);
+
     return Padding(
       padding: EdgeInsets.all(8.w),
       child: InkWell(
@@ -27,7 +25,7 @@ class MenuBox extends StatelessWidget {
         },
         child: Container(
           padding: EdgeInsets.all(2.w),
-          height: 100.h,
+          height: (0.3).sw,
           width: (0.2).sw,
           decoration: BoxDecoration(
             border: _isToday == false
@@ -39,13 +37,17 @@ class MenuBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //그 메뉴에 대한 날짜와 시간(조식, 중식, 석식)
-              _buildMenuHeader(menu),
+              _buildMenuHeader(),
               Divider(color: Colors.grey),
               // 메뉴
-              _buildMenuList(menu),
+              _buildMenuList(),
               SizedBox(height: 2),
               // 취식, 불취식 표시
-              _buildCheckIfEating() ? YesEating() : NotEating(),
+              menuList.length == 0
+                  ? Container()
+                  : _buildCheckIfEating()
+                      ? YesEating()
+                      : NotEating(),
             ],
           ),
         ),
@@ -53,29 +55,37 @@ class MenuBox extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuHeader(Menu menu) {
+  Widget _buildMenuHeader() {
     return Text(
-      "${getMonthDayAndWeekdayInKorean(menu.date)} (${menu.time})",
+      "$date",
       style: TextStyle(fontSize: 8.sp),
     );
   }
 
-  Widget _buildMenuList(Menu menu) {
-    return Expanded(
-      child: ListView(
-        children: [
-          Column(
-            children: List.generate(
-              menu.menuPlate.length,
-              (index) => Text(
-                "${menu.menuPlate[index]}",
-                style: TextStyle(fontSize: 8.sp),
-              ),
+  Widget _buildMenuList() {
+    return menuList.length == 0
+        ? Center(
+            child: Text(
+              "등록된 메뉴 정보가 없습니다.",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 8.sp),
             ),
           )
-        ],
-      ),
-    );
+        : Expanded(
+            child: ListView(
+              children: [
+                Column(
+                  children: List.generate(
+                    menuList.length,
+                    (index) => Text(
+                      "${menuList[index]}",
+                      style: TextStyle(fontSize: 8.sp),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          );
   }
 
   bool _buildCheckIfEating() => checkIfEating(date, time);

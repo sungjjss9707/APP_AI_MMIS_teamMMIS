@@ -7,6 +7,10 @@ String getToday() {
   return formatter.format(now);
 }
 
+String editDateFormat(DateTime dateTime) {
+  return "${dateTime.year}-${dateTime.month}-${dateTime.day}";
+}
+
 String getTodayInKorean() {
   DateTime now = DateTime.now();
   int year = now.year;
@@ -30,4 +34,8 @@ String getMonthDayAndWeekdayInKorean(String date) {
   int weekInt = dateTime.weekday;
   String weekday = weekdayList[weekInt - 1];
   return "$month월 $day일($weekday)";
+}
+
+String getKoreanWeekDay(DateTime date) {
+  return weekdayList[date.weekday - 1];
 }

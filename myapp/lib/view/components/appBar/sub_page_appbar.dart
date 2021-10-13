@@ -16,7 +16,7 @@ AppBar subPageAppBar(String title) {
         },
         icon: Icon(Icons.home_outlined),
       ),
-      SizedBox(width: 4.w),
+      SizedBox(width: 8.w),
     ],
   );
 }

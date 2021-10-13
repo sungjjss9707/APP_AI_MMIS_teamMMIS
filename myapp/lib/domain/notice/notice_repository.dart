@@ -61,6 +61,7 @@ class NoticeRepository {
 
   Future<List<Notice>> findAll() async {
     Response response = await _noticeProvider.findAll();
+
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);

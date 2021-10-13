@@ -3,7 +3,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/date_functions.dart';
-//import 'package:myapp/model/diet.dart';
 import 'package:myapp/model/menu.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
@@ -25,20 +24,26 @@ class _RateMenuPageState extends State<RateMenuPage> {
   String date, time; // 오늘 날짜
   String? beforeDate, beforeTime, afterDate, afterTime; // 어제, 내일 날짜
   Menu? menu;
-  List<double>? rating;
   List<String>? menuPlate;
   int? index;
   bool isLeft = false, isRight = false;
   bool? isEating;
   bool isSave = false;
-
+  late double initialRate;
+  late double rate;
   _RateMenuPageState(this.date, this.time);
+
+  @override
+  void initState() {
+    initialRate = 0;
+    rate = initialRate;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     isEating = checkIfEating(date, time);
     menu = getMenuByDateAndTime(date, time, dummyMenu);
-    rating = menu!.rating;
     menuPlate = menu!.menuPlate;
     index = getMenuIndexByDateAndTime(date, time, dummyMenu);
     if (index != 0) {
@@ -55,7 +60,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
       drawer: CustomDrawer(),
       appBar: subPageAppBar("8전투비행단"),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(16.w),
         child: Column(
           children: [
             _arrowAndDate(), // < 날짜(석식) 취식여부 >
@@ -92,12 +97,8 @@ class _RateMenuPageState extends State<RateMenuPage> {
             ),
           ),
           Spacer(),
-          Container(
-            child: Center(
-                child:
-                    Text("${getMonthDayAndWeekdayInKorean(date)} (${time})")),
-            width: 140,
-          ),
+          Center(
+              child: Text("${getMonthDayAndWeekdayInKorean(date)} (${time})")),
           Spacer(),
           IconButton(
             onPressed: () {
@@ -122,6 +123,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
   Widget _nutritionInfo() => Theme(
         data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
+          childrenPadding: EdgeInsets.all(8.0.r),
           title: Row(
             children: [
               Spacer(),
@@ -174,6 +176,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
+        childrenPadding: EdgeInsets.all(8.0.r),
         initiallyExpanded: false,
         title: Text(
           menu[index],
@@ -189,45 +192,63 @@ class _RateMenuPageState extends State<RateMenuPage> {
   Widget _saveRating() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
-      child: Row(
-        children: [
-          RatingBar(
-            itemPadding: EdgeInsets.symmetric(horizontal: 1),
-            itemSize: 16,
-            initialRating: 0,
-            itemCount: 5,
-            unratedColor: Colors.red.withAlpha(50),
-            allowHalfRating: false,
-            ratingWidget: RatingWidget(
-              full: Image.asset(
-                "hearts/heart.png",
-                color: Colors.red,
-              ),
-              half: Image.asset(
-                "hearts/heart_half.png",
-                color: Colors.red,
-              ),
-              empty: Image.asset(
-                "hearts/heart_border.png",
-                color: Colors.grey,
+      child: Container(
+        padding: EdgeInsets.all(8.r),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey[200]!),
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "오늘 식사는 어떠셨나요?",
+              style: TextStyle(
+                fontSize: 14.sp,
               ),
             ),
-            onRatingUpdate: (score) {
-              setState(() {
-                print(score);
-              });
-            },
-          ),
-          Spacer(),
-          TextButton(
-            onPressed: () {
-              isSave = true;
-              print(rating);
-              //여기서 통신해야 됨.
-            },
-            child: Text("저장하기"),
-          ),
-        ],
+            Row(
+              children: [
+                RatingBar(
+                  itemPadding: EdgeInsets.symmetric(horizontal: 4.w),
+                  itemSize: 20.w,
+                  initialRating: initialRate,
+                  itemCount: 5,
+                  unratedColor: Colors.red.withAlpha(50),
+                  allowHalfRating: false,
+                  ratingWidget: RatingWidget(
+                    full: Image.asset(
+                      "hearts/heart.png",
+                      color: Colors.red,
+                    ),
+                    half: Image.asset(
+                      "hearts/heart_half.png",
+                      color: Colors.red,
+                    ),
+                    empty: Image.asset(
+                      "hearts/heart_border.png",
+                      color: Colors.grey,
+                    ),
+                  ),
+                  onRatingUpdate: (score) {
+                    setState(() {
+                      rate = score;
+                    });
+                  },
+                ),
+                Spacer(),
+                TextButton(
+                  onPressed: () {
+                    isSave = true;
+                    //rate을 저장하면 됨.
+                    //여기서 통신해야 됨.
+                  },
+                  child: Text("저장하기"),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

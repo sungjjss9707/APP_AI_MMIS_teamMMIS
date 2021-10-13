@@ -4,7 +4,7 @@ import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/view/components/button/custom_elevated_button.dart';
 import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'framepage.dart';
 import 'join_page.dart';
 
@@ -21,21 +21,20 @@ class LoginPage extends StatelessWidget {
         child: ListView(
           //아이디 비번 입력할떄 키보드가 올라와서 스크롤이 돼야함
           children: [
-            Container(
-              alignment: Alignment.center,
-              height: 200,
-              child: Text(
-                "MMIS",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
             Image.asset(
               "logo/logo_mmis.png",
               fit: BoxFit.cover,
             ),
+            Center(
+              child: Text(
+                "군 급식 정보 체계",
+                style: TextStyle(
+                    fontSize: 32.w,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.lightGreen),
+              ),
+            ),
+            SizedBox(height: 16.w),
             _loginForm(), ////////////////////////밑에 만들어놈
           ],
         ),
@@ -74,12 +73,11 @@ class LoginPage extends StatelessWidget {
             },
           ),
           SizedBox(height: 10),
-          CustomElevatedButton(
-            text: "회원가입",
-            funpageRoute: () {
+          TextButton(
+            child: Text("회원가입"),
+            onPressed: () {
               Get.to(JoinPage()); //회원가입페이지로 이동
             },
-            width: double.infinity,
           ),
         ],
       ),

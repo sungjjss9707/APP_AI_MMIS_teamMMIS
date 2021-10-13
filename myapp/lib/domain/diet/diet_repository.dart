@@ -80,3 +80,12 @@ class DietRepository {
     }
   }
 }
+
+Map<String, List<String>> dietConvert(List<Diet> diets) {
+  Map<String, List<String>> result = {};
+  for (Diet diet in diets) {
+    List<String> menu = diet.menus!.map((e) => e["name"].toString()).toList();
+    result[diet.now!] = menu;
+  }
+  return result;
+}
