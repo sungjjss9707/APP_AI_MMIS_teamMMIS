@@ -266,7 +266,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Map<String, List<String>> _createMenuList() {
-    int count = -2;
+    int count = 0;
     Map<String, List<String>> result = {};
     while (count <= 2) {
       DateTime particularDay = now.add(Duration(days: count));

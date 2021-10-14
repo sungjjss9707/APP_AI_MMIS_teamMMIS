@@ -14,20 +14,11 @@ class MenuBox extends StatelessWidget {
   const MenuBox(this.dateAndTime, this.menuList, this.menuMap);
   @override
   Widget build(BuildContext context) {
-    bool _isToday;
-    this.dateAndTime == getToday() ? _isToday = true : _isToday = false;
-    String validate =
-        dateAndTime.substring(dateAndTime.length - 2, dateAndTime.length - 1);
-    final String time = validate == "석"
-        ? "석식"
-        : validate == "중"
-            ? "중식"
-            : validate == "조"
-                ? "조식"
-                : "브런치";
+    bool _isNow = validateNow(dateAndTime);
+    String time = getTimeFromDateAndTime(dateAndTime);
 
     return Padding(
-      padding: EdgeInsets.all(8.w),
+      padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
       child: InkWell(
         onTap: () {
           Get.to(
@@ -40,18 +31,27 @@ class MenuBox extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(2.w),
           height: (0.3).sw,
-          width: (0.2).sw,
+          width: (0.22).sw,
           decoration: BoxDecoration(
-            border: _isToday == false
-                ? Border.all(color: Colors.black45, width: 2)
-                : Border.all(color: Colors.lightGreen[600]!, width: 2),
-            borderRadius: BorderRadius.circular(5),
-          ),
+              color: Colors.white,
+              border: _isNow == false
+                  ? Border.all(color: Colors.black45, width: 2)
+                  : Border.all(color: Colors.lightGreen[600]!, width: 2),
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: [
+                _isNow == true
+                    ? BoxShadow(
+                        color: Colors.lightGreen,
+                        blurRadius: 5,
+                        spreadRadius: 0.01,
+                      )
+                    : BoxShadow()
+              ]),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //그 메뉴에 대한 날짜와 시간(조식, 중식, 석식)
-              _buildMenuHeader(),
+              _buildMenuHeader(time),
               Divider(color: Colors.grey),
               // 메뉴
               _buildMenuList(),
@@ -69,9 +69,9 @@ class MenuBox extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuHeader() {
+  Widget _buildMenuHeader(String time) {
     return Text(
-      "$dateAndTime",
+      "${getMonthDayAndWeekdayInKorean(dateAndTime)} $time",
       style: TextStyle(fontSize: 8.sp),
     );
   }

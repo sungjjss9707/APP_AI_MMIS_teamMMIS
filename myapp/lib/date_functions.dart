@@ -2,10 +2,19 @@ import 'package:intl/intl.dart';
 import 'package:myapp/user/user_ex.dart';
 
 final List<String> weekdayList = ["월", "화", "수", "목", "금", "토", "일"];
-String getToday() {
+bool validateNow(String dateAndTime) {
+  // 2021/10/3/석식
+  DateTime input = DateFormat("yyyy/MM/dd").parse(dateAndTime);
+  String time = getTimeFromDateAndTime(dateAndTime);
   DateTime now = DateTime.now();
-  DateFormat formatter = DateFormat("yyyy-MM-dd");
-  return formatter.format(now);
+  if (input.difference(now).inDays == 0 && now.day == input.day) {
+    if (now.hour < 8) {
+      if (time == "조식") return true;
+    } else if (now.hour < 13) {
+      if (time == "중식") return true;
+    } else if (time == "석식") return true;
+  }
+  return false;
 }
 
 String editDateFormat(DateTime dateTime) {

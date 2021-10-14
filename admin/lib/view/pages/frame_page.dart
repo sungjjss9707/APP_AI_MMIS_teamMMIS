@@ -106,15 +106,30 @@ class _FramePageState extends State<FramePage> {
   }
 
   Widget _body() {
-    return ListView(
-      children: [
-        _selectedTapIndex == 0
-            ? pageList[_selectedTapIndex]
-            : Padding(
-                padding: const EdgeInsets.all(gap_xl),
-                child: pageList[_selectedTapIndex],
-              ),
-      ],
+    return Container(
+      margin: EdgeInsets.all(gap_xs),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 10,
+            spreadRadius: 0.01,
+            offset: Offset(3, 3),
+          ),
+        ],
+      ),
+      child: ListView(
+        children: [
+          _selectedTapIndex == 0
+              ? pageList[_selectedTapIndex]
+              : Padding(
+                  padding: const EdgeInsets.all(gap_xl),
+                  child: pageList[_selectedTapIndex],
+                ),
+        ],
+      ),
     );
   }
 

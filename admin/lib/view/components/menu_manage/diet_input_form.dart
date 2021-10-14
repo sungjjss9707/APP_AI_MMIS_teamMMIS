@@ -38,7 +38,7 @@ class _MenuInputFormState extends State<MenuInputForm> {
   void initState() {
     menuInputTextField
         .add(MenuInputTextField(index: menuInputTextField.length));
-    enableInput = widget.menus == null ? true : false;
+    enableInput = false;
     super.initState();
   }
 
@@ -54,7 +54,7 @@ class _MenuInputFormState extends State<MenuInputForm> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey[300]!),
+        border: Border.all(color: Colors.grey[400]!),
         borderRadius: BorderRadius.circular(10),
       ),
       padding: const EdgeInsets.all(gap_m),
@@ -88,15 +88,37 @@ class _MenuInputFormState extends State<MenuInputForm> {
                   ),
                   SizedBox(height: gap_s),
                   widget.menus != null
-                      ? CustomElevatedButton(
-                          text: "수정하기",
-                          onPressed: () {
-                            setState(() {
-                              enableInput = true;
-                            });
-                          },
+                      ? Row(
+                          children: [
+                            CustomElevatedButton(
+                              text: "수정하기",
+                              onPressed: () {
+                                setState(() {
+                                  enableInput = true;
+                                });
+                              },
+                            ),
+                            SizedBox(width: gap_s),
+                            CustomElevatedButton(
+                              text: "삭제",
+                              onPressed: () {
+                                //delete들어가야 됨.
+                              },
+                            )
+                          ],
                         )
-                      : Container(),
+                      : Row(
+                          children: [
+                            CustomElevatedButton(
+                              text: "입력하기",
+                              onPressed: () {
+                                setState(() {
+                                  enableInput = true;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
                 ],
               ),
       ),
@@ -164,23 +186,32 @@ class _MenuInputFormState extends State<MenuInputForm> {
                 if (i.controller.text.length != 0)
                   menuList.add(i.controller.text.trim());
               }
-              await dietCon.saveDiet(
-                  widget.year, widget.month, widget.day, widget.time, menuList);
-              widget.menus!.clear();
-              widget.menus!.addAll(menuList);
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  content: Text("저장되었습니다."),
-                ),
-              );
-              setState(() {
-                enableInput = false;
-              });
+              try {
+                await dietCon.saveDiet(widget.year, widget.month, widget.day,
+                    widget.time, menuList);
+                widget.menus!.clear();
+                widget.menus!.addAll(menuList);
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    content: Text("저장되었습니다."),
+                  ),
+                );
+                setState(() {
+                  enableInput = false;
+                });
+              } catch (e) {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    content: Text("입력실패"),
+                  ),
+                );
+              }
             }
           },
         ),
-        SizedBox(width: gap_m),
+        SizedBox(width: gap_s),
         CustomElevatedButton(
           text: "취소",
           onPressed: () {

@@ -23,10 +23,11 @@ class ShowMenuList extends StatelessWidget {
               ),
               SizedBox(height: gap_s),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: menus!.map((e) => Text(e, style: body1())).toList(),
               ),
             ],
           )
-        : Center(child: Text("입력된 정보가 없습니다."));
+        : Center(child: Text("입력된 식단 정보가 없습니다."));
   }
 }
