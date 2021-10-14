@@ -7,16 +7,19 @@ AppBar subPageAppBar(String title) {
   return AppBar(
     title: Text(
       "$title",
-      style: TextStyle(fontSize: 14.sp),
+      style: TextStyle(fontSize: 14.sp, color: Colors.white),
     ),
     actions: [
       IconButton(
         onPressed: () {
           Get.offAll(() => FramePage());
         },
-        icon: Icon(Icons.home_outlined),
+        icon: Icon(
+          Icons.home_outlined,
+          color: Colors.white,
+        ),
       ),
-      SizedBox(width: 8.w),
+      SizedBox(width: 16.w),
     ],
   );
 }

@@ -25,7 +25,7 @@ class MenuInputContainer extends StatelessWidget {
         children: [
           _menuAddButton(context),
           FutureBuilder(
-            future: EditMenuForDays(year, month, day),
+            future: editFunc(year, month, day),
             builder: (context, snapshot) {
               if (snapshot.hasData == false) {
                 return CircularProgressIndicator(
@@ -85,21 +85,22 @@ class MenuInputContainer extends StatelessWidget {
     );
   }
 
-  Future<Map<String, List<String>>> EditMenuForDays(
-      String year, month, day) async {
+  Future<Map<String, List<String>>> editFunc(String year, month, day) async {
     await dietCon.findDay(year, month, day);
     Map<String, List<String>> result = {};
+    print("a");
     for (Diet diet in dietCon.diets) {
-      String a = diet.now!.substring(diet.now!.length - 2, diet.now!.length);
+      String a =
+          diet.now!.substring(diet.now!.length - 2, diet.now!.length - 1);
       List<String> menus =
           diet.menus!.map((e) => e["name"].toString()).toList();
-      if (a == "조식")
+      if (a == "조")
         result["조식"] = menus;
-      else if (a == "브런치")
+      else if (a == "런")
         result["브런치"] = menus;
-      else if (a == "중식")
+      else if (a == "중")
         result["중식"] = menus;
-      else if (a == "석식") result["석식"] = menus;
+      else if (a == "석") result["석식"] = menus;
     }
     _menuForDays.addAll(result);
     return result;

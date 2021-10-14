@@ -52,6 +52,20 @@ class _DietManagePageState extends State<DietManagePage> {
   Widget _buildCalendar() {
     return Center(
       child: Container(
+        padding: EdgeInsets.all(gap_m),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              blurRadius: 10,
+              spreadRadius: 0.01,
+              offset: Offset(3, 3),
+            ),
+          ],
+        ),
         width: 700,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
