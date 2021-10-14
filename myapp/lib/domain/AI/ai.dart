@@ -30,7 +30,7 @@ class Recommendation {
   Recommendation({this.score, this.menus});
 }
 
-Map a = {
+Map<String, dynamic> a = {
   "code": 1,
   "msg": "success",
   "data": {
@@ -38,7 +38,7 @@ Map a = {
     "recommendation": [
       {
         "score": 83,
-        "menus": ["보리밥", "열무김치", "뚝배기"]
+        "menus": ["보리밥", "열무김치", "뚝배기", "떡볶이", "우유", "빵", "치즈"]
       },
       {
         "score": 82,

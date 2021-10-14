@@ -1,17 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:myapp/controller/ai_controller.dart';
+import 'package:myapp/controller/dto/CM_request_dto.dart';
+import 'package:myapp/domain/AI/ai.dart';
 import 'package:myapp/view/components/ai_menu_input_form.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/button/custom_elevated_button.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:myapp/view/pages/subpages/write_suggestion_page.dart';
 
-class AiTestPage extends StatelessWidget {
+class AiTestPage extends StatefulWidget {
+  @override
+  _AiTestPageState createState() => _AiTestPageState();
+}
+
+class _AiTestPageState extends State<AiTestPage> {
+  final AIController ai = Get.put(AIController());
+  late bool yesInput;
+  AIMenuInputForm _aiMenuInputForm = AIMenuInputForm(
+    key: UniqueKey(),
+  );
+  List<String>? InputMenus;
+  @override
+  void initState() {
+    yesInput = true;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: subPageAppBar("AI 실험실"),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0.r),
         child: ListView(
           children: [
             Text(
@@ -24,29 +48,223 @@ class AiTestPage extends StatelessWidget {
               style: TextStyle(color: Colors.grey),
             ),
             SizedBox(height: 32),
+            yesInput == true
+                ? Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey[200]!),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              "식단을 테스트해 보세요.",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            _aiMenuInputForm,
+                          ],
+                        ),
+                      ),
+                      CustomElevatedButton(
+                        funpageRoute: () async {
+                          if (_aiMenuInputForm.formKey.currentState!
+                              .validate()) {
+                            List<String> menus = _aiMenuInputForm
+                                .menuInputTextField
+                                .map((e) => e.controller.text.trim())
+                                .toList();
+                            // await ai.getRecommendedMenus(menus);
+                            setState(() {
+                              yesInput = false;
+                              InputMenus = menus;
+                            });
+                          }
+                        },
+                        text: "입력 !",
+                        width: double.infinity,
+                      ),
+                    ],
+                  )
+                : _result(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _result() {
+    return Obx(
+      () => Container(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: CustomElevatedButton(
+                    funpageRoute: () {
+                      setState(() {
+                        yesInput = true;
+                        _aiMenuInputForm = AIMenuInputForm(
+                          key: UniqueKey(),
+                        );
+                      });
+                    },
+                    text: "다시 하기",
+                    textStyle: TextStyle(fontSize: 24),
+                    primary: Colors.lightGreen,
+                  ),
+                ),
+                SizedBox(width: 8.w),
+                Expanded(
+                  flex: 1,
+                  child: CustomElevatedButton(
+                    funpageRoute: () {
+                      Get.to(() => WriteSuggestionPage(title: "다음 메뉴 건의합니다."));
+                    },
+                    text: "이 메뉴 건의하기",
+                    textStyle: TextStyle(fontSize: 24),
+                    primary: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16.h),
             Container(
-              padding: const EdgeInsets.all(8),
+              width: 200.h,
+              height: 200.h,
+              padding: EdgeInsets.all(8.r),
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey[200]!),
-                borderRadius: BorderRadius.circular(5),
+                border: Border.all(
+                  color: Colors.grey,
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                children: [
+                  Text("이 식단의 점수는?",
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  Spacer(),
+                  Text(
+                    "${ai.principal.value.score}",
+                    style: TextStyle(
+                        fontSize: 32.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.lightGreen),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "좋음 ",
+                        style: TextStyle(
+                            fontSize: 60,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.lightGreen),
+                      ),
+                      FaIcon(
+                        // 보통은 meh, 별로는 frown
+                        FontAwesomeIcons.smile,
+                        size: 60,
+                        color: Colors.lightGreen,
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                ],
+              ),
+            ),
+            SizedBox(height: 16.h),
+            Container(
+              width: double.infinity,
+              height: 250.r,
+              padding: EdgeInsets.all(8.r),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.grey,
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
                 children: [
                   Text(
-                    "식단을 테스트해 보세요.",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    "추천식단",
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  AIMenuInputForm(),
+                  Text(
+                    "다음 식단들은 어떠신가요?",
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  SizedBox(height: 8.h),
+                  Flexible(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: _recommendedDiets(),
+                    ),
+                  ),
                 ],
               ),
             ),
-            CustomElevatedButton(
-              funpageRoute: () {},
-              text: "입력 !",
-              width: double.infinity,
-            ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _recommendedDiets() {
+    CMRespDto cmResDto = CMRespDto.fromJson(a);
+    ai.principal.value = AI.fromJson(cmResDto.data);
+
+    return Obx(
+      () => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: List.generate(ai.principal.value.getRecommendation().length,
+            (index) {
+          Recommendation recommendation =
+              ai.principal.value.getRecommendation()[index];
+          return Container(
+            width: 0.3.sw,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.lightGreen),
+                borderRadius: BorderRadius.circular(5),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.lightGreen,
+                    blurRadius: 10,
+                    spreadRadius: 0.1,
+                  )
+                ]),
+            padding: EdgeInsets.all(8.r),
+            margin: EdgeInsets.all(8.r),
+            child: Column(
+              children: [
+                Text(
+                  "${recommendation.score}점",
+                  style: TextStyle(fontSize: 14.sp),
+                ),
+                Divider(color: Colors.grey),
+                Column(
+                  children:
+                      recommendation.menus!.map((menu) => Text(menu)).toList(),
+                ),
+              ],
+            ),
+          );
+        }),
       ),
     );
   }
