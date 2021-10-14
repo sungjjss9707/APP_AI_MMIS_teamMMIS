@@ -71,7 +71,7 @@ $ yarn start or npm run start
 - 최윤호 (potatohead12@gmail.com), Github Id: potatohead12
 - 문철운 (heiyin315@gmail.com), Github Id: cjfdns007
 - 성민 (pho0570@gmail.com), Github Id: mini-777
-- 성준혁 (), Github Id: 
+- 성준혁 (sungjjh9707@gmail.com), Github Id: sungjjss9707
 - 최민호 (minhochoi.korea@gmail.com), Github Id: Paspachu
 - 홍유찬 (hychan0709@gmail.com), Github Id: onlyshine
 
