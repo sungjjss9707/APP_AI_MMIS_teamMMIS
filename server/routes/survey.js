@@ -19,7 +19,7 @@ const connection =   mysql.createPool({
 
 router.post('/', async (req, res) => {
     
-    var sql = `insert into photo(photo, militaryNumber, createtime, updatetime) values(\'${req.body.photo}\', \'${req.body.militaryNumber}\', now(), now());`;
+    var sql = `insert into survey(title, content, createdate, updatedate) values(\'${req.body.title}\', \'${req.body.explain}\', now(), now());`;
     connection.query(sql, (error, results, fields) => {
 
 	 if (error) {
@@ -36,27 +36,27 @@ router.post('/', async (req, res) => {
 
 
 
+
+router.get('/', async (req, res) => {
+    
+    var sql = `select * from survey`;
+    connection.query(sql, (error, results, fields) => {
+
+	 if (error) {
+            console.log(error);
+	    res.send({"code" : "-1"});
+        }else{
+	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results1[0]};
+		//res.send(results1[0]);
+		res.send(noticeresponse);
+        }
+    })
+   //var body = req.body;
+});
 
 router.get('/:id', async (req, res) => {
     
-    var sql = `select * from photo as p left join photocomments as pc on p.id = pc.photo_id order by p.id limit 30 offset ${req.params.id * 30};`;
-    connection.query(sql, (error, results, fields) => {
-
-	 if (error) {
-            console.log(error);
-	    res.send({"code" : "-1"});
-        }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results1[0]};
-		//res.send(results1[0]);
-		res.send(noticeresponse);
-        }
-    })
-   //var body = req.body;
-});
-
-router.delete('/delete/:id', async (req, res) => {
-    
-    var sql = `delete from photo where id = ${req.params.id};`;
+    var sql = `select * from survey where id = ${req.params.id};`;
     connection.query(sql, (error, results, fields) => {
 
 	 if (error) {
@@ -71,9 +71,26 @@ router.delete('/delete/:id', async (req, res) => {
    //var body = req.body;
 });
 
-router.post('/comments/:id', async (req, res) => {
+router.post('/:id', async (req, res) => {
     
-    var sql = `insert into photocomments(photo_id, militaryNumber, content, createtime, updatetime) values(${req.params.id}, \'${req.body.militaryNumber}\', \'${req.body.content}\', now(), now());`;
+    var sql = `insert into survey_answer(survey_id, answer, militarynumber, createdate, updatedate) values(${req.params.id}, \'${req.body.answer}\', \'${req.body.militaryNumber}\', now(), now());`;
+    connection.query(sql, (error, results, fields) => {
+
+	 if (error) {
+            console.log(error);
+	    res.send({"code" : "-1"});
+        }else{
+	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results1[0]};
+		//res.send(results1[0]);
+		res.send(noticeresponse);
+        }
+    })
+   //var body = req.body;
+});
+
+router.delete('/:id', async (req, res) => {
+    
+    var sql = `delete from survey where id = ${req.params.id};delete from survey_answer where survey_id = ${req.params.id};`;
     connection.query(sql, (error, results, fields) => {
 
 	 if (error) {
