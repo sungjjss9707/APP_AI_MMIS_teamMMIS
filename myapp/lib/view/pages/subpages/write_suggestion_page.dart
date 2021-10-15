@@ -10,10 +10,18 @@ import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
 import 'package:myapp/view/components/textfield/custom_writing_area.dart';
 
 class WriteSuggestionPage extends StatelessWidget {
+  final String? title;
+  final String? content;
   final _formKey = GlobalKey<FormState>();
+  final _title = TextEditingController();
+  final _content = TextEditingController();
+
+  WriteSuggestionPage({this.title, this.content});
 
   @override
   Widget build(BuildContext context) {
+    if (title != null) _title.text = title!;
+    if (content != null) _content.text = content!;
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: subPageAppBar("건의사항 작성"),
@@ -23,8 +31,12 @@ class WriteSuggestionPage extends StatelessWidget {
           key: _formKey,
           child: Column(
             children: [
-              CustomTextFormField(hint: "제목", funValidate: validateTitle()),
-              CustomWritingArea(hint: "내용", funValidate: validateContent()),
+              CustomTextFormField(
+                  controller: _title, hint: "제목", funValidate: validateTitle()),
+              CustomWritingArea(
+                  controller: _content,
+                  hint: "내용",
+                  funValidate: validateContent()),
               CustomElevatedButton(
                 funpageRoute: () {
                   if (_formKey.currentState!.validate()) {}

@@ -32,19 +32,6 @@ class _HomePageState extends State<HomePage> {
   late int nowTime;
   final List<String> time = ["조식", "중식", "석식"];
 
-  @override
-  void initState() {
-    nowYear = now.year.toString();
-    nowMonth = now.month.toString();
-    nowDay = now.day.toString();
-    nowTime = now.hour > 0 && now.hour < 9
-        ? 0
-        : now.hour < 13
-            ? 1
-            : 2;
-    super.initState();
-  }
-
   Widget build(BuildContext context) {
     return ListView(
       children: [

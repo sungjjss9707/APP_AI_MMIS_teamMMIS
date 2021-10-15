@@ -7,7 +7,7 @@ import '../../../size.dart';
 class AIMenuInputForm extends StatefulWidget {
   final formKey = GlobalKey<FormState>();
   AIMenuInputForm({Key? key}) : super(key: key);
-
+  final List<MenuInputTextField> menuInputTextField = [];
   @override
   _AIMenuInputFormState createState() => _AIMenuInputFormState();
 }
@@ -15,13 +15,11 @@ class AIMenuInputForm extends StatefulWidget {
 class _AIMenuInputFormState extends State<AIMenuInputForm> {
   List<TextEditingController> textEditingControllerList = [];
 
-  List<MenuInputTextField> menuInputTextField = [];
-
   @override
   void initState() {
-    menuInputTextField.add(
+    widget.menuInputTextField.add(
       MenuInputTextField(
-        index: menuInputTextField.length,
+        index: widget.menuInputTextField.length,
         funValidate: validateMenu(),
       ),
     );
@@ -30,7 +28,7 @@ class _AIMenuInputFormState extends State<AIMenuInputForm> {
 
   @override
   void dispose() {
-    for (MenuInputTextField i in menuInputTextField) {
+    for (MenuInputTextField i in widget.menuInputTextField) {
       i.controller.dispose();
     }
     super.dispose();
@@ -50,8 +48,8 @@ class _AIMenuInputFormState extends State<AIMenuInputForm> {
 
   void menuInputTextFieldAdd() {
     setState(() {
-      int index = menuInputTextField.length;
-      menuInputTextField.add(
+      int index = widget.menuInputTextField.length;
+      widget.menuInputTextField.add(
         MenuInputTextField(
           index: index,
           funValidate: validateMenu(),
@@ -62,21 +60,21 @@ class _AIMenuInputFormState extends State<AIMenuInputForm> {
 
   void menuInputTextFieldRemove(int index) {
     setState(() {
-      menuInputTextField.removeAt(index);
-      for (MenuInputTextField i in menuInputTextField) {
-        i.index = menuInputTextField.indexOf(i);
+      widget.menuInputTextField.removeAt(index);
+      for (MenuInputTextField i in widget.menuInputTextField) {
+        i.index = widget.menuInputTextField.indexOf(i);
       }
     });
   }
 
   List<Widget> _menuInputTextFieldGenerate() {
     return List.generate(
-      menuInputTextField.length,
+      widget.menuInputTextField.length,
       (index) => Row(
         children: [
-          Flexible(child: menuInputTextField[index]),
+          Flexible(child: widget.menuInputTextField[index]),
           SizedBox(width: gap_xs),
-          index == menuInputTextField.length - 1
+          index == widget.menuInputTextField.length - 1
               ? IconButton(
                   onPressed: () {
                     menuInputTextFieldAdd();
@@ -95,7 +93,7 @@ class _AIMenuInputFormState extends State<AIMenuInputForm> {
                     color: Colors.black,
                   ),
                 ),
-          index > 0 && index == menuInputTextField.length - 1
+          index > 0 && index == widget.menuInputTextField.length - 1
               ? IconButton(
                   onPressed: () {
                     menuInputTextFieldRemove(index);

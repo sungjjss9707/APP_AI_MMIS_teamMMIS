@@ -5,7 +5,6 @@ const hostAI =
 
 class AIProvider extends GetConnect {
   Future<Response> getRecommendedMenus(Map data) {
-    print(data);
     return post(
       "$hostAI",
       data,
