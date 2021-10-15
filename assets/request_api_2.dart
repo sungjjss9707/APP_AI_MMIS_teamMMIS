@@ -931,7 +931,7 @@ Map SurveyPost = {
   "explain": "설문설명입니다",
   //질문 개수
   "count": 5,
-  // 보낼 때는 리스트로 보낼테니,
+  // 보낼 때는 리스트로 보낼테니,String으로 바꿔서 저장하시면 됩니다.
   "questions": [
     {
       "id": "1",
@@ -1036,7 +1036,7 @@ Map responseSurvey = {
         "options": [],
       },
     ],
-    // result는 comment처럼 result는 따로 분리하셔도 괜찮아요.
+    // 설문조사 결과 result는 comment처럼 result는 따로 분리하셔도 괜찮아요. 빼셔도 됩니다.
     "result": [],
     "create": "2021-07-10T08:05:49.068049",
     "update": "2021-07-10T08:05:49.068049",
@@ -1105,7 +1105,7 @@ Map responseSurvey1 = {
         "options": [],
       },
     ],
-    // "result"에는 제출된 결과의 리스트가 요소로 저장됩니다.
+    // 여기 역시 생략 가능
     "result": [
       [
         {
@@ -1149,6 +1149,7 @@ Map responseSurvey1 = {
 // 	* request : header에 유저 토큰,
 // 	body:
 Map PostResult = {
+  //이것도 스트링으로 처리하시면 되겠습니다.
   "result": [
     {
       "id": "1",
