@@ -28,14 +28,15 @@ class _SuggestionPageState extends State<SuggestionPage> {
 
   @override
   Widget build(BuildContext context) {
+    final _mediaWidth = MediaQuery.of(context).size.width;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomTitle("건의사항 관리"),
         Divider(color: Colors.grey),
-        _contentHeader(),
-        _suggestionList(context),
+        _mediaWidth > 850 ? _contentHeader() : Container(),
+        _suggestionList(context, _mediaWidth),
         _numberPagination(),
       ],
     );
@@ -56,7 +57,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
           ),
         ),
         Expanded(
-          flex: 10,
+          flex: 8,
           child: Container(
             child: Center(
               child: Text(
@@ -92,7 +93,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
     );
   }
 
-  Widget _suggestionList(BuildContext context) {
+  Widget _suggestionList(BuildContext context, double mediaWidth) {
     return Obx(
       () => Column(
         children: List.generate(15, (int index) {
@@ -122,10 +123,12 @@ class _SuggestionPageState extends State<SuggestionPage> {
                     onTap: () {
                       _showContentDialog(context, title, content, id);
                     },
-                    child: _content(index, title, writer, date),
+                    child: mediaWidth > 850
+                        ? _contentForWide(index, title, writer, date)
+                        : _contentForNarrow(index, title, writer, date),
                   )
                 : InkWell(
-                    child: _content(index, title, writer, date),
+                    child: _contentForWide(index, title, writer, date),
                   ),
           );
         }),
@@ -147,7 +150,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
     );
   }
 
-  Row _content(int index, String title, String writer, String date) {
+  Row _contentForWide(int index, String title, String writer, String date) {
     return Row(
       children: [
         Expanded(
@@ -158,18 +161,22 @@ class _SuggestionPageState extends State<SuggestionPage> {
               child: Text(
                 title == "" ? "" : "${index + 1}",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
         ),
         Expanded(
-          flex: 10,
+          flex: 8,
           child: Container(
             height: 30,
             child: Center(
               child: Text(
                 "$title",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
@@ -182,6 +189,8 @@ class _SuggestionPageState extends State<SuggestionPage> {
               child: Text(
                 "$writer",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
@@ -194,11 +203,34 @@ class _SuggestionPageState extends State<SuggestionPage> {
               child: Text(
                 "$date",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
         ),
       ],
+    );
+  }
+
+  Widget _contentForNarrow(
+      int index, String title, String writer, String date) {
+    return ListTile(
+      title: Text(
+        "${index + 1} $title",
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      subtitle: Text(
+        date,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      trailing: Text(
+        writer,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
     );
   }
 

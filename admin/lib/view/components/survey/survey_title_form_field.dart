@@ -13,6 +13,7 @@ class SurveyTitleFormField extends StatelessWidget {
   SurveyTitleFormField({this.funValidate});
   @override
   Widget build(BuildContext context) {
+    double _mediaWidth = getMediaQueryWidth(context);
     titleController.text = "제목없는 설문지";
     explainController.text = "설명";
     return Container(
@@ -21,7 +22,7 @@ class SurveyTitleFormField extends StatelessWidget {
         border: Border.all(),
         borderRadius: BorderRadius.circular(10),
       ),
-      width: getMediaQueryWidth(context) * 0.4,
+      width: _mediaWidth > 700 ? 700 : _mediaWidth,
       padding: const EdgeInsets.all(gap_m),
       child: Form(
         child: Column(
