@@ -9,15 +9,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="식단 관리 하는 중">
-      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/ai_controller.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/dto/photo_upload_dto.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/photo_controller.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/domain/photo/photo.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/domain/photo/photo_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/domain/photo/photo_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/AI/ai.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/AI/ai.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/AI/ai_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/AI/ai_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/request_api_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/assets/request_api_2.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/ai_menu_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/ai_menu_input_form.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_elevated_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_upload_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_upload_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/custom_text_form_field.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/custom_writing_area.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/custom_writing_area.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/setting_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/setting_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/ai_test_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/ai_test_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/inner_seeting_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/inner_setting_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/post_picture.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/post_picture.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/write_suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/write_suggestion_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -476,10 +487,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634104180037" />
-    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1634218710710">
+    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1634305909592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634218710710" />
+    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634305909592" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

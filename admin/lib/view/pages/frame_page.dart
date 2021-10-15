@@ -65,27 +65,30 @@ class _FramePageState extends State<FramePage> {
   @override
   Widget build(BuildContext context) {
     final a = Get.put(AdministerController());
-    return Scaffold(
-      appBar: _buildAppBar(),
-      body: CollapsibleSidebar(
-        items: _generateCollapsibleItem(),
-        body: _body(),
-        title: "${a.principal.value.username}",
-        toggleTitle: "접기",
-        backgroundColor: Colors.lightGreen,
-        selectedIconBox: Colors.lightGreen[800]!,
-        selectedIconColor: Colors.green,
-        selectedTextColor: Colors.white,
-        unselectedIconColor: Colors.white,
-        unselectedTextColor: Colors.white60,
-        sidebarBoxShadow: [
-          BoxShadow(
-            color: Colors.green,
-            blurRadius: 10,
-            spreadRadius: 0.01,
-            offset: Offset(3, 3),
-          ),
-        ],
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: Scaffold(
+        appBar: _buildAppBar(),
+        body: CollapsibleSidebar(
+          items: _generateCollapsibleItem(),
+          body: _body(),
+          title: "${a.principal.value.username}",
+          toggleTitle: "접기",
+          backgroundColor: Colors.lightGreen,
+          selectedIconBox: Colors.lightGreen[800]!,
+          selectedIconColor: Colors.green,
+          selectedTextColor: Colors.white,
+          unselectedIconColor: Colors.white,
+          unselectedTextColor: Colors.white60,
+          sidebarBoxShadow: [
+            BoxShadow(
+              color: Colors.green,
+              blurRadius: 10,
+              spreadRadius: 0.01,
+              offset: Offset(3, 3),
+            ),
+          ],
+        ),
       ),
     );
   }

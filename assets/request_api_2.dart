@@ -929,6 +929,9 @@ Map commentDelete = {
 Map SurveyPost = {
   "title": "설문제목입니다.",
   "explain": "설문설명입니다",
+  //질문 개수
+  "count": 5,
+  // 보낼 때는 리스트로 보낼테니,
   "questions": [
     {
       "id": "1",
@@ -984,6 +987,9 @@ Map responseSurvey = {
     "id": "1",
     "title": "설문제목입니다.",
     "explain": "설문설명입니다",
+    // 질문 개수
+    "count": 5,
+    //이 부분 리스트 [] 자체를 스트링으로 하세요.
     "questions": [
       {
         "id": "1",
@@ -1030,9 +1036,8 @@ Map responseSurvey = {
         "options": [],
       },
     ],
-    "result": [
-      //
-    ],
+    // result는 comment처럼 result는 따로 분리하셔도 괜찮아요.
+    "result": [],
     "create": "2021-07-10T08:05:49.068049",
     "update": "2021-07-10T08:05:49.068049",
   }
@@ -1043,7 +1048,8 @@ Map responseSurvey = {
 // * response : survey의 collection (리스트로 하면 될듯)
 
 // 7.3. 설문조사 1개 불러오기(Get)
-// * route : survey/1/* request : header에 관리자 토큰
+// * route : survey/1/
+// * request : header에 관리자 토큰
 // * response :
 Map responseSurvey1 = {
   "code": "1",
@@ -1052,6 +1058,7 @@ Map responseSurvey1 = {
     "id": "1",
     "title": "설문제목입니다.",
     "explain": "설문설명입니다",
+    "count": 4,
     "questions": [
       {
         "id": "1",

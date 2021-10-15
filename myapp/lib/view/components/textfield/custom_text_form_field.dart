@@ -16,7 +16,7 @@ class CustomTextFormField extends StatelessWidget {
     this.funValidate,
     this.controller,
     this.enabled,
-    this.enabledBorderSide,
+    this.enabledBorderSide = true,
     this.obscureText = false,
   });
 

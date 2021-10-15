@@ -25,7 +25,7 @@ class CustomWritingArea extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(1),
+              borderRadius: BorderRadius.circular(5),
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5),

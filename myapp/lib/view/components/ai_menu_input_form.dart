@@ -89,7 +89,7 @@ class _AIMenuInputFormState extends State<AIMenuInputForm> {
                     menuInputTextFieldRemove(index);
                   },
                   icon: Icon(
-                    Icons.delete,
+                    Icons.cancel_outlined,
                     color: Colors.black,
                   ),
                 ),
@@ -99,7 +99,7 @@ class _AIMenuInputFormState extends State<AIMenuInputForm> {
                     menuInputTextFieldRemove(index);
                   },
                   icon: Icon(
-                    Icons.delete,
+                    Icons.cancel_outlined,
                     color: Colors.black,
                   ),
                 )
