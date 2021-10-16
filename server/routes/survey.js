@@ -19,14 +19,18 @@ const connection =   mysql.createPool({
 
 router.post('/', async (req, res) => {
     
-    var sql = `insert into survey(title, content, createdate, updatedate) values(\'${req.body.title}\', \'${req.body.explain}\', now(), now());`;
+    var sql = `insert into survey(title, content, seq, createdate, updatedate) values(\'${req.body.title}\', \'${req.body.explain}\', \'${req.body.seq}\', now(), now());`;
     connection.query(sql, (error, results, fields) => {
-
+        for(const question in req.body.count){
+            connection.query(`insert into question(seq, title, type, isOptional, options, question_num) values(\'${req.body.seq}\', \'${question.text}\', \'${question.type}\', \'${question.isOptional}\', \'${question.options}\', ${question.id});`, (error, results, fields) => {
+              console.log('update');  
+            })
+        }
 	 if (error) {
             console.log(error);
-	    res.send({"code" : "-1"});
+	    res.send({"code" : -1});
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results[0]};
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results[0]};
 		
 		res.send(noticeresponse);
         }
@@ -39,14 +43,14 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     
-    var sql = `select * from survey`;
+    var sql = `select * from survey as s left join question as q on s.seq = q.seq;`;
     connection.query(sql, (error, results, fields) => {
 
 	 if (error) {
             console.log(error);
-	    res.send({"code" : "-1"});
+	    res.send({"code" : -1});
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results[0]};
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results[0]};
 	
 		res.send(noticeresponse);
         }
@@ -56,14 +60,14 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     
-    var sql = `select * from survey where id = ${req.params.id};`;
+    var sql = `select * from survey where seq = ${req.params.id};`;
     connection.query(sql, (error, results, fields) => {
 
 	 if (error) {
             console.log(error);
-	    res.send({"code" : "-1"});
+	    res.send({"code" : -1});
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results[0]};
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results[0]};
 	
 		res.send(noticeresponse);
         }
@@ -71,16 +75,16 @@ router.get('/:id', async (req, res) => {
    //var body = req.body;
 });
 
-router.post('/:id', async (req, res) => {
+router.post('/answer', async (req, res) => {
     
-    var sql = `insert into survey_answer(survey_id, answer, militarynumber, createdate, updatedate) values(${req.params.id}, \'${req.body.answer}\', \'${req.body.militaryNumber}\', now(), now());`;
+    var sql = `insert into survey_answer(seq, answer, question_num, militarynumber, createdate) values(${req.body.seq}, \'${req.body.answer}\', \'${req.body.id}\', \'${req.body.militaryNumber}\', now());`;
     connection.query(sql, (error, results, fields) => {
 
 	 if (error) {
             console.log(error);
-	    res.send({"code" : "-1"});
+	    res.send({"code" : -1});
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results[0]};
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results[0]};
 		
 		res.send(noticeresponse);
         }
@@ -90,14 +94,14 @@ router.post('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     
-    var sql = `delete from survey where id = ${req.params.id};delete from survey_answer where survey_id = ${req.params.id};`;
+    var sql = `delete from survey where seq = ${req.params.id};delete from survey_answer where seq = ${req.params.id};`;
     connection.query(sql, (error, results, fields) => {
 
 	 if (error) {
             console.log(error);
-	    res.send({"code" : "-1"});
+	    res.send({"code" : -1});
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results[0]};
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results[0]};
 	
 		res.send(noticeresponse);
         }
