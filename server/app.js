@@ -55,6 +55,7 @@ app.use('/photo', photoRouter);
 //app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
 app.use(cors()); 
 
 var server = app.listen(app.get('port'), function() {
