@@ -7,6 +7,7 @@ class UserInfoTextFormField extends StatelessWidget {
   bool enabled;
   int n;
   final validator;
+  final obscureText;
   TextEditingController? controller;
   UserInfoTextFormField({
     required this.text,
@@ -15,6 +16,7 @@ class UserInfoTextFormField extends StatelessWidget {
     this.n = 10,
     this.controller,
     required this.validator,
+    this.obscureText,
   });
   Widget build(BuildContext context) {
     return Column(
@@ -26,6 +28,7 @@ class UserInfoTextFormField extends StatelessWidget {
         ),
         SizedBox(height: 8.h),
         TextFormField(
+          obscureText: obscureText,
           validator: validator,
           enabled: enabled,
           controller: controller,

@@ -76,6 +76,7 @@ class DoSurveyPage extends StatelessWidget {
       steps: List.generate(questions.length + 2, (index) {
         if (index == 0) {
           return InstructionStep(
+            buttonText: "다음",
             stepIdentifier: StepIdentifier(id: index.toString()),
             title: surveyTitle,
             text: explain,
@@ -83,6 +84,7 @@ class DoSurveyPage extends StatelessWidget {
         }
         if (index == questions.length + 1) {
           return CompletionStep(
+            buttonText: "설문종료",
             stepIdentifier: StepIdentifier(id: index.toString()),
             title: "",
             text: "",
@@ -96,17 +98,20 @@ class DoSurveyPage extends StatelessWidget {
         List<String> optionList =
             optionList_dynamic.map((e) => e.toString()).toList();
         return QuestionStep(
+          buttonText: "다음",
           stepIdentifier: StepIdentifier(id: index.toString()),
           title: questionTitle,
           isOptional: isOptional,
           text: type == "다수선택" ? "한 개 이상 골라주세요." : "",
           answerFormat: type == "객관식"
               ? SingleChoiceAnswerFormat(
-                  textChoices: convertToTextChoice(optionList))
+                  textChoices: _convertToTextChoice(optionList))
               : type == "다수선택"
                   ? MultipleChoiceAnswerFormat(
-                      textChoices: convertToTextChoice(optionList))
+                      textChoices: _convertToTextChoice(optionList))
                   : TextAnswerFormat(
+                      hint: "답을 입력하세요",
+                      maxLines: 1,
                       validationRegEx: "^(?!\s*\$).+",
                     ),
         );
@@ -114,7 +119,7 @@ class DoSurveyPage extends StatelessWidget {
     );
   }
 
-  List<TextChoice> convertToTextChoice(List<String> optionList) {
+  List<TextChoice> _convertToTextChoice(List<String> optionList) {
     List<TextChoice> result = [];
     int length = optionList.length;
     for (int index = 0; index < length; index++) {

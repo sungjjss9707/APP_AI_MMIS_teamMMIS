@@ -25,7 +25,7 @@ class Admin extends StatelessWidget {
       supportedLocales: [
         const Locale('ko', 'KR'),
       ],
-      home: JoinPage(),
+      home: FramePage(),
       theme: themeData,
     );
   }

@@ -64,6 +64,16 @@ class UserEditPage extends StatelessWidget {
                   controller: nameController,
                   enabled: true,
                   validator: validateName()),
+              UserInfoTextFormField(
+                  text: "비밀번호",
+                  controller: nameController,
+                  enabled: true,
+                  validator: validateName()),
+              UserInfoTextFormField(
+                  text: "이름",
+                  controller: nameController,
+                  enabled: true,
+                  validator: validateName()),
               Divider(),
               Center(
                 child: Text(
@@ -89,19 +99,14 @@ class UserEditPage extends StatelessWidget {
               Divider(),
               SizedBox(height: 8.h),
               Center(
-                child: OutlinedButton(
+                child: TextButton(
                   child: Text(
                     "저장하기",
                     style: TextStyle(
                         fontSize: 18.sp,
-                        color: Colors.blue,
+                        color: Colors.lightGreen,
                         fontWeight: FontWeight.bold),
                   ),
-                  style: OutlinedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                    20,
-                  ))),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       userName = nameController.text;

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:admin/view/components/survey/survey_question_form_field.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +25,7 @@ class SurveyPostDto {
       question["options"] = getOption(i);
       questionsList.add(question);
     }
-    result["questions"] = questionsList;
+    result["questions"] = jsonEncode(questionsList);
     return result;
   }
 
