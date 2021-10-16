@@ -11,7 +11,7 @@ const connection =   mysql.createPool({
     multipleStatements:true,
 });
 
-router.post('/', cors(), async (req, res) => {
+router.post('/', async (req, res) => {
         var year = req.body.year;
         var month =req.body.month;
         var day = req.body.day;
@@ -84,7 +84,7 @@ router.post('/', cors(), async (req, res) => {
 	})
 });
 
-router.put('/:year/:month/:day/:time', cors(), async (req, res) => {
+router.put('/:year/:month/:day/:time', async (req, res) => {
         var year = req.params.year;
         var month = req.params.month;
 	var day = req.params.day;
@@ -165,7 +165,7 @@ router.put('/:year/:month/:day/:time', cors(), async (req, res) => {
 });
 
 
-router.get('/:year/:month', cors(), async (req, res) => {
+router.get('/:year/:month', async (req, res) => {
         var month = req.params.month;
 	var year = req.params.year;
 	var diet_query = `select * from diet where year = \'${year}\' and month = \'${month}\';`;
@@ -241,7 +241,7 @@ router.get('/:year/:month', cors(), async (req, res) => {
 });
 
 
-router.get('/:year/:month/:day', cors(), async (req, res) => {
+router.get('/:year/:month/:day', async (req, res) => {
         var month = req.params.month;
 	var year = req.params.year;
 	var day = req.params.day;
@@ -318,7 +318,7 @@ router.get('/:year/:month/:day', cors(), async (req, res) => {
 });
 
 
-router.get('/:year/:month/:day/:time', cors(), async (req, res) => {
+router.get('/:year/:month/:day/:time', async (req, res) => {
         var month = req.params.month;
 	var year = req.params.year;
 	var day = req.params.day;
