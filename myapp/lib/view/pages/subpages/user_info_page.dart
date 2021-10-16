@@ -9,6 +9,10 @@ import 'package:myapp/view/pages/subpages/user_edit_page.dart';
 class UserInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final List<String> allergies = [];
+    for (String i in userAllergy.keys) {
+      if (userAllergy[i] == true) allergies.add(i);
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -55,38 +59,55 @@ class UserInfoPage extends StatelessWidget {
                 enabled: false,
                 validator: (String? value) => null),
             Divider(),
-            Center(
-              child: Text(
-                "알레르기 정보",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
+            Container(
+              padding: EdgeInsets.all(4.r),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(10),
               ),
+              child: allergies.length != 0
+                  ? Column(
+                      children: [
+                        Text(
+                          "보유 알레르기",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 14.sp),
+                        ),
+                        SizedBox(
+                          height: 2.sp,
+                        ),
+                        Wrap(
+                          spacing: 8.sp,
+                          children: List.generate(
+                            allergies.length,
+                            (index) => Text(allergies[index]),
+                          ),
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        Text(
+                          "알레르기",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 14.sp),
+                        ),
+                        Text("없음",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 12.sp))
+                      ],
+                    ),
             ),
-            UserInfoRadio(text: "갑각류", enabled: false),
-            UserInfoRadio(text: "견과류", enabled: false),
-            UserInfoRadio(text: "달걀", enabled: false),
-            UserInfoRadio(text: "땅콩", enabled: false),
-            UserInfoRadio(text: "밀", enabled: false),
-            UserInfoRadio(text: "생선", enabled: false),
-            UserInfoRadio(text: "우유", enabled: false),
-            UserInfoRadio(text: "조개", enabled: false),
-            UserInfoRadio(text: "콩", enabled: false),
             Divider(),
             SizedBox(height: 8.h),
             Center(
-              child: OutlinedButton(
+              child: TextButton(
                 child: Text(
                   "수정하기",
                   style: TextStyle(
                       fontSize: 18.sp,
-                      color: Colors.green,
+                      color: Colors.lightGreen,
                       fontWeight: FontWeight.bold),
-                ),
-                style: OutlinedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      20,
-                    ),
-                  ),
                 ),
                 onPressed: () {
                   localUserAllergy = userAllergy;

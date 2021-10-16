@@ -1,15 +1,20 @@
+import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/textfield/user_info_text_form_field.dart';
-import 'package:myapp/view/components/user_info_radio.dart';
+
 import 'package:myapp/view/pages/initialpages/framepage.dart';
+
+import '../../../allergy.dart';
 
 class UserEditPage extends StatelessWidget {
   @override
   final _formKey = GlobalKey<FormState>();
+  final user = Get.put(UserController());
 
   Widget build(BuildContext context) {
     TextEditingController nameController = TextEditingController();
@@ -18,11 +23,10 @@ class UserEditPage extends StatelessWidget {
     classController.text = classes;
     TextEditingController unitController = TextEditingController();
     unitController.text = unit;
-    TextEditingController heightController = TextEditingController();
-    heightController.text = height.toString();
-    TextEditingController weightController = TextEditingController();
-    weightController.text = weight.toString();
-    final allergies = userAllergy.keys.toList();
+    final List<String> allergies = [];
+    for (String i in userAllergy.keys) {
+      if (userAllergy[i] == true) allergies.add(i);
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -60,16 +64,6 @@ class UserEditPage extends StatelessWidget {
                   controller: nameController,
                   enabled: true,
                   validator: validateName()),
-              UserInfoTextFormField(
-                  text: "키",
-                  controller: heightController,
-                  enabled: true,
-                  validator: validateHeight()),
-              UserInfoTextFormField(
-                  text: "몸무게",
-                  controller: weightController,
-                  enabled: true,
-                  validator: validateHeight()),
               Divider(),
               Center(
                 child: Text(
@@ -78,9 +72,20 @@ class UserEditPage extends StatelessWidget {
                       TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
                 ),
               ),
-              ...List.generate(allergies.length, (i) {
-                return UserInfoRadio(text: allergies[i], enabled: true);
-              }),
+              CustomCheckBoxGroup(
+                enableButtonWrap: true,
+                buttonValuesList: allergyName,
+                buttonLables: allergyName,
+                defaultSelected: allergies,
+                checkBoxButtonValues: (value) {
+                  List allergyList = value;
+                  for (dynamic i in allergyList) {
+                    localUserAllergy[i] = true;
+                  }
+                },
+                selectedColor: Colors.lightGreen,
+                unSelectedColor: Colors.white,
+              ),
               Divider(),
               SizedBox(height: 8.h),
               Center(
@@ -102,8 +107,6 @@ class UserEditPage extends StatelessWidget {
                       userName = nameController.text;
                       unit = unitController.text;
                       classes = classController.text;
-                      height = double.parse(heightController.text);
-                      weight = double.parse(weightController.text);
                       userAllergy = {...localUserAllergy};
                       Get.to(() => FramePage());
                       Get.snackbar("저장완료", "정보가 저장되었습니다.",

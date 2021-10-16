@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:myapp/model/menu.dart';
 
+Map<String, List<String>> dietFromServer = {};
 Map<String, Map<String, Map<String, Map<String, List<String>>>>> menu = {
   "2021": {
     "10": {
@@ -87,22 +88,27 @@ Map<String, Map<String, Map<String, Map<String, List<String>>>>> menu = {
 List<String> times = ["브런치", "조식", "중식", "석식"];
 
 bool checkMenuExistence(int year, int month, int day, String time) {
-  if (menu[year.toString()] == null) {
-    return false;
-  } else if (menu[year.toString()]![month.toString()] == null) {
-    return false;
-  } else if (menu[year.toString()]![month.toString()]![day.toString()] ==
-      null) {
-    return false;
-  } else if (menu[year.toString()]![month.toString()]![day.toString()]![time] ==
-      null) {
-    return false;
-  } else if (menu[year.toString()]![month.toString()]![day.toString()]![time]!
-      .isEmpty) {
-    return false;
-  } else {
-    return true;
+  if (dietFromServer["$year/$month/$day/$time"] != null) {
+    if (dietFromServer["$year/$month/$day/$time"]!.length != 0) {
+      return true;
+    }
+    // if (menu[year.toString()] == null) {
+    //   return false;
+    // } else if (menu[year.toString()]![month.toString()] == null) {
+    //   return false;
+    // } else if (menu[year.toString()]![month.toString()]![day.toString()] ==
+    //     null) {
+    //   return false;
+    // } else if (menu[year.toString()]![month.toString()]![day.toString()]![time] ==
+    //     null) {
+    //   return false;
+    // } else if (menu[year.toString()]![month.toString()]![day.toString()]![time]!
+    //     .isEmpty) {
+    //   return false;
+    // } else {
+    //   return true;
   }
+  return false;
 }
 
 bool checkDayMenuExistence(int year, int month, int day) {

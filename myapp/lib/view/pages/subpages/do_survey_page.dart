@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/dto/survey_result_request_Dto.dart';
+import 'package:myapp/controller/survey_controller.dart';
 import 'package:myapp/domain/survey/survey.dart';
 import 'package:survey_kit/survey_kit.dart';
 
@@ -9,21 +11,54 @@ import '../../../theme.dart';
 class DoSurveyPage extends StatelessWidget {
   final Survey survey;
   final SurveyController _surveyController = SurveyController();
+  final GetSurveyController _getSurveyController =
+      Get.put(GetSurveyController());
   DoSurveyPage(this.survey);
 
   @override
   Widget build(BuildContext context) {
+    int questionNumber = survey.questions!.length;
     return Scaffold(
       body: Container(
         child: SurveyKit(
           surveyController: _surveyController,
           task: _orderedTask(survey),
           themeData: SurveyTheme(context),
-          onResult: (SurveyResult result) {
-            print("1${result.results[1].results[0].valueIdentifier}");
-            print("2${result.results[2].results[0].valueIdentifier}");
-            print("3${result.results[3].results[0].valueIdentifier}");
-            print("4${result.results[4].results[0].valueIdentifier}");
+          onResult: (SurveyResult result) async {
+            List<SurveyResultDto> answers = [];
+            if (result.finishReason == FinishReason.COMPLETED) {
+              for (int i = 1; i <= questionNumber; i++) {
+                Map<String, dynamic> question = survey.questions![i - 1];
+                String type = question["type"];
+                List<String> answerList;
+                if (type == "객관식") {
+                  String answer =
+                      result.results[i].results[0].valueIdentifier ?? "";
+                  answerList = [answer];
+                } else if (type == "다수선택") {
+                  String answer =
+                      result.results[i].results[0].valueIdentifier ?? "";
+                  answerList = answer.split(",");
+                } else {
+                  String answer =
+                      result.results[i].results[0].valueIdentifier ?? "";
+                  answerList = [answer];
+                }
+                answers.add(SurveyResultDto(i, type, answerList));
+              }
+              int code = await _getSurveyController.reportAnswer(answers);
+              if (code == 1) {
+                Get.snackbar(
+                  "설문조사",
+                  "제출 성공",
+                );
+              } else
+                Get.snackbar(
+                  "설문조사",
+                  "제출 실패",
+                );
+            }
+
             Get.back();
           },
         ),
@@ -41,13 +76,17 @@ class DoSurveyPage extends StatelessWidget {
       steps: List.generate(questions.length + 2, (index) {
         if (index == 0) {
           return InstructionStep(
+            stepIdentifier: StepIdentifier(id: index.toString()),
             title: surveyTitle,
             text: explain,
           );
         }
         if (index == questions.length + 1) {
           return CompletionStep(
-              stepIdentifier: StepIdentifier(), title: "", text: "");
+            stepIdentifier: StepIdentifier(id: index.toString()),
+            title: "",
+            text: "",
+          );
         }
         Map<String, dynamic> question = questions[index - 1];
         String questionTitle = question["text"];

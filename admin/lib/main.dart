@@ -1,5 +1,6 @@
 import 'package:admin/theme.dart';
 import 'package:admin/view/pages/frame_page.dart';
+import 'package:admin/view/pages/join_page.dart';
 import 'package:admin/view/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +25,7 @@ class Admin extends StatelessWidget {
       supportedLocales: [
         const Locale('ko', 'KR'),
       ],
-      home: FramePage(),
+      home: JoinPage(),
       theme: themeData,
     );
   }

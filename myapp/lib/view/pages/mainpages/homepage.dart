@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/diet_controller.dart';
+import 'package:myapp/model/menu_list.dart';
 import 'package:myapp/model/popular_menu.dart';
 import 'package:myapp/view/components/custom_banner.dart';
 import 'package:myapp/view/components/button/function_button.dart';
@@ -281,7 +282,7 @@ class _HomePageState extends State<HomePage> {
           [];
       count += 1;
     }
-
+    dietFromServer = result;
     return result;
   }
 }

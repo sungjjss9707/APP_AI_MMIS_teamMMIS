@@ -9,7 +9,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="admin design">
+      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/dto/survey_result_request_Dto.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/host.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/host.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/allergy.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/allergy.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/survey_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/controller/survey_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/user_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/controller/user_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/host.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/host.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/survey/survey_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/survey/survey_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/survey/survey_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/survey/survey_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/model/menu_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/model/menu_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/user/user_ex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/user/user_ex.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/join_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
