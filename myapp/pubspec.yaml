@@ -42,6 +42,7 @@ dependencies:
   survey_kit: ^0.0.12
   flutter_typeahead: ^3.2.1
   flutter_screenutil: ^5.0.0+2
+  custom_radio_grouped_button: ^2.1.1
 
 
 

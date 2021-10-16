@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/textfield/user_info_text_form_field.dart';
-import 'package:myapp/view/components/user_info_radio.dart';
 import 'package:myapp/view/pages/subpages/user_edit_page.dart';
 
 class UserInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final UserController u = Get.put(UserController());
+    final List<String> allergies = [];
+    for (String i in userAllergy.keys) {
+      if (userAllergy[i] == true) allergies.add(i);
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -31,62 +36,75 @@ class UserInfoPage extends StatelessWidget {
           children: [
             UserInfoTextFormField(
                 text: "소속",
-                info: unit,
+                info: u.principal.value.unit,
                 enabled: false,
                 validator: (String? value) => null),
             UserInfoTextFormField(
                 text: "계급",
-                info: classes,
+                info: u.principal.value.rank,
                 enabled: false,
                 validator: (String? value) => null),
             UserInfoTextFormField(
                 text: "이름",
-                info: userName,
+                info: u.principal.value.username,
                 enabled: false,
                 validator: (String? value) => null),
             UserInfoTextFormField(
-                text: "키",
-                info: height.toString(),
-                enabled: false,
-                validator: (String? value) => null),
-            UserInfoTextFormField(
-                text: "몸무게",
-                info: weight.toString(),
+                obscureText: true,
+                text: "비밀번호",
+                info: "aaaaaaaaaa",
                 enabled: false,
                 validator: (String? value) => null),
             Divider(),
-            Center(
-              child: Text(
-                "알레르기 정보",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
+            Container(
+              padding: EdgeInsets.all(4.r),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(10),
               ),
+              child: allergies.length != 0
+                  ? Column(
+                      children: [
+                        Text(
+                          "보유 알레르기",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 14.sp),
+                        ),
+                        SizedBox(
+                          height: 2.sp,
+                        ),
+                        Wrap(
+                          spacing: 8.sp,
+                          children: List.generate(
+                            allergies.length,
+                            (index) => Text(allergies[index]),
+                          ),
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        Text(
+                          "알레르기",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 14.sp),
+                        ),
+                        Text("없음",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 12.sp))
+                      ],
+                    ),
             ),
-            UserInfoRadio(text: "갑각류", enabled: false),
-            UserInfoRadio(text: "견과류", enabled: false),
-            UserInfoRadio(text: "달걀", enabled: false),
-            UserInfoRadio(text: "땅콩", enabled: false),
-            UserInfoRadio(text: "밀", enabled: false),
-            UserInfoRadio(text: "생선", enabled: false),
-            UserInfoRadio(text: "우유", enabled: false),
-            UserInfoRadio(text: "조개", enabled: false),
-            UserInfoRadio(text: "콩", enabled: false),
             Divider(),
             SizedBox(height: 8.h),
             Center(
-              child: OutlinedButton(
+              child: TextButton(
                 child: Text(
                   "수정하기",
                   style: TextStyle(
                       fontSize: 18.sp,
-                      color: Colors.green,
+                      color: Colors.lightGreen,
                       fontWeight: FontWeight.bold),
-                ),
-                style: OutlinedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      20,
-                    ),
-                  ),
                 ),
                 onPressed: () {
                   localUserAllergy = userAllergy;

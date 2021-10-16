@@ -72,7 +72,7 @@ class LoginPage extends StatelessWidget {
               }
             },
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 10.h),
           TextButton(
             child: Text("회원가입"),
             onPressed: () {

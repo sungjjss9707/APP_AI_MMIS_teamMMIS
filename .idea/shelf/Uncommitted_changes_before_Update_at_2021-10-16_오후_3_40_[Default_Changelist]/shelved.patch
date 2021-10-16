@@ -1,0 +1,1075 @@
+Index: myapp/lib/view/pages/subpages/user_info_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\nimport 'package:flutter_screenutil/flutter_screenutil.dart';\nimport 'package:get/get.dart';\nimport 'package:myapp/user/user_ex.dart';\nimport 'package:myapp/view/components/textfield/user_info_text_form_field.dart';\nimport 'package:myapp/view/components/user_info_radio.dart';\nimport 'package:myapp/view/pages/subpages/user_edit_page.dart';\n\nclass UserInfoPage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: Text(\n          \"회원정보\",\n          style: TextStyle(\n            fontWeight: FontWeight.bold,\n            fontSize: 18.sp,\n          ),\n        ),\n        centerTitle: true,\n      ),\n      body: Padding(\n        padding: EdgeInsets.only(\n          top: 30.h,\n          left: 20.w,\n          right: 20.w,\n          bottom: 30.h,\n        ),\n        child: ListView(\n          children: [\n            UserInfoTextFormField(\n                text: \"소속\",\n                info: unit,\n                enabled: false,\n                validator: (String? value) => null),\n            UserInfoTextFormField(\n                text: \"계급\",\n                info: classes,\n                enabled: false,\n                validator: (String? value) => null),\n            UserInfoTextFormField(\n                text: \"이름\",\n                info: userName,\n                enabled: false,\n                validator: (String? value) => null),\n            UserInfoTextFormField(\n                text: \"키\",\n                info: height.toString(),\n                enabled: false,\n                validator: (String? value) => null),\n            UserInfoTextFormField(\n                text: \"몸무게\",\n                info: weight.toString(),\n                enabled: false,\n                validator: (String? value) => null),\n            Divider(),\n            Center(\n              child: Text(\n                \"알레르기 정보\",\n                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),\n              ),\n            ),\n            UserInfoRadio(text: \"갑각류\", enabled: false),\n            UserInfoRadio(text: \"견과류\", enabled: false),\n            UserInfoRadio(text: \"달걀\", enabled: false),\n            UserInfoRadio(text: \"땅콩\", enabled: false),\n            UserInfoRadio(text: \"밀\", enabled: false),\n            UserInfoRadio(text: \"생선\", enabled: false),\n            UserInfoRadio(text: \"우유\", enabled: false),\n            UserInfoRadio(text: \"조개\", enabled: false),\n            UserInfoRadio(text: \"콩\", enabled: false),\n            Divider(),\n            SizedBox(height: 8.h),\n            Center(\n              child: OutlinedButton(\n                child: Text(\n                  \"수정하기\",\n                  style: TextStyle(\n                      fontSize: 18.sp,\n                      color: Colors.green,\n                      fontWeight: FontWeight.bold),\n                ),\n                style: OutlinedButton.styleFrom(\n                  shape: RoundedRectangleBorder(\n                    borderRadius: BorderRadius.circular(\n                      20,\n                    ),\n                  ),\n                ),\n                onPressed: () {\n                  localUserAllergy = userAllergy;\n                  Get.to(() => UserEditPage());\n                },\n              ),\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/view/pages/subpages/user_info_page.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/view/pages/subpages/user_info_page.dart	(date 1634366057122)
+@@ -9,6 +9,10 @@
+ class UserInfoPage extends StatelessWidget {
+   @override
+   Widget build(BuildContext context) {
++    final List<String> allergies = [];
++    for (String i in userAllergy.keys) {
++      if (userAllergy[i] == true) allergies.add(i);
++    }
+     return Scaffold(
+       appBar: AppBar(
+         title: Text(
+@@ -55,39 +59,56 @@
+                 enabled: false,
+                 validator: (String? value) => null),
+             Divider(),
+-            Center(
+-              child: Text(
+-                "알레르기 정보",
+-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
++            Container(
++              padding: EdgeInsets.all(4.r),
++              decoration: BoxDecoration(
++                border: Border.all(color: Colors.grey),
++                borderRadius: BorderRadius.circular(10),
+               ),
++              child: allergies.length != 0
++                  ? Column(
++                      children: [
++                        Text(
++                          "보유 알레르기",
++                          style: TextStyle(
++                              fontWeight: FontWeight.bold, fontSize: 14.sp),
++                        ),
++                        SizedBox(
++                          height: 2.sp,
++                        ),
++                        Wrap(
++                          spacing: 8.sp,
++                          children: List.generate(
++                            allergies.length,
++                            (index) => Text(allergies[index]),
++                          ),
++                        ),
++                      ],
++                    )
++                  : Column(
++                      children: [
++                        Text(
++                          "알레르기",
++                          style: TextStyle(
++                              fontWeight: FontWeight.bold, fontSize: 14.sp),
++                        ),
++                        Text("없음",
++                            style: TextStyle(
++                                fontWeight: FontWeight.w400, fontSize: 12.sp))
++                      ],
++                    ),
+             ),
+-            UserInfoRadio(text: "갑각류", enabled: false),
+-            UserInfoRadio(text: "견과류", enabled: false),
+-            UserInfoRadio(text: "달걀", enabled: false),
+-            UserInfoRadio(text: "땅콩", enabled: false),
+-            UserInfoRadio(text: "밀", enabled: false),
+-            UserInfoRadio(text: "생선", enabled: false),
+-            UserInfoRadio(text: "우유", enabled: false),
+-            UserInfoRadio(text: "조개", enabled: false),
+-            UserInfoRadio(text: "콩", enabled: false),
+             Divider(),
+             SizedBox(height: 8.h),
+             Center(
+-              child: OutlinedButton(
++              child: TextButton(
+                 child: Text(
+                   "수정하기",
+                   style: TextStyle(
+                       fontSize: 18.sp,
+-                      color: Colors.green,
++                      color: Colors.lightGreen,
+                       fontWeight: FontWeight.bold),
+                 ),
+-                style: OutlinedButton.styleFrom(
+-                  shape: RoundedRectangleBorder(
+-                    borderRadius: BorderRadius.circular(
+-                      20,
+-                    ),
+-                  ),
+-                ),
+                 onPressed: () {
+                   localUserAllergy = userAllergy;
+                   Get.to(() => UserEditPage());
+Index: myapp/lib/view/components/textfield/user_info_text_form_field.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\nimport 'package:flutter_screenutil/flutter_screenutil.dart';\n\nclass UserInfoTextFormField extends StatelessWidget {\n  String text;\n  String? info;\n  bool enabled;\n  int n;\n  final validator;\n  TextEditingController? controller;\n  UserInfoTextFormField({\n    required this.text,\n    this.info,\n    required this.enabled,\n    this.n = 10,\n    this.controller,\n    required this.validator,\n  });\n  Widget build(BuildContext context) {\n    return Column(\n      crossAxisAlignment: CrossAxisAlignment.start,\n      children: [\n        Text(\n          text,\n          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.sp),\n        ),\n        SizedBox(height: 8.h),\n        TextFormField(\n          validator: validator,\n          enabled: enabled,\n          controller: controller,\n          decoration: InputDecoration(\n            hintText: enabled == true ? \"\" : info,\n            enabledBorder: OutlineInputBorder(\n              borderRadius: BorderRadius.circular(20),\n              borderSide: BorderSide(\n                color: Colors.black54,\n              ),\n            ),\n            disabledBorder: OutlineInputBorder(\n              borderRadius: BorderRadius.circular(20),\n              borderSide: BorderSide(\n                color: Colors.black54,\n              ),\n            ),\n            focusedBorder: OutlineInputBorder(\n              borderRadius: BorderRadius.circular(20),\n              borderSide: BorderSide(\n                color: Colors.black54,\n              ),\n            ),\n            errorBorder: OutlineInputBorder(\n              borderRadius: BorderRadius.circular(20),\n              borderSide: BorderSide(\n                color: Colors.black54,\n              ),\n            ),\n            focusedErrorBorder: OutlineInputBorder(\n              borderRadius: BorderRadius.circular(20),\n              borderSide: BorderSide(\n                color: Colors.black54,\n              ),\n            ),\n          ),\n        ),\n        SizedBox(height: 15.h),\n      ],\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/view/components/textfield/user_info_text_form_field.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/view/components/textfield/user_info_text_form_field.dart	(date 1634365054794)
+@@ -32,31 +32,31 @@
+           decoration: InputDecoration(
+             hintText: enabled == true ? "" : info,
+             enabledBorder: OutlineInputBorder(
+-              borderRadius: BorderRadius.circular(20),
++              borderRadius: BorderRadius.circular(10),
+               borderSide: BorderSide(
+                 color: Colors.black54,
+               ),
+             ),
+             disabledBorder: OutlineInputBorder(
+-              borderRadius: BorderRadius.circular(20),
++              borderRadius: BorderRadius.circular(10),
+               borderSide: BorderSide(
+                 color: Colors.black54,
+               ),
+             ),
+             focusedBorder: OutlineInputBorder(
+-              borderRadius: BorderRadius.circular(20),
++              borderRadius: BorderRadius.circular(10),
+               borderSide: BorderSide(
+                 color: Colors.black54,
+               ),
+             ),
+             errorBorder: OutlineInputBorder(
+-              borderRadius: BorderRadius.circular(20),
++              borderRadius: BorderRadius.circular(10),
+               borderSide: BorderSide(
+                 color: Colors.black54,
+               ),
+             ),
+             focusedErrorBorder: OutlineInputBorder(
+-              borderRadius: BorderRadius.circular(20),
++              borderRadius: BorderRadius.circular(10),
+               borderSide: BorderSide(
+                 color: Colors.black54,
+               ),
+Index: admin/lib/main.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:admin/theme.dart';\nimport 'package:admin/view/pages/frame_page.dart';\nimport 'package:admin/view/pages/login_page.dart';\nimport 'package:flutter/material.dart';\nimport 'package:get/get.dart';\nimport 'package:flutter_localizations/flutter_localizations.dart';\n\nvoid main() {\n  runApp(Admin());\n}\n\nclass Admin extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return GetMaterialApp(\n      title: \"admin\",\n      debugShowCheckedModeBanner: false,\n      localizationsDelegates: [\n        // AssetLocalizations.delegate,\n        GlobalCupertinoLocalizations.delegate,\n        GlobalMaterialLocalizations.delegate,\n        GlobalWidgetsLocalizations.delegate,\n      ],\n      supportedLocales: [\n        const Locale('ko', 'KR'),\n      ],\n      home: FramePage(),\n      theme: themeData,\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/main.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ admin/lib/main.dart	(date 1634361609088)
+@@ -1,5 +1,6 @@
+ import 'package:admin/theme.dart';
+ import 'package:admin/view/pages/frame_page.dart';
++import 'package:admin/view/pages/join_page.dart';
+ import 'package:admin/view/pages/login_page.dart';
+ import 'package:flutter/material.dart';
+ import 'package:get/get.dart';
+@@ -24,7 +25,7 @@
+       supportedLocales: [
+         const Locale('ko', 'KR'),
+       ],
+-      home: FramePage(),
++      home: JoinPage(),
+       theme: themeData,
+     );
+   }
+Index: myapp/lib/view/pages/subpages/user_edit_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\nimport 'package:flutter_screenutil/flutter_screenutil.dart';\nimport 'package:get/get.dart';\nimport 'package:myapp/page_util/validators.dart';\nimport 'package:myapp/user/user_ex.dart';\nimport 'package:myapp/view/components/textfield/user_info_text_form_field.dart';\nimport 'package:myapp/view/components/user_info_radio.dart';\nimport 'package:myapp/view/pages/initialpages/framepage.dart';\n\nclass UserEditPage extends StatelessWidget {\n  @override\n  final _formKey = GlobalKey<FormState>();\n\n  Widget build(BuildContext context) {\n    TextEditingController nameController = TextEditingController();\n    nameController.text = userName;\n    TextEditingController classController = TextEditingController();\n    classController.text = classes;\n    TextEditingController unitController = TextEditingController();\n    unitController.text = unit;\n    TextEditingController heightController = TextEditingController();\n    heightController.text = height.toString();\n    TextEditingController weightController = TextEditingController();\n    weightController.text = weight.toString();\n    final allergies = userAllergy.keys.toList();\n    return Scaffold(\n      appBar: AppBar(\n        title: Text(\n          \"회원정보\",\n          style: TextStyle(\n            fontWeight: FontWeight.bold,\n            fontSize: 18.sp,\n          ),\n        ),\n        centerTitle: true,\n      ),\n      body: Padding(\n        padding: EdgeInsets.only(\n          top: 30.h,\n          left: 20.w,\n          right: 20.w,\n          bottom: 30.h,\n        ),\n        child: Form(\n          key: _formKey,\n          child: ListView(\n            children: [\n              UserInfoTextFormField(\n                  text: \"소속\",\n                  controller: unitController,\n                  enabled: true,\n                  validator: validateUnit()),\n              UserInfoTextFormField(\n                  text: \"계급\",\n                  controller: classController,\n                  enabled: true,\n                  validator: validateClass()),\n              UserInfoTextFormField(\n                  text: \"이름\",\n                  controller: nameController,\n                  enabled: true,\n                  validator: validateName()),\n              UserInfoTextFormField(\n                  text: \"키\",\n                  controller: heightController,\n                  enabled: true,\n                  validator: validateHeight()),\n              UserInfoTextFormField(\n                  text: \"몸무게\",\n                  controller: weightController,\n                  enabled: true,\n                  validator: validateHeight()),\n              Divider(),\n              Center(\n                child: Text(\n                  \"알레르기 정보\",\n                  style:\n                      TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),\n                ),\n              ),\n              ...List.generate(allergies.length, (i) {\n                return UserInfoRadio(text: allergies[i], enabled: true);\n              }),\n              Divider(),\n              SizedBox(height: 8.h),\n              Center(\n                child: OutlinedButton(\n                  child: Text(\n                    \"저장하기\",\n                    style: TextStyle(\n                        fontSize: 18.sp,\n                        color: Colors.blue,\n                        fontWeight: FontWeight.bold),\n                  ),\n                  style: OutlinedButton.styleFrom(\n                      shape: RoundedRectangleBorder(\n                          borderRadius: BorderRadius.circular(\n                    20,\n                  ))),\n                  onPressed: () {\n                    if (_formKey.currentState!.validate()) {\n                      userName = nameController.text;\n                      unit = unitController.text;\n                      classes = classController.text;\n                      height = double.parse(heightController.text);\n                      weight = double.parse(weightController.text);\n                      userAllergy = {...localUserAllergy};\n                      Get.to(() => FramePage());\n                      Get.snackbar(\"저장완료\", \"정보가 저장되었습니다.\",\n                          backgroundColor: Colors.white);\n                    }\n                  },\n                ),\n              ),\n            ],\n          ),\n        ),\n      ),\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/view/pages/subpages/user_edit_page.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/view/pages/subpages/user_edit_page.dart	(date 1634366395740)
+@@ -1,15 +1,20 @@
++import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
+ import 'package:flutter/material.dart';
+ import 'package:flutter_screenutil/flutter_screenutil.dart';
+ import 'package:get/get.dart';
++import 'package:myapp/controller/user_controller.dart';
+ import 'package:myapp/page_util/validators.dart';
+ import 'package:myapp/user/user_ex.dart';
+ import 'package:myapp/view/components/textfield/user_info_text_form_field.dart';
+-import 'package:myapp/view/components/user_info_radio.dart';
++
+ import 'package:myapp/view/pages/initialpages/framepage.dart';
+ 
++import '../../../allergy.dart';
++
+ class UserEditPage extends StatelessWidget {
+   @override
+   final _formKey = GlobalKey<FormState>();
++  final user = Get.put(UserController());
+ 
+   Widget build(BuildContext context) {
+     TextEditingController nameController = TextEditingController();
+@@ -18,11 +23,10 @@
+     classController.text = classes;
+     TextEditingController unitController = TextEditingController();
+     unitController.text = unit;
+-    TextEditingController heightController = TextEditingController();
+-    heightController.text = height.toString();
+-    TextEditingController weightController = TextEditingController();
+-    weightController.text = weight.toString();
+-    final allergies = userAllergy.keys.toList();
++    final List<String> allergies = [];
++    for (String i in userAllergy.keys) {
++      if (userAllergy[i] == true) allergies.add(i);
++    }
+     return Scaffold(
+       appBar: AppBar(
+         title: Text(
+@@ -60,16 +64,6 @@
+                   controller: nameController,
+                   enabled: true,
+                   validator: validateName()),
+-              UserInfoTextFormField(
+-                  text: "키",
+-                  controller: heightController,
+-                  enabled: true,
+-                  validator: validateHeight()),
+-              UserInfoTextFormField(
+-                  text: "몸무게",
+-                  controller: weightController,
+-                  enabled: true,
+-                  validator: validateHeight()),
+               Divider(),
+               Center(
+                 child: Text(
+@@ -78,9 +72,20 @@
+                       TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp),
+                 ),
+               ),
+-              ...List.generate(allergies.length, (i) {
+-                return UserInfoRadio(text: allergies[i], enabled: true);
+-              }),
++              CustomCheckBoxGroup(
++                enableButtonWrap: true,
++                buttonValuesList: allergyName,
++                buttonLables: allergyName,
++                defaultSelected: allergies,
++                checkBoxButtonValues: (value) {
++                  List allergyList = value;
++                  for (dynamic i in allergyList) {
++                    localUserAllergy[i] = true;
++                  }
++                },
++                selectedColor: Colors.lightGreen,
++                unSelectedColor: Colors.white,
++              ),
+               Divider(),
+               SizedBox(height: 8.h),
+               Center(
+@@ -102,8 +107,6 @@
+                       userName = nameController.text;
+                       unit = unitController.text;
+                       classes = classController.text;
+-                      height = double.parse(heightController.text);
+-                      weight = double.parse(weightController.text);
+                       userAllergy = {...localUserAllergy};
+                       Get.to(() => FramePage());
+                       Get.snackbar("저장완료", "정보가 저장되었습니다.",
+Index: myapp/lib/view/pages/initialpages/login_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\r\nimport 'package:get/get.dart';\r\nimport 'package:myapp/controller/user_controller.dart';\r\nimport 'package:myapp/page_util/validators.dart';\r\nimport 'package:myapp/view/components/button/custom_elevated_button.dart';\r\nimport 'package:myapp/view/components/textfield/custom_text_form_field.dart';\r\nimport 'package:flutter_screenutil/flutter_screenutil.dart';\r\nimport 'framepage.dart';\r\nimport 'join_page.dart';\r\n\r\nclass LoginPage extends StatelessWidget {\r\n  final _formKey = GlobalKey<FormState>();\r\n  final u = Get.put(UserController());\r\n  final _militaryNumber = TextEditingController();\r\n  final _password = TextEditingController();\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Scaffold(\r\n      body: Padding(\r\n        padding: const EdgeInsets.all(20.0),\r\n        child: ListView(\r\n          //아이디 비번 입력할떄 키보드가 올라와서 스크롤이 돼야함\r\n          children: [\r\n            Image.asset(\r\n              \"logo/logo_mmis.png\",\r\n              fit: BoxFit.cover,\r\n            ),\r\n            Center(\r\n              child: Text(\r\n                \"군 급식 정보 체계\",\r\n                style: TextStyle(\r\n                    fontSize: 32.w,\r\n                    fontWeight: FontWeight.bold,\r\n                    color: Colors.lightGreen),\r\n              ),\r\n            ),\r\n            SizedBox(height: 16.w),\r\n            _loginForm(), ////////////////////////밑에 만들어놈\r\n          ],\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n\r\n  Widget _loginForm() {\r\n    //이름입력, 군번입력, 로그인 버튼, 회원가입 버튼 네개로 이루어짐\r\n    return Form(\r\n      key: _formKey,\r\n      //한번에 서버로 날릴거라 이 네개를 폼으로 묶는게 좋음\r\n      child: Column(\r\n        children: [\r\n          CustomTextFormField(\r\n            controller: _militaryNumber,\r\n            hint: \"군번\",\r\n            funValidate: validateMilitaryNumber(),\r\n          ),\r\n          CustomTextFormField(\r\n            controller: _password,\r\n            obscureText: true,\r\n            hint: \"비밀번호\",\r\n            funValidate: validatePassWorld(),\r\n          ),\r\n          SizedBox(height: 10),\r\n          CustomElevatedButton(\r\n            width: double.infinity,\r\n            text: \"로그인\",\r\n            funpageRoute: () async {\r\n              if (_formKey.currentState!.validate()) {\r\n                await u.login(\r\n                    _militaryNumber.text.trim(), _password.text.trim());\r\n                Get.to(FramePage());\r\n              }\r\n            },\r\n          ),\r\n          SizedBox(height: 10),\r\n          TextButton(\r\n            child: Text(\"회원가입\"),\r\n            onPressed: () {\r\n              Get.to(JoinPage()); //회원가입페이지로 이동\r\n            },\r\n          ),\r\n        ],\r\n      ),\r\n    );\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/view/pages/initialpages/login_page.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/view/pages/initialpages/login_page.dart	(date 1634364062877)
+@@ -72,7 +72,7 @@
+               }
+             },
+           ),
+-          SizedBox(height: 10),
++          SizedBox(height: 10.h),
+           TextButton(
+             child: Text("회원가입"),
+             onPressed: () {
+Index: myapp/lib/view/pages/initialpages/join_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\r\nimport 'package:get/get.dart';\r\nimport 'package:myapp/allergy.dart';\r\nimport 'package:myapp/controller/user_controller.dart';\r\nimport 'package:myapp/page_util/validators.dart';\r\nimport 'package:myapp/user/user_ex.dart';\r\nimport 'package:myapp/view/components/button/custom_elevated_button.dart';\r\nimport 'package:myapp/view/components/textfield/custom_text_form_field.dart';\r\nimport 'package:myapp/view/components/user_info_radio.dart';\r\n\r\nimport 'login_page.dart';\r\n\r\nclass JoinPage extends StatelessWidget {\r\n  final _formKey = GlobalKey<FormState>();\r\n  final UserController u = Get.find();\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Scaffold(\r\n      body: Padding(\r\n        padding: const EdgeInsets.all(20.0),\r\n        child: ListView(\r\n          //아이디 비번 입력할떄 키보드가 올라와서 스크롤이 돼야함\r\n          children: [\r\n            Container(\r\n              alignment: Alignment.center,\r\n              height: 200,\r\n              child: Text(\r\n                \"회원가입\",\r\n                style: TextStyle(\r\n                  fontSize: 30,\r\n                  fontWeight: FontWeight.bold,\r\n                ),\r\n              ),\r\n            ),\r\n            _joinForm(), ////////////////////////\r\n          ],\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n\r\n  Widget _joinForm() {\r\n    TextEditingController nameController = TextEditingController();\r\n    TextEditingController milNumberController = TextEditingController();\r\n    TextEditingController classController = TextEditingController();\r\n    TextEditingController armyController = TextEditingController();\r\n    TextEditingController unitController = TextEditingController();\r\n    final allergies = allergyName;\r\n    //이름쓰는칸, 군번쓰는칸, 계급쓰는칸, 회원가입버튼 네개로 이루어짐\r\n    return Form(\r\n      key: _formKey,\r\n      //한번에 서버로 날릴거라 이 네개를 폼으로 묶는게 좋음\r\n      child: Column(\r\n        children: [\r\n          CustomTextFormField(\r\n            hint: \"이름\",\r\n            funValidate: null,\r\n            controller: nameController,\r\n          ),\r\n          CustomTextFormField(\r\n            hint: \"군번\",\r\n            funValidate: validateMilitaryNumber(),\r\n            controller: milNumberController,\r\n          ),\r\n          CustomTextFormField(\r\n            hint: \"계급\",\r\n            funValidate: null,\r\n            controller: classController,\r\n          ),\r\n          CustomTextFormField(\r\n            hint: \"소속\",\r\n            funValidate: null,\r\n            controller: unitController,\r\n          ),\r\n          SizedBox(height: 10),\r\n          Center(\r\n            child: Text(\r\n              \"알레르기 정보\",\r\n              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),\r\n            ),\r\n          ),\r\n          ...List.generate(allergies.length, (i) {\r\n            return UserInfoRadio(text: allergies[i], enabled: true);\r\n          }),\r\n          SizedBox(height: 10),\r\n          CustomElevatedButton(\r\n            text: \"회원가입\",\r\n            funpageRoute: () {\r\n              if (_formKey.currentState!.validate()) {\r\n                userName = nameController.text;\r\n                army = armyController.text;\r\n                unit = unitController.text;\r\n                classes = classController.text;\r\n                userAllergy = {...localUserAllergy};\r\n                Get.to(() => LoginPage());\r\n                Get.snackbar(\"저장완료\", \"정보가 저장되었습니다.\",\r\n                    backgroundColor: Colors.white);\r\n              }\r\n            },\r\n            width: double.infinity,\r\n          ),\r\n        ],\r\n      ),\r\n    );\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/view/pages/initialpages/join_page.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/view/pages/initialpages/join_page.dart	(date 1634364062813)
+@@ -1,3 +1,4 @@
++import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
+ import 'package:flutter/material.dart';
+ import 'package:get/get.dart';
+ import 'package:myapp/allergy.dart';
+@@ -6,13 +7,12 @@
+ import 'package:myapp/user/user_ex.dart';
+ import 'package:myapp/view/components/button/custom_elevated_button.dart';
+ import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
+-import 'package:myapp/view/components/user_info_radio.dart';
+-
++import 'package:flutter_screenutil/flutter_screenutil.dart';
+ import 'login_page.dart';
+ 
+ class JoinPage extends StatelessWidget {
+   final _formKey = GlobalKey<FormState>();
+-  final UserController u = Get.find();
++  final UserController u = Get.put(UserController());
+   @override
+   Widget build(BuildContext context) {
+     return Scaffold(
+@@ -21,17 +21,18 @@
+         child: ListView(
+           //아이디 비번 입력할떄 키보드가 올라와서 스크롤이 돼야함
+           children: [
++            SizedBox(height: 0.07.sw),
+             Container(
+               alignment: Alignment.center,
+-              height: 200,
+               child: Text(
+                 "회원가입",
+                 style: TextStyle(
+-                  fontSize: 30,
++                  fontSize: 30.sp,
+                   fontWeight: FontWeight.bold,
+                 ),
+               ),
+             ),
++            SizedBox(height: 0.07.sw),
+             _joinForm(), ////////////////////////
+           ],
+         ),
+@@ -45,6 +46,8 @@
+     TextEditingController classController = TextEditingController();
+     TextEditingController armyController = TextEditingController();
+     TextEditingController unitController = TextEditingController();
++    TextEditingController password = TextEditingController();
++    TextEditingController passwordConfirm = TextEditingController();
+     final allergies = allergyName;
+     //이름쓰는칸, 군번쓰는칸, 계급쓰는칸, 회원가입버튼 네개로 이루어짐
+     return Form(
+@@ -72,33 +75,89 @@
+             funValidate: null,
+             controller: unitController,
+           ),
+-          SizedBox(height: 10),
++          CustomTextFormField(
++            hint: "비밀번호",
++            obscureText: true,
++            funValidate: null,
++            controller: password,
++          ),
++          CustomTextFormField(
++            hint: "비밀번호 확인",
++            obscureText: true,
++            funValidate: null,
++            controller: passwordConfirm,
++          ),
++          SizedBox(height: 10.h),
+           Center(
+             child: Text(
+               "알레르기 정보",
+-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
++              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp),
+             ),
+           ),
+-          ...List.generate(allergies.length, (i) {
+-            return UserInfoRadio(text: allergies[i], enabled: true);
+-          }),
++          CustomCheckBoxGroup(
++            enableButtonWrap: true,
++            buttonValuesList: allergyName,
++            buttonLables: allergyName,
++            checkBoxButtonValues: (value) {
++              List allergyList = value;
++              for (dynamic i in allergyList) {
++                localUserAllergy[i] = true;
++              }
++            },
++            selectedColor: Colors.lightGreen,
++            unSelectedColor: Colors.white,
++          ),
++          // ...List.generate(allergies.length, (i) {
++          //   return UserInfoRadio(text: allergies[i], enabled: true);
++          // }),
+           SizedBox(height: 10),
+           CustomElevatedButton(
+             text: "회원가입",
+-            funpageRoute: () {
++            funpageRoute: () async {
+               if (_formKey.currentState!.validate()) {
+-                userName = nameController.text;
+-                army = armyController.text;
+-                unit = unitController.text;
+-                classes = classController.text;
+-                userAllergy = {...localUserAllergy};
+-                Get.to(() => LoginPage());
+-                Get.snackbar("저장완료", "정보가 저장되었습니다.",
+-                    backgroundColor: Colors.white);
++                if (passwordConfirm.text.trim() != password.text.trim()) {
++                  Get.snackbar("회원가입 실패", "비밀번호 확인과 비밀번호가 다릅니다.",
++                      colorText: Colors.red, backgroundColor: Colors.white);
++                } else {
++                  userName = nameController.text;
++                  army = armyController.text;
++                  unit = unitController.text;
++                  classes = classController.text;
++                  userAllergy = {...localUserAllergy};
++                  Map<String, String> allergy = userAllergy.map(
++                      (key, value) => MapEntry(key, value == true ? "1" : "0"));
++                  try {
++                    int result = await u.join(
++                        nameController.text,
++                        milNumberController.text,
++                        password.text,
++                        armyController.text,
++                        unitController.text,
++                        allergy);
++                    if (result == 1) {
++                      Get.snackbar("저장완료", "정보가 저장되었습니다.",
++                          backgroundColor: Colors.white);
++                      Get.to(() => LoginPage());
++                    } else
++                      Get.snackbar("회원가입 실패", "이미 가입되어 있습니다",
++                          colorText: Colors.red, backgroundColor: Colors.white);
++                    Get.to(() => LoginPage());
++                  } catch (e) {
++                    Get.snackbar("회원가입 실패", "서버와의 연결이 끊겼습니다.",
++                        colorText: Colors.red, backgroundColor: Colors.white);
++                  }
++                }
+               }
+             },
+             width: double.infinity,
+           ),
++          SizedBox(height: 10.h),
++          TextButton(
++            child: Text("이미 회원이신가요?"),
++            onPressed: () {
++              Get.to(LoginPage()); //회원가입페이지로 이동
++            },
++          )
+         ],
+       ),
+     );
+Index: myapp/lib/user/user_ex.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:intl/intl.dart';\r\n\r\nString userName = \"최윤호\";\r\nString classes = \"병장\";\r\nString army = \"공군\";\r\nString unit = \"8전투비행단\";\r\ndouble height = 180.0;\r\ndouble weight = 70.0;\r\n\r\n// Map<String, List> userNotEating = {\r\n//   \"2021-09-10\": [\"석식\"]\r\n// };\r\nMap<String, Map<String, Map<String, List<String>>>> userNotEating = {\r\n  \"2021\": {\r\n    \"9\": {\r\n      \"12\": [\"석식\"]\r\n    }\r\n  }\r\n}; // 2021, 3, 4, 석식 이런 식으로 데이터가 들어감.\r\n\r\nList<String> splitDate(String date) {\r\n  DateTime _date = DateFormat(\"yyyy/MM/dd\").parse(date);\r\n  return [_date.year.toString(), _date.month.toString(), _date.day.toString()];\r\n}\r\n\r\nvoid addUserNotEating(String date, String time) {\r\n  List dateList = splitDate(date);\r\n  String year = dateList[0];\r\n  String month = dateList[1];\r\n  String day = dateList[2];\r\n  if (userNotEating[year] == null) {\r\n    userNotEating[year] = {\r\n      month: {\r\n        day: [time]\r\n      }\r\n    };\r\n  } else if (userNotEating[year]![month] == null) {\r\n    userNotEating[year]![month] = {\r\n      day: [time]\r\n    };\r\n  } else if (userNotEating[year]![month]![day] == null) {\r\n    userNotEating[year]![month]![day] = [time];\r\n  } else if (userNotEating[year]![month]![day]!.contains(time)) {\r\n    return;\r\n  } else {\r\n    userNotEating[year]![month]![day]!.add(time);\r\n  }\r\n}\r\n\r\nvoid removeUserNotEating(String date, String time) {\r\n  List dateList = splitDate(date);\r\n  String year = dateList[0];\r\n  String month = dateList[1];\r\n  String day = dateList[2];\r\n  userNotEating[year]![month]![day]!.remove(time);\r\n  // if (userNotEating[date]!.length == 0) userNotEating.remove(date);\r\n}\r\n\r\nbool checkIfEating(String date, String time) {\r\n  List dateList = splitDate(date);\r\n  String year = dateList[0];\r\n  String month = dateList[1];\r\n  String day = dateList[2];\r\n  if (userNotEating[year] == null) {\r\n    return true;\r\n  } else if (userNotEating[year]![month] == null) {\r\n    return true;\r\n  } else if (userNotEating[year]![month]![day] == null) {\r\n    return true;\r\n  } else if (userNotEating[year]![month]![day]!.contains(time)) {\r\n    return false;\r\n  } else\r\n    return true;\r\n}\r\n\r\nMap<String, bool> userAllergy = {\r\n  \"갑각류\": true,\r\n  \"견과류\": true,\r\n  \"달걀\": true,\r\n  \"땅콩\": true,\r\n  \"밀\": true,\r\n  \"생선\": true,\r\n  \"우유\": true,\r\n  \"조개\": true,\r\n  \"콩\": true\r\n};\r\nMap<String, bool> localUserAllergy = {...userAllergy};\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/user/user_ex.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/user/user_ex.dart	(date 1634361523623)
+@@ -10,13 +10,8 @@
+ // Map<String, List> userNotEating = {
+ //   "2021-09-10": ["석식"]
+ // };
+-Map<String, Map<String, Map<String, List<String>>>> userNotEating = {
+-  "2021": {
+-    "9": {
+-      "12": ["석식"]
+-    }
+-  }
+-}; // 2021, 3, 4, 석식 이런 식으로 데이터가 들어감.
++Map<String, Map<String, Map<String, List<String>>>> userNotEating =
++    {}; // 2021, 3, 4, 석식 이런 식으로 데이터가 들어감.
+ 
+ List<String> splitDate(String date) {
+   DateTime _date = DateFormat("yyyy/MM/dd").parse(date);
+@@ -74,14 +69,24 @@
+ }
+ 
+ Map<String, bool> userAllergy = {
+-  "갑각류": true,
+-  "견과류": true,
+-  "달걀": true,
+-  "땅콩": true,
+-  "밀": true,
+-  "생선": true,
+-  "우유": true,
+-  "조개": true,
+-  "콩": true
++  "계란류": false,
++  "우유": false,
++  "메밀": false,
++  "땅콩": false,
++  "대두": false,
++  "밀": false,
++  "고등어": false,
++  "게": false,
++  "새우": false,
++  "돼지고기": false,
++  "복숭아": false,
++  "토마토": false,
++  "아황산류": false,
++  "호두": false,
++  "닭고기": false,
++  "쇠고기": false,
++  "오징어": false,
++  "조개류": false,
++  "잣": false,
+ };
+ Map<String, bool> localUserAllergy = {...userAllergy};
+Index: myapp/lib/controller/dto/survey_result_request_Dto.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/controller/dto/survey_result_request_Dto.dart	(date 1634348340495)
++++ myapp/lib/controller/dto/survey_result_request_Dto.dart	(date 1634348340495)
+@@ -0,0 +1,12 @@
++class SurveyResultDto {
++  final int id;
++  final String type;
++  final List<String> answer;
++
++  SurveyResultDto(this.id, this.type, this.answer);
++  Map<String, dynamic> toJson() => {
++        "id": id,
++        "type": type,
++        "answer": answer,
++      };
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"NONE\" />\n  </component>\n  <component name=\"BranchesTreeState\">\n    <expand />\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e\" name=\"Default Changelist\" comment=\"admin design\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Dart File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"survey_kit_test\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitSEFilterConfiguration\">\n    <file-type-list>\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\n      <filtered-out-file-type name=\"TAG\" />\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\n    </file-type-list>\n  </component>\n  <component name=\"ProjectId\" id=\"1y2hunPBSVi8eVQ03IidzeIslyE\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"android.sdk.path\" value=\"$USER_HOME$/AppData/Local/Android/Sdk\" />\n    <property name=\"dart.analysis.tool.window.visible\" value=\"false\" />\n    <property name=\"io.flutter.reload.alreadyRun\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/myapp/lib/domain\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"dart.settings\" />\n    <property name=\"show.migrate.to.gradle.popup\" value=\"false\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\admin\\assets\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\myapp\\assets\\font\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\admin\\lib\\view\\components\\number_eating\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\admin\\lib\\view\\components\\suggestion\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\admin\\lib\\controller\\dto\" />\n    </key>\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS_1\\myapp\\lib\\domain\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS_1\\myapp\\lib\\controller\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\myapp\\lib\\controller\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS\\myapp\\assets\" />\n      <recent name=\"C:\\Users\\src\\flutterwork\\APP_AI_MMIS_teamMMIS_1\\myapp\\lib\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"main.dart\" type=\"FlutterRunConfigurationType\" factoryName=\"Flutter\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"filePath\" value=\"$PROJECT_DIR$/myapp/lib/main.dart\" />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Flutter.main.dart\" />\n        <item itemvalue=\"Flutter.main.dart\" />\n        <item itemvalue=\"Flutter.main.dart\" />\n        <item itemvalue=\"Flutter.main.dart\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1631455816789</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1631455816789</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"9월 13일\">\n      <created>1631513931129</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631513931129</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"불취식 관리 더 해야 됨.\">\n      <created>1631525998050</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631525998050</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨.\">\n      <created>1631528414343</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631528414343</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"date_functions 수정 중. &gt; menu box 디자인 수정\">\n      <created>1631618221985</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631618221985</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"관리자 페이지 생성 9월 16일\">\n      <created>1631774127235</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631774127235</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"관리자 페이지 생성 9월 16일\">\n      <created>1631774249805</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1631774249805</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"설문조사 하는 중\">\n      <created>1632480328182</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1632480328182</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"설문조사 하는 중\">\n      <created>1632548787146</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1632548787146</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"admin파일 정리\">\n      <created>1632667309041</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1632667309041</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"admin파일 정리\">\n      <created>1632667341237</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1632667341237</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"설문조사 생성 만드는 중\">\n      <created>1632737154419</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1632737154419</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"설문조사 생성 만드는 중\">\n      <created>1633003408114</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633003408114</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"설문조사 생성 만드는 중\">\n      <created>1633228491520</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633228491520</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"공지사항 하는 중\">\n      <created>1633241341657</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633241341658</updated>\n    </task>\n    <task id=\"LOCAL-00015\" summary=\"공지사항 하는 중\">\n      <created>1633309489524</created>\n      <option name=\"number\" value=\"00015\" />\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633309489524</updated>\n    </task>\n    <task id=\"LOCAL-00016\" summary=\"공지사항 하는 중\">\n      <created>1633311551664</created>\n      <option name=\"number\" value=\"00016\" />\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633311551664</updated>\n    </task>\n    <task id=\"LOCAL-00017\" summary=\"surveycontroller, dto 완성\">\n      <created>1633414536787</created>\n      <option name=\"number\" value=\"00017\" />\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633414536818</updated>\n    </task>\n    <task id=\"LOCAL-00018\" summary=\"surveycontroller, dto 완성\">\n      <created>1633446067459</created>\n      <option name=\"number\" value=\"00018\" />\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633446067459</updated>\n    </task>\n    <task id=\"LOCAL-00019\" summary=\"surveycontroller, dto 완성\">\n      <created>1633446777539</created>\n      <option name=\"number\" value=\"00019\" />\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633446777539</updated>\n    </task>\n    <task id=\"LOCAL-00020\" summary=\"api 문서 수정 완료\">\n      <created>1633490047192</created>\n      <option name=\"number\" value=\"00020\" />\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633490047192</updated>\n    </task>\n    <task id=\"LOCAL-00021\" summary=\"공지사항 통신 준비 완료\">\n      <created>1633507466104</created>\n      <option name=\"number\" value=\"00021\" />\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633507466104</updated>\n    </task>\n    <task id=\"LOCAL-00022\" summary=\"AI 페이지 디자인 중\">\n      <created>1633592149597</created>\n      <option name=\"number\" value=\"00022\" />\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633592149597</updated>\n    </task>\n    <task id=\"LOCAL-00023\" summary=\"AI 페이지 디자인 중\">\n      <created>1633595074263</created>\n      <option name=\"number\" value=\"00023\" />\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633595074263</updated>\n    </task>\n    <task id=\"LOCAL-00024\" summary=\"mypp AI페이지 디자인 완료\">\n      <created>1633597829209</created>\n      <option name=\"number\" value=\"00024\" />\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633597829209</updated>\n    </task>\n    <task id=\"LOCAL-00025\" summary=\"mypp AI페이지 디자인 완료\">\n      <created>1633663738844</created>\n      <option name=\"number\" value=\"00025\" />\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633663738844</updated>\n    </task>\n    <task id=\"LOCAL-00026\" summary=\"메뉴 관리 페이지 하는 중\">\n      <created>1633675397630</created>\n      <option name=\"number\" value=\"00026\" />\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633675397630</updated>\n    </task>\n    <task id=\"LOCAL-00027\" summary=\"건의사항 하는 중\">\n      <created>1633764260926</created>\n      <option name=\"number\" value=\"00027\" />\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633764260926</updated>\n    </task>\n    <task id=\"LOCAL-00028\" summary=\"공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료\">\n      <created>1633850366997</created>\n      <option name=\"number\" value=\"00028\" />\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633850366997</updated>\n    </task>\n    <task id=\"LOCAL-00029\" summary=\"공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료\">\n      <created>1633850374904</created>\n      <option name=\"number\" value=\"00029\" />\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633850374904</updated>\n    </task>\n    <task id=\"LOCAL-00030\" summary=\"공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료\">\n      <created>1633852160879</created>\n      <option name=\"number\" value=\"00030\" />\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633852160879</updated>\n    </task>\n    <task id=\"LOCAL-00031\" summary=\"공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료\">\n      <created>1633874285485</created>\n      <option name=\"number\" value=\"00031\" />\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1633874285485</updated>\n    </task>\n    <task id=\"LOCAL-00032\" summary=\"공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료\">\n      <created>1634007795611</created>\n      <option name=\"number\" value=\"00032\" />\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1634007795611</updated>\n    </task>\n    <task id=\"LOCAL-00033\" summary=\"식단 관리 하는 중\">\n      <created>1634023289572</created>\n      <option name=\"number\" value=\"00033\" />\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1634023289588</updated>\n    </task>\n    <task id=\"LOCAL-00034\" summary=\"식단 관리 하는 중\">\n      <created>1634027168741</created>\n      <option name=\"number\" value=\"00034\" />\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1634027168741</updated>\n    </task>\n    <task id=\"LOCAL-00035\" summary=\"식단 관리 하는 중\">\n      <created>1634111065967</created>\n      <option name=\"number\" value=\"00035\" />\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1634111065967</updated>\n    </task>\n    <task id=\"LOCAL-00036\" summary=\"식단 관리 하는 중\">\n      <created>1634111076169</created>\n      <option name=\"number\" value=\"00036\" />\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1634111076169</updated>\n    </task>\n    <task id=\"LOCAL-00037\" summary=\"식단 관리 하는 중\">\n      <created>1634120492920</created>\n      <option name=\"number\" value=\"00037\" />\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1634120492920</updated>\n    </task>\n    <task id=\"LOCAL-00038\" summary=\"admin design\">\n      <created>1634314591571</created>\n      <option name=\"number\" value=\"00038\" />\n      <option name=\"presentableId\" value=\"LOCAL-00038\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1634314591571</updated>\n    </task>\n    <task id=\"LOCAL-00039\" summary=\"admin design\">\n      <created>1634316624965</created>\n      <option name=\"number\" value=\"00039\" />\n      <option name=\"presentableId\" value=\"LOCAL-00039\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1634316624965</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"40\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\n                <map>\n                  <entry key=\"Show.Git.Branches\" value=\"true\" />\n                </map>\n              </option>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"main\" />\n                      </list>\n                    </value>\n                  </entry>\n                  <entry key=\"user\">\n                    <value>\n                      <list>\n                        <option value=\"*\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"RECENT_FILTERS\">\n      <map>\n        <entry key=\"Branch\">\n          <value>\n            <list>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"origin/yunho_admin\" />\n                </option>\n              </RecentGroup>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"origin/main\" />\n                </option>\n              </RecentGroup>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"origin/yunho\" />\n                </option>\n              </RecentGroup>\n            </list>\n          </value>\n        </entry>\n        <entry key=\"User\">\n          <value>\n            <list>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"*\" />\n                </option>\n              </RecentGroup>\n            </list>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"9월 13일\" />\n    <MESSAGE value=\"불취식 관리 더 해야 됨.\" />\n    <MESSAGE value=\"불취식 관리 더 해야 됨. 메뉴 rating page도 나갈 때, 홈페이지가 제부티 되게 해야됨.\" />\n    <MESSAGE value=\"date_functions 수정 중. &gt; menu box 디자인 수정\" />\n    <MESSAGE value=\"관리자 페이지 생성\" />\n    <MESSAGE value=\"관리자 페이지 생성 9월 16일\" />\n    <MESSAGE value=\"공제페이지 달력 추가(손 보는 중)\" />\n    <MESSAGE value=\"설문조사 하는 중\" />\n    <MESSAGE value=\"admin파일 정리\" />\n    <MESSAGE value=\"설문조사 생성 만드는 중\" />\n    <MESSAGE value=\"공지사항 하는 중\" />\n    <MESSAGE value=\"surveycontroller, dto 완성\" />\n    <MESSAGE value=\"api 문서 수정 완료\" />\n    <MESSAGE value=\"공지사항 통신 준비 완료\" />\n    <MESSAGE value=\"AI 페이지 디자인 중\" />\n    <MESSAGE value=\"mypp AI페이지 디자인 완료\" />\n    <MESSAGE value=\"메뉴 관리 페이지 하는 중\" />\n    <MESSAGE value=\"건의사항 하는 중\" />\n    <MESSAGE value=\"공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료\" />\n    <MESSAGE value=\"식단 관리 하는 중\" />\n    <MESSAGE value=\"admin design\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"admin design\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state width=\"623\" height=\"498\" key=\"SwitcherDM\" timestamp=\"1633953324159\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state width=\"623\" height=\"498\" key=\"SwitcherDM/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1633953324159\" />\n    <state x=\"234\" y=\"181\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1634316631650\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"234\" y=\"181\" key=\"Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1634316631650\" />\n    <state x=\"267\" y=\"265\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1634316627665\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"267\" y=\"265\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1634316627665\" />\n    <state x=\"532\" y=\"237\" key=\"run.anything.popup\" timestamp=\"1634104180037\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"532\" y=\"237\" key=\"run.anything.popup/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1634104180037\" />\n    <state x=\"321\" y=\"5\" width=\"840\" height=\"1034\" key=\"search.everywhere.popup\" timestamp=\"1634305909592\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"321\" y=\"5\" width=\"840\" height=\"1034\" key=\"search.everywhere.popup/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1634305909592\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"Dart\">\n          <url>file://$PROJECT_DIR$/../../../../src/flutter/bin/cache/pkg/sky_engine/lib/ui/painting.dart</url>\n          <line>162</line>\n          <option name=\"timeStamp\" value=\"2\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ .idea/workspace.xml	(date 1634365055044)
+@@ -9,7 +9,28 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="admin design">
++      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/dto/survey_result_request_Dto.dart" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/lib/domain/host.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/host.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/allergy.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/allergy.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/survey_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/controller/survey_controller.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/user_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/controller/user_controller.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/host.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/host.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/survey/survey_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/survey/survey_provider.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/survey/survey_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/survey/survey_repository.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/model/menu_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/model/menu_list.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/user/user_ex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/user/user_ex.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/join_page.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+Index: myapp/lib/model/menu_list.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:intl/intl.dart';\nimport 'package:myapp/model/menu.dart';\n\nMap<String, Map<String, Map<String, Map<String, List<String>>>>> menu = {\n  \"2021\": {\n    \"10\": {\n      \"6\": {\n        \"석식\": [\n          \"밥\",\n          \"김치\",\n          \"오징어 제육볶음\",\n          \"맛김\",\n          \"오이무침\",\n          \"미역국\",\n        ],\n      },\n      \"7\": {\n        \"석식\": [\n          \"차조밥\",\n          \"열무김치\",\n          \"버섯제육볶음\",\n          \"맛김\",\n          \"오뎅국\",\n          \"김치\",\n          \"우유\",\n          \"초콜릿\",\n          \"버섯\",\n        ],\n      },\n      \"8\": {\n        \"석식\": [\n          \"밥\",\n          \"오이소박이\",\n          \"소고기볶음\",\n          \"비엔나 소세지 볶음\",\n          \"오이무침\",\n          \"북엇국\",\n        ],\n      },\n      \"9\": {\n        \"중식\": [\n          \"불고기 버거\",\n          \"감자튀김\",\n          \"시리얼\",\n        ],\n      },\n      \"10\": {\n        \"브런치\": [\n          \"메밀국수\",\n          \"김치\",\n          \"떡갈비\",\n          \"음료\",\n          \"야채 샐러드\",\n          \"마카롱\",\n        ],\n      },\n      \"12\": {\n        \"석식\": [\n          \"밥\",\n          \"김치\",\n        ],\n        \"중식\": [\"떡\", \"김치\"],\n        \"조식\": [\"떡만두국\", \"김치\"],\n      },\n      \"13\": {\n        \"브런치\": [\n          \"메밀국수\",\n          \"김치\",\n          \"떡갈비\",\n          \"음료\",\n          \"야채 샐러드\",\n          \"마카롱\",\n        ],\n        \"중식\": [\n          \"메밀국수\",\n          \"김치\",\n          \"떡갈비\",\n          \"음료\",\n          \"야채 샐러드\",\n          \"마카롱\",\n        ],\n      },\n    }\n  }\n};\n\nList<String> times = [\"브런치\", \"조식\", \"중식\", \"석식\"];\n\nbool checkMenuExistence(int year, int month, int day, String time) {\n  if (menu[year.toString()] == null) {\n    return false;\n  } else if (menu[year.toString()]![month.toString()] == null) {\n    return false;\n  } else if (menu[year.toString()]![month.toString()]![day.toString()] ==\n      null) {\n    return false;\n  } else if (menu[year.toString()]![month.toString()]![day.toString()]![time] ==\n      null) {\n    return false;\n  } else if (menu[year.toString()]![month.toString()]![day.toString()]![time]!\n      .isEmpty) {\n    return false;\n  } else {\n    return true;\n  }\n}\n\nbool checkDayMenuExistence(int year, int month, int day) {\n  List<int> temp = loadDayMenuExistence(year, month, day);\n  int result = temp[0] + temp[1] + temp[2] + temp[3];\n  return result != 0;\n}\n\nList<int> loadDayMenuExistence(int year, int month, int day) {\n  List<int> result = [0, 0, 0, 0];\n  checkMenuExistence(year, month, day, \"브런치\") == true ? result[0]++ : 0;\n  checkMenuExistence(year, month, day, \"조식\") == true ? result[1]++ : 0;\n  checkMenuExistence(year, month, day, \"중식\") == true ? result[2]++ : 0;\n  checkMenuExistence(year, month, day, \"석식\") == true ? result[3]++ : 0;\n  return result;\n}\n\nList<Menu> makeMenuList() {\n  List<Menu> menuList = [];\n  final years = menu.keys.toList();\n  for (int i = 0; i < years.length; ++i) {\n    final months = menu[years[i]]!.keys.toList();\n    for (int j = 0; j < months.length; ++j) {\n      final days = menu[years[i]]![months[j]]!.keys.toList();\n      for (int k = 0; k < days.length; ++k) {\n        final times = menu[years[i]]![months[j]]![days[k]]!.keys.toList();\n        for (int l = 0; l < times.length; ++l) {\n          final menuPlate = menu[years[i]]![months[j]]![days[k]]![times[l]];\n          List<double> rate = menuPlate!.map((e) => 0.0).toList();\n          DateTime t = DateTime(\n              int.parse(years[i]), int.parse(months[j]), int.parse(days[k]));\n          DateFormat formatter = DateFormat(\"yyyy-MM-dd\");\n          String date = formatter.format(t);\n          menuList.add(Menu(date, times[l], menuPlate, rate));\n        }\n      }\n    }\n  }\n  return menuList;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/model/menu_list.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/model/menu_list.dart	(date 1634355485445)
+@@ -1,6 +1,7 @@
+ import 'package:intl/intl.dart';
+ import 'package:myapp/model/menu.dart';
+ 
++Map<String, List<String>> dietFromServer = {};
+ Map<String, Map<String, Map<String, Map<String, List<String>>>>> menu = {
+   "2021": {
+     "10": {
+@@ -87,22 +88,27 @@
+ List<String> times = ["브런치", "조식", "중식", "석식"];
+ 
+ bool checkMenuExistence(int year, int month, int day, String time) {
+-  if (menu[year.toString()] == null) {
+-    return false;
+-  } else if (menu[year.toString()]![month.toString()] == null) {
+-    return false;
+-  } else if (menu[year.toString()]![month.toString()]![day.toString()] ==
+-      null) {
+-    return false;
+-  } else if (menu[year.toString()]![month.toString()]![day.toString()]![time] ==
+-      null) {
+-    return false;
+-  } else if (menu[year.toString()]![month.toString()]![day.toString()]![time]!
+-      .isEmpty) {
+-    return false;
+-  } else {
+-    return true;
+-  }
++  if (dietFromServer["$year/$month/$day/$time"] != null) {
++    if (dietFromServer["$year/$month/$day/$time"]!.length != 0) {
++      return true;
++    }
++    // if (menu[year.toString()] == null) {
++    //   return false;
++    // } else if (menu[year.toString()]![month.toString()] == null) {
++    //   return false;
++    // } else if (menu[year.toString()]![month.toString()]![day.toString()] ==
++    //     null) {
++    //   return false;
++    // } else if (menu[year.toString()]![month.toString()]![day.toString()]![time] ==
++    //     null) {
++    //   return false;
++    // } else if (menu[year.toString()]![month.toString()]![day.toString()]![time]!
++    //     .isEmpty) {
++    //   return false;
++    // } else {
++    //   return true;
++  }
++  return false;
+ }
+ 
+ bool checkDayMenuExistence(int year, int month, int day) {
+Index: myapp/lib/view/pages/subpages/do_survey_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/cupertino.dart';\nimport 'package:flutter/material.dart';\nimport 'package:get/get.dart';\nimport 'package:myapp/domain/survey/survey.dart';\nimport 'package:survey_kit/survey_kit.dart';\n\nimport '../../../theme.dart';\n\nclass DoSurveyPage extends StatelessWidget {\n  final Survey survey;\n  final SurveyController _surveyController = SurveyController();\n  DoSurveyPage(this.survey);\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: Container(\n        child: SurveyKit(\n          surveyController: _surveyController,\n          task: _orderedTask(survey),\n          themeData: SurveyTheme(context),\n          onResult: (SurveyResult result) {\n            print(\"1${result.results[1].results[0].valueIdentifier}\");\n            print(\"2${result.results[2].results[0].valueIdentifier}\");\n            print(\"3${result.results[3].results[0].valueIdentifier}\");\n            print(\"4${result.results[4].results[0].valueIdentifier}\");\n            Get.back();\n          },\n        ),\n      ),\n    );\n  }\n\n  NavigableTask _orderedTask(Survey survey) {\n    String id = survey.id!;\n    String surveyTitle = survey.title!;\n    String explain = survey.explain!;\n    List<Map<String, dynamic>> questions = survey.questions!;\n    return NavigableTask(\n      id: TaskIdentifier(id: id),\n      steps: List.generate(questions.length + 2, (index) {\n        if (index == 0) {\n          return InstructionStep(\n            title: surveyTitle,\n            text: explain,\n          );\n        }\n        if (index == questions.length + 1) {\n          return CompletionStep(\n              stepIdentifier: StepIdentifier(), title: \"\", text: \"\");\n        }\n        Map<String, dynamic> question = questions[index - 1];\n        String questionTitle = question[\"text\"];\n        String type = question[\"type\"];\n        bool isOptional = question[\"isOptional\"] == \"yes\" ? true : false;\n        List<dynamic> optionList_dynamic = question[\"options\"];\n        List<String> optionList =\n            optionList_dynamic.map((e) => e.toString()).toList();\n        return QuestionStep(\n          stepIdentifier: StepIdentifier(id: index.toString()),\n          title: questionTitle,\n          isOptional: isOptional,\n          text: type == \"다수선택\" ? \"한 개 이상 골라주세요.\" : \"\",\n          answerFormat: type == \"객관식\"\n              ? SingleChoiceAnswerFormat(\n                  textChoices: convertToTextChoice(optionList))\n              : type == \"다수선택\"\n                  ? MultipleChoiceAnswerFormat(\n                      textChoices: convertToTextChoice(optionList))\n                  : TextAnswerFormat(\n                      validationRegEx: \"^(?!\\s*\\$).+\",\n                    ),\n        );\n      }),\n    );\n  }\n\n  List<TextChoice> convertToTextChoice(List<String> optionList) {\n    List<TextChoice> result = [];\n    int length = optionList.length;\n    for (int index = 0; index < length; index++) {\n      result.add(TextChoice(text: optionList[index], value: index.toString()));\n    }\n    return result;\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/view/pages/subpages/do_survey_page.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/view/pages/subpages/do_survey_page.dart	(date 1634350479138)
+@@ -1,6 +1,8 @@
+ import 'package:flutter/cupertino.dart';
+ import 'package:flutter/material.dart';
+ import 'package:get/get.dart';
++import 'package:myapp/controller/dto/survey_result_request_Dto.dart';
++import 'package:myapp/controller/survey_controller.dart';
+ import 'package:myapp/domain/survey/survey.dart';
+ import 'package:survey_kit/survey_kit.dart';
+ 
+@@ -9,21 +11,54 @@
+ class DoSurveyPage extends StatelessWidget {
+   final Survey survey;
+   final SurveyController _surveyController = SurveyController();
++  final GetSurveyController _getSurveyController =
++      Get.put(GetSurveyController());
+   DoSurveyPage(this.survey);
+ 
+   @override
+   Widget build(BuildContext context) {
++    int questionNumber = survey.questions!.length;
+     return Scaffold(
+       body: Container(
+         child: SurveyKit(
+           surveyController: _surveyController,
+           task: _orderedTask(survey),
+           themeData: SurveyTheme(context),
+-          onResult: (SurveyResult result) {
+-            print("1${result.results[1].results[0].valueIdentifier}");
+-            print("2${result.results[2].results[0].valueIdentifier}");
+-            print("3${result.results[3].results[0].valueIdentifier}");
+-            print("4${result.results[4].results[0].valueIdentifier}");
++          onResult: (SurveyResult result) async {
++            List<SurveyResultDto> answers = [];
++            if (result.finishReason == FinishReason.COMPLETED) {
++              for (int i = 1; i <= questionNumber; i++) {
++                Map<String, dynamic> question = survey.questions![i - 1];
++                String type = question["type"];
++                List<String> answerList;
++                if (type == "객관식") {
++                  String answer =
++                      result.results[i].results[0].valueIdentifier ?? "";
++                  answerList = [answer];
++                } else if (type == "다수선택") {
++                  String answer =
++                      result.results[i].results[0].valueIdentifier ?? "";
++                  answerList = answer.split(",");
++                } else {
++                  String answer =
++                      result.results[i].results[0].valueIdentifier ?? "";
++                  answerList = [answer];
++                }
++                answers.add(SurveyResultDto(i, type, answerList));
++              }
++              int code = await _getSurveyController.reportAnswer(answers);
++              if (code == 1) {
++                Get.snackbar(
++                  "설문조사",
++                  "제출 성공",
++                );
++              } else
++                Get.snackbar(
++                  "설문조사",
++                  "제출 실패",
++                );
++            }
++
+             Get.back();
+           },
+         ),
+@@ -41,13 +76,17 @@
+       steps: List.generate(questions.length + 2, (index) {
+         if (index == 0) {
+           return InstructionStep(
++            stepIdentifier: StepIdentifier(id: index.toString()),
+             title: surveyTitle,
+             text: explain,
+           );
+         }
+         if (index == questions.length + 1) {
+           return CompletionStep(
+-              stepIdentifier: StepIdentifier(), title: "", text: "");
++            stepIdentifier: StepIdentifier(id: index.toString()),
++            title: "",
++            text: "",
++          );
+         }
+         Map<String, dynamic> question = questions[index - 1];
+         String questionTitle = question["text"];
+Index: myapp/lib/domain/survey/survey_provider.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:get/get.dart';\n\nconst host = \"\";\n\nclass SurveyProvider extends GetConnect {\n  Future<Response> getSurvey() => get(host);\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/domain/survey/survey_provider.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/domain/survey/survey_provider.dart	(date 1634350400492)
+@@ -4,4 +4,6 @@
+ 
+ class SurveyProvider extends GetConnect {
+   Future<Response> getSurvey() => get(host);
++
++  Future<Response> reportAnswer(List data) => post(host, data);
+ }
+Index: myapp/lib/domain/survey/survey_repository.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:myapp/domain/survey/survey_provider.dart';\n\nclass SurveyRepository {\n  SurveyProvider _surveyProvider = SurveyProvider();\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/domain/survey/survey_repository.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/domain/survey/survey_repository.dart	(date 1634350400418)
+@@ -1,5 +1,24 @@
++import 'package:get/get.dart';
++import 'package:myapp/controller/dto/CM_request_dto.dart';
++import 'package:myapp/controller/dto/survey_result_request_Dto.dart';
+ import 'package:myapp/domain/survey/survey_provider.dart';
++import 'package:myapp/page_util/convert_utf8.dart';
+ 
+ class SurveyRepository {
+   SurveyProvider _surveyProvider = SurveyProvider();
++
++  Future<int> reportAnswer(List<SurveyResultDto> answers) async {
++    List data = [];
++    for (SurveyResultDto surveyResultDto in answers) {
++      data.add(surveyResultDto.toJson());
++    }
++    Response response = await _surveyProvider.reportAnswer(data);
++    dynamic body = response.body;
++    dynamic convertBody = convertUtf8ToObject(body);
++    CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
++    if (cmRespDto.code == 1) {
++      return 1;
++    }
++    return -1;
++  }
+ }
+Index: myapp/lib/view/pages/mainpages/homepage.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/cupertino.dart';\r\nimport 'package:flutter/material.dart';\r\nimport 'package:flutter_screenutil/flutter_screenutil.dart';\r\nimport 'package:font_awesome_flutter/font_awesome_flutter.dart';\r\nimport 'package:get/get.dart';\r\nimport 'package:myapp/controller/diet_controller.dart';\r\nimport 'package:myapp/model/popular_menu.dart';\r\nimport 'package:myapp/view/components/custom_banner.dart';\r\nimport 'package:myapp/view/components/button/function_button.dart';\r\nimport 'package:myapp/view/components/menu_box.dart';\r\nimport 'package:myapp/view/pages/subpages/ai_test_page.dart';\r\nimport 'package:myapp/view/pages/subpages/allergy_info_page.dart';\r\nimport 'package:myapp/view/pages/subpages/deduction_page.dart';\r\nimport 'package:myapp/view/pages/subpages/notice_page.dart';\r\nimport 'package:myapp/view/pages/subpages/suggestion_page.dart';\r\nimport 'package:myapp/view/pages/subpages/survey_page.dart';\r\n\r\nimport '../../../model/ai_recommend.dart';\r\n\r\nclass HomePage extends StatefulWidget {\r\n  @override\r\n  _HomePageState createState() => _HomePageState();\r\n}\r\n\r\nclass _HomePageState extends State<HomePage> {\r\n  //나중에 로그인할 때 불러오는 걸로 하자.\r\n  final diet = Get.put(DietController());\r\n  final DateTime now = DateTime.now();\r\n  late String nowYear;\r\n  late String nowMonth;\r\n  late String nowDay;\r\n  late int nowTime;\r\n  final List<String> time = [\"조식\", \"중식\", \"석식\"];\r\n\r\n  Widget build(BuildContext context) {\r\n    return ListView(\r\n      children: [\r\n        _menuList(),\r\n        Padding(\r\n          padding: EdgeInsets.symmetric(horizontal: 8.w),\r\n          child: _functionButtons(),\r\n        ),\r\n        Padding(\r\n          padding: EdgeInsets.symmetric(horizontal: 8.w),\r\n          child: CustomBanner(),\r\n        ),\r\n        Padding(\r\n          padding: EdgeInsets.symmetric(horizontal: 8.w),\r\n          child: _recommendation(),\r\n        ),\r\n      ],\r\n    );\r\n  }\r\n\r\n  Widget _menuList() {\r\n    Map<String, List<String>> menuMap = _createMenuList();\r\n    return Padding(\r\n      padding: EdgeInsets.only(bottom: 16.h),\r\n      child: SingleChildScrollView(\r\n        scrollDirection: Axis.horizontal,\r\n        child: Row(\r\n          children: List.generate(\r\n            menuMap.length,\r\n            (index) {\r\n              return MenuBox(menuMap.keys.toList()[index],\r\n                  menuMap.values.toList()[index], menuMap);\r\n            },\r\n          ),\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n\r\n  Widget _functionButtons() {\r\n    return Padding(\r\n      padding: EdgeInsets.only(bottom: 16.h),\r\n      child: Column(\r\n        children: [\r\n          _buildButtonSet1(),\r\n          SizedBox(height: 16.h),\r\n          _buildButtonSet2(),\r\n        ],\r\n      ),\r\n    );\r\n  }\r\n\r\n  Widget _buildButtonSet1() {\r\n    return Row(\r\n      mainAxisAlignment: MainAxisAlignment.spaceEvenly,\r\n      children: [\r\n        FunctionButton(\r\n          onTap: () {\r\n            Get.to(() => NoticePage());\r\n          },\r\n          icon: Icons.campaign,\r\n          text: \"공지사항\",\r\n        ),\r\n        SizedBox(width: 8),\r\n        FunctionButton(\r\n          onTap: () {\r\n            Get.to(() => SuggestionPage());\r\n          },\r\n          icon: FontAwesomeIcons.exclamationCircle,\r\n          text: \"건의사항\",\r\n        ),\r\n        SizedBox(width: 8.w),\r\n        FunctionButton(\r\n          onTap: () {\r\n            Get.to(() => SurveyPage());\r\n          },\r\n          icon: FontAwesomeIcons.poll,\r\n          text: \"설문조사\",\r\n        ),\r\n      ],\r\n    );\r\n  }\r\n\r\n  Widget _buildButtonSet2() {\r\n    return Row(\r\n      mainAxisAlignment: MainAxisAlignment.spaceEvenly,\r\n      children: [\r\n        FunctionButton(\r\n          onTap: () {\r\n            Get.to(AiTestPage());\r\n          },\r\n          icon: Icons.no_meals,\r\n          text: \"AI 실험실\",\r\n        ),\r\n        SizedBox(width: 8.w),\r\n        FunctionButton(\r\n          onTap: () {\r\n            Get.to(() => DeductionPage());\r\n          },\r\n          icon: Icons.payment,\r\n          text: \"공제내역\",\r\n        ),\r\n        SizedBox(width: 8.w),\r\n        FunctionButton(\r\n          onTap: () {\r\n            Get.to(() => AllergyInfoPage());\r\n          },\r\n          icon: Icons.help,\r\n          text: \"알레르기 정보\",\r\n        )\r\n      ],\r\n    );\r\n  }\r\n\r\n  Widget _recommendation() {\r\n    return Row(\r\n      mainAxisAlignment: MainAxisAlignment.center,\r\n      crossAxisAlignment: CrossAxisAlignment.start,\r\n      children: [\r\n        Expanded(flex: 1, child: _popularMenu()),\r\n        SizedBox(width: 8.w),\r\n        Expanded(flex: 1, child: _AIRecommendation()),\r\n      ],\r\n    );\r\n  }\r\n\r\n  Widget _popularMenu() {\r\n    return Container(\r\n      padding: EdgeInsets.all(8.r),\r\n      decoration: BoxDecoration(\r\n        border: Border.all(color: Colors.grey),\r\n        borderRadius: BorderRadius.circular(10.r),\r\n      ),\r\n      height: 200.h,\r\n      child: Column(\r\n        crossAxisAlignment: CrossAxisAlignment.start,\r\n        children: [\r\n          Text(\r\n            \"우리 부대 인기 메뉴는?\",\r\n            style: TextStyle(\r\n              decoration: TextDecoration.underline,\r\n              fontSize: 12.sp,\r\n              fontWeight: FontWeight.bold,\r\n            ),\r\n          ),\r\n          Expanded(\r\n            child: Column(\r\n              mainAxisAlignment: MainAxisAlignment.spaceEvenly,\r\n              crossAxisAlignment: CrossAxisAlignment.start,\r\n              children: [\r\n                Text(\r\n                  \"1위. ${popularMenu[\"first\"]}\",\r\n                  style: TextStyle(\r\n                    decoration: TextDecoration.underline,\r\n                    fontSize: 10.sp,\r\n                  ),\r\n                ),\r\n                Text(\r\n                  \"2위. ${popularMenu[\"second\"]}\",\r\n                  style: TextStyle(\r\n                    decoration: TextDecoration.underline,\r\n                    fontSize: 10.sp,\r\n                  ),\r\n                ),\r\n                Text(\r\n                  \"3위. ${popularMenu[\"third\"]}\",\r\n                  style: TextStyle(\r\n                    decoration: TextDecoration.underline,\r\n                    fontSize: 10.sp,\r\n                  ),\r\n                ),\r\n              ],\r\n            ),\r\n          ),\r\n        ],\r\n      ),\r\n    );\r\n  }\r\n\r\n  Widget _AIRecommendation() {\r\n    return Container(\r\n      padding: EdgeInsets.all(8.r),\r\n      decoration: BoxDecoration(\r\n        border: Border.all(color: Colors.grey),\r\n        borderRadius: BorderRadius.circular(10.r),\r\n      ),\r\n      height: 200.h,\r\n      child: Column(\r\n        crossAxisAlignment: CrossAxisAlignment.start,\r\n        children: [\r\n          Text(\r\n            \"AI가 추전해주는 부대 식단!\",\r\n            style: TextStyle(\r\n              decoration: TextDecoration.underline,\r\n              fontSize: 12.sp,\r\n              fontWeight: FontWeight.bold,\r\n            ),\r\n          ),\r\n          Expanded(\r\n            child: Column(\r\n              mainAxisAlignment: MainAxisAlignment.spaceEvenly,\r\n              crossAxisAlignment: CrossAxisAlignment.start,\r\n              children: [\r\n                ...aiRecommend.map(\r\n                  (value) => Text(\r\n                    value,\r\n                    style: TextStyle(\r\n                      decoration: TextDecoration.underline,\r\n                      fontSize: 10.sp,\r\n                    ),\r\n                  ),\r\n                )\r\n              ],\r\n            ),\r\n          ),\r\n        ],\r\n      ),\r\n    );\r\n  }\r\n\r\n  Map<String, List<String>> _createMenuList() {\r\n    int count = 0;\r\n    Map<String, List<String>> result = {};\r\n    while (count <= 2) {\r\n      DateTime particularDay = now.add(Duration(days: count));\r\n      result[\r\n          \"${particularDay.year}/${particularDay.month}/${particularDay.day}/조식\"] = diet\r\n                  .dietsConvert[\r\n              \"${particularDay.year}/${particularDay.month}/${particularDay.day}/조식\"] ??\r\n          [];\r\n      if (diet.dietsConvert[\r\n              \"${particularDay.year}/${particularDay.month}/${particularDay.day}/브런치\"] !=\r\n          null)\r\n        result[\r\n            \"${particularDay.year}/${particularDay.month}/${particularDay.day}/브런치\"] = diet\r\n                .dietsConvert[\r\n            \"${particularDay.year}/${particularDay.month}/${particularDay.day}/브런치\"]!;\r\n      result[\r\n          \"${particularDay.year}/${particularDay.month}/${particularDay.day}/중식\"] = diet\r\n                  .dietsConvert[\r\n              \"${particularDay.year}/${particularDay.month}/${particularDay.day}/중식\"] ??\r\n          [];\r\n      result[\r\n          \"${particularDay.year}/${particularDay.month}/${particularDay.day}/석식\"] = diet\r\n                  .dietsConvert[\r\n              \"${particularDay.year}/${particularDay.month}/${particularDay.day}/석식\"] ??\r\n          [];\r\n      count += 1;\r\n    }\r\n\r\n    return result;\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/view/pages/mainpages/homepage.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/view/pages/mainpages/homepage.dart	(date 1634355485414)
+@@ -4,6 +4,7 @@
+ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+ import 'package:get/get.dart';
+ import 'package:myapp/controller/diet_controller.dart';
++import 'package:myapp/model/menu_list.dart';
+ import 'package:myapp/model/popular_menu.dart';
+ import 'package:myapp/view/components/custom_banner.dart';
+ import 'package:myapp/view/components/button/function_button.dart';
+@@ -281,7 +282,7 @@
+           [];
+       count += 1;
+     }
+-
++    dietFromServer = result;
+     return result;
+   }
+ }
+Index: myapp/lib/allergy.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>List<String> allergyName = [\n  \"갑각류\",\n  \"견과류\",\n  \"달걀\",\n  \"땅콩\",\n  \"밀\",\n  \"생선\",\n  \"우유\",\n  \"조개\",\n  \"콩\",\n];\n\nMap<String, String> allergyInfo = {\n  \"갑각류\":\n      \"갑각류 알레르기는 주로 두드러기, 코막힘, 입가려움 등 경미한 증상을 일으키지만 심할 경우에는 아주 적은 양에도 생명을 위협하는 증상을 동반할 수 있습니다. \",\n  \"견과류\":\n      \"견과류 알레르기는 유아기 이후에 주로 나타나며, 성장해 감에 따라 호전이 비교적 잘되는 우유나 계란과는 달리 보다 오래 지속되는 환자가 많고, 서구에 비하여 국내에서는 발생 빈도가 낮지만 최근 증가하는 원인식품입니다. 증상은 경미한 것에서부터 아나필락시스까지 다양하게 나타나며, 여러 종류의 견과류에 동시에 반응을 보이는 환자도 있습니다.\",\n  \"달걀\":\n      \"달걀은 알레르기를 일으키는 식품 중 가장 흔한 것의 하나로, 특히 영유아에게서 흔하게 나타납니다. 징후 및 증상은 경미한 것에서부터 심각한 것까지 있는데 피부발진, 두드러기같은 피부 증상, 기침, 호흡곤란 등 호흡기 증상, 구토, 복통 등의 위장관 증상이 포함됩니다. 어린나이 아나필락시스의 주요원인입니다. 다행히 대부분의 아동들은 5~7세경에 알레르기에서 벗어나는 경우가 많습니다.\",\n  \"땅콩\":\n      \"땅콩에 대한 알레르기 반응의 대부분은 미약하며 땅콩이 피부를 스친 입 주위의 두드러기 혹은 다른 신체 부위의 좀더 전신적 두드러기로 구성됩니다. 다른 흔한 징후로는 땅콩 제품을 먹은 직후에 발생하는 복통 및 구토입니다. 좀더 민감한 어린이는 기도에서 발생하는 알레르기 반응으로 인한 기침, 천명, 숨가쁨 혹은 쉰 목소리가 생길 수 있습니다. \",\n  \"밀\":\n      \"밀 알레르기는 아동, 청소년, 성인에게서 비교적 흔하게 발생합니다. 두드러기, 호흡곤란, 위장관 증상, 아나필락시스 등을 일으키며, 운동과 연관된 특수 형태의 아나필락시스의 흔한 원인입니다.\",\n  \"생선\":\n      \"생선 등 해산물 알레르기는 보통 경미한 증상을 보이지만 심할 경우 생명을 위협할 수도 있습니다. 성인이 되어 처음 증상이 나타나는 경우도 흔하며 잘 없어지지 않고 평생 지속되는 경우가 많습니다. \",\n  \"우유\":\n      \"우유 알레르기는 영유아 및 아동에서 흔히 발생하는 식품 알레르기입니다. 징후 및 증상은 경미한 것에서부터 심각한 것까지 있는데 피부발진, 두드러기같은 피부 증상과 기침과 호흡곤란 등 호흡기 증상, 구토, 복통 등의 위장관 증상이 포함됩니다. 어린나이 아나필락시스의 주요원인입니다. 다행히 대부분의 아동들은 5~7세경에 우유 알 레르기에서 벗어나는 경우가 많습니다. 우유 알레르기 환자는 유제품, 산양유도 주의해야합니다.\",\n  \"조개\":\n      \"조개갑각류 알레르기는 어린이에게도 발생하지만 청소년과 성인에서 더 많이 발생합니다. 조개갑각류 알레르기 환자의 60%는 성인기에 처음 반응이 나타납니다. 조개갑각류 알레르기는 성인에서 흔히 볼 수 있으므로 일반적으로 사라지지 않는 평생 알레르기로 간주됩니다.\",\n  \"콩\":\n      \"콩은 아동에서 알레르기를 일으키는 식품 중 하나로, 아나필락시스와 같은 심각한 반응은 흔하지 않지만, 기타 식품알레르기의 경우와 마찬가지로 다양한 증상을 유발할 수 있습니다.\",\n};\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/allergy.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/allergy.dart	(date 1634361942907)
+@@ -1,32 +1,43 @@
+ List<String> allergyName = [
+-  "갑각류",
+-  "견과류",
+-  "달걀",
++  "계란류",
++  "우유",
++  "메밀",
+   "땅콩",
++  "대두",
+   "밀",
+-  "생선",
+-  "우유",
+-  "조개",
+-  "콩",
++  "고등어",
++  "게",
++  "새우",
++  "돼지고기",
++  "복숭아",
++  "토마토",
++  "아황산류",
++  "호두",
++  "닭고기",
++  "쇠고기",
++  "오징어",
++  "조개류",
++  "잣",
+ ];
+ 
+ Map<String, String> allergyInfo = {
+-  "갑각류":
+-      "갑각류 알레르기는 주로 두드러기, 코막힘, 입가려움 등 경미한 증상을 일으키지만 심할 경우에는 아주 적은 양에도 생명을 위협하는 증상을 동반할 수 있습니다. ",
+-  "견과류":
+-      "견과류 알레르기는 유아기 이후에 주로 나타나며, 성장해 감에 따라 호전이 비교적 잘되는 우유나 계란과는 달리 보다 오래 지속되는 환자가 많고, 서구에 비하여 국내에서는 발생 빈도가 낮지만 최근 증가하는 원인식품입니다. 증상은 경미한 것에서부터 아나필락시스까지 다양하게 나타나며, 여러 종류의 견과류에 동시에 반응을 보이는 환자도 있습니다.",
+-  "달걀":
+-      "달걀은 알레르기를 일으키는 식품 중 가장 흔한 것의 하나로, 특히 영유아에게서 흔하게 나타납니다. 징후 및 증상은 경미한 것에서부터 심각한 것까지 있는데 피부발진, 두드러기같은 피부 증상, 기침, 호흡곤란 등 호흡기 증상, 구토, 복통 등의 위장관 증상이 포함됩니다. 어린나이 아나필락시스의 주요원인입니다. 다행히 대부분의 아동들은 5~7세경에 알레르기에서 벗어나는 경우가 많습니다.",
+-  "땅콩":
+-      "땅콩에 대한 알레르기 반응의 대부분은 미약하며 땅콩이 피부를 스친 입 주위의 두드러기 혹은 다른 신체 부위의 좀더 전신적 두드러기로 구성됩니다. 다른 흔한 징후로는 땅콩 제품을 먹은 직후에 발생하는 복통 및 구토입니다. 좀더 민감한 어린이는 기도에서 발생하는 알레르기 반응으로 인한 기침, 천명, 숨가쁨 혹은 쉰 목소리가 생길 수 있습니다. ",
+-  "밀":
+-      "밀 알레르기는 아동, 청소년, 성인에게서 비교적 흔하게 발생합니다. 두드러기, 호흡곤란, 위장관 증상, 아나필락시스 등을 일으키며, 운동과 연관된 특수 형태의 아나필락시스의 흔한 원인입니다.",
+-  "생선":
+-      "생선 등 해산물 알레르기는 보통 경미한 증상을 보이지만 심할 경우 생명을 위협할 수도 있습니다. 성인이 되어 처음 증상이 나타나는 경우도 흔하며 잘 없어지지 않고 평생 지속되는 경우가 많습니다. ",
+-  "우유":
+-      "우유 알레르기는 영유아 및 아동에서 흔히 발생하는 식품 알레르기입니다. 징후 및 증상은 경미한 것에서부터 심각한 것까지 있는데 피부발진, 두드러기같은 피부 증상과 기침과 호흡곤란 등 호흡기 증상, 구토, 복통 등의 위장관 증상이 포함됩니다. 어린나이 아나필락시스의 주요원인입니다. 다행히 대부분의 아동들은 5~7세경에 우유 알 레르기에서 벗어나는 경우가 많습니다. 우유 알레르기 환자는 유제품, 산양유도 주의해야합니다.",
+-  "조개":
+-      "조개갑각류 알레르기는 어린이에게도 발생하지만 청소년과 성인에서 더 많이 발생합니다. 조개갑각류 알레르기 환자의 60%는 성인기에 처음 반응이 나타납니다. 조개갑각류 알레르기는 성인에서 흔히 볼 수 있으므로 일반적으로 사라지지 않는 평생 알레르기로 간주됩니다.",
+-  "콩":
+-      "콩은 아동에서 알레르기를 일으키는 식품 중 하나로, 아나필락시스와 같은 심각한 반응은 흔하지 않지만, 기타 식품알레르기의 경우와 마찬가지로 다양한 증상을 유발할 수 있습니다.",
++  "계란류": "",
++  "우유": "",
++  "메밀": "",
++  "땅콩": "",
++  "대두": "",
++  "밀": "",
++  "고등어": "",
++  "게": "",
++  "새우": "",
++  "돼지고기": "",
++  "복숭아": "",
++  "토마토": "",
++  "아황산류": "",
++  "호두": "",
++  "닭고기": "",
++  "쇠고기": "",
++  "오징어": "",
++  "조개류": "",
++  "잣": "",
+ };
+Index: myapp/pubspec.yaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>name: myapp\ndescription: A new Flutter project.\n\n# The following line prevents the package from being accidentally published to\n# pub.dev using `flutter pub publish`. This is preferred for private packages.\npublish_to: 'none' # Remove this line if you wish to publish to pub.dev\n\n# The following defines the version and build number for your application.\n# A version number is three numbers separated by dots, like 1.2.43\n# followed by an optional build number separated by a +.\n# Both the version and the builder number may be overridden in flutter\n# build by specifying --build-name and --build-number, respectively.\n# In Android, build-name is used as versionName while build-number used as versionCode.\n# Read more about Android versioning at https://developer.android.com/studio/publish/versioning\n# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.\n# Read more about iOS versioning at\n# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html\nversion: 1.0.0+1\n\nenvironment:\n  sdk: \">=2.12.0 <3.0.0\"\n\n# Dependencies specify other packages that your package needs in order to work.\n# To automatically upgrade your package dependencies to the latest versions\n# consider running `flutter pub upgrade --major-versions`. Alternatively,\n# dependencies can be manually updated by changing the version numbers below to\n# the latest version available on pub.dev. To see which dependencies have newer\n# versions available, run `flutter pub outdated`.\ndependencies:\n  flutter:\n    sdk: flutter\n  get: ^4.3.8\n  validators: ^3.0.0\n  intl: ^0.17.0\n  font_awesome_flutter: ^9.1.0\n  flutter_rating_bar: ^4.0.0\n  like_button: ^2.0.3\n  image_picker: ^0.8.4+1\n  table_calendar: ^3.0.2\n  flutter_localizations:\n    sdk: flutter\n  survey_kit: ^0.0.12\n  flutter_typeahead: ^3.2.1\n  flutter_screenutil: ^5.0.0+2\n\n\n\n\n\n  # The following adds the Cupertino Icons font to your application.\n  # Use with the CupertinoIcons class for iOS style icons.\n  cupertino_icons: ^1.0.2\n\ndev_dependencies:\n  flutter_test:\n    sdk: flutter\n\n  # The \"flutter_lints\" package below contains a set of recommended lints to\n  # encourage good coding practices. The lint set provided by the package is\n  # activated in the `analysis_options.yaml` file located at the root of your\n  # package. See that file for information about deactivating specific lint\n  # rules and activating additional ones.\n  flutter_lints: ^1.0.0\n\n# For information on the generic Dart part of this file, see the\n# following page: https://dart.dev/tools/pub/pubspec\n\n# The following section is specific to Flutter.\nflutter:\n\n  # The following line ensures that the Material Icons font is\n  # included with your application, so that you can use the icons in\n  # the material Icons class.\n  uses-material-design: true\n\n  # To add assets to your application, add an assets section, like this:\n  assets:\n    - assets/lang/\n    - assets/\n\n  #   - images/a_dot_ham.jpeg\n\n  # An image asset can refer to one or more resolution-specific \"variants\", see\n  # https://flutter.dev/assets-and-images/#resolution-aware.\n\n  # For details regarding adding assets from package dependencies, see\n  # https://flutter.dev/assets-and-images/#from-packages\n\n  # To add custom fonts to your application, add a fonts section here,\n  # in this \"flutter\" section. Each entry in this list should have a\n  # \"family\" key with the font family name, and a \"fonts\" key with a\n  # list giving the asset and other descriptors for the font. For\n  # example:\n  fonts:\n    - family: NotoSansKR\n      fonts:\n        - asset: assets/fonts/NotoSansKR-Black.otf\n          weight: 900\n        - asset: assets/fonts/NotoSansKR-Bold.otf\n          weight: 700\n        - asset: assets/fonts/NotoSansKR-Light.otf\n          weight: 300\n        - asset: assets/fonts/NotoSansKR-Medium.otf\n          weight: 500\n        - asset: assets/fonts/NotoSansKR-Regular.otf\n          weight: 400\n        - asset: assets/fonts/NotoSansKR-Thin.otf\n          weight: 200\n\n  #         style: italic\n  #   - family: Trajan Pro\n  #     fonts:\n  #       - asset: fonts/TrajanPro.ttf\n  #       - asset: fonts/TrajanPro_Bold.ttf\n  #         weight: 700\n  #\n  # For details regarding fonts from package dependencies,\n  # see https://flutter.dev/custom-fonts/#from-packages\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/pubspec.yaml	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/pubspec.yaml	(date 1634360692836)
+@@ -42,6 +42,7 @@
+   survey_kit: ^0.0.12
+   flutter_typeahead: ^3.2.1
+   flutter_screenutil: ^5.0.0+2
++  custom_radio_grouped_button: ^2.1.1
+ 
+ 
+ 
+Index: myapp/lib/domain/host.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const host = \"http://cors-anywhere.herokuapp.com/http://15.164.129.36:8080\";\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/domain/host.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/domain/host.dart	(date 1634359654028)
+@@ -1,1 +1,1 @@
+-const host = "http://cors-anywhere.herokuapp.com/http://15.164.129.36:8080";
++const host = "http://15.164.129.36:8080";
+Index: myapp/lib/controller/user_controller.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:get/get.dart';\r\nimport 'package:myapp/domain/user/user.dart';\r\nimport 'package:myapp/domain/user/user_repository.dart';\r\n\r\nclass UserController extends GetxController {\r\n  UserRepository _userRepository = UserRepository();\r\n  final principal = User().obs;\r\n\r\n  Future<int> login(String militaryNumber, String password) async {\r\n    User principal = await _userRepository.login(militaryNumber, password);\r\n    this.principal.value = principal;\r\n    if (principal.id != null) {\r\n      return 1;\r\n    }\r\n    return -1;\r\n  }\r\n\r\n  Future<int> join(String name, String militaryNumber, String password,\r\n      String rank, String unit, Map<String, String> allergy) async {\r\n    int code = await _userRepository.join(\r\n        name, militaryNumber, password, rank, unit, allergy);\r\n    if (code == 1) {\r\n      return 1;\r\n    } else {\r\n      return -1;\r\n    }\r\n  }\r\n\r\n  Future<void> updateInfo(\r\n      int id,\r\n      String name,\r\n      String militaryNumber,\r\n      String password,\r\n      String rank,\r\n      String unit,\r\n      Map<String, String> allergy) async {\r\n    User principal = await _userRepository.update(\r\n        id, name, militaryNumber, password, rank, unit, allergy);\r\n    this.principal.value = principal;\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/controller/user_controller.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/controller/user_controller.dart	(date 1634364343547)
+@@ -1,6 +1,7 @@
+ import 'package:get/get.dart';
+ import 'package:myapp/domain/user/user.dart';
+ import 'package:myapp/domain/user/user_repository.dart';
++import 'package:myapp/user/user_ex.dart';
+ 
+ class UserController extends GetxController {
+   UserRepository _userRepository = UserRepository();
+@@ -10,6 +11,8 @@
+     User principal = await _userRepository.login(militaryNumber, password);
+     this.principal.value = principal;
+     if (principal.id != null) {
++      userAllergy = principal.allergy!
++          .map((key, value) => MapEntry(key, value != "0" ? true : false));
+       return 1;
+     }
+     return -1;
+Index: myapp/lib/controller/survey_controller.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:get/get.dart';\nimport 'package:myapp/domain/survey/survey.dart';\nimport 'package:myapp/domain/survey/survey_repository.dart';\n\nclass GetSurveyController extends GetxController {\n  final SurveyRepository _surveyRepository = SurveyRepository();\n  final surveys = <Survey>[].obs;\n  final survey = Survey().obs;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/controller/survey_controller.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/controller/survey_controller.dart	(date 1634350400447)
+@@ -1,9 +1,17 @@
+ import 'package:get/get.dart';
+ import 'package:myapp/domain/survey/survey.dart';
+ import 'package:myapp/domain/survey/survey_repository.dart';
++import 'package:survey_kit/survey_kit.dart';
++
++import 'dto/survey_result_request_Dto.dart';
+ 
+ class GetSurveyController extends GetxController {
+   final SurveyRepository _surveyRepository = SurveyRepository();
+   final surveys = <Survey>[].obs;
+   final survey = Survey().obs;
++
++  Future<int> reportAnswer(List<SurveyResultDto> answers) async {
++    int code = await _surveyRepository.reportAnswer(answers);
++    return code;
++  }
+ }
+Index: admin/lib/domain/host.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const host = \"http://cors-anywhere.herokuapp.com/http://15.164.129.36:8080\";\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- admin/lib/domain/host.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ admin/lib/domain/host.dart	(date 1634358620812)
+@@ -1,1 +1,1 @@
+-const host = "http://cors-anywhere.herokuapp.com/http://15.164.129.36:8080";
++const host = "http://15.164.129.36:8080";
+Index: myapp/pubspec.lock
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Generated by pub\n# See https://dart.dev/tools/pub/glossary#lockfile\npackages:\n  archive:\n    dependency: transitive\n    description:\n      name: archive\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"3.1.6\"\n  async:\n    dependency: transitive\n    description:\n      name: async\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.6.1\"\n  bloc:\n    dependency: transitive\n    description:\n      name: bloc\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"7.2.1\"\n  boolean_selector:\n    dependency: transitive\n    description:\n      name: boolean_selector\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.1.0\"\n  characters:\n    dependency: transitive\n    description:\n      name: characters\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.1.0\"\n  charcode:\n    dependency: transitive\n    description:\n      name: charcode\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.2.0\"\n  chewie:\n    dependency: transitive\n    description:\n      name: chewie\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.2.2\"\n  clock:\n    dependency: transitive\n    description:\n      name: clock\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.1.0\"\n  collection:\n    dependency: transitive\n    description:\n      name: collection\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.15.0\"\n  cross_file:\n    dependency: transitive\n    description:\n      name: cross_file\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.3.1+5\"\n  crypto:\n    dependency: transitive\n    description:\n      name: crypto\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"3.0.1\"\n  cupertino_icons:\n    dependency: \"direct main\"\n    description:\n      name: cupertino_icons\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.0.3\"\n  fake_async:\n    dependency: transitive\n    description:\n      name: fake_async\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.2.0\"\n  ffi:\n    dependency: transitive\n    description:\n      name: ffi\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.1.2\"\n  flutter:\n    dependency: \"direct main\"\n    description: flutter\n    source: sdk\n    version: \"0.0.0\"\n  flutter_bloc:\n    dependency: transitive\n    description:\n      name: flutter_bloc\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"7.1.0\"\n  flutter_keyboard_visibility:\n    dependency: transitive\n    description:\n      name: flutter_keyboard_visibility\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"5.0.3\"\n  flutter_keyboard_visibility_platform_interface:\n    dependency: transitive\n    description:\n      name: flutter_keyboard_visibility_platform_interface\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.0.0\"\n  flutter_keyboard_visibility_web:\n    dependency: transitive\n    description:\n      name: flutter_keyboard_visibility_web\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.0.0\"\n  flutter_lints:\n    dependency: \"direct dev\"\n    description:\n      name: flutter_lints\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.0.4\"\n  flutter_localizations:\n    dependency: \"direct main\"\n    description: flutter\n    source: sdk\n    version: \"0.0.0\"\n  flutter_platform_widgets:\n    dependency: transitive\n    description:\n      name: flutter_platform_widgets\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.9.5\"\n  flutter_plugin_android_lifecycle:\n    dependency: transitive\n    description:\n      name: flutter_plugin_android_lifecycle\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.0.3\"\n  flutter_rating_bar:\n    dependency: \"direct main\"\n    description:\n      name: flutter_rating_bar\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"4.0.0\"\n  flutter_screenutil:\n    dependency: \"direct main\"\n    description:\n      name: flutter_screenutil\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"5.0.0+2\"\n  flutter_test:\n    dependency: \"direct dev\"\n    description: flutter\n    source: sdk\n    version: \"0.0.0\"\n  flutter_typeahead:\n    dependency: \"direct main\"\n    description:\n      name: flutter_typeahead\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"3.2.1\"\n  flutter_web_plugins:\n    dependency: transitive\n    description: flutter\n    source: sdk\n    version: \"0.0.0\"\n  font_awesome_flutter:\n    dependency: \"direct main\"\n    description:\n      name: font_awesome_flutter\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"9.1.0\"\n  get:\n    dependency: \"direct main\"\n    description:\n      name: get\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"4.3.8\"\n  http:\n    dependency: transitive\n    description:\n      name: http\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.13.3\"\n  http_parser:\n    dependency: transitive\n    description:\n      name: http_parser\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"4.0.0\"\n  image_picker:\n    dependency: \"direct main\"\n    description:\n      name: image_picker\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.8.4+1\"\n  image_picker_for_web:\n    dependency: transitive\n    description:\n      name: image_picker_for_web\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.1.3\"\n  image_picker_platform_interface:\n    dependency: transitive\n    description:\n      name: image_picker_platform_interface\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.4.1\"\n  intl:\n    dependency: \"direct main\"\n    description:\n      name: intl\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.17.0\"\n  js:\n    dependency: transitive\n    description:\n      name: js\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.6.3\"\n  json_annotation:\n    dependency: transitive\n    description:\n      name: json_annotation\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"4.0.1\"\n  like_button:\n    dependency: \"direct main\"\n    description:\n      name: like_button\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.0.3\"\n  lints:\n    dependency: transitive\n    description:\n      name: lints\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.0.1\"\n  lottie:\n    dependency: transitive\n    description:\n      name: lottie\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.2.1\"\n  matcher:\n    dependency: transitive\n    description:\n      name: matcher\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.12.10\"\n  meta:\n    dependency: transitive\n    description:\n      name: meta\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.3.0\"\n  nested:\n    dependency: transitive\n    description:\n      name: nested\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.0.0\"\n  path:\n    dependency: transitive\n    description:\n      name: path\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.8.0\"\n  pedantic:\n    dependency: transitive\n    description:\n      name: pedantic\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.11.1\"\n  plugin_platform_interface:\n    dependency: transitive\n    description:\n      name: plugin_platform_interface\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.0.2\"\n  provider:\n    dependency: transitive\n    description:\n      name: provider\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"5.0.0\"\n  simple_gesture_detector:\n    dependency: transitive\n    description:\n      name: simple_gesture_detector\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.2.0\"\n  sky_engine:\n    dependency: transitive\n    description: flutter\n    source: sdk\n    version: \"0.0.99\"\n  source_span:\n    dependency: transitive\n    description:\n      name: source_span\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.8.1\"\n  stack_trace:\n    dependency: transitive\n    description:\n      name: stack_trace\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.10.0\"\n  stream_channel:\n    dependency: transitive\n    description:\n      name: stream_channel\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.1.0\"\n  string_scanner:\n    dependency: transitive\n    description:\n      name: string_scanner\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.1.0\"\n  survey_kit:\n    dependency: \"direct main\"\n    description:\n      name: survey_kit\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.0.12\"\n  table_calendar:\n    dependency: \"direct main\"\n    description:\n      name: table_calendar\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"3.0.2\"\n  term_glyph:\n    dependency: transitive\n    description:\n      name: term_glyph\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.2.0\"\n  test_api:\n    dependency: transitive\n    description:\n      name: test_api\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.3.0\"\n  typed_data:\n    dependency: transitive\n    description:\n      name: typed_data\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"1.3.0\"\n  uuid:\n    dependency: transitive\n    description:\n      name: uuid\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"3.0.5\"\n  validators:\n    dependency: \"direct main\"\n    description:\n      name: validators\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"3.0.0\"\n  vector_math:\n    dependency: transitive\n    description:\n      name: vector_math\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.1.0\"\n  video_player:\n    dependency: transitive\n    description:\n      name: video_player\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.2.3\"\n  video_player_platform_interface:\n    dependency: transitive\n    description:\n      name: video_player_platform_interface\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"4.2.0\"\n  video_player_web:\n    dependency: transitive\n    description:\n      name: video_player_web\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.0.4\"\n  wakelock:\n    dependency: transitive\n    description:\n      name: wakelock\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.5.6\"\n  wakelock_macos:\n    dependency: transitive\n    description:\n      name: wakelock_macos\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.4.0\"\n  wakelock_platform_interface:\n    dependency: transitive\n    description:\n      name: wakelock_platform_interface\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.3.0\"\n  wakelock_web:\n    dependency: transitive\n    description:\n      name: wakelock_web\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.4.0\"\n  wakelock_windows:\n    dependency: transitive\n    description:\n      name: wakelock_windows\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"0.2.0\"\n  win32:\n    dependency: transitive\n    description:\n      name: win32\n      url: \"https://pub.dartlang.org\"\n    source: hosted\n    version: \"2.2.9\"\nsdks:\n  dart: \">=2.13.0 <3.0.0\"\n  flutter: \">=2.0.0\"\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/pubspec.lock	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/pubspec.lock	(date 1634361087824)
+@@ -85,6 +85,13 @@
+       url: "https://pub.dartlang.org"
+     source: hosted
+     version: "1.0.3"
++  custom_radio_grouped_button:
++    dependency: "direct main"
++    description:
++      name: custom_radio_grouped_button
++      url: "https://pub.dartlang.org"
++    source: hosted
++    version: "2.1.1"
+   fake_async:
+     dependency: transitive
+     description:
+Index: myapp/lib/view/pages/subpages/deduction_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\nimport 'package:flutter/cupertino.dart';\nimport 'package:myapp/date_functions.dart';\nimport 'package:myapp/model/menu_list.dart';\nimport 'package:myapp/page_util/deduction_util.dart';\nimport 'package:myapp/user/user_ex.dart';\nimport 'package:myapp/view/components/appBar/sub_page_appbar.dart';\nimport 'package:myapp/view/components/custom_drawer.dart';\n\nimport 'package:table_calendar/table_calendar.dart';\n\nclass DeductionPage extends StatelessWidget {\n  Widget build(BuildContext context) {\n    return Scaffold(\n      drawer: CustomDrawer(),\n      appBar: subPageAppBar(\"공제내역\"),\n      body: Padding(\n        padding: EdgeInsets.all(20),\n        child: Column(\n          children: [\n            DeductionCalendar(),\n          ],\n        ),\n      ),\n    );\n  }\n}\n\nclass DeductionCount extends StatelessWidget {\n  int count = calDeduction()[1];\n  Widget build(BuildContext context) {\n    return Container(\n      width: double.infinity,\n      decoration: BoxDecoration(\n        borderRadius: BorderRadius.circular(20),\n        border: Border.all(color: Colors.black12, width: 3),\n      ),\n      child: Padding(\n        padding: EdgeInsets.only(top: 20, bottom: 20, right: 50, left: 50),\n        child: Column(\n          crossAxisAlignment: CrossAxisAlignment.center,\n          children: [\n            Text(\n              \"이번달 총 불취식횟수는 $count회 입니다.\",\n              style: TextStyle(\n                fontWeight: FontWeight.bold,\n                fontSize: 20,\n              ),\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}\n\nclass DeductionCalendar extends StatefulWidget {\n  @override\n  _DeductionCalendarState createState() => _DeductionCalendarState();\n}\n\nclass _DeductionCalendarState extends State<DeductionCalendar> {\n  final CalendarFormat _calendarFormat = CalendarFormat.month;\n  final RangeSelectionMode _rangeSelectionMode = RangeSelectionMode.disabled;\n  Map<DateTime, List<String>> notEatingDays = calDeduction()[0];\n  int notEatingCount = calDeduction()[1];\n  List getEventsForDay(DateTime day) {\n    return notEatingDays[day] ?? [];\n  }\n\n  DateTime? _selectedDay;\n  DateTime _focusedDay = DateTime.now();\n  @override\n  void initState() {\n    super.initState();\n    _selectedDay = DateTime.now();\n  }\n\n  void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {\n    if (!isSameDay(_selectedDay, selectedDay)) {\n      setState(() {\n        _selectedDay = selectedDay;\n        _focusedDay = focusedDay;\n      });\n    }\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Expanded(\n      child: ListView(\n        children: [\n          DeductionCount(),\n          SizedBox(height: 20),\n          TableCalendar(\n            rangeSelectionMode: _rangeSelectionMode,\n            calendarFormat: _calendarFormat,\n            eventLoader: getEventsForDay,\n            headerStyle:\n                HeaderStyle(formatButtonVisible: false, titleCentered: true),\n            focusedDay: _focusedDay,\n            firstDay: DateTime.utc(2021, 1, 1),\n            lastDay: DateTime.utc(2022, 12, 31),\n            locale: 'ko-KR',\n            selectedDayPredicate: (day) => isSameDay(_selectedDay, day),\n            onDaySelected: _onDaySelected,\n            calendarBuilders: CalendarBuilders(\n              markerBuilder: (context, date, events) {\n                if (events.isNotEmpty) {\n                  return Container(\n                    width: 20,\n                    height: 20,\n                    child: Center(\n                        child: Text(events.length.toString(),\n                            style: TextStyle(fontWeight: FontWeight.bold))),\n                    decoration: BoxDecoration(\n                      shape: BoxShape.circle,\n                      color: Colors.orange,\n                    ),\n                  );\n                }\n                return SizedBox();\n              },\n            ),\n          ),\n          SizedBox(height: 10),\n          NoMenuText(\n              _selectedDay!.year, _selectedDay!.month, _selectedDay!.day),\n          ...List.generate(\n              loadDayMenuExistence(_selectedDay!.year, _selectedDay!.month,\n                      _selectedDay!.day)\n                  .length, (index) {\n            if (loadDayMenuExistence(_selectedDay!.year, _selectedDay!.month,\n                    _selectedDay!.day)[index] ==\n                0) {\n              return SizedBox();\n            }\n            List<String> notEatingTimes = calDeduction()[0][_selectedDay] ?? [];\n            return Column(\n              children: [\n                Container(\n                  decoration: BoxDecoration(\n                    border: Border.all(color: Colors.black54),\n                    borderRadius: BorderRadius.circular(20),\n                  ),\n                  child: ListTile(\n                    onTap: () {\n                      setState(() {\n                        final year = _selectedDay!.year;\n                        final month = _selectedDay!.month;\n                        final day = _selectedDay!.day;\n                        String date = transformToDateForm(year, month, day);\n                        if (notEatingTimes.contains(times[index])) {\n                          removeUserNotEating(date, times[index]);\n                        } else {\n                          addUserNotEating(date, times[index]);\n                        }\n                        notEatingDays = calDeduction()[0];\n                        notEatingTimes = calDeduction()[0][_selectedDay] ?? [];\n                      });\n                    },\n                    title: Text(\n                        \"${times[index]} \" +\n                            (notEatingTimes.contains(times[index])\n                                ? \"불취식 취소\"\n                                : \"불취식 신청\"),\n                        style: TextStyle(\n                            fontSize: 20,\n                            color: notEatingTimes.contains(times[index])\n                                ? Colors.blue\n                                : Colors.red)),\n                  ),\n                ),\n                SizedBox(height: 10),\n              ],\n            );\n          }),\n        ],\n      ),\n    );\n  }\n}\n\nclass NoMenuText extends StatelessWidget {\n  int year;\n  int month;\n  int day;\n  NoMenuText(this.year, this.month, this.day);\n  @override\n  Widget build(BuildContext context) {\n    if (checkDayMenuExistence(year, month, day)) {\n      return SizedBox();\n    }\n    return Row(\n      children: [\n        Expanded(\n          child: Center(\n            child: Text(\n              \"식사 제공 없는 날\",\n              style: TextStyle(\n                  fontSize: 20,\n                  fontWeight: FontWeight.bold,\n                  color: Colors.cyan),\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- myapp/lib/view/pages/subpages/deduction_page.dart	(revision 5b4440d0c200b35e5393af9b60d9d492c433caf5)
++++ myapp/lib/view/pages/subpages/deduction_page.dart	(date 1634357456101)
+@@ -6,7 +6,7 @@
+ import 'package:myapp/user/user_ex.dart';
+ import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
+ import 'package:myapp/view/components/custom_drawer.dart';
+-
++import 'package:flutter_screenutil/flutter_screenutil.dart';
+ import 'package:table_calendar/table_calendar.dart';
+ 
+ class DeductionPage extends StatelessWidget {
+@@ -36,7 +36,8 @@
+         border: Border.all(color: Colors.black12, width: 3),
+       ),
+       child: Padding(
+-        padding: EdgeInsets.only(top: 20, bottom: 20, right: 50, left: 50),
++        padding:
++            EdgeInsets.only(top: 20.h, bottom: 20.h, right: 50.w, left: 50.w),
+         child: Column(
+           crossAxisAlignment: CrossAxisAlignment.center,
+           children: [
+@@ -44,7 +45,7 @@
+               "이번달 총 불취식횟수는 $count회 입니다.",
+               style: TextStyle(
+                 fontWeight: FontWeight.bold,
+-                fontSize: 20,
++                fontSize: 20.sp,
+               ),
+             ),
+           ],
+@@ -91,7 +92,7 @@
+       child: ListView(
+         children: [
+           DeductionCount(),
+-          SizedBox(height: 20),
++          SizedBox(height: 20.h),
+           TableCalendar(
+             rangeSelectionMode: _rangeSelectionMode,
+             calendarFormat: _calendarFormat,
+@@ -141,7 +142,14 @@
+                 Container(
+                   decoration: BoxDecoration(
+                     border: Border.all(color: Colors.black54),
+-                    borderRadius: BorderRadius.circular(20),
++                    borderRadius: BorderRadius.circular(10),
++                    boxShadow: [
++                      BoxShadow(
++                        color: Colors.grey,
++                        blurRadius: 10,
++                        spreadRadius: 0.01,
++                      ),
++                    ],
+                   ),
+                   child: ListTile(
+                     onTap: () {
+@@ -189,7 +197,7 @@
+   @override
+   Widget build(BuildContext context) {
+     if (checkDayMenuExistence(year, month, day)) {
+-      return SizedBox();
++      return Container();
+     }
+     return Row(
+       children: [
+@@ -200,7 +208,7 @@
+               style: TextStyle(
+                   fontSize: 20,
+                   fontWeight: FontWeight.bold,
+-                  color: Colors.cyan),
++                  color: Colors.grey),
+             ),
+           ),
+         ),

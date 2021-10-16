@@ -6,7 +6,7 @@ import 'package:myapp/page_util/deduction_util.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class DeductionPage extends StatelessWidget {
@@ -36,7 +36,8 @@ class DeductionCount extends StatelessWidget {
         border: Border.all(color: Colors.black12, width: 3),
       ),
       child: Padding(
-        padding: EdgeInsets.only(top: 20, bottom: 20, right: 50, left: 50),
+        padding:
+            EdgeInsets.only(top: 20.h, bottom: 20.h, right: 50.w, left: 50.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -44,7 +45,7 @@ class DeductionCount extends StatelessWidget {
               "이번달 총 불취식횟수는 $count회 입니다.",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
+                fontSize: 20.sp,
               ),
             ),
           ],
@@ -91,7 +92,7 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
       child: ListView(
         children: [
           DeductionCount(),
-          SizedBox(height: 20),
+          SizedBox(height: 20.h),
           TableCalendar(
             rangeSelectionMode: _rangeSelectionMode,
             calendarFormat: _calendarFormat,
@@ -141,7 +142,14 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black54),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 10,
+                        spreadRadius: 0.01,
+                      ),
+                    ],
                   ),
                   child: ListTile(
                     onTap: () {
@@ -189,7 +197,7 @@ class NoMenuText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (checkDayMenuExistence(year, month, day)) {
-      return SizedBox();
+      return Container();
     }
     return Row(
       children: [
@@ -200,7 +208,7 @@ class NoMenuText extends StatelessWidget {
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.cyan),
+                  color: Colors.grey),
             ),
           ),
         ),

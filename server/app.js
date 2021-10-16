@@ -21,6 +21,7 @@ var dietRouter = require('./routes/diet');
 var menuRouter = require('./routes/menu');
 var photoRouter = require('./routes/photo');
 var noteatingRouter = require('./routes/noteating');
+var suggestionRouter = require('./routes/suggestion');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 var app = express();
@@ -35,6 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
+app.use(cors());
 //app.use('/', indexRouter);
 app.use('/notice', noticeRouter);
 app.use('/adminjoin', adminjoinRouter);
@@ -47,6 +49,7 @@ app.use('/survey', surveyRouter);
 app.use('/diet', dietRouter);
 app.use('/menu', menuRouter);
 app.use('/photo', photoRouter);
+app.use('/suggestion', suggestionRouter);
 //app.use('/post', postRouter);
 //app.use('/update', updateRouter);
 //app.use('/delete', deleteRouter);
@@ -54,6 +57,7 @@ app.use('/photo', photoRouter);
 //app.use('/test', testRouter);
 //app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 
 app.use(cors()); 
 

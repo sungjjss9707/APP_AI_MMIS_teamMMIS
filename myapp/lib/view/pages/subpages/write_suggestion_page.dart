@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/model/inform.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/button/custom_elevated_button.dart';
@@ -26,17 +25,19 @@ class WriteSuggestionPage extends StatelessWidget {
       drawer: CustomDrawer(),
       appBar: subPageAppBar("건의사항 작성"),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.r),
         child: Form(
           key: _formKey,
           child: Column(
             children: [
               CustomTextFormField(
                   controller: _title, hint: "제목", funValidate: validateTitle()),
+              SizedBox(height: 8.h),
               CustomWritingArea(
                   controller: _content,
                   hint: "내용",
                   funValidate: validateContent()),
+              SizedBox(height: 8.h),
               CustomElevatedButton(
                 funpageRoute: () {
                   if (_formKey.currentState!.validate()) {}
@@ -44,7 +45,7 @@ class WriteSuggestionPage extends StatelessWidget {
                 text: "글쓰기",
                 width: double.infinity,
               ),
-              SizedBox(height: 4),
+              SizedBox(height: 4.h),
               CustomElevatedButton(
                 funpageRoute: () {
                   Get.back();

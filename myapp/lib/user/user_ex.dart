@@ -10,13 +10,8 @@ double weight = 70.0;
 // Map<String, List> userNotEating = {
 //   "2021-09-10": ["석식"]
 // };
-Map<String, Map<String, Map<String, List<String>>>> userNotEating = {
-  "2021": {
-    "9": {
-      "12": ["석식"]
-    }
-  }
-}; // 2021, 3, 4, 석식 이런 식으로 데이터가 들어감.
+Map<String, Map<String, Map<String, List<String>>>> userNotEating =
+    {}; // 2021, 3, 4, 석식 이런 식으로 데이터가 들어감.
 
 List<String> splitDate(String date) {
   DateTime _date = DateFormat("yyyy/MM/dd").parse(date);
@@ -74,14 +69,24 @@ bool checkIfEating(String date, String time) {
 }
 
 Map<String, bool> userAllergy = {
-  "갑각류": true,
-  "견과류": true,
-  "달걀": true,
-  "땅콩": true,
-  "밀": true,
-  "생선": true,
-  "우유": true,
-  "조개": true,
-  "콩": true
+  "계란류": false,
+  "우유": false,
+  "메밀": false,
+  "땅콩": false,
+  "대두": false,
+  "밀": false,
+  "고등어": false,
+  "게": false,
+  "새우": false,
+  "돼지고기": false,
+  "복숭아": false,
+  "토마토": false,
+  "아황산류": false,
+  "호두": false,
+  "닭고기": false,
+  "쇠고기": false,
+  "오징어": false,
+  "조개류": false,
+  "잣": false,
 };
 Map<String, bool> localUserAllergy = {...userAllergy};

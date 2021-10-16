@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:myapp/view/pages/subpages/inner_seeting_page.dart';
+import 'package:myapp/view/pages/subpages/inner_setting_page.dart';
 
 import '../subpages/app_info_page.dart';
 import '../subpages/user_info_page.dart';

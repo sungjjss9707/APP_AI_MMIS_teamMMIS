@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:myapp/domain/user/user.dart';
 import 'package:myapp/domain/user/user_repository.dart';
+import 'package:myapp/user/user_ex.dart';
 
 class UserController extends GetxController {
   UserRepository _userRepository = UserRepository();
@@ -10,6 +11,8 @@ class UserController extends GetxController {
     User principal = await _userRepository.login(militaryNumber, password);
     this.principal.value = principal;
     if (principal.id != null) {
+      userAllergy = principal.allergy!
+          .map((key, value) => MapEntry(key, value != "0" ? true : false));
       return 1;
     }
     return -1;

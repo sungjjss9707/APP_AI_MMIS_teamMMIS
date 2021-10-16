@@ -22,7 +22,7 @@ class _AiTestPageState extends State<AiTestPage> {
   AIMenuInputForm _aiMenuInputForm = AIMenuInputForm(
     key: UniqueKey(),
   );
-  List<String>? InputMenus;
+  List<String>? inputMenus;
   @override
   void initState() {
     yesInput = true;
@@ -42,12 +42,12 @@ class _AiTestPageState extends State<AiTestPage> {
               "급식이 1.0.0",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Text(
               "급식이 1.0.0은 급식 관리자들이 메뉴를 구성할 때, 도와주는 인공지능 모델입니다. 식단을 입력하면, 부대원들에 대한 이 식단의 적합도와 대체 추천 식단을 구해 줍니다. 구성한 식단을 테스트해보세요.",
               style: TextStyle(color: Colors.grey),
             ),
-            SizedBox(height: 32),
+            SizedBox(height: 32.h),
             yesInput == true
                 ? Column(
                     children: [
@@ -78,7 +78,7 @@ class _AiTestPageState extends State<AiTestPage> {
                             // await ai.getRecommendedMenus(menus);
                             setState(() {
                               yesInput = false;
-                              InputMenus = menus;
+                              inputMenus = menus;
                             });
                           }
                         },
@@ -122,9 +122,18 @@ class _AiTestPageState extends State<AiTestPage> {
                   flex: 1,
                   child: CustomElevatedButton(
                     funpageRoute: () {
-                      Get.to(() => WriteSuggestionPage(title: "다음 메뉴 건의합니다."));
+                      String pass = "";
+                      for (String i in inputMenus!) {
+                        pass += "$i, ";
+                      }
+                      Get.to(
+                        () => WriteSuggestionPage(
+                          title: "다음 메뉴 건의합니다.",
+                          content: pass,
+                        ),
+                      );
                     },
-                    text: "이 메뉴 건의하기",
+                    text: "메뉴 건의",
                     textStyle: TextStyle(fontSize: 24),
                     primary: Colors.green,
                   ),
@@ -164,14 +173,14 @@ class _AiTestPageState extends State<AiTestPage> {
                       Text(
                         "좋음 ",
                         style: TextStyle(
-                            fontSize: 60,
+                            fontSize: 60.sp,
                             fontWeight: FontWeight.bold,
                             color: Colors.lightGreen),
                       ),
                       FaIcon(
                         // 보통은 meh, 별로는 frown
                         FontAwesomeIcons.smile,
-                        size: 60,
+                        size: 60.sp,
                         color: Colors.lightGreen,
                       ),
                     ],
@@ -208,6 +217,14 @@ class _AiTestPageState extends State<AiTestPage> {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
+                  Text(
+                    "아래 식단을 급식 담당자에게 건의하세요!",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                   SizedBox(height: 8.h),
                   Flexible(
                     child: SingleChildScrollView(
@@ -235,33 +252,50 @@ class _AiTestPageState extends State<AiTestPage> {
             (index) {
           Recommendation recommendation =
               ai.principal.value.getRecommendation()[index];
-          return Container(
-            width: 0.3.sw,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Colors.lightGreen),
-                borderRadius: BorderRadius.circular(5),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.lightGreen,
-                    blurRadius: 10,
-                    spreadRadius: 0.1,
-                  )
-                ]),
-            padding: EdgeInsets.all(8.r),
-            margin: EdgeInsets.all(8.r),
-            child: Column(
-              children: [
-                Text(
-                  "${recommendation.score}점",
-                  style: TextStyle(fontSize: 14.sp),
+          return InkWell(
+            onTap: () {
+              String pass = "";
+              for (String i in recommendation.menus!) {
+                pass += "$i, ";
+              }
+              Get.to(
+                () => WriteSuggestionPage(
+                  title: "다음 메뉴 건의합니다.",
+                  content: pass,
                 ),
-                Divider(color: Colors.grey),
-                Column(
-                  children:
-                      recommendation.menus!.map((menu) => Text(menu)).toList(),
-                ),
-              ],
+              );
+            },
+            child: Container(
+              width: 0.3.sw,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(5),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 10,
+                      spreadRadius: 0.1,
+                    )
+                  ]),
+              padding: EdgeInsets.all(8.r),
+              margin: EdgeInsets.all(8.r),
+              child: ListView(
+                children: [
+                  Center(
+                    child: Text(
+                      "${recommendation.score}점",
+                      style: TextStyle(fontSize: 14.sp),
+                    ),
+                  ),
+                  Divider(color: Colors.grey),
+                  Column(
+                    children: recommendation.menus!
+                        .map((menu) => Text(menu))
+                        .toList(),
+                  ),
+                ],
+              ),
             ),
           );
         }),

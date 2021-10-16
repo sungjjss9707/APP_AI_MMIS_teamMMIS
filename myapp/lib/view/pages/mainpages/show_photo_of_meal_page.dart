@@ -10,7 +10,7 @@ import 'package:myapp/model/comments.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/button/back_button.dart';
 import 'package:myapp/view/pages/subpages/post_picture.dart';
-
+import 'dart:io' as Io;
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
@@ -60,7 +60,7 @@ class ShowPhotoOfMealPage extends StatelessWidget {
           Text(
             "우리 부대 급식 자랑",
             style: TextStyle(
-              fontSize: 24.r,
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -72,7 +72,17 @@ class ShowPhotoOfMealPage extends StatelessWidget {
                 builder: (context) => PostPicture(),
               );
             },
-            child: Text("게시하기"),
+            child: Row(
+              children: [
+                Icon(Icons.add),
+                Text(
+                  "게시하기",
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
