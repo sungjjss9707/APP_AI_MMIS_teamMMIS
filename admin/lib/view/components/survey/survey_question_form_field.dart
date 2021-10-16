@@ -35,13 +35,14 @@ class _SurveyQuestionFormFieldState extends State<SurveyQuestionFormField> {
 
   @override
   Widget build(BuildContext context) {
+    double _mediaWidth = getMediaQueryWidth(context);
     return Container(
       margin: EdgeInsets.symmetric(vertical: gap_s),
       decoration: BoxDecoration(
         border: Border.all(),
         borderRadius: BorderRadius.circular(10),
       ),
-      width: getMediaQueryWidth(context) * 0.4,
+      width: _mediaWidth > 700 ? 700 : _mediaWidth,
       padding: const EdgeInsets.all(gap_m),
       child: Form(
         child: Column(

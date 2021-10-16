@@ -1,6 +1,5 @@
 #%%
 #패키지 불러오기
-from bokeh.models.textures import Texture
 import pandas as pd
 import numpy as np
 import matplotlib as mpl
@@ -13,7 +12,6 @@ from konlpy.tag import Okt
 from konlpy.tag import Komoran
 from sklearn.utils.validation import indexable
 
-# %%
 # 데이터 불러오기
 data= pd.read_csv("All Menu (Various Versions)/국방부메뉴_v2.1.csv", encoding="UTF-8")
 
@@ -27,10 +25,9 @@ data = data.drop_duplicates(['메뉴이름'], ignore_index=True)
 
 for i in data:
     if(i in ['계란류', '우유', '메밀', '땅콩', '대두', '밀', '고등어', '게', '새우', '돼지고기', '복숭아', '토마토', '아황산류', '호두', '닭고기', '쇠고기', '오징어', '조개류', '잣']):
-        data[i] = data[i]/500
+        data[i] = data[i]/100
     if i in ['열량', '탄수화물', '지방', '단백질', '나트륨', '콜레스트롤']:
         data[i] = ((data[i]-data[i].mean())/data[i].std())/500
-data
 
 #
 # Komoran 사용한 토큰화 작업
@@ -104,7 +101,7 @@ import pickle
 X = data['wv'].tolist()
 y = data['category'].tolist()
 
-"""tsne_filepath = 'tnse3000(w2v).pkl'
+tsne_filepath = 'tnse3000(w2v).pkl'
 
 # File Cache
 if not os.path.exists(tsne_filepath):
@@ -114,7 +111,8 @@ if not os.path.exists(tsne_filepath):
         pickle.dump(tsne_points, f)
 else: #cache hits
     with open(tsne_filepath, 'rb') as f:
-        tsne_points=pickle.load(f)"""
+        tsne_points=pickle.load(f)
+        
 
 tsne=TSNE(random_state=42)
 tsne_points = tsne.fit_transform(X)
@@ -219,16 +217,15 @@ def find_sim_menu(data, sorted_idx, name, number=10):
 
 # 
 # 메뉴 추천 Test
-recommendMenus = ['청양마요치킨','비엔나소시지찌개','햄치즈버거','탕수육','훈제오리파프리카볶음','두부고추장찌개','낙지덮밥','꼬리곰탕','김장김치','콘형아이스크림']
+recommendMenus = ['청양마요치킨', '비엔나소시지찌개','햄치즈버거','탕수육','두부고추장찌개','낙지덮밥','꼬리곰탕','김장김치','콘형아이스크림']
 for menu in recommendMenus:
     print(menu, end=' : ')
     print(find_sim_menu(data, menu_sim_sorted_idx, menu))
 
 
-
 # %%
 # 서비스 작동을 위한 배열 저장
 
-np.save('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/menu_sim_sorted_idx',menu_sim_sorted_idx)
+np.save('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/w2v_menu_sim_sorted_idx',menu_sim_sorted_idx)
 data.to_csv('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/data.csv')
 # %%

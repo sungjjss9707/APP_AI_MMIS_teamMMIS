@@ -126,6 +126,19 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
   Widget _buildCalendar() {
     return Center(
       child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              blurRadius: 10,
+              spreadRadius: 0.01,
+              offset: Offset(3, 3),
+            ),
+          ],
+        ),
         width: _containerWidth,
         child: TableCalendar(
           locale: 'ko-KR',

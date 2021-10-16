@@ -1,9 +1,14 @@
-import 'dart:io';
-
+import 'dart:io' as Io;
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:myapp/controller/photo_controller.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/view/components/button/back_button.dart';
 import 'package:myapp/view/components/button/custom_upload_button.dart';
+import 'package:myapp/view/components/textfield/custom_text_form_field.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PostPicture extends StatefulWidget {
   @override
@@ -12,8 +17,10 @@ class PostPicture extends StatefulWidget {
 
 class _PostPictureState extends State<PostPicture> {
   final ImagePicker _picker = ImagePicker();
-  XFile? image;
-
+  var image;
+  final photo = Get.put(PhotoController());
+  final user = Get.put(UserController());
+  final _content = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
@@ -46,23 +53,25 @@ class _PostPictureState extends State<PostPicture> {
             ],
           ),
         ),
-        SizedBox(height: 4),
-        image != null
-            ? Image.file(
-                File(image!.path),
-                fit: BoxFit.contain,
-              )
-            : Container(),
+        SizedBox(height: 4.h),
+        image != null ? Text(image.path) : Container(),
+        CustomTextFormField(
+          controller: _content,
+          hint: "내용",
+        ),
+        SizedBox(height: 4.h),
         Row(
           children: [
             Spacer(),
-            CustomUploadButom(
-                onPressed: () {
-                  //여기서 이미지를 업로드 해야 됨.
-                  //올리기 완료 될 때, 화면 새로 고침해서 반영.
+            CustomUploadButton(
+                onPressed: () async {
+                  final bytes = Io.File(image.path).readAsBytesSync();
+                  String img64 = base64Encode(bytes);
+                  await photo.upload(img64, _content.text,
+                      user.principal.value.militaryNumber!);
                 },
                 text: "올리기"),
-            SizedBox(width: 5),
+            SizedBox(width: 4.h),
             CustomBackButton(text: "취소"),
           ],
         )
@@ -71,14 +80,14 @@ class _PostPictureState extends State<PostPicture> {
   }
 
   Future _getImageFromCamera() async {
-    XFile? _image = await _picker.pickImage(source: ImageSource.camera);
+    var _image = await _picker.pickImage(source: ImageSource.camera);
     setState(() {
       image = _image;
     });
   }
 
   Future _getImageFromGallery() async {
-    XFile? _image = await _picker.pickImage(source: ImageSource.gallery);
+    var _image = await _picker.pickImage(source: ImageSource.gallery);
     setState(() {
       image = _image;
     });

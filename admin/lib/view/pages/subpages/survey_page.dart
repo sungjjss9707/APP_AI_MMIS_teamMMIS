@@ -29,14 +29,15 @@ class _SurveyPageState extends State<SurveyPage> {
 
   @override
   Widget build(BuildContext context) {
+    final _mediaWidth = MediaQuery.of(context).size.width;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomTitle("설문조사"),
         Divider(color: Colors.grey),
-        _contentHeader(),
-        _noticeList(context),
+        _mediaWidth > 850 ? _contentHeader() : Container(),
+        _noticeList(context, _mediaWidth),
         _buildNewSurveyButton(),
         _numberPagination(),
       ],
@@ -58,7 +59,7 @@ class _SurveyPageState extends State<SurveyPage> {
           ),
         ),
         Expanded(
-          flex: 10,
+          flex: 8,
           child: Container(
             child: Center(
               child: Text(
@@ -94,7 +95,7 @@ class _SurveyPageState extends State<SurveyPage> {
     );
   }
 
-  Widget _noticeList(BuildContext context) {
+  Widget _noticeList(BuildContext context, double mediaWidth) {
     String title = '';
     String writer = '';
     String date = '';
@@ -117,14 +118,16 @@ class _SurveyPageState extends State<SurveyPage> {
                     ),
                   );
                 },
-                child:
-                    _content(index, survey.title, survey.writer, survey.date),
+                child: mediaWidth > 850
+                    ? _contentForWide(
+                        index, survey.title, survey.writer, survey.date)
+                    : _contentForNarrow(index, title, writer, date),
               ));
         } catch (e) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: InkWell(
-              child: _content(index, title, writer, date),
+              child: _contentForWide(index, title, writer, date),
             ),
           );
         }
@@ -163,7 +166,7 @@ class _SurveyPageState extends State<SurveyPage> {
     );
   }
 
-  Row _content(int index, String title, String writer, String date) {
+  Row _contentForWide(int index, String title, String writer, String date) {
     return Row(
       children: [
         Expanded(
@@ -174,18 +177,22 @@ class _SurveyPageState extends State<SurveyPage> {
               child: Text(
                 title == "" ? "" : "${index + 1}",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
         ),
         Expanded(
-          flex: 10,
+          flex: 8,
           child: Container(
             height: 30,
             child: Center(
               child: Text(
                 "$title",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
@@ -198,6 +205,8 @@ class _SurveyPageState extends State<SurveyPage> {
               child: Text(
                 "$writer",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
@@ -210,11 +219,34 @@ class _SurveyPageState extends State<SurveyPage> {
               child: Text(
                 "$date",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
         ),
       ],
+    );
+  }
+
+  Widget _contentForNarrow(
+      int index, String title, String writer, String date) {
+    return ListTile(
+      title: Text(
+        "${index + 1} $title",
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      subtitle: Text(
+        date,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      trailing: Text(
+        writer,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
     );
   }
 }
