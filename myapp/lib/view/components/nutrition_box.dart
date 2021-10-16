@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 
 class NutritionBox extends StatelessWidget {
+  final String menuName;
   final carbohydrate;
   final protein;
   final fat;
-  final vitaminA;
-  final vitaminC;
-  final calcium;
-  final iron;
+
   final salt;
-  final sugar;
+  final cholesterol;
   final TextStyle _textStyle = TextStyle(fontSize: 12, color: Colors.black54);
 
   NutritionBox(
-      {this.carbohydrate = "-",
-      this.protein = "-",
-      this.fat = "-",
-      this.vitaminA = "-",
-      this.vitaminC = "-",
-      this.calcium = "-",
-      this.iron = "-",
-      this.salt = "-",
-      this.sugar = "-"});
+    this.menuName, {
+    this.carbohydrate = "-",
+    this.protein = "-",
+    this.fat = "-",
+    this.salt = "-",
+    this.cholesterol = "-",
+  });
+  // NutritionBox.fromJson(Map<String, dynamic> nutrition)
+  //     : carbohydrate = nutrition["탄수화물"] ?? "-",
+  //       protein = nutrition["단백질"] ?? "-",
+  //       fat = nutrition["지방"] ?? "-",
+  //       salt = nutrition["나트륨"] ?? "-",
+  //       cholesterol = nutrition["콜레스테롤"] ?? "-";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,19 +41,11 @@ class NutritionBox extends StatelessWidget {
           ),
           Row(
             children: [
-              Expanded(
-                  flex: 1, child: Text("비타민A ${vitaminA}g", style: _textStyle)),
-              Expanded(
-                  flex: 1, child: Text("비타민C ${vitaminC}g", style: _textStyle)),
-              Expanded(
-                  flex: 1, child: Text("칼슘 ${calcium}g", style: _textStyle)),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(flex: 1, child: Text("철분 ${iron}g", style: _textStyle)),
               Expanded(flex: 1, child: Text("나트륨 ${salt}g", style: _textStyle)),
-              Expanded(flex: 1, child: Text("당 ${sugar}g", style: _textStyle)),
+              Expanded(
+                  flex: 1,
+                  child: Text("콜레스테롤 ${cholesterol}g", style: _textStyle)),
+              Expanded(flex: 1, child: Container()),
             ],
           ),
         ],

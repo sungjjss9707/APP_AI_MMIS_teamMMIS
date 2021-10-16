@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserInfoTextFormField extends StatelessWidget {
   String text;
@@ -21,9 +22,9 @@ class UserInfoTextFormField extends StatelessWidget {
       children: [
         Text(
           text,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.sp),
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 8.h),
         TextFormField(
           validator: validator,
           enabled: enabled,
@@ -62,7 +63,7 @@ class UserInfoTextFormField extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 15.h),
       ],
     );
   }

@@ -7,14 +7,13 @@ import 'package:survey_kit/survey_kit.dart';
 import '../../../theme.dart';
 
 class DoSurveyPage extends StatelessWidget {
-  final RealSurvey survey;
+  final Survey survey;
   final SurveyController _surveyController = SurveyController();
   DoSurveyPage(this.survey);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Container(
         child: SurveyKit(
           surveyController: _surveyController,
@@ -32,7 +31,7 @@ class DoSurveyPage extends StatelessWidget {
     );
   }
 
-  NavigableTask _orderedTask(RealSurvey survey) {
+  NavigableTask _orderedTask(Survey survey) {
     String id = survey.id!;
     String surveyTitle = survey.title!;
     String explain = survey.explain!;

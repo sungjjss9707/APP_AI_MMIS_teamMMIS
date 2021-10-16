@@ -12,7 +12,6 @@ class AdministerRepository {
   Future<Administer> login(String militaryNumber, String password) async {
     LoginReqDto loginReqDto = LoginReqDto(militaryNumber, password);
     Response response = await _administerProvider.login(loginReqDto.toJson());
-    dynamic headers = response.headers;
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
     //서버 연결안되면 여기서 오류남. convertBody가 String이 되기 때문

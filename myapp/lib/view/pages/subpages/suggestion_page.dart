@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/model/suggestion.dart';
@@ -48,7 +49,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
                       children: [
                         FaIcon(
                           FontAwesomeIcons.pen,
-                          size: 14,
+                          size: 14.r,
                         ),
                         SizedBox(width: 4),
                         Text("건의하기"),

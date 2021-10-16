@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class NotEatingController extends GetxController {
   final NotEatingRepository _notEatingRepository = NotEatingRepository();
-  final notEatings = <NotEating>[].obs;
+  final notEatings = <String, NotEating>{}.obs;
   final notEating = NotEating().obs;
 
   Future<void> findByDateAndTime(
@@ -15,7 +15,7 @@ class NotEatingController extends GetxController {
   }
 
   Future<void> findByDate(String year, String month, String day) async {
-    List<NotEating> notEatings =
+    Map<String, NotEating> notEatings =
         await _notEatingRepository.findByDate(year, month, day);
     this.notEatings.value = notEatings;
   }

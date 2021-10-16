@@ -30,14 +30,15 @@ class _NoticePageState extends State<NoticePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _mediaWidth = MediaQuery.of(context).size.width;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomTitle("공지사항 관리"),
         Divider(color: Colors.grey),
-        _contentHeader(),
-        _noticeList(context),
+        _mediaWidth > 850 ? _contentHeader() : Container(),
+        _noticeList(context, _mediaWidth),
         _buildWriteButton(context),
         _numberPagination(),
       ],
@@ -57,7 +58,7 @@ class _NoticePageState extends State<NoticePage> {
           ),
         ),
         Expanded(
-          flex: 10,
+          flex: 8,
           child: Container(
             child: Center(
               child: Text(
@@ -91,7 +92,7 @@ class _NoticePageState extends State<NoticePage> {
     );
   }
 
-  Widget _noticeList(BuildContext context) {
+  Widget _noticeList(BuildContext context, double mediaWidth) {
     return Obx(
       () => Column(
         children: List.generate(15, (int index) {
@@ -121,10 +122,12 @@ class _NoticePageState extends State<NoticePage> {
                     onTap: () async {
                       _showContentDialog(context, title, content, id);
                     },
-                    child: _content(index, title, writer, date),
+                    child: mediaWidth > 850
+                        ? _contentForWide(index, title, writer, date)
+                        : _contentForNarrow(index, title, writer, date),
                   )
                 : InkWell(
-                    child: _content(index, title, writer, date),
+                    child: _contentForWide(index, title, writer, date),
                   ),
           );
         }),
@@ -162,7 +165,7 @@ class _NoticePageState extends State<NoticePage> {
     );
   }
 
-  Row _content(int index, String title, String writer, String date) {
+  Widget _contentForWide(int index, String title, String writer, String date) {
     return Row(
       children: [
         Expanded(
@@ -173,18 +176,22 @@ class _NoticePageState extends State<NoticePage> {
               child: Text(
                 title == "" ? "" : "${index + 1}",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
         ),
         Expanded(
-          flex: 10,
+          flex: 8,
           child: Container(
             height: 30,
             child: Center(
               child: Text(
                 "$title",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
@@ -197,6 +204,8 @@ class _NoticePageState extends State<NoticePage> {
               child: Text(
                 "$writer",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
@@ -209,11 +218,34 @@ class _NoticePageState extends State<NoticePage> {
               child: Text(
                 "$date",
                 style: body1(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
         ),
       ],
+    );
+  }
+
+  Widget _contentForNarrow(
+      int index, String title, String writer, String date) {
+    return ListTile(
+      title: Text(
+        "${index + 1} $title",
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      subtitle: Text(
+        date,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      trailing: Text(
+        writer,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
     );
   }
 

@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
 ThemeData themeData = ThemeData(
+  textTheme: TextTheme(),
+  fontFamily: "NotoSansKR",
   backgroundColor: Colors.white,
+  primaryColor: Colors.lightGreen,
+  accentColor: Colors.lightGreenAccent,
   appBarTheme: AppBarTheme(
+    iconTheme: IconThemeData(color: Colors.white),
     backgroundColor: Colors.lightGreen[400],
     titleTextStyle: TextStyle(
       fontWeight: FontWeight.bold,
+      color: Colors.white,
     ),
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(

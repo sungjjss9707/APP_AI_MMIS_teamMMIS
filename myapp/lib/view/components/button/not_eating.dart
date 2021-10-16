@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NotEating extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class NotEating extends StatelessWidget {
       ),
       child: Text(
         "불취식",
-        style: TextStyle(color: Colors.white, fontSize: 10),
+        style: TextStyle(color: Colors.white, fontSize: 8.sp),
       ),
     );
   }

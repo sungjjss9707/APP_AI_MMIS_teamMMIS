@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class YesEating extends StatelessWidget {
   @override
@@ -9,9 +10,9 @@ class YesEating extends StatelessWidget {
         color: Colors.lightGreen[400],
         borderRadius: BorderRadius.circular(2),
       ),
-      child: const Text(
+      child: Text(
         "취식",
-        style: TextStyle(color: Colors.white, fontSize: 10),
+        style: TextStyle(color: Colors.white, fontSize: 8.sp),
       ),
     );
   }

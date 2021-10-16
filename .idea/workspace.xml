@@ -4,51 +4,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <expand />
+    <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021-10-04__10_05__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021-10-04_오전_10_05_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-04__9_16__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-04__9_16__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="admin design">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/function_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/button/function_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\1\.android\avd\Pixel_3a_API_30.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -83,24 +50,24 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/myapp/lib/domain" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\assets\font" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\number_eating" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\suggestion" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller\dto" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\admin\lib\view\components\textfield" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_real\admin\lib\view\pages" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\domain" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\controller" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\controller" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\assets" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\page_util" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\domain\admin" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib" />
     </key>
   </component>
   <component name="RunManager">
@@ -343,7 +310,63 @@
       <option name="project" value="LOCAL" />
       <updated>1633874285485</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료">
+      <created>1634007795611</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1634007795611</updated>
+    </task>
+    <task id="LOCAL-00033" summary="식단 관리 하는 중">
+      <created>1634023289572</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1634023289588</updated>
+    </task>
+    <task id="LOCAL-00034" summary="식단 관리 하는 중">
+      <created>1634027168741</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1634027168741</updated>
+    </task>
+    <task id="LOCAL-00035" summary="식단 관리 하는 중">
+      <created>1634111065967</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1634111065967</updated>
+    </task>
+    <task id="LOCAL-00036" summary="식단 관리 하는 중">
+      <created>1634111076169</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1634111076169</updated>
+    </task>
+    <task id="LOCAL-00037" summary="식단 관리 하는 중">
+      <created>1634120492920</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1634120492920</updated>
+    </task>
+    <task id="LOCAL-00038" summary="admin design">
+      <created>1634314591571</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1634314591571</updated>
+    </task>
+    <task id="LOCAL-00039" summary="admin design">
+      <created>1634316624965</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1634316624965</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -438,7 +461,31 @@
     <MESSAGE value="메뉴 관리 페이지 하는 중" />
     <MESSAGE value="건의사항 하는 중" />
     <MESSAGE value="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="공지사항, 메뉴(1개) 가져오기, 추가 서버 연결 완료" />
+    <MESSAGE value="식단 관리 하는 중" />
+    <MESSAGE value="admin design" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin design" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="623" height="498" key="SwitcherDM" timestamp="1633953324159">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633953324159" />
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1634316631650">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634316631650" />
+    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634316627665">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634316627665" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1634104180037">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634104180037" />
+    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1634305909592">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="321" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1634305909592" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

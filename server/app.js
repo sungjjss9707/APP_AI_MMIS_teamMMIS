@@ -13,7 +13,14 @@ var deleteRouter = require('./routes/delete');
 var testRouter = require('./routes/test');
 var adminjoinRouter = require('./routes/adminjoin');
 var adminloginRouter = require('./routes/adminlogin');
+var normaljoinRouter = require('./routes/normaljoin');
+var normalloginRouter = require('./routes/normallogin');
+var normalmodifyRouter = require('./routes/normalmodify');
+var surveyRouter = require('./routes/survey');
+var dietRouter = require('./routes/diet');
+var menuRouter = require('./routes/menu');
 var photoRouter = require('./routes/photo');
+var noteatingRouter = require('./routes/noteating');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 var app = express();
@@ -32,8 +39,14 @@ app.use(bodyParser.json());
 app.use('/notice', noticeRouter);
 app.use('/adminjoin', adminjoinRouter);
 app.use('/adminlogin', adminloginRouter);
+app.use('/normaljoin', normaljoinRouter);
+app.use('/normallogin', normalloginRouter);
+app.use('/normalmodify', normalmodifyRouter);
+app.use('/noteating', noteatingRouter);
+app.use('/survey', surveyRouter);
+app.use('/diet', dietRouter);
+app.use('/menu', menuRouter);
 app.use('/photo', photoRouter);
-//app.use('/board', boardRouter);
 //app.use('/post', postRouter);
 //app.use('/update', updateRouter);
 //app.use('/delete', deleteRouter);
@@ -41,22 +54,8 @@ app.use('/photo', photoRouter);
 //app.use('/test', testRouter);
 //app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(cors()); 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
 
 var server = app.listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + server.address().port);

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:myapp/model/menu.dart';
-//import 'package:myapp/model/diet.dart';
+import 'package:myapp/controller/diet_controller.dart';
 import 'package:myapp/model/popular_menu.dart';
 import 'package:myapp/view/components/custom_banner.dart';
 import 'package:myapp/view/components/button/function_button.dart';
@@ -24,6 +23,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //나중에 로그인할 때 불러오는 걸로 하자.
+  final diet = Get.put(DietController());
+  final DateTime now = DateTime.now();
+  late String nowYear;
+  late String nowMonth;
+  late String nowDay;
+  late int nowTime;
+  final List<String> time = ["조식", "중식", "석식"];
+
   Widget build(BuildContext context) {
     return ListView(
       children: [
@@ -33,11 +41,11 @@ class _HomePageState extends State<HomePage> {
           child: _functionButtons(),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: CustomBanner(),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: EdgeInsets.symmetric(horizontal: 8.w),
           child: _recommendation(),
         ),
       ],
@@ -45,17 +53,18 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _menuList() {
+    Map<String, List<String>> menuMap = _createMenuList();
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.only(bottom: 16.h),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
           children: List.generate(
-            dummyMenu.length,
-            (index) => MenuBox(
-              dummyMenu[index].date,
-              dummyMenu[index].time,
-            ),
+            menuMap.length,
+            (index) {
+              return MenuBox(menuMap.keys.toList()[index],
+                  menuMap.values.toList()[index], menuMap);
+            },
           ),
         ),
       ),
@@ -64,11 +73,11 @@ class _HomePageState extends State<HomePage> {
 
   Widget _functionButtons() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.only(bottom: 16.h),
       child: Column(
         children: [
           _buildButtonSet1(),
-          SizedBox(height: 16),
+          SizedBox(height: 16.h),
           _buildButtonSet2(),
         ],
       ),
@@ -94,7 +103,7 @@ class _HomePageState extends State<HomePage> {
           icon: FontAwesomeIcons.exclamationCircle,
           text: "건의사항",
         ),
-        SizedBox(width: 8),
+        SizedBox(width: 8.w),
         FunctionButton(
           onTap: () {
             Get.to(() => SurveyPage());
@@ -117,7 +126,7 @@ class _HomePageState extends State<HomePage> {
           icon: Icons.no_meals,
           text: "AI 실험실",
         ),
-        SizedBox(width: 8),
+        SizedBox(width: 8.w),
         FunctionButton(
           onTap: () {
             Get.to(() => DeductionPage());
@@ -125,7 +134,7 @@ class _HomePageState extends State<HomePage> {
           icon: Icons.payment,
           text: "공제내역",
         ),
-        SizedBox(width: 8),
+        SizedBox(width: 8.w),
         FunctionButton(
           onTap: () {
             Get.to(() => AllergyInfoPage());
@@ -142,16 +151,21 @@ class _HomePageState extends State<HomePage> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _popularMenu(),
-        SizedBox(width: 8),
-        _AIRecommendation(),
+        Expanded(flex: 1, child: _popularMenu()),
+        SizedBox(width: 8.w),
+        Expanded(flex: 1, child: _AIRecommendation()),
       ],
     );
   }
 
   Widget _popularMenu() {
     return Container(
-      height: 200,
+      padding: EdgeInsets.all(8.r),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10.r),
+      ),
+      height: 200.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -159,7 +173,7 @@ class _HomePageState extends State<HomePage> {
             "우리 부대 인기 메뉴는?",
             style: TextStyle(
               decoration: TextDecoration.underline,
-              fontSize: 14,
+              fontSize: 12.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -172,21 +186,21 @@ class _HomePageState extends State<HomePage> {
                   "1위. ${popularMenu["first"]}",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
-                    fontSize: 12,
+                    fontSize: 10.sp,
                   ),
                 ),
                 Text(
                   "2위. ${popularMenu["second"]}",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
-                    fontSize: 12,
+                    fontSize: 10.sp,
                   ),
                 ),
                 Text(
                   "3위. ${popularMenu["third"]}",
                   style: TextStyle(
                     decoration: TextDecoration.underline,
-                    fontSize: 12,
+                    fontSize: 10.sp,
                   ),
                 ),
               ],
@@ -199,7 +213,12 @@ class _HomePageState extends State<HomePage> {
 
   Widget _AIRecommendation() {
     return Container(
-      height: 200,
+      padding: EdgeInsets.all(8.r),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10.r),
+      ),
+      height: 200.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -207,7 +226,7 @@ class _HomePageState extends State<HomePage> {
             "AI가 추전해주는 부대 식단!",
             style: TextStyle(
               decoration: TextDecoration.underline,
-              fontSize: 14,
+              fontSize: 12.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -221,7 +240,7 @@ class _HomePageState extends State<HomePage> {
                     value,
                     style: TextStyle(
                       decoration: TextDecoration.underline,
-                      fontSize: 12,
+                      fontSize: 10.sp,
                     ),
                   ),
                 )
@@ -231,5 +250,38 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  Map<String, List<String>> _createMenuList() {
+    int count = 0;
+    Map<String, List<String>> result = {};
+    while (count <= 2) {
+      DateTime particularDay = now.add(Duration(days: count));
+      result[
+          "${particularDay.year}/${particularDay.month}/${particularDay.day}/조식"] = diet
+                  .dietsConvert[
+              "${particularDay.year}/${particularDay.month}/${particularDay.day}/조식"] ??
+          [];
+      if (diet.dietsConvert[
+              "${particularDay.year}/${particularDay.month}/${particularDay.day}/브런치"] !=
+          null)
+        result[
+            "${particularDay.year}/${particularDay.month}/${particularDay.day}/브런치"] = diet
+                .dietsConvert[
+            "${particularDay.year}/${particularDay.month}/${particularDay.day}/브런치"]!;
+      result[
+          "${particularDay.year}/${particularDay.month}/${particularDay.day}/중식"] = diet
+                  .dietsConvert[
+              "${particularDay.year}/${particularDay.month}/${particularDay.day}/중식"] ??
+          [];
+      result[
+          "${particularDay.year}/${particularDay.month}/${particularDay.day}/석식"] = diet
+                  .dietsConvert[
+              "${particularDay.year}/${particularDay.month}/${particularDay.day}/석식"] ??
+          [];
+      count += 1;
+    }
+
+    return result;
   }
 }

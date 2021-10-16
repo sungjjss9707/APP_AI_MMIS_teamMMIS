@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/user/user.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:myapp/user/user_ex.dart';
 
 class UserInfoRadio extends StatefulWidget {
   String text;
@@ -26,15 +27,15 @@ class _UserInfoRadioState extends State<UserInfoRadio> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: 100,
+              width: 50.w,
               child: Text(
                   text.length == 3 ? text : "  " * (3 - text.length) + text,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 15,
+                      fontSize: 13.sp,
                       color: Colors.black)),
             ),
-            SizedBox(width: 50),
+            SizedBox(width: 50.w),
             Radio(
               value: YesOrNo.yes,
               groupValue: v,
@@ -50,9 +51,9 @@ class _UserInfoRadioState extends State<UserInfoRadio> {
             Text("있음",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 13.sp,
                     color: Colors.black54)),
-            SizedBox(width: 50),
+            SizedBox(width: 50.w),
             Radio(
               value: YesOrNo.no,
               groupValue: v,
@@ -68,7 +69,7 @@ class _UserInfoRadioState extends State<UserInfoRadio> {
             Text("없음",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 13.sp,
                     color: Colors.black54)),
           ],
         ),

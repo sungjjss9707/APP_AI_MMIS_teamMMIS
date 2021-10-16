@@ -1,4 +1,4 @@
-import 'package:myapp/user/user.dart';
+import 'package:myapp/user/user_ex.dart';
 
 List calDeduction() {
   final notEatings = userNotEating;

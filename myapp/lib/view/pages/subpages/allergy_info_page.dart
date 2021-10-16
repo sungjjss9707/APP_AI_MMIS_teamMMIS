@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:myapp/allergy.dart';
-import 'package:myapp/user/user.dart';
+import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
 
@@ -14,11 +15,11 @@ class AllergyInfoPage extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 20, bottom: 10),
+            padding: EdgeInsets.only(top: 20.h, bottom: 10.h),
             child: Center(
               child: Text("내 알레르기",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
                   )),
             ),
@@ -29,11 +30,11 @@ class AllergyInfoPage extends StatelessWidget {
           if (userAllergy.values.toList().contains(false)) Divider(),
           if (userAllergy.values.toList().contains(false))
             Padding(
-              padding: EdgeInsets.only(top: 10, bottom: 10),
+              padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
               child: Center(
                 child: Text("기타 알레르기",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.bold,
                     )),
               ),
@@ -58,18 +59,20 @@ class AllergyInfo extends StatelessWidget {
       title: Text("$allergy 알레르기",
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 15,
+            fontSize: 13.sp,
             color: Colors.black54,
           )),
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Wrap(
             children: [
-              Text(allergyInfo[allergy]!),
+              Text(allergyInfo[allergy]!,
+                  style: TextStyle(fontSize: 12.sp, color: Colors.black87)),
             ],
           ),
         ),
+        SizedBox(height: 10.h)
       ],
     );
   }

@@ -5,7 +5,7 @@ import 'package:admin/view/pages/login_page.dart';
 import 'package:admin/view/pages/subpages/AI_page.dart';
 import 'package:admin/view/pages/subpages/home_page.dart';
 import 'package:admin/view/pages/subpages/manage_the_number_eating_page.dart';
-import 'package:admin/view/pages/subpages/menu_manage_page.dart';
+import 'package:admin/view/pages/subpages/diet_manage_page.dart';
 import 'package:admin/view/pages/subpages/notice_page.dart';
 import 'package:admin/view/pages/subpages/suggestion_page.dart';
 import 'package:admin/view/pages/subpages/survey_page.dart';
@@ -29,7 +29,7 @@ final List<String> sideMenuBarList = [
 
 final List<Widget> pageList = [
   HomePage(),
-  MenuManagePage(),
+  DietManagePage(),
   ManageTheNumberEatingPage(),
   NoticePage(),
   SuggestionPage(),
@@ -52,40 +52,45 @@ class FramePage extends StatefulWidget {
 }
 
 class _FramePageState extends State<FramePage> {
-  late bool openSideBar;
+  late bool isCollapsed;
   late int _selectedTapIndex;
 
   @override
   void initState() {
-    openSideBar = false;
-    _selectedTapIndex = 1;
+    isCollapsed = true;
+    _selectedTapIndex = 0;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     final a = Get.put(AdministerController());
-    return Scaffold(
-      appBar: _buildAppBar(),
-      body: CollapsibleSidebar(
-        items: _generateCollapsibleItem(),
-        body: _body(),
-        title: "${a.principal.value.username}",
-        toggleTitle: "접기",
-        backgroundColor: Colors.lightGreen,
-        selectedIconBox: Colors.lightGreen[800]!,
-        selectedIconColor: Colors.green,
-        selectedTextColor: Colors.white,
-        unselectedIconColor: Colors.white,
-        unselectedTextColor: Colors.white60,
-        sidebarBoxShadow: [
-          BoxShadow(
-            color: Colors.green,
-            blurRadius: 10,
-            spreadRadius: 0.01,
-            offset: Offset(3, 3),
-          ),
-        ],
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: Scaffold(
+        appBar: _buildAppBar(),
+        body: CollapsibleSidebar(
+          isCollapsed: isCollapsed,
+          fitItemsToBottom: true,
+          items: _generateCollapsibleItem(),
+          body: _body(),
+          title: "${a.principal.value.username}",
+          toggleTitle: "접기",
+          backgroundColor: Colors.lightGreen,
+          selectedIconBox: Colors.lightGreen[800]!,
+          selectedIconColor: Colors.green,
+          selectedTextColor: Colors.white,
+          unselectedIconColor: Colors.white,
+          unselectedTextColor: Colors.white60,
+          sidebarBoxShadow: [
+            BoxShadow(
+              color: Colors.green,
+              blurRadius: 10,
+              spreadRadius: 0.01,
+              offset: Offset(3, 3),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -99,6 +104,7 @@ class _FramePageState extends State<FramePage> {
           onPressed: () {
             setState(() {
               _selectedTapIndex = index;
+              isCollapsed = true;
             });
           },
           isSelected: index == _selectedTapIndex ? true : false),
@@ -106,15 +112,30 @@ class _FramePageState extends State<FramePage> {
   }
 
   Widget _body() {
-    return ListView(
-      children: [
-        _selectedTapIndex == 0
-            ? pageList[_selectedTapIndex]
-            : Padding(
-                padding: const EdgeInsets.all(gap_xl),
-                child: pageList[_selectedTapIndex],
-              ),
-      ],
+    return Container(
+      margin: EdgeInsets.all(gap_xs),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 10,
+            spreadRadius: 0.01,
+            offset: Offset(3, 3),
+          ),
+        ],
+      ),
+      child: ListView(
+        children: [
+          _selectedTapIndex == 0
+              ? pageList[_selectedTapIndex]
+              : Padding(
+                  padding: const EdgeInsets.all(gap_xl),
+                  child: pageList[_selectedTapIndex],
+                ),
+        ],
+      ),
     );
   }
 
