@@ -28,33 +28,40 @@ class _AIPageState extends State<AIPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTitle("AI 실험실"),
-        Divider(color: Colors.grey),
-        Center(
-          child: Column(
+    return Padding(
+      padding: const EdgeInsets.all(gap_xl),
+      child: ListView(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "급식이 1.0.0",
-                style: h5(),
-              ),
-              SizedBox(height: gap_s),
-              Container(
-                width: 500,
-                child: Text(
-                  "급식이 1.0.0은 급식 관리자들이 메뉴를 구성할 때, 도와주는 인공지능 모델입니다. 식단을 입력하면, 부대원들에 대한 이 식단의 적합도와 대체 추천 식단을 구해 줍니다. 구성한 식단을 테스트해보세요.",
-                  style: body1_grey(),
+              CustomTitle("AI 실험실"),
+              Divider(color: Colors.grey),
+              Center(
+                child: Column(
+                  children: [
+                    Text(
+                      "급식이 1.0.0",
+                      style: h5(),
+                    ),
+                    SizedBox(height: gap_s),
+                    Container(
+                      width: 500,
+                      child: Text(
+                        "급식이 1.0.0은 급식 관리자들이 메뉴를 구성할 때, 도와주는 인공지능 모델입니다. 식단을 입력하면, 부대원들에 대한 이 식단의 적합도와 대체 추천 식단을 구해 줍니다. 구성한 식단을 테스트해보세요.",
+                        style: body1_grey(),
+                      ),
+                    ),
+                    SizedBox(height: gap_xl),
+                    yesInput == true ? _buildInputMenu() : _buildResult(),
+                  ],
                 ),
               ),
-              SizedBox(height: gap_xl),
-              yesInput == true ? _buildInputMenu() : _buildResult(),
             ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

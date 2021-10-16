@@ -35,17 +35,24 @@ class _DietManagePageState extends State<DietManagePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTitle("메뉴 관리"),
-        Divider(color: Colors.grey),
-        SizedBox(width: gap_l),
-        _buildCalendar(),
-        SizedBox(height: gap_m),
-        MenuInputContainer(date: _selectedDay),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(gap_xl),
+      child: ListView(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomTitle("메뉴 관리"),
+              Divider(color: Colors.grey),
+              SizedBox(width: gap_l),
+              _buildCalendar(),
+              SizedBox(height: gap_m),
+              MenuInputContainer(date: _selectedDay),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

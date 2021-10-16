@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:number_pagination/number_pagination.dart';
 
+import '../../../size.dart';
 import '../../../style.dart';
 
 class NoticePage extends StatefulWidget {
@@ -31,17 +32,24 @@ class _NoticePageState extends State<NoticePage> {
   @override
   Widget build(BuildContext context) {
     final _mediaWidth = MediaQuery.of(context).size.width;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTitle("공지사항 관리"),
-        Divider(color: Colors.grey),
-        _mediaWidth > 850 ? _contentHeader() : Container(),
-        _noticeList(context, _mediaWidth),
-        _buildWriteButton(context),
-        _numberPagination(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(gap_xl),
+      child: ListView(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomTitle("공지사항 관리"),
+              Divider(color: Colors.grey),
+              _mediaWidth > 850 ? _contentHeader() : Container(),
+              _noticeList(context, _mediaWidth),
+              _buildWriteButton(context),
+              _numberPagination(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

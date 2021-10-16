@@ -11,7 +11,7 @@ class WrittenCommentBox extends StatelessWidget {
     this.hint,
     this.funValidate,
     this.enabled,
-    this.maxLines = 15,
+    this.maxLines = 2,
   });
   @override
   Widget build(BuildContext context) {

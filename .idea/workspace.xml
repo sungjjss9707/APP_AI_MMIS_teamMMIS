@@ -9,13 +9,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="myapp design">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/survey_post_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/dto/survey_post_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/suggestion/written_comment_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/suggestion/written_comment_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -12,6 +12,19 @@ ThemeData themeData = ThemeData(
       primary: Colors.lightGreen[500],
     ),
   ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      padding: EdgeInsets.all(20),
+      primary: Colors.black,
+      minimumSize: Size(100, 50),
+      side: BorderSide(
+        width: 2.5,
+        color: Colors.black,
+      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      textStyle: TextStyle(fontWeight: FontWeight.w500, fontSize: 32),
+    ),
+  ),
   // iconTheme: IconThemeData(
   //   color: Colors.lightGreen[400],
   // ),

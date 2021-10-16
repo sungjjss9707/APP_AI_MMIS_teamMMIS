@@ -12,7 +12,7 @@ import '../../../size.dart';
 class SuggestionContentDialog extends StatefulWidget {
   final int id;
 
-  SuggestionContentDialog({required this.id});
+  SuggestionContentDialog({Key? key, required this.id}) : super(key: key);
 
   @override
   _SuggestionContentDialog createState() => _SuggestionContentDialog();
@@ -29,18 +29,26 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
   SuggestionController s = Get.find();
 
   @override
-  Future<void> initState() async {
-    _titleController.text = s.suggestion.value.title!;
-    _contentController.text = s.suggestion.value.content!;
-    _writtenCommentsList =
-        List.generate(s.suggestion.value.comments!.length, (index) {
-      WrittenCommentBox writtenCommentBox = WrittenCommentBox(
-        enabled: true,
+  initState() {
+    _titleController.text = s.suggestion.value.title ?? "";
+
+    _contentController.text = s.suggestion.value.content ?? "";
+
+    if (s.suggestion.value.comments != null) {
+      _writtenCommentsList = List.generate(
+        s.suggestion.value.comments!.length,
+        (index) {
+          WrittenCommentBox writtenCommentBox = WrittenCommentBox(
+            enabled: true,
+          );
+          writtenCommentBox.controller.text =
+              s.suggestion.value.comments![index].content ?? "";
+          return writtenCommentBox;
+        },
       );
-      writtenCommentBox.controller.text =
-          s.suggestion.value.comments![index].content ?? "";
-      return WrittenCommentBox();
-    });
+    } else
+      _writtenCommentsList = [];
+    print("c");
     super.initState();
   }
 
@@ -100,43 +108,41 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
   }
 
   Widget _writtenComments() {
-    return Obx(
-      () => Column(
-        children: List.generate(_writtenCommentsList.length, (index) {
-          return Padding(
-            padding: const EdgeInsets.only(bottom: gap_m),
-            child: Row(
-              children: [
-                Expanded(
-                  child: _writtenCommentsList[index],
-                ),
-                SizedBox(width: gap_xs),
-                TextButton(
-                  onPressed: () {
-                    setState(() async {
-                      await s.updateComment(
-                          widget.id,
-                          s.suggestion.value.comments![index].id!,
-                          _writtenCommentsList[index].controller.text);
-                    });
-                  },
-                  child: Text("수정"),
-                ),
-                SizedBox(width: gap_s),
-                TextButton(
-                  onPressed: () {
-                    setState(() async {
-                      await s.deleteComment(
-                          widget.id, s.suggestion.value.comments![index].id!);
-                    });
-                  },
-                  child: Text("삭제"),
-                ),
-              ],
-            ),
-          );
-        }),
-      ),
+    return Column(
+      children: List.generate(_writtenCommentsList.length, (index) {
+        return Padding(
+          padding: const EdgeInsets.only(bottom: gap_m),
+          child: Row(
+            children: [
+              Expanded(
+                child: _writtenCommentsList[index],
+              ),
+              SizedBox(width: gap_xs),
+              TextButton(
+                onPressed: () {
+                  setState(() async {
+                    await s.updateComment(
+                        widget.id,
+                        s.suggestion.value.comments![index].id!,
+                        _writtenCommentsList[index].controller.text);
+                  });
+                },
+                child: Text("수정"),
+              ),
+              SizedBox(width: gap_s),
+              TextButton(
+                onPressed: () {
+                  setState(() async {
+                    await s.deleteComment(
+                        widget.id, s.suggestion.value.comments![index].id!);
+                  });
+                },
+                child: Text("삭제"),
+              ),
+            ],
+          ),
+        );
+      }),
     );
   }
 

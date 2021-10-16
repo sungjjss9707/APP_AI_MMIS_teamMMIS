@@ -52,6 +52,7 @@ class FramePage extends StatefulWidget {
 }
 
 class _FramePageState extends State<FramePage> {
+  final scrollController = ScrollController();
   late bool isCollapsed;
   late int _selectedTapIndex;
 
@@ -59,7 +60,14 @@ class _FramePageState extends State<FramePage> {
   void initState() {
     isCollapsed = true;
     _selectedTapIndex = 0;
+
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -126,16 +134,7 @@ class _FramePageState extends State<FramePage> {
           ),
         ],
       ),
-      child: ListView(
-        children: [
-          _selectedTapIndex == 0
-              ? pageList[_selectedTapIndex]
-              : Padding(
-                  padding: const EdgeInsets.all(gap_xl),
-                  child: pageList[_selectedTapIndex],
-                ),
-        ],
-      ),
+      child: pageList[_selectedTapIndex],
     );
   }
 

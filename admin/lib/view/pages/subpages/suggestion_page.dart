@@ -1,6 +1,8 @@
 // 공지사항 관리 페이지
 
 import 'package:admin/controller/suggestion_controller.dart';
+import 'package:admin/size.dart';
+import 'package:admin/util/editDateFormat.dart';
 
 import 'package:admin/view/components/dialog/suggestion_content_dialog.dart';
 import 'package:admin/view/components/home/customTitle.dart';
@@ -29,16 +31,23 @@ class _SuggestionPageState extends State<SuggestionPage> {
   @override
   Widget build(BuildContext context) {
     final _mediaWidth = MediaQuery.of(context).size.width;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTitle("건의사항 관리"),
-        Divider(color: Colors.grey),
-        _mediaWidth > 850 ? _contentHeader() : Container(),
-        _suggestionList(context, _mediaWidth),
-        _numberPagination(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(gap_xl),
+      child: ListView(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomTitle("건의사항 관리"),
+              Divider(color: Colors.grey),
+              _mediaWidth > 850 ? _contentHeader() : Container(),
+              _suggestionList(context, _mediaWidth),
+              _numberPagination(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -106,7 +115,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
           try {
             title = s.suggestions[index].title!;
             writer = "관리자";
-            date = s.suggestions[index].updated.toString();
+            date = editDateFormat(s.suggestions[index].updated!);
             content = s.suggestions[index].content!;
             id = s.suggestions[index].id!;
           } catch (e) {
@@ -237,10 +246,12 @@ class _SuggestionPageState extends State<SuggestionPage> {
   Future<dynamic> _showContentDialog(
       BuildContext context, String title, String content, int id) async {
     await s.findById(id);
+
     return showDialog(
       context: context,
       builder: (context) {
         return SuggestionContentDialog(
+          key: UniqueKey(),
           id: id,
         );
       },

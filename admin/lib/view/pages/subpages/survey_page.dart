@@ -1,6 +1,7 @@
 // 공지사항 관리 페이지
 
 import 'package:admin/model/survey.dart';
+import 'package:admin/size.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/home/customTitle.dart';
 import 'package:admin/view/pages/sub_sub_pages/create_survey_page.dart';
@@ -30,17 +31,24 @@ class _SurveyPageState extends State<SurveyPage> {
   @override
   Widget build(BuildContext context) {
     final _mediaWidth = MediaQuery.of(context).size.width;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTitle("설문조사"),
-        Divider(color: Colors.grey),
-        _mediaWidth > 850 ? _contentHeader() : Container(),
-        _noticeList(context, _mediaWidth),
-        _buildNewSurveyButton(),
-        _numberPagination(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(gap_xl),
+      child: ListView(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomTitle("설문조사"),
+              Divider(color: Colors.grey),
+              _mediaWidth > 850 ? _contentHeader() : Container(),
+              _noticeList(context, _mediaWidth),
+              _buildNewSurveyButton(),
+              _numberPagination(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

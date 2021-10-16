@@ -22,16 +22,18 @@ class SuggestionController extends GetxController {
 
   Future<void> findAll() async {
     List<Suggestion> suggestions = await _suggestionRepository.findAll();
-    this.suggestions.value = suggestions;
+    this.suggestions.value = suggestions.reversed.toList();
   }
 
-  Future<void> deleteById(int id) async {
+  Future<int> deleteById(int id) async {
     int result = await _suggestionRepository.deleteById(id);
     if (result == 1) {
       List<Suggestion> result =
           suggestions.where((post) => post.id != id).toList();
       suggestions.value = result;
+      return 1;
     }
+    return -1;
   }
 
   Future<void> postComment(int suggestionId, String content) async {

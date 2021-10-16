@@ -44,17 +44,24 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
     final String month = getMonth(_selectedDay);
     final String day = getDay(_selectedDay);
     _findByDate(year, month, day);
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTitle("식수 인원 관리"),
-        Divider(color: Colors.grey),
-        _buildCalendar(),
-        _changeTotalNum(context),
-        SizedBox(height: gap_l),
-        _showData(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(gap_xl),
+      child: ListView(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomTitle("식수 인원 관리"),
+              Divider(color: Colors.grey),
+              _buildCalendar(),
+              _changeTotalNum(context),
+              SizedBox(height: gap_l),
+              _showData(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
