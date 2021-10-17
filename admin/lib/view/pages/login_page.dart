@@ -26,25 +26,47 @@ class LoginPage extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(gap_m),
             width: 400,
-            height: 500,
-            child: Column(
+            height: 600,
+            child: ListView(
               children: [
-                Text(
-                  "MMIS 관리자 체계 로그인",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+                SizedBox(
+                  width: 400,
+                  height: 140,
+                  child: Image.asset(
+                    "black_logo_transparent.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    "군 급식 정보 체계",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(height: gap_m),
+                Center(
+                  child: Text(
+                    "관리자 체계 로그인",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: gap_s,
                 ),
                 TagAndTextFormField(
+                  hint: "군번을 입력하세요",
                   text: "군번",
                   controller: _militaryNumber,
                   funValidate: validateMilitaryNumber(),
                 ),
                 TagAndTextFormField(
+                  hint: "비밀번호를 입력하세요",
                   text: "비밀번호",
                   controller: _password,
                   funValidate: validatePassWord(),

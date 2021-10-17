@@ -16,6 +16,7 @@ ThemeData themeData = ThemeData(
     style: OutlinedButton.styleFrom(
       padding: EdgeInsets.all(20),
       primary: Colors.black,
+      fixedSize: Size(160, 80),
       minimumSize: Size(100, 50),
       side: BorderSide(
         width: 2.5,

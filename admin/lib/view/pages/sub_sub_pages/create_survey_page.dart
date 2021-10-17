@@ -76,7 +76,9 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
         children: [
           Container(
             width: _width,
-            padding: EdgeInsets.all(gap_xl),
+            padding: _width < 540
+                ? const EdgeInsets.all(gap_m)
+                : const EdgeInsets.all(gap_xl),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,

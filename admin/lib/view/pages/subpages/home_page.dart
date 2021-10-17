@@ -1,5 +1,6 @@
 import 'package:admin/size.dart';
 import 'package:admin/style.dart';
+import 'package:admin/view/components/home/guide_section_1.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -76,50 +77,72 @@ class HomePage extends StatelessWidget {
                     style: h4(),
                   ),
                 ),
+                SizedBox(
+                  height: gap_s,
+                ),
                 Center(
                   child: Text(
                     "- 다양하고 편리한 MMIS의 기능들을 살펴보세요. -",
                     style: h5(),
                   ),
                 ),
-                SizedBox(height: gap_l),
-                Center(
-                  child: Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    spacing: 64,
-                    children: [
-                      OutlinedButton(
-                        onPressed: () {},
-                        child: Text("메뉴 관리"),
-                      ),
-                      OutlinedButton(
-                        onPressed: () {},
-                        child: Text("식수 인원"),
-                      ),
-                      OutlinedButton(
-                        onPressed: () {},
-                        child: Text("공지사항"),
-                      ),
-                      OutlinedButton(
-                        onPressed: () {},
-                        child: Text("건의사항"),
-                      ),
-                      OutlinedButton(
-                        onPressed: () {},
-                        child: Text("설문조사"),
-                      ),
-                      OutlinedButton(
-                        onPressed: () {},
-                        child: Text("AI 실험실"),
-                      ),
-                    ],
-                  ),
-                )
+                SizedBox(height: gap_xl),
+                _outlineButtons(),
+                SizedBox(height: gap_xl * 4),
+                _guide(),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _outlineButtons() {
+    return Center(
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        spacing: 64,
+        runSpacing: 24,
+        children: [
+          OutlinedButton(
+            onPressed: () {},
+            child: Text("메뉴 관리"),
+          ),
+          OutlinedButton(
+            onPressed: () {},
+            child: Text("식수 인원"),
+          ),
+          OutlinedButton(
+            onPressed: () {},
+            child: Text("공지사항"),
+          ),
+          OutlinedButton(
+            onPressed: () {},
+            child: Text("건의사항"),
+          ),
+          OutlinedButton(
+            onPressed: () {},
+            child: Text("설문조사"),
+          ),
+          OutlinedButton(
+            onPressed: () {},
+            child: Text("AI 실험실"),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _guide() {
+    return Column(
+      children: [
+        GuideSection1(
+            imageName: "capture_ex.png",
+            title: "메뉴 관리",
+            content:
+                "메뉴 관리에서는 부대 내 식단을 하루, 한달 단위로 관리할 수 있습니다. 뿐만 아니라 새로운 메뉴의 추가도 손쉽게 가능합니다.")
+      ],
     );
   }
 }

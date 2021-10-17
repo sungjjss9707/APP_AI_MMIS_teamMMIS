@@ -28,8 +28,11 @@ class _AIPageState extends State<AIPage> {
 
   @override
   Widget build(BuildContext context) {
+    double _width = getMediaQueryWidth(context);
     return Padding(
-      padding: const EdgeInsets.all(gap_xl),
+      padding: _width < 540
+          ? const EdgeInsets.all(gap_m)
+          : const EdgeInsets.all(gap_xl),
       child: ListView(
         children: [
           Column(

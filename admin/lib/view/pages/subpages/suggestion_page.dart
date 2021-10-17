@@ -31,9 +31,11 @@ class _SuggestionPageState extends State<SuggestionPage> {
 
   @override
   Widget build(BuildContext context) {
-    final _mediaWidth = MediaQuery.of(context).size.width;
+    final _width = getMediaQueryWidth(context);
     return Padding(
-      padding: const EdgeInsets.all(gap_xl),
+      padding: _width < 540
+          ? const EdgeInsets.all(gap_m)
+          : const EdgeInsets.all(gap_xl),
       child: ListView(
         children: [
           Column(
@@ -42,8 +44,8 @@ class _SuggestionPageState extends State<SuggestionPage> {
             children: [
               CustomTitle("건의사항 관리"),
               Divider(color: Colors.grey),
-              _mediaWidth > 850 ? _contentHeader() : Container(),
-              _suggestionList(context, _mediaWidth),
+              _width > 850 ? _contentHeader() : Container(),
+              _suggestionList(context, _width),
               _numberPagination(),
             ],
           ),

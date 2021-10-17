@@ -28,6 +28,7 @@ dependencies:
   intl: ^0.17.0
   table_calendar: ^3.0.2
   font_awesome_flutter: ^9.1.0
+
   syncfusion_flutter_charts: ^19.2.62
   number_pagination: ^0.0.1+1
   flutter_localizations:

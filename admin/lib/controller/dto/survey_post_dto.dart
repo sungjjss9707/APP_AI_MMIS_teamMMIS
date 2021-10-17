@@ -27,7 +27,7 @@ class SurveyPostDto {
       question["options"] = getOption(i);
       questionsList.add(question);
     }
-    result["question"] = jsonEncode(questionsList) ?? "";
+    result["question"] = jsonEncode(questionsList);
     print(result["question"].runtimeType);
     return result;
   }
