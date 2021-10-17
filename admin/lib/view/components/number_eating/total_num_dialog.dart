@@ -10,7 +10,7 @@ import '../../../size.dart';
 
 class TotalNumDialog extends StatelessWidget {
   final DateTime date;
-  final List<String> totalNumOfPeopleList;
+  final List<String>? totalNumOfPeopleList;
   final _totalNumChangeBreakFast = TextEditingController();
   final _totalNumChangeBrunch = TextEditingController();
   final _totalNumChangeLunch = TextEditingController();
@@ -24,10 +24,12 @@ class TotalNumDialog extends StatelessWidget {
     final String year = getYear(date);
     final String month = getMonth(date);
     final String day = getDay(date);
-    _totalNumChangeBreakFast.text = totalNumOfPeopleList[0];
-    _totalNumChangeBrunch.text = totalNumOfPeopleList[1];
-    _totalNumChangeLunch.text = totalNumOfPeopleList[2];
-    _totalNumChangeDinner.text = totalNumOfPeopleList[3];
+    if (totalNumOfPeopleList != null) {
+      _totalNumChangeBreakFast.text = totalNumOfPeopleList![0];
+      _totalNumChangeBrunch.text = totalNumOfPeopleList![1];
+      _totalNumChangeLunch.text = totalNumOfPeopleList![2];
+      _totalNumChangeDinner.text = totalNumOfPeopleList![3];
+    }
     return SimpleDialog(
       title: Text("부대 인원수 수정하기"),
       contentPadding: const EdgeInsets.all(16),
@@ -83,22 +85,22 @@ class TotalNumDialog extends StatelessWidget {
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           if (_totalNumChangeBreakFast.text.trim() !=
-                              totalNumOfPeopleList[0]) {
+                              totalNumOfPeopleList![0]) {
                             await not.changeTotalNumOfPeople(year, month, day,
                                 "조식", _totalNumChangeBreakFast.text.trim());
                           }
                           if (_totalNumChangeBrunch.text.trim() !=
-                              totalNumOfPeopleList[1]) {
+                              totalNumOfPeopleList![1]) {
                             await not.changeTotalNumOfPeople(year, month, day,
                                 "브런치", _totalNumChangeBrunch.text.trim());
                           }
                           if (_totalNumChangeLunch.text.trim() !=
-                              totalNumOfPeopleList[2]) {
+                              totalNumOfPeopleList![2]) {
                             await not.changeTotalNumOfPeople(year, month, day,
                                 "중식", _totalNumChangeLunch.text.trim());
                           }
                           if (_totalNumChangeDinner.text.trim() !=
-                              totalNumOfPeopleList[3]) {
+                              totalNumOfPeopleList![3]) {
                             await not.changeTotalNumOfPeople(year, month, day,
                                 "석식", _totalNumChangeDinner.text.trim());
                           }
