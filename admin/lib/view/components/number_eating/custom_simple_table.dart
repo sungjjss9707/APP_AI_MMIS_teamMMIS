@@ -25,9 +25,9 @@ class CustomSimpleTable extends StatelessWidget {
     };
     return Column(
       children: [
-        _totalNumTable(dummyTotalNumData),
+        _totalNumTable(totalNumData),
         SizedBox(height: gap_m),
-        _notEatingNumTable(dummyReasonData)
+        _notEatingNumTable(reasonData)
       ],
     );
   }

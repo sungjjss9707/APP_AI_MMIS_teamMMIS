@@ -57,7 +57,7 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
               _buildCalendar(),
               _changeTotalNum(context),
               SizedBox(height: gap_l),
-              _showData(),
+              _showData(year, month, day),
             ],
           ),
         ],
@@ -87,7 +87,13 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
     );
   }
 
-  Widget _showData() {
+  Widget _showData(String year, month, day) {
+    try {
+      not.findByDateAndTime(year, month, day, "조식");
+      not.findByDateAndTime(year, month, day, "브런치");
+      not.findByDateAndTime(year, month, day, "중식");
+      not.findByDateAndTime(year, month, day, "석식");
+    } catch (e) {}
     return Center(
       child: Container(
         width: _containerWidth,
@@ -126,10 +132,7 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
     );
   }
 
-  Future<void> _findByDate(String year, month, day) async {
-    await not.findByDate(year, month, day);
-  }
-
+  Future<void> _findByDate(String year, month, day) async {}
   Widget _buildCalendar() {
     return Center(
       child: Container(

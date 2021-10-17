@@ -12,6 +12,7 @@ class NotEatingController extends GetxController {
     NotEating notEating =
         await _notEatingRepository.findByDateAndTime(year, month, day, time);
     this.notEating.value = notEating;
+    this.notEatings[time] = notEating;
   }
 
   Future<void> findByDate(String year, String month, String day) async {

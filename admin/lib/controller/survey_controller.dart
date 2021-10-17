@@ -15,9 +15,9 @@ class SurveyController extends GetxController {
     findAll();
   }
 
-  Future<int> postSurvey(String title, String explain,
+  Future<int> postSurvey(String title, String explain, String seq,
       List<SurveyQuestionFormField> questions) async {
-    int a = await _surveyRepository.postSurvey(title, explain, questions);
+    int a = await _surveyRepository.postSurvey(title, explain, seq, questions);
     return a;
   }
 

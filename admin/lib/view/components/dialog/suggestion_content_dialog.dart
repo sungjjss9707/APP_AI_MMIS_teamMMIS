@@ -1,3 +1,4 @@
+import 'package:admin/controller/admin_controller.dart';
 import 'package:admin/controller/suggestion_controller.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
@@ -11,7 +12,6 @@ import '../../../size.dart';
 
 class SuggestionContentDialog extends StatefulWidget {
   final int id;
-
   SuggestionContentDialog({Key? key, required this.id}) : super(key: key);
 
   @override
@@ -23,7 +23,7 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
   final TextEditingController _contentController = TextEditingController();
   final TextEditingController _postCommentController = TextEditingController();
   late List<WrittenCommentBox> _writtenCommentsList;
-
+  final admin = Get.put(AdministerController());
   final bool enabled = false;
   final _formKey = GlobalKey<FormState>();
   SuggestionController s = Get.find();
@@ -39,7 +39,7 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
         s.suggestion.value.comments!.length,
         (index) {
           WrittenCommentBox writtenCommentBox = WrittenCommentBox(
-            enabled: true,
+            enabled: false,
           );
           writtenCommentBox.controller.text =
               s.suggestion.value.comments![index].content ?? "";
@@ -48,7 +48,6 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
       );
     } else
       _writtenCommentsList = [];
-    print("c");
     super.initState();
   }
 
@@ -123,7 +122,9 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
                   setState(() async {
                     await s.updateComment(
                         widget.id,
-                        s.suggestion.value.comments![index].id!,
+                        s.suggestion.value.comments![index].id ?? index + 1,
+                        s.suggestion.value.comments![index]
+                            .writer!["militaryNumber"],
                         _writtenCommentsList[index].controller.text);
                   });
                 },
@@ -133,8 +134,8 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
               TextButton(
                 onPressed: () {
                   setState(() async {
-                    await s.deleteComment(
-                        widget.id, s.suggestion.value.comments![index].id!);
+                    await s.deleteComment(widget.id,
+                        s.suggestion.value.comments![index].id ?? index + 1);
                   });
                 },
                 child: Text("삭제"),
@@ -162,7 +163,10 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
         CustomElevatedButton(
           text: "등록",
           onPressed: () async {
-            await s.postComment(widget.id, _postCommentController.text);
+            await s.postComment(
+                widget.id,
+                admin.principal.value.militaryNumber ?? "21-11111",
+                _postCommentController.text);
           },
         )
       ],

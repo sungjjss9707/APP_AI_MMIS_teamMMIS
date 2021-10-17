@@ -11,6 +11,7 @@ class SuggestionController extends GetxController {
 
   @override
   void onInit() {
+    print("start");
     super.onInit();
     findAll();
   }
@@ -36,16 +37,17 @@ class SuggestionController extends GetxController {
     return -1;
   }
 
-  Future<void> postComment(int suggestionId, String content) async {
-    Suggestion suggestion =
-        await _suggestionRepository.postComment(suggestionId, content);
+  Future<void> postComment(
+      int suggestionId, String militaryNumber, String content) async {
+    Suggestion suggestion = await _suggestionRepository.postComment(
+        suggestionId, militaryNumber, content);
     this.suggestion.value = suggestion;
   }
 
-  Future<void> updateComment(
-      int suggestionId, int CommentId, String content) async {
+  Future<void> updateComment(int suggestionId, int CommentId,
+      String militaryNumber, String content) async {
     Suggestion suggestion = await _suggestionRepository.updateComment(
-        suggestionId, CommentId, content);
+        suggestionId, CommentId, militaryNumber, content);
     this.suggestion.value = suggestion;
   }
 

@@ -9,21 +9,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="myapp design">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/comment_save_or_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/dto/comment_save_or_update_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/survey_post_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/dto/survey_post_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/not_eating_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/not_eating_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/survey_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/survey_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/survey/survey_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/survey/survey_repository.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_detail_table.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_detail_table.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_simple_table.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_simple_table.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/components/suggestion/written_comment_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/suggestion/written_comment_box.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

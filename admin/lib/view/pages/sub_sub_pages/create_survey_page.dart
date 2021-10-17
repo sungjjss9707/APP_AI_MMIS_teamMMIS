@@ -1,4 +1,3 @@
-
 import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
@@ -91,8 +90,10 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                         title = surveyTitleFormField.titleController.text;
                         explain = surveyTitleFormField.explainController.text;
                         final sc = Get.put(SurveyController());
-                        int a =  await sc.postSurvey(title, explain, questions);
-                        if(a==1){
+                        String seq = DateTime.now().toString();
+                        int a =
+                            await sc.postSurvey(title, explain, seq, questions);
+                        if (a == 1) {
                           Get.back();
                         }
                       },

@@ -25,6 +25,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
   @override
   void initState() {
     _currentPage = 1;
+
     super.initState();
   }
 
@@ -114,7 +115,10 @@ class _SuggestionPageState extends State<SuggestionPage> {
           index += 15 * (_currentPage - 1);
           try {
             title = s.suggestions[index].title!;
-            writer = "관리자";
+
+            writer = s.suggestions[index].writer == null
+                ? "이름없음"
+                : s.suggestions[index].writer!["name"];
             date = editDateFormat(s.suggestions[index].updated!);
             content = s.suggestions[index].content!;
             id = s.suggestions[index].id!;
