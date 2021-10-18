@@ -20,17 +20,19 @@ const connection =   mysql.createPool({
 router.post('/', async (req, res) => {
     
     var sql = `insert into survey(title, content, seq, createdate, updatedate) values(\'${req.body.title}\', \'${req.body.explain}\', \'${req.body.seq}\', now(), now());`;
+    for(let question in req.body.count){
+         sql +=  `insert into question(seq, title, type, isOptional, options, question_num) values(\'${req.body.count[0]}\', \'${question.text}\', \'${question.type}\', \'${question.isOptional}\', \'${question.options}\', ${question.id});`;
+    }
+    
+   
+    
     connection.query(sql, (error, results, fields) => {
-        for(const question in req.body.count){
-            connection.query(`insert into question(seq, title, type, isOptional, options, question_num) values(\'${req.body.seq}\', \'${question.text}\', \'${question.type}\', \'${question.isOptional}\', \'${question.options}\', ${question.id});`, (error, results, fields) => {
-              console.log('update');  
-            })
-        }
+        
 	 if (error) {
             console.log(error);
-	    res.send({"code" : -1});
+	    res.send(req.body.count);
         }else{
-	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results[0]};
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results};
 		
 		res.send(noticeresponse);
         }
