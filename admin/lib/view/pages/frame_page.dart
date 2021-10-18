@@ -19,7 +19,7 @@ import '../../size.dart';
 
 final List<String> sideMenuBarList = [
   "홈",
-  "메뉴 관리",
+  "식단 관리",
   "식수 인원",
   "공지사항",
   "건의사항",

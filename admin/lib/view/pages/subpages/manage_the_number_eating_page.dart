@@ -91,47 +91,61 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
   }
 
   Widget _showData(String year, month, day) {
-    try {
-      not.findByDateAndTime(year, month, day, "조식");
-      not.findByDateAndTime(year, month, day, "브런치");
-      not.findByDateAndTime(year, month, day, "중식");
-      not.findByDateAndTime(year, month, day, "석식");
-    } catch (e) {}
-    return Center(
-      child: Container(
-        width: _containerWidth,
-        padding: const EdgeInsets.all(gap_m),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: _simpleOrDetail == true
-                      ? Colors.lightGreen
-                      : Colors.lightBlue),
-              onPressed: () {
-                setState(() {
-                  if (_simpleOrDetail == true)
-                    _simpleOrDetail = false;
-                  else
-                    _simpleOrDetail = true;
-                });
-              },
-              child: Text(_simpleOrDetail ? "명단보기" : "불취식 인원 수 보기"),
+    return FutureBuilder(
+      future: _getData(year, month, day),
+      builder: (context, snapshot) {
+        if (snapshot.hasData == false) {
+          return CircularProgressIndicator(
+            color: Colors.grey,
+          );
+        }
+        //error가 발생하게 될 경우 반환하게 되는 부분
+        else if (snapshot.hasError) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Error: ${snapshot.error}',
+              style: TextStyle(fontSize: 15),
             ),
-            SizedBox(height: gap_m),
-            Center(
-              child: _simpleOrDetail == true
-                  ? CustomSimpleTable(not.notEatings)
-                  : CustomDetailTable(not.notEatings),
+          );
+        }
+        return Center(
+          child: Container(
+            width: _containerWidth,
+            padding: const EdgeInsets.all(gap_m),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(10),
             ),
-          ],
-        ),
-      ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: _simpleOrDetail == true
+                          ? Colors.lightGreen
+                          : Colors.lightBlue),
+                  onPressed: () {
+                    setState(() {
+                      if (_simpleOrDetail == true)
+                        _simpleOrDetail = false;
+                      else
+                        _simpleOrDetail = true;
+                    });
+                  },
+                  child: Text(_simpleOrDetail ? "명단보기" : "불취식 인원 수 보기"),
+                ),
+                SizedBox(height: gap_m),
+                Center(
+                  child: _simpleOrDetail == true
+                      ? CustomSimpleTable(not.notEatings)
+                      : CustomDetailTable(not.notEatings),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -215,6 +229,18 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
         _selectedDay = selectedDay;
         _focusedDay = focusedDay;
       });
+    }
+  }
+
+  Future<int> _getData(String year, month, day) async {
+    try {
+      await not.findByDateAndTime(year, month, day, "조식");
+      await not.findByDateAndTime(year, month, day, "브런치");
+      await not.findByDateAndTime(year, month, day, "중식");
+      await not.findByDateAndTime(year, month, day, "석식");
+      return 1;
+    } catch (e) {
+      return -1;
     }
   }
 }

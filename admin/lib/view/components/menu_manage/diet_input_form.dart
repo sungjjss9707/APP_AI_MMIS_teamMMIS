@@ -1,4 +1,5 @@
 import 'package:admin/controller/diet_controller.dart';
+import 'package:admin/util/validators.dart';
 
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/menu_manage/show_menu_list.dart';
@@ -13,7 +14,7 @@ class MenuInputForm extends StatefulWidget {
   final String month;
   final String day;
   final String time;
-  final List<String>? menus;
+  List<String>? menus;
   MenuInputForm(
       {Key? key,
       required this.time,
@@ -36,8 +37,10 @@ class _MenuInputFormState extends State<MenuInputForm> {
 
   @override
   void initState() {
-    menuInputTextField
-        .add(MenuInputTextField(index: menuInputTextField.length));
+    menuInputTextField.add(MenuInputTextField(
+      index: menuInputTextField.length,
+      funValidate: validateMenu(),
+    ));
     enableInput = false;
     super.initState();
   }
@@ -128,7 +131,10 @@ class _MenuInputFormState extends State<MenuInputForm> {
   void menuInputTextFieldAdd() {
     setState(() {
       int index = menuInputTextField.length;
-      menuInputTextField.add(MenuInputTextField(index: index));
+      menuInputTextField.add(MenuInputTextField(
+        index: index,
+        funValidate: validateMenu(),
+      ));
     });
   }
 
@@ -187,10 +193,19 @@ class _MenuInputFormState extends State<MenuInputForm> {
                   menuList.add(i.controller.text.trim());
               }
               try {
-                await dietCon.saveDiet(widget.year, widget.month, widget.day,
-                    widget.time, menuList);
-                widget.menus!.clear();
-                widget.menus!.addAll(menuList);
+                if (widget.menus == null) {
+                  await dietCon.saveDiet(widget.year, widget.month, widget.day,
+                      widget.time, menuList);
+                } else {
+                  await dietCon.upDateDiet(widget.year, widget.month,
+                      widget.day, widget.time, menuList);
+                }
+
+                if (widget.menus != null) {
+                  widget.menus!.clear();
+                  widget.menus!.addAll(menuList);
+                } else
+                  widget.menus = menuList;
                 showDialog(
                   context: context,
                   builder: (context) => AlertDialog(

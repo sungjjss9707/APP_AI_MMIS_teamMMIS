@@ -46,7 +46,7 @@ class _DietManagePageState extends State<DietManagePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomTitle("메뉴 관리"),
+              CustomTitle("식단 관리"),
               Divider(color: Colors.grey),
               SizedBox(width: gap_l),
               _buildCalendar(),

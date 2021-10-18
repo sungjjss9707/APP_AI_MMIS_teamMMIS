@@ -17,6 +17,7 @@ class NotEatingRepository {
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
     if (cmRespDto.code == 1) {
       NotEating principal = NotEating.fromJson(cmRespDto.data);
+
       return principal;
     }
     return NotEating();

@@ -9,25 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="myapp design">
-      <change afterPath="$PROJECT_DIR$/admin/assets/capture_ex.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/lib/view/components/home/guide_section_1.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/survey_post_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/dto/survey_post_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/join_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/survey_result_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/survey_result_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -398,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634447060151</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="myapp design">
+      <created>1634460398031</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1634460398031</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -503,14 +494,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633953324159" />
-    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1634447074112">
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1634460404284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634447074112" />
-    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634447064039">
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634460404284" />
+    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634460400464">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634447064039" />
+    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634460400464" />
     <state x="532" y="237" key="run.anything.popup" timestamp="1634367080702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
