@@ -20,7 +20,7 @@ const connection =   mysql.createPool({
 router.post('/', async (req, res) => {
     
     var sql = `insert into survey(title, content, seq, createdate, updatedate) values(\'${req.body.title}\', \'${req.body.explain}\', \'${req.body.seq}\', now(), now());`;
-    for(let question in req.body.count){
+    for(let question in req.body.count[0]){
          sql +=  `insert into question(seq, title, type, isOptional, options, question_num) values(\'${req.body.count}\', \'${question.text}\', \'${question.type}\', \'${question.isOptional}\', \'${question.options}\', ${question.id});`;
     }
     
