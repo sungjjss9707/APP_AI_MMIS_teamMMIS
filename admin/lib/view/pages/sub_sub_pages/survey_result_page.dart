@@ -23,6 +23,7 @@ class SurveyResultPage extends StatelessWidget {
       required this.questionSets});
   @override
   Widget build(BuildContext context) {
+    double _width = getMediaQueryWidth(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -53,8 +54,10 @@ class SurveyResultPage extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.all(gap_xl),
+            width: _width,
+            padding: _width < 540
+                ? const EdgeInsets.all(gap_m)
+                : const EdgeInsets.all(gap_xl),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,

@@ -17,16 +17,16 @@ Map<String, List> convertReasonForDetailTable(
   for (String key in notEatings.keys) {
     NotEating notEating = notEatings[key]!;
     List d = notEating.reason!["당직"];
-    List h = notEating.reason!["휴가"];
+    // List h = notEating.reason!["휴가"];
     List w = notEating.reason!["외출"];
     List g = notEating.reason!["근무"];
     List other = notEating.reason!["기타"];
     for (Map<String, dynamic> user in d) {
       user["notEatingReason"] = "당직";
     }
-    for (Map<String, dynamic> user in h) {
-      user["notEatingReason"] = "휴가";
-    }
+    // for (Map<String, dynamic> user in h) {
+    //   user["notEatingReason"] = "휴가";
+    // }
     for (Map<String, dynamic> user in w) {
       user["notEatingReason"] = "외출";
     }
@@ -36,8 +36,9 @@ Map<String, List> convertReasonForDetailTable(
     for (Map<String, dynamic> user in other) {
       user["notEatingReason"] = "기타";
     }
-    result[key] = d + h + w + g + other;
+    result[key] = d + w + g + other;
   }
+  print(result);
   return result;
 }
 

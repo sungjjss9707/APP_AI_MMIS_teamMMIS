@@ -28,8 +28,10 @@ class SuggestionRepository {
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
     if (cmRespDto.code == 1) {
       List<dynamic> temp = cmRespDto.data;
+
       List<Suggestion> suggestions =
           temp.map((suggestion) => Suggestion.fromJson(suggestion)).toList();
+
       return suggestions;
     } else {
       return <Suggestion>[];
@@ -44,8 +46,10 @@ class SuggestionRepository {
     return cmRespDto.code ?? -1;
   }
 
-  Future<Suggestion> postComment(int suggestionId, String content) async {
-    CommentSaveOrUpdateDto saveDto = CommentSaveOrUpdateDto(content);
+  Future<Suggestion> postComment(
+      int suggestionId, String militaryNumber, String content) async {
+    CommentSaveOrUpdateDto saveDto =
+        CommentSaveOrUpdateDto(militaryNumber, content);
     Response response =
         await _suggestionProvider.postComment(suggestionId, saveDto.toJson());
     dynamic body = response.body;
@@ -58,9 +62,10 @@ class SuggestionRepository {
     }
   }
 
-  Future<Suggestion> updateComment(
-      int suggestionId, int CommentId, String content) async {
-    CommentSaveOrUpdateDto updateDto = CommentSaveOrUpdateDto(content);
+  Future<Suggestion> updateComment(int suggestionId, int CommentId,
+      String militaryNumber, String content) async {
+    CommentSaveOrUpdateDto updateDto =
+        CommentSaveOrUpdateDto(militaryNumber, content);
     Response response = await _suggestionProvider.updateComment(
         suggestionId, CommentId, updateDto.toJson());
     dynamic body = response.body;

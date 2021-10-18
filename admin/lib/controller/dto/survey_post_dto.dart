@@ -6,17 +6,19 @@ import 'package:flutter/material.dart';
 class SurveyPostDto {
   final String title;
   final String explain;
-  final List<SurveyQuestionFormField> questions;
+  final String seq;
+  final List<SurveyQuestionFormField> question;
 
-  SurveyPostDto(this.title, this.explain, this.questions);
+  SurveyPostDto(this.title, this.explain, this.seq, this.question);
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> result = {
       "title": title,
       "explain": explain,
+      "seq": seq,
     };
     List<Map> questionsList = [];
-    for (SurveyQuestionFormField i in questions) {
+    for (SurveyQuestionFormField i in question) {
       Map<String, dynamic> question = {};
       question["id"] = i.index;
       question["text"] = i.questionController.text;
@@ -25,7 +27,8 @@ class SurveyPostDto {
       question["options"] = getOption(i);
       questionsList.add(question);
     }
-    result["questions"] = jsonEncode(questionsList);
+    result["question"] = jsonEncode(questionsList);
+    print(result["question"].runtimeType);
     return result;
   }
 

@@ -1,4 +1,5 @@
 import 'package:admin/controller/admin_controller.dart';
+import 'package:admin/size.dart';
 import 'package:admin/util/Info.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
@@ -32,18 +33,21 @@ class JoinPage extends StatelessWidget {
           child: Container(
             width: 400,
             height: 800,
-            child: Column(
+            child: ListView(
               children: [
-                Text(
-                  "MMIS 관리자 체계 회원가입",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                Center(
+                  child: Text(
+                    "관리자 체계 회원가입",
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: gap_s,
                 ),
                 Column(
                   children: [
                     TagAndTextAheadFormField(
+                      hint: "소속(부대명)을 입력하세요",
                       funValidate: validateIsEmpty(),
                       text: "소속",
                       controller: _unit,
@@ -53,6 +57,7 @@ class JoinPage extends StatelessWidget {
                       },
                     ),
                     TagAndTextAheadFormField(
+                      hint: "계급을 입력하세요",
                       funValidate: validateIsEmpty(),
                       text: "계급",
                       controller: _rank,
@@ -62,22 +67,26 @@ class JoinPage extends StatelessWidget {
                       },
                     ),
                     TagAndTextFormField(
+                      hint: "군번을 입력하세요",
                       text: "군번",
                       controller: _militaryNumber,
                       funValidate: validateMilitaryNumber(),
                     ),
                     TagAndTextFormField(
+                      hint: "이름을 입력하세요",
                       text: "이름",
                       controller: _name,
                       funValidate: validateIsEmpty(),
                     ),
                     TagAndTextFormField(
+                      hint: "비밀번호를 입력하세요",
                       obscureText: true,
                       text: "비밀번호",
                       controller: _password,
                       funValidate: validatePassWord(),
                     ),
                     TagAndTextFormField(
+                      hint: "비밀번호를 입력하세요",
                       obscureText: true,
                       text: "비밀번호확인",
                       controller: _passwordConfirm,
@@ -93,14 +102,22 @@ class JoinPage extends StatelessWidget {
                     if (_formKey.currentState!.validate() &&
                         _password.text == _passwordConfirm.text) {
                       int code = await a.join(
-                          _name.text.trim(),
-                          _militaryNumber.text.trim(),
-                          _password.text.trim(),
-                          _rank.text.trim(),
-                          _unit.text.trim());
+                        _name.text.trim(),
+                        _militaryNumber.text.trim(),
+                        _password.text.trim(),
+                        _rank.text.trim(),
+                        _unit.text.trim(),
+                      );
                       if (code == 1) {
                         Get.to(() => LoginPage());
-                      } else {}
+                      } else {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text("회원가입 실패"),
+                          ),
+                        );
+                      }
                     }
                   },
                 ),

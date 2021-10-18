@@ -23,20 +23,23 @@ class WrittenCommentBox extends StatelessWidget {
         validator: funValidate,
         controller: controller,
         decoration: InputDecoration(
-          hintText: "$hint",
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(1),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-          ),
-        ),
+            hintText: "$hint",
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey),
+              borderRadius: BorderRadius.circular(5),
+            )),
       ),
     );
   }

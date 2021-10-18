@@ -9,11 +9,12 @@ import 'package:get/get.dart';
 
 class SurveyRepository {
   final SurveyProvider _surveyProvider = SurveyProvider();
-  Future<int> postSurvey(String title, String explain,
+  Future<int> postSurvey(String title, String explain, String seq,
       List<SurveyQuestionFormField> questions) async {
-    SurveyPostDto surveyPostDto = SurveyPostDto(title, explain, questions);
+    SurveyPostDto surveyPostDto = SurveyPostDto(title, explain, seq, questions);
     Response response =
         await _surveyProvider.postSurvey(surveyPostDto.toJson());
+
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);

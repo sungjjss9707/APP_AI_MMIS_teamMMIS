@@ -30,9 +30,11 @@ class _SurveyPageState extends State<SurveyPage> {
 
   @override
   Widget build(BuildContext context) {
-    final _mediaWidth = MediaQuery.of(context).size.width;
+    final _width = getMediaQueryWidth(context);
     return Padding(
-      padding: const EdgeInsets.all(gap_xl),
+      padding: _width < 540
+          ? const EdgeInsets.all(gap_m)
+          : const EdgeInsets.all(gap_xl),
       child: ListView(
         children: [
           Column(
@@ -41,8 +43,8 @@ class _SurveyPageState extends State<SurveyPage> {
             children: [
               CustomTitle("설문조사"),
               Divider(color: Colors.grey),
-              _mediaWidth > 850 ? _contentHeader() : Container(),
-              _noticeList(context, _mediaWidth),
+              _width > 850 ? _contentHeader() : Container(),
+              _surveyList(context, _width),
               _buildNewSurveyButton(),
               _numberPagination(),
             ],
@@ -103,7 +105,7 @@ class _SurveyPageState extends State<SurveyPage> {
     );
   }
 
-  Widget _noticeList(BuildContext context, double mediaWidth) {
+  Widget _surveyList(BuildContext context, double mediaWidth) {
     String title = '';
     String writer = '';
     String date = '';
@@ -129,7 +131,8 @@ class _SurveyPageState extends State<SurveyPage> {
                 child: mediaWidth > 850
                     ? _contentForWide(
                         index, survey.title, survey.writer, survey.date)
-                    : _contentForNarrow(index, title, writer, date),
+                    : _contentForNarrow(
+                        index, survey.title, survey.writer, survey.date),
               ));
         } catch (e) {
           return Padding(

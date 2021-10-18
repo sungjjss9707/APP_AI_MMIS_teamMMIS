@@ -1,4 +1,3 @@
-
 import 'package:admin/controller/survey_controller.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
@@ -77,7 +76,9 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
         children: [
           Container(
             width: _width,
-            padding: EdgeInsets.all(gap_xl),
+            padding: _width < 540
+                ? const EdgeInsets.all(gap_m)
+                : const EdgeInsets.all(gap_xl),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -91,8 +92,10 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                         title = surveyTitleFormField.titleController.text;
                         explain = surveyTitleFormField.explainController.text;
                         final sc = Get.put(SurveyController());
-                        int a =  await sc.postSurvey(title, explain, questions);
-                        if(a==1){
+                        String seq = DateTime.now().toString();
+                        int a =
+                            await sc.postSurvey(title, explain, seq, questions);
+                        if (a == 1) {
                           Get.back();
                         }
                       },

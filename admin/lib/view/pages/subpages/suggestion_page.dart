@@ -25,14 +25,17 @@ class _SuggestionPageState extends State<SuggestionPage> {
   @override
   void initState() {
     _currentPage = 1;
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    final _mediaWidth = MediaQuery.of(context).size.width;
+    final _width = getMediaQueryWidth(context);
     return Padding(
-      padding: const EdgeInsets.all(gap_xl),
+      padding: _width < 540
+          ? const EdgeInsets.all(gap_m)
+          : const EdgeInsets.all(gap_xl),
       child: ListView(
         children: [
           Column(
@@ -41,8 +44,8 @@ class _SuggestionPageState extends State<SuggestionPage> {
             children: [
               CustomTitle("건의사항 관리"),
               Divider(color: Colors.grey),
-              _mediaWidth > 850 ? _contentHeader() : Container(),
-              _suggestionList(context, _mediaWidth),
+              _width > 850 ? _contentHeader() : Container(),
+              _suggestionList(context, _width),
               _numberPagination(),
             ],
           ),
@@ -114,7 +117,10 @@ class _SuggestionPageState extends State<SuggestionPage> {
           index += 15 * (_currentPage - 1);
           try {
             title = s.suggestions[index].title!;
-            writer = "관리자";
+
+            writer = s.suggestions[index].writer == null
+                ? "이름없음"
+                : s.suggestions[index].writer!["name"];
             date = editDateFormat(s.suggestions[index].updated!);
             content = s.suggestions[index].content!;
             id = s.suggestions[index].id!;

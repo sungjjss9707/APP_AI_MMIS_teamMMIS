@@ -44,8 +44,11 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
     final String month = getMonth(_selectedDay);
     final String day = getDay(_selectedDay);
     _findByDate(year, month, day);
+    double _width = getBodyWidth(context);
     return Padding(
-      padding: const EdgeInsets.all(gap_xl),
+      padding: _width < 540
+          ? const EdgeInsets.all(gap_m)
+          : const EdgeInsets.all(gap_xl),
       child: ListView(
         children: [
           Column(
@@ -57,7 +60,7 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
               _buildCalendar(),
               _changeTotalNum(context),
               SizedBox(height: gap_l),
-              _showData(),
+              _showData(year, month, day),
             ],
           ),
         ],
@@ -87,49 +90,66 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
     );
   }
 
-  Widget _showData() {
-    return Center(
-      child: Container(
-        width: _containerWidth,
-        padding: const EdgeInsets.all(gap_m),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: _simpleOrDetail == true
-                      ? Colors.lightGreen
-                      : Colors.lightBlue),
-              onPressed: () {
-                setState(() {
-                  if (_simpleOrDetail == true)
-                    _simpleOrDetail = false;
-                  else
-                    _simpleOrDetail = true;
-                });
-              },
-              child: Text(_simpleOrDetail ? "명단보기" : "불취식 인원 수 보기"),
+  Widget _showData(String year, month, day) {
+    return FutureBuilder(
+      future: _getData(year, month, day),
+      builder: (context, snapshot) {
+        if (snapshot.hasData == false) {
+          return CircularProgressIndicator(
+            color: Colors.grey,
+          );
+        }
+        //error가 발생하게 될 경우 반환하게 되는 부분
+        else if (snapshot.hasError) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Error: ${snapshot.error}',
+              style: TextStyle(fontSize: 15),
             ),
-            SizedBox(height: gap_m),
-            Center(
-              child: _simpleOrDetail == true
-                  ? CustomSimpleTable(not.notEatings)
-                  : CustomDetailTable(not.notEatings),
+          );
+        }
+        return Center(
+          child: Container(
+            width: _containerWidth,
+            padding: const EdgeInsets.all(gap_m),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(10),
             ),
-          ],
-        ),
-      ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: _simpleOrDetail == true
+                          ? Colors.lightGreen
+                          : Colors.lightBlue),
+                  onPressed: () {
+                    setState(() {
+                      if (_simpleOrDetail == true)
+                        _simpleOrDetail = false;
+                      else
+                        _simpleOrDetail = true;
+                    });
+                  },
+                  child: Text(_simpleOrDetail ? "명단보기" : "불취식 인원 수 보기"),
+                ),
+                SizedBox(height: gap_m),
+                Center(
+                  child: _simpleOrDetail == true
+                      ? CustomSimpleTable(not.notEatings)
+                      : CustomDetailTable(not.notEatings),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
-  Future<void> _findByDate(String year, month, day) async {
-    await not.findByDate(year, month, day);
-  }
-
+  Future<void> _findByDate(String year, month, day) async {}
   Widget _buildCalendar() {
     return Center(
       child: Container(
@@ -209,6 +229,18 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
         _selectedDay = selectedDay;
         _focusedDay = focusedDay;
       });
+    }
+  }
+
+  Future<int> _getData(String year, month, day) async {
+    try {
+      await not.findByDateAndTime(year, month, day, "조식");
+      await not.findByDateAndTime(year, month, day, "브런치");
+      await not.findByDateAndTime(year, month, day, "중식");
+      await not.findByDateAndTime(year, month, day, "석식");
+      return 1;
+    } catch (e) {
+      return -1;
     }
   }
 }
