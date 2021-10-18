@@ -147,6 +147,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
       salt += sal ?? 0;
       cholesterol += chol ?? 0;
     }
+
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
@@ -196,6 +197,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
         children: List.generate(
           menuList.length,
           (index) {
+            print(index);
             return Column(
               children: [
                 _menuTitle(menuList, index),
@@ -225,7 +227,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
             carbohydrate: nutrition["탄수화물"],
             protein: nutrition["단백질"],
             fat: nutrition["지방"],
-            cholesterol: nutrition["콜레스테롤"],
+            cholesterol: nutrition["콜레스테롤"] ?? 0,
             salt: nutrition["나트륨"],
           ),
         ],
@@ -287,8 +289,6 @@ class _RateMenuPageState extends State<RateMenuPage> {
                 TextButton(
                   onPressed: () {
                     isSave = true;
-                    //rate을 저장하면 됨.
-                    //여기서 통신해야 됨.
                   },
                   child: Text("저장하기"),
                 ),
@@ -347,7 +347,16 @@ class _RateMenuPageState extends State<RateMenuPage> {
   Widget _suggestingButton() {
     return ElevatedButton(
       onPressed: () {
-        Get.to(() => WriteSuggestionPage());
+        String pass = "";
+        for (String i in menuList) {
+          pass += "$i, ";
+        }
+        Get.to(
+          () => WriteSuggestionPage(
+            title: "${getMonthDayAndWeekdayInKorean(dateAndTime)} $time 건의합니다",
+            content: pass,
+          ),
+        );
       },
       child: Text("건의하기"),
       style: ElevatedButton.styleFrom(

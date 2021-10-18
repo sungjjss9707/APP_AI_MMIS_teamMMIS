@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class NutritionBox extends StatelessWidget {
-  final int calories;
-  final int carbohydrate;
-  final int protein;
-  final int fat;
+  final int? calories;
+  final int? carbohydrate;
+  final int? protein;
+  final int? fat;
 
-  final int salt;
-  final int cholesterol;
+  final int? salt;
+  final int? cholesterol;
   final TextStyle _textStyle = TextStyle(fontSize: 12, color: Colors.black54);
 
   NutritionBox({

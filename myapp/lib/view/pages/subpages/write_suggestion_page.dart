@@ -16,7 +16,7 @@ class WriteSuggestionPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final _title = TextEditingController();
   final _content = TextEditingController();
-  final SuggestionController s = Get.find();
+  final SuggestionController s = Get.put(SuggestionController());
 
   WriteSuggestionPage({this.title, this.content});
 

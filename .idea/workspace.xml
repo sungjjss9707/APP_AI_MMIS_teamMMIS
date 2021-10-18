@@ -8,37 +8,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="myapp design">
-      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/dto/suggestion_post_or_update_dto.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/menu_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapp/lib/controller/suggestion_controller.dart" afterDir="false" />
+    <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="rate menupage 하는 중">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/diet_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/diet_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/not_eating_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/not_eating_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/diet/diet_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/diet/diet_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/diet/diet_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/diet/diet_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/diet_input_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/diet_input_container.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/diet_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/diet_input_form.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_detail_table.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_detail_table.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_simple_table.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_simple_table.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/comment_save_or_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/controller/dto/comment_save_or_update_dto.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/suggestion/suggestion.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/suggestion/suggestion.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/suggestion/suggestion_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/suggestion/suggestion_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/suggestion/suggestion_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/suggestion/suggestion_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/Info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/page_util/Info.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/nutrition_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/nutrition_box.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/total_nutrtion_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/total_nutrtion_box.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/write_suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/write_suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -426,7 +400,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634535807837</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="rate menupage 하는 중">
+      <created>1634554728439</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1634554728439</updated>
+    </task>
+    <task id="LOCAL-00045" summary="rate menupage 하는 중">
+      <created>1634554754838</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1634554754838</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -524,21 +512,22 @@
     <MESSAGE value="식단 관리 하는 중" />
     <MESSAGE value="admin design" />
     <MESSAGE value="myapp design" />
-    <option name="LAST_COMMIT_MESSAGE" value="myapp design" />
+    <MESSAGE value="rate menupage 하는 중" />
+    <option name="LAST_COMMIT_MESSAGE" value="rate menupage 하는 중" />
   </component>
   <component name="WindowStateProjectService">
     <state width="623" height="498" key="SwitcherDM" timestamp="1633953324159">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633953324159" />
-    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1634535820439">
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1634554786503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634535820439" />
-    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634460400464">
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634554786503" />
+    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634554779720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634460400464" />
+    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634554779720" />
     <state x="532" y="237" key="run.anything.popup" timestamp="1634367080702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
