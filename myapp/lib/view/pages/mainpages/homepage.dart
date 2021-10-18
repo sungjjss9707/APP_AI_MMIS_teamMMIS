@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
           onTap: () {
             Get.to(AiTestPage());
           },
-          icon: Icons.no_meals,
+          icon: Icons.android,
           text: "AI 실험실",
         ),
         SizedBox(width: 8.w),

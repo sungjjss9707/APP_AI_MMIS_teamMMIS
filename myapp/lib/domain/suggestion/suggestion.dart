@@ -4,7 +4,7 @@ class Suggestion {
   final int? id;
   final String? title;
   final String? content;
-  final String? writer;
+  final Map<String, dynamic>? writer;
   List<Comment>? comments;
   final DateTime? created;
   final DateTime? updated;
@@ -23,17 +23,25 @@ class Suggestion {
       : id = json["id"],
         title = json["title"],
         content = json["content"],
+        writer = json["writer"][0],
+        comments = convertToResult(json["comments"]),
+        created = DateFormat("yyyy-mm-dd").parse(json["createtime"]),
+        updated = DateFormat("yyyy-mm-dd").parse(json["updatetime"]);
+  Suggestion.fromJson2(Map<String, dynamic> json)
+      : id = json["id"],
+        title = json["title"],
+        content = json["content"],
         writer = json["writer"],
         comments = convertToResult(json["comments"]),
-        created = DateFormat("yyyy-mm-dd").parse(json["created"]),
-        updated = DateFormat("yyyy-mm-dd").parse(json["updated"]);
+        created = DateFormat("yyyy-mm-dd").parse(json["createtime"]),
+        updated = DateFormat("yyyy-mm-dd").parse(json["updatetime"]);
 }
 
-List<Comment> convertToResult(List<Map<String, dynamic>> rawData) {
+List<Comment> convertToResult(List rawData) {
   List<Comment> result = <Comment>[];
   for (Map<String, dynamic> i in rawData) {
     result.add(
-      Comment(i["id"], i["content"], i["writer"], i["created"], i["updated"]),
+      Comment(i["id"], i["content"], i["writer"][0]),
     );
   }
   return result;
@@ -42,15 +50,11 @@ List<Comment> convertToResult(List<Map<String, dynamic>> rawData) {
 class Comment {
   final int? id;
   final String? content;
-  final String? writer;
-  final DateTime? created;
-  final DateTime? updated;
+  final Map<String, dynamic>? writer;
 
   Comment(
     this.id,
     this.content,
     this.writer,
-    this.created,
-    this.updated,
   );
 }

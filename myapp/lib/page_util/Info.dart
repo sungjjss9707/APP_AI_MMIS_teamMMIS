@@ -1,3 +1,5 @@
+import 'package:myapp/domain/menu/menu.dart';
+
 class Rank {
   static final List<String> ranks = [
     "대장",
@@ -73,22 +75,7 @@ class MilitaryUnit {
 }
 
 class Menus {
-  static final List<String> menus = [
-    '쌀밥',
-    '콩밥',
-    '김치찌개',
-    '부대찌개',
-    '계란말이',
-    '삼겹살구이',
-    '배추김치',
-    '배추 된장국',
-    '콩자반',
-    '돼지불고기',
-    '김치볶음',
-    '닭죽',
-    '닭갈비',
-    '비엔나소세지볶음',
-  ];
+  static List<String> menus = [];
 
   static List<String> getSuggestions(String query) {
     List<String> matches = <String>[];
@@ -96,4 +83,45 @@ class Menus {
     matches.retainWhere((s) => s.toLowerCase().contains(query.toLowerCase()));
     return matches;
   }
+}
+
+Map<String, Map<String, dynamic>> menusAndNutrition =
+    {}; // ex {"김치" : {"칼로리" : "100", "우유"}}
+Map<String, Map<String, dynamic>> menusAndAllergy = {};
+getMenusAndAllergyMap(List<Menu> menus) {
+  Map<String, Map<String, dynamic>> result = {};
+  for (Menu m in menus) {
+    result[m.name ?? ""] = m.allergy ??
+        {
+          "계란류": 0,
+          "우유": 0,
+          "메밀": 0,
+          "땅콩": 0,
+          "대두": 0,
+          "밀": 0,
+          "고등어": 0,
+          "게": 0,
+          "새우": 0,
+          "돼지고기": 0,
+          "복숭아": 0,
+          "토마토": 0,
+          "아황산류": 0,
+          "호두": 0,
+          "닭고기": 0,
+          "쇠고기": 0,
+          "오징어": 0,
+          "조개류": 0,
+          "잣": 0,
+        };
+  }
+  menusAndAllergy = result;
+}
+
+getMenusAndNutritionMap(List<Menu> menus) {
+  Map<String, Map<String, dynamic>> result = {};
+  for (Menu m in menus) {
+    result[m.name ?? ""] = m.nutrition ??
+        {"칼로리": 0, "탄수화물": 0, "지방": 0, "단백질": 0, "나트륨": 0, "콜레스테롤": 0};
+  }
+  menusAndNutrition = result;
 }

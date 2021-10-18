@@ -9,5 +9,5 @@ class NotEatingProvider extends GetConnect {
       get("$host/noteating/$year/$month/$day/");
   Future<Response> changeTotalNumOfPeople(
           String year, String month, String day, String time, Map data) =>
-      put("$host/noteating", data);
+      put("$host/noteating/$year/$month/$day/$time", data);
 }

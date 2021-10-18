@@ -26,5 +26,6 @@ class NotEatingController extends GetxController {
     NotEating notEating = await _notEatingRepository.changeTotalNumOfPeople(
         year, month, day, time, totalNumOfPeople);
     this.notEating.value = notEating;
+    this.notEatings[time] = notEating;
   }
 }

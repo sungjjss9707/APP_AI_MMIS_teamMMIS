@@ -13,4 +13,7 @@ class DietProvider extends GetConnect {
   Future<Response> upDateDiet(
           String year, String month, String day, String time, Map data) =>
       put("$host/diet/$year/$month/$day/$time", data);
+  Future<Response> deleteDiet(
+          String year, String month, String day, String time) =>
+      delete("$host/diet/$year/$month/$day/$time");
 }

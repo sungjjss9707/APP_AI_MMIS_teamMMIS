@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TotalNutritionBox extends StatelessWidget {
-  final carbohydrate;
-  final protein;
-  final fat;
+  final int calories;
+  final int carbohydrate;
+  final int protein;
+  final int fat;
 
-  final salt;
-  final cholesterol;
-  final TextStyle _textStyle = TextStyle(fontSize: 12, color: Colors.black54);
+  final int salt;
+  final int cholesterol;
+  final TextStyle _textStyle =
+      TextStyle(fontSize: 12.sp, color: Colors.black54);
 
   TotalNutritionBox({
-    this.carbohydrate = "-",
-    this.protein = "-",
-    this.fat = "-",
-    this.salt = "-",
-    this.cholesterol = "-",
+    this.carbohydrate = 0,
+    this.protein = 0,
+    this.fat = 0,
+    this.salt = 0,
+    this.cholesterol = 0,
+    this.calories = 0,
   });
   // NutritionBox.fromJson(Map<String, dynamic> nutrition)
   //     : carbohydrate = nutrition["탄수화물"] ?? "-",
@@ -31,19 +35,21 @@ class TotalNutritionBox extends StatelessWidget {
             children: [
               Expanded(
                   flex: 1,
+                  child: Text("칼로리 ${calories}Kcal", style: _textStyle)),
+              Expanded(
+                  flex: 1,
                   child: Text("탄수화물 ${carbohydrate}g", style: _textStyle)),
               Expanded(
                   flex: 1, child: Text("단백질 ${protein}g", style: _textStyle)),
-              Expanded(flex: 1, child: Text("지방 ${fat}g", style: _textStyle)),
             ],
           ),
           Row(
             children: [
+              Expanded(flex: 1, child: Text("지방 ${fat}g", style: _textStyle)),
               Expanded(flex: 1, child: Text("나트륨 ${salt}g", style: _textStyle)),
               Expanded(
                   flex: 1,
                   child: Text("콜레스테롤 ${cholesterol}g", style: _textStyle)),
-              Expanded(flex: 1, child: Container()),
             ],
           ),
         ],

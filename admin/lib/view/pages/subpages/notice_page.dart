@@ -160,18 +160,17 @@ class _NoticePageState extends State<NoticePage> {
   }
 
   Widget _numberPagination() {
-    return Obx(
-      () => NumberPagination(
-        listner: (int selectedPage) {
-          setState(() {
-            _currentPage = selectedPage;
-          });
-        },
-        totalPage: n.notices.length % 15 == 0
-            ? n.notices.length ~/ 15
-            : n.notices.length ~/ 15 + 1,
-        currentPage: _currentPage,
-      ),
+    print("pagenation");
+    return NumberPagination(
+      listner: (int selectedPage) {
+        setState(() {
+          _currentPage = selectedPage;
+        });
+      },
+      totalPage: n.notices.length % 15 == 0
+          ? n.notices.length ~/ 15
+          : n.notices.length ~/ 15 + 1,
+      currentPage: _currentPage,
     );
   }
 

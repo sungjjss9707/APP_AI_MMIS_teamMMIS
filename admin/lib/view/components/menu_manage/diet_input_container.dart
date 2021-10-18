@@ -88,7 +88,6 @@ class MenuInputContainer extends StatelessWidget {
   Future<Map<String, List<String>>> editFunc(String year, month, day) async {
     await dietCon.findDay(year, month, day);
     Map<String, List<String>> result = {};
-    print("a");
     for (Diet diet in dietCon.diets) {
       String a =
           diet.now!.substring(diet.now!.length - 2, diet.now!.length - 1);

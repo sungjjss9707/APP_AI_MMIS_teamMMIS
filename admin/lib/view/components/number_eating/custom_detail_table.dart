@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:json_table/json_table.dart';
 
+import '../../../size.dart';
+
 class CustomDetailTable extends StatelessWidget {
   final Map<String, NotEating> notEatings;
   CustomDetailTable(this.notEatings);
@@ -13,45 +15,50 @@ class CustomDetailTable extends StatelessWidget {
   Widget build(BuildContext context) {
     // string은 조식, 브런치, 중식, 석식
     Map<String, List> reasonData = convertReasonForDetailTable(notEatings);
+
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Wrap(
         alignment: WrapAlignment.center,
         spacing: 30,
         runSpacing: 20,
-        children: _dummyReasonData.entries.map((e) {
-          return Column(
-            children: [
-              Text(e.key, style: subtitle1()),
-              JsonTable(
-                e.value,
-                tableCellBuilder: (value) {
-                  return Center(
-                    child: Container(
-                      height: 35,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 2.0, vertical: 2.0),
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 0.5, color: Colors.grey)),
-                      child: Text(
-                        value,
-                        textAlign: TextAlign.center,
-                        style: body1(),
+        children: reasonData.entries.map((e) {
+          if (e.value.length != 0)
+            return Column(
+              children: [
+                Text(e.key, style: subtitle1()),
+                SizedBox(height: gap_s),
+                JsonTable(
+                  e.value,
+                  tableCellBuilder: (value) {
+                    return Center(
+                      child: Container(
+                        height: 35,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 2.0, vertical: 2.0),
+                        decoration: BoxDecoration(
+                            border: Border.all(width: 0.5, color: Colors.grey)),
+                        child: Text(
+                          value,
+                          textAlign: TextAlign.center,
+                          style: body1(),
+                        ),
                       ),
-                    ),
-                  );
-                },
-                allowRowHighlight: true,
-                columns: [
-                  JsonTableColumn("name", label: " 이름 "),
-                  JsonTableColumn("militaryNumber", label: "군번"),
-                  //여기 rank 대신 고쳐야 겠지.
-                  JsonTableColumn("grade", label: "계급"),
-                  JsonTableColumn("notEatingReason", label: "사유"),
-                ],
-              ),
-            ],
-          );
+                    );
+                  },
+                  allowRowHighlight: true,
+                  columns: [
+                    JsonTableColumn("name", label: " 이름 "),
+                    JsonTableColumn("militaryNumber", label: "군번"),
+                    //여기 rank 대신 고쳐야 겠지.
+                    JsonTableColumn("grade", label: "계급"),
+                    JsonTableColumn("notEatingReason", label: "사유"),
+                  ],
+                ),
+              ],
+            );
+          else
+            return Container();
         }).toList(),
       ),
     );
@@ -94,15 +101,6 @@ class CustomDetailTable extends StatelessWidget {
         "notEatingReason": "당직"
       }
     ],
-    "석식": [
-      {
-        "name": "성준혁",
-        "militaryNumber": "10-11111",
-        "password": "1234",
-        "grade": "일병",
-        "belong": "xx사단",
-        "notEatingReason": "당직"
-      },
-    ],
+    "석식": [],
   };
 }

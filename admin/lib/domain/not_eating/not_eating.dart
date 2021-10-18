@@ -38,7 +38,6 @@ Map<String, List> convertReasonForDetailTable(
     }
     result[key] = d + w + g + other;
   }
-  print(result);
   return result;
 }
 

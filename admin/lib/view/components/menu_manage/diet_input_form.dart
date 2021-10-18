@@ -104,8 +104,14 @@ class _MenuInputFormState extends State<MenuInputForm> {
                             SizedBox(width: gap_s),
                             CustomElevatedButton(
                               text: "삭제",
-                              onPressed: () {
-                                //delete들어가야 됨.
+                              onPressed: () async {
+                                int code = await dietCon.deleteDiet(widget.year,
+                                    widget.month, widget.day, widget.time);
+                                if (code == 1) {
+                                  setState(() {
+                                    widget.menus = null;
+                                  });
+                                }
                               },
                             )
                           ],

@@ -3,6 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/date_functions.dart';
+import 'package:myapp/page_util/Info.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/button/back_button.dart';
@@ -69,7 +70,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
         child: Column(
           children: [
             _arrowAndDate(), // < 날짜(석식) 취식여부 >
-            _nutritionInfo(),
+            _nutritionInfo(menuList),
             _menuLists(),
             _saveRating(),
             _notEatingApplyButton(),
@@ -124,40 +125,70 @@ class _RateMenuPageState extends State<RateMenuPage> {
     );
   }
 
-  Widget _nutritionInfo() => Theme(
-        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-        child: ExpansionTile(
-          childrenPadding: EdgeInsets.all(8.0.r),
-          title: Row(
-            children: [
-              Spacer(),
-              Text(
-                "-Kcal",
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 12.sp,
-                ),
-              ),
-              Container(
-                height: 14,
-                child: VerticalDivider(
-                  color: Colors.black54,
-                ),
-              ),
-              Text(
-                "한끼 영양량",
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 12.sp,
-                ),
-              )
-            ],
-          ),
+  Widget _nutritionInfo(List<String> menuList) {
+    int calories = 0,
+        carbohydrate = 0,
+        protein = 0,
+        fat = 0,
+        salt = 0,
+        cholesterol = 0;
+    for (String menuName in menuList) {
+      Map<String, dynamic> nutrition = menusAndNutrition[menuName] ?? {};
+      int? cal = nutrition["칼로리"],
+          car = nutrition["탄수화물"],
+          pro = nutrition["단백질"],
+          fa = nutrition["지방"],
+          sal = nutrition["나트륨"],
+          chol = nutrition["콜레스테롤"];
+      calories += cal ?? 0;
+      carbohydrate += car ?? 0;
+      protein += pro ?? 0;
+      fat += fa ?? 0;
+      salt += sal ?? 0;
+      cholesterol += chol ?? 0;
+    }
+    return Theme(
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+      child: ExpansionTile(
+        childrenPadding: EdgeInsets.all(8.0.r),
+        title: Row(
           children: [
-            TotalNutritionBox(),
+            Spacer(),
+            Text(
+              "-Kcal",
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 12.sp,
+              ),
+            ),
+            Container(
+              height: 14,
+              child: VerticalDivider(
+                color: Colors.black54,
+              ),
+            ),
+            Text(
+              "한끼 영양량",
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 12.sp,
+              ),
+            )
           ],
         ),
-      );
+        children: [
+          TotalNutritionBox(
+            calories: calories,
+            salt: salt,
+            cholesterol: cholesterol,
+            fat: fat,
+            protein: protein,
+            carbohydrate: carbohydrate,
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _menuLists() {
     return Expanded(
@@ -177,6 +208,8 @@ class _RateMenuPageState extends State<RateMenuPage> {
   }
 
   Widget _menuTitle(List<String> menu, int index) {
+    String name = menu[index];
+    Map<String, dynamic> nutrition = menusAndNutrition[name] ?? {};
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
@@ -187,7 +220,14 @@ class _RateMenuPageState extends State<RateMenuPage> {
           style: TextStyle(fontSize: 13.sp),
         ),
         children: [
-          NutritionBox(menu[index]),
+          NutritionBox(
+            calories: nutrition["칼로리"],
+            carbohydrate: nutrition["탄수화물"],
+            protein: nutrition["단백질"],
+            fat: nutrition["지방"],
+            cholesterol: nutrition["콜레스테롤"],
+            salt: nutrition["나트륨"],
+          ),
         ],
       ),
     );

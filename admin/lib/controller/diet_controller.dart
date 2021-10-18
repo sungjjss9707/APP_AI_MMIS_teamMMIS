@@ -35,8 +35,14 @@ class DietController extends GetxController {
     return code;
   }
 
-  Future<void> upDateDiet(String year, String month, String day, String time,
+  Future<int> upDateDiet(String year, String month, String day, String time,
       List<String> diets) async {
     int code = await _dietRepository.upDateDiet(year, month, day, time, diets);
+    return code;
+  }
+
+  Future<int> deleteDiet(String year, month, day, time) async {
+    int code = await _dietRepository.deleteDiet(year, month, day, time);
+    return code;
   }
 }

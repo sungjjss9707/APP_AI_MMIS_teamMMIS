@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:myapp/controller/menu_controller.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
 
@@ -15,6 +17,7 @@ class FramePage extends StatefulWidget {
 }
 
 class _FramePageState extends State<FramePage> {
+  final menuCon = Get.put(MenuController());
   int _selectedTapIndex = 0;
 
   @override

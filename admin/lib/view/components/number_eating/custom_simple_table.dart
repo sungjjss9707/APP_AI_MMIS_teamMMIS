@@ -12,18 +12,17 @@ class CustomSimpleTable extends StatelessWidget {
 //미완
   @override
   Widget build(BuildContext context) {
-    print("a1");
     Map<String, int> reasonData = convertReasonForSimpleTable(notEatings);
-    print("b1");
+
     Map<String, String> totalNumData =
         convertTotalNumForSimpleTable(notEatings);
-    Map<String, int> dummyReasonData = {"조식": 3, "브런치": 3, "중식": 3, "석식": 2};
-    Map<String, String> dummyTotalNumData = {
-      "조식": "100",
-      "브런치": "100",
-      "중식": "100",
-      "석식": "100"
-    };
+    // Map<String, int> dummyReasonData = {"조식": 3, "브런치": 3, "중식": 3, "석식": 2};
+    // Map<String, String> dummyTotalNumData = {
+    //   "조식": "100",
+    //   "브런치": "100",
+    //   "중식": "100",
+    //   "석식": "100"
+    // };
     return Column(
       children: [
         _totalNumTable(totalNumData),

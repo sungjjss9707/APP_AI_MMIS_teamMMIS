@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:myapp/controller/dto/CM_request_dto.dart';
 import 'package:myapp/controller/dto/comment_save_or_update_dto.dart';
+import 'package:myapp/controller/dto/suggestion_post_or_update_dto.dart';
 import 'package:myapp/domain/suggestion/suggestion.dart';
 import 'package:myapp/domain/suggestion/suggestion_provider.dart';
 import 'package:myapp/page_util/convert_utf8.dart';
@@ -28,8 +29,10 @@ class SuggestionRepository {
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
     if (cmRespDto.code == 1) {
       List<dynamic> temp = cmRespDto.data;
+
       List<Suggestion> suggestions =
           temp.map((suggestion) => Suggestion.fromJson(suggestion)).toList();
+
       return suggestions;
     } else {
       return <Suggestion>[];
@@ -44,8 +47,10 @@ class SuggestionRepository {
     return cmRespDto.code ?? -1;
   }
 
-  Future<Suggestion> postComment(int suggestionId, String content) async {
-    CommentSaveOrUpdateDto saveDto = CommentSaveOrUpdateDto(content);
+  Future<Suggestion> postComment(
+      int suggestionId, String militaryNumber, String content) async {
+    CommentSaveOrUpdateDto saveDto =
+        CommentSaveOrUpdateDto(militaryNumber, content);
     Response response =
         await _suggestionProvider.postComment(suggestionId, saveDto.toJson());
     dynamic body = response.body;
@@ -58,9 +63,10 @@ class SuggestionRepository {
     }
   }
 
-  Future<Suggestion> updateComment(
-      int suggestionId, int CommentId, String content) async {
-    CommentSaveOrUpdateDto updateDto = CommentSaveOrUpdateDto(content);
+  Future<Suggestion> updateComment(int suggestionId, int CommentId,
+      String militaryNumber, String content) async {
+    CommentSaveOrUpdateDto updateDto =
+        CommentSaveOrUpdateDto(militaryNumber, content);
     Response response = await _suggestionProvider.updateComment(
         suggestionId, CommentId, updateDto.toJson());
     dynamic body = response.body;
@@ -80,5 +86,20 @@ class SuggestionRepository {
     dynamic convertBody = convertUtf8ToObject(body);
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
     return cmRespDto.code ?? -1;
+  }
+
+  Future<Suggestion> postSuggestion(
+      String title, content, militaryNumber) async {
+    SuggestionPostOrUpdateDto postDto =
+        SuggestionPostOrUpdateDto(title, content, militaryNumber);
+    Response response =
+        await _suggestionProvider.postSuggestion(postDto.toJson());
+    dynamic body = response.body;
+    dynamic convertBody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+    if (cmRespDto.code == 1) {
+      return Suggestion.fromJson2(cmRespDto.data);
+    }
+    return Suggestion();
   }
 }

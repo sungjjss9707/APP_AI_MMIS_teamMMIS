@@ -34,12 +34,17 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
 
     _contentController.text = s.suggestion.value.content ?? "";
 
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     if (s.suggestion.value.comments != null) {
       _writtenCommentsList = List.generate(
         s.suggestion.value.comments!.length,
         (index) {
           WrittenCommentBox writtenCommentBox = WrittenCommentBox(
-            enabled: false,
+            enabled: true,
           );
           writtenCommentBox.controller.text =
               s.suggestion.value.comments![index].content ?? "";
@@ -48,11 +53,6 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
       );
     } else
       _writtenCommentsList = [];
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return SimpleDialog(
       contentPadding: EdgeInsets.all(32),
       children: [
@@ -120,6 +120,11 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
               TextButton(
                 onPressed: () {
                   setState(() async {
+                    print("수정");
+                    print(s.suggestion.value.comments![index].id ?? "-1");
+                    print(s.suggestion.value.comments![index]
+                        .writer!["militaryNumber"]);
+                    print(_writtenCommentsList[index].controller.text);
                     await s.updateComment(
                         widget.id,
                         s.suggestion.value.comments![index].id ?? index + 1,
@@ -148,28 +153,32 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
   }
 
   Widget _writeComment() {
-    return Row(
-      children: [
-        Expanded(
-          child: CustomWritingArea(
-            maxLines: 2,
-            enabled: true,
-            controller: _postCommentController,
-            hint: "답변",
-            funValidate: validateContent(),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: gap_s),
+      child: Row(
+        children: [
+          Expanded(
+            child: CustomWritingArea(
+              maxLines: 2,
+              enabled: true,
+              controller: _postCommentController,
+              hint: "답변",
+              funValidate: validateContent(),
+            ),
           ),
-        ),
-        SizedBox(width: gap_xs),
-        CustomElevatedButton(
-          text: "등록",
-          onPressed: () async {
-            await s.postComment(
-                widget.id,
-                admin.principal.value.militaryNumber ?? "21-11111",
-                _postCommentController.text);
-          },
-        )
-      ],
+          SizedBox(width: gap_s),
+          CustomElevatedButton(
+            text: "등록",
+            onPressed: () async {
+              await s.postComment(
+                  widget.id,
+                  admin.principal.value.militaryNumber ?? "21-11111",
+                  _postCommentController.text);
+              setState(() {});
+            },
+          )
+        ],
+      ),
     );
   }
 }

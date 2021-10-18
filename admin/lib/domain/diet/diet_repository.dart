@@ -80,4 +80,16 @@ class DietRepository {
       return -1;
     }
   }
+
+  Future<int> deleteDiet(
+      String year, String month, String day, String time) async {
+    Response response = await _dietProvider.deleteDiet(year, month, day, time);
+    dynamic body = response.body;
+    dynamic convertBody = convertUtf8ToObject(body);
+    CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
+    if (cmRespDto.code == 1) {
+      return 1;
+    }
+    return -1;
+  }
 }
