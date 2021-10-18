@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
                 //mybody = results1[0];
 		//console.log(results1[0]);
 		    if(error){
-
+			res.send({"code" : -1});
 		    }
 		    else{
 			var realnewsql = `select * from normaluser where militaryNumber = \'${writer}\';`;
@@ -57,13 +57,18 @@ router.post('/:id/comment', async (req, res) => {
     var suggestionid = req.params.id;
     var writer = req.body.militaryNumber; ////////////////////////////////////////////////////
     var content = req.body.content;
-    var sql = `select * from suggestioncomments where suggestionid = \'${suggestionid}\';`;
+    var sql = `select * from suggestion where id = \'${suggestionid}\';select * from suggestioncomments where suggestionid = \'${suggestionid}\';`;
     connection.query(sql, (error, results, fields) => {
 
 	 if (error) {
             console.log(error);
 	    res.send({"code" : -1});
         }else{
+	    console.log(results[0]);
+	    console.log(results[1]);
+	    console.log("------------------------");
+	    if(results[0].length==0) res.send({"code":-1});
+	    else{
 	    //console.log(results[0]);
 	    //console.log(results.length);
 	    var nextid;
@@ -81,9 +86,10 @@ router.post('/:id/comment', async (req, res) => {
                 //mybody = results1[0];
 		//console.log(results1[0]);
 		    if(error){
-			
+			res.send({"code":-1});			
 		    }
 		    else{
+
 			console.log("인설트 성공!");
 			var newsql = `select * from suggestion where id = \'${suggestionid}\';`; 
 			//console.log(newsql);
@@ -128,8 +134,8 @@ router.post('/:id/comment', async (req, res) => {
 								var onecomment
 								for(var i in results3){
 								    //console.log(results3[i].content);
-								    i//console.log(results4[i].writer);
-								    onecomment = {"content": results3[i].content, "writer": results4[i][0]};
+								    //console.log(results4[i].writer);
+								    onecomment = {"id": results3[i].suggestionid_id,"content": results3[i].content, "writer": results4[i][0]};
 								    comment.push(onecomment);
 								}
 								var data = {"id" : results1[0].id, "title": results1[0].title, "content": results1[0].content, "writer": results2[0],"comments": comment, "createtime": results1[0].createtime, "updatetime": results1[0].updatetime};
@@ -150,6 +156,7 @@ router.post('/:id/comment', async (req, res) => {
 
 		    }
                 })
+	}
         }
     })
    //var body = req.body;
@@ -171,6 +178,8 @@ router.get('/:id', async (req, res) => {
 	    res.send({"code" : -1});
  	}
 	else{
+	    if(results1.length==0) res.send({"code" : 1, "msg": "success", "data" : []});
+	    else{
 				    //if(results1.length==0) res.send([]);
 	    console.log(results1[0].militaryNumber);
 	    var realnewsql = `select * from normaluser where militaryNumber = \'${results1[0].militaryNumber}\';`;
@@ -206,7 +215,7 @@ router.get('/:id', async (req, res) => {
 				    for(var i in results3){
 								    //console.log(results3[i].content);
 								    //console.log(results4[i].writer);
-					onecomment = {"content": results3[i].content, "writer": results4[i][0]};
+					onecomment = {"id" : results3[i].suggestionid_id, "content": results3[i].content, "writer": results4[i][0]};
 					comment.push(onecomment);
 				    }
 				    var data = {"id" : results1[0].id, "title": results1[0].title, "content": results1[0].content, "writer": results2[0],"comments": comment, "createtime": results1[0].createtime, "updatetime": results1[0].updatetime};
@@ -221,6 +230,7 @@ router.get('/:id', async (req, res) => {
 		    })
 		}
 	    })
+	}
 
 	}
    })
@@ -246,6 +256,9 @@ router.get('/', async (req, res) => {
 	    res.send({"code" : -1});
         }
 	else{
+	    if(results.length==0) res.send({"code":1, "msg":"success", "data":[]});
+	    else{
+
 	    var suggestionidlist = [];
 	    var sql1 = "";
 	    for(var i in results){
@@ -274,7 +287,7 @@ router.get('/', async (req, res) => {
 		//console.log(admininformsql);
 		connection.query(admininformsql, (error, results2, fields) =>{
 		    if(error){
-
+			res.send({"code":-1});
 		    }
 		    else{
 			for(var i in results2){
@@ -288,7 +301,7 @@ router.get('/', async (req, res) => {
 			//console.log(getnormalwritersql);
 			connection.query(getnormalwritersql, (error, results3, fields)=>{
 			    if(error){
-
+				res.send({"code":-1});
 			    }
 			    else{
 				var bigarray = [], commentswriter,id, title, content, writer, comments, updatetime, createtime, index=0;    
@@ -309,7 +322,7 @@ router.get('/', async (req, res) => {
 					index++;
 					//console.log(commentswriter);
 					//console.log(results1[i][k]);
-					comments.push({"content" : results1[i][k].content, "writer": commentswriter});
+					comments.push({"id": results1[i][k].suggestionid_id, "content" : results1[i][k].content, "writer": commentswriter});
 				    }
 				    bigarray.push({"id":id, "title":title, "content":content, "writer": writer, "comments": comments, "createtime": createtime, "updatetime":updatetime});
 				    console.log("---------------------------");
@@ -327,6 +340,7 @@ router.get('/', async (req, res) => {
 		})
 
             })
+	 }
    	 }
 
     })
@@ -362,7 +376,8 @@ router.put('/:suggestionid/comment/:commentid', async (req, res) => {
 
 		    		}
 		    		else{
-				    console.log(results1[0].militaryNumber);
+				    if(results1.length==0) res.send({"code": -1});
+				    else{
 				    var realnewsql = `select * from normaluser where militaryNumber = \'${results1[0].militaryNumber}\';`;
 		        	    connection.query(realnewsql,(error1, results2, fields1) => {
 					    if(error1){
@@ -396,7 +411,7 @@ router.put('/:suggestionid/comment/:commentid', async (req, res) => {
 								for(var i in results3){
 								    //console.log(results3[i].content);
 								    //console.log(results4[i].writer);
-								    onecomment = {"content": results3[i].content, "writer": results4[i][0]};
+								    onecomment = {"id" : results3[i].suggestionid_id, "content": results3[i].content, "writer": results4[i][0]};
 								    comment.push(onecomment);
 								}
 								var data = {"id" : results1[0].id, "title": results1[0].title, "content": results1[0].content, "writer": results2[0],"comments": comment, "createtime": results1[0].createtime, "updatetime": results1[0].updatetime};
@@ -411,6 +426,7 @@ router.put('/:suggestionid/comment/:commentid', async (req, res) => {
 						})
 					    }
                         		})
+				}
 
 		    		}
                 	})

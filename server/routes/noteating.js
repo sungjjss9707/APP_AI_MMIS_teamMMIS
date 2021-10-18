@@ -691,7 +691,8 @@ router.get('/:year/:month/:day/:time', async (req, res) => {
 	  		res.send({"code" : -1});
 		}	
 		else{
-			
+			if(results.length==0) res.send({"code" : 1, "msg": "success", "data":[]});
+			else{
 	    		var dutyarray=[], vacationarray=[], go_outarray=[], workarray=[], etcarray = [];
 			dutyarray = results[0].duty.split(',');
 			vacationarray = results[0].vacation.split(',');
@@ -842,6 +843,7 @@ router.get('/:year/:month/:day/:time', async (req, res) => {
    					})
     				}
    			})
+		}
     		}
    	})
 });

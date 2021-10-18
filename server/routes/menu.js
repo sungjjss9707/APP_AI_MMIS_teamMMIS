@@ -62,6 +62,8 @@ router.get('/', async (req, res) => {
 	    res.send({"code" : -1});
 	}
 	else{
+	    if(results.length==0) res.send({"code":1, "msg":"success", "data":[]});
+	    else{
 	    var namearray = [];
 	    console.log(results);
 	    for(var i in results){
@@ -116,6 +118,7 @@ router.get('/', async (req, res) => {
 		}
 	    })
 	}
+	}
     })
 });
 
@@ -133,6 +136,9 @@ router.get('/:mymenu', async (req, res) => {
 	    res.send({"code" : -1});
 	}
 	else{
+	    if(results.length==0) res.send({"code":1, "msg":"success", "data":[]});
+	    else{
+
 	    console.log(results);
 	    //res.send(results);
 	    
@@ -144,6 +150,7 @@ router.get('/:mymenu', async (req, res) => {
 	    var data = {"name": name, "nutrition": nutrition, "allergy": allergy};
 	    var menuDataResponse = {"code": 1, "msg": "success", "data": data};
 	    res.send(menuDataResponse);
+	}
 	}
     })
 });
