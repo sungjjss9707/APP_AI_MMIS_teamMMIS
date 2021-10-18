@@ -1,6 +1,8 @@
 # 데이터 읽기 위한 라이브러리
 import pandas as pd
 import numpy as np
+import pickle
+import joblib
 from pandas.core.frame import  DataFrame
 
 # 플라스크 라이브러리
@@ -21,6 +23,14 @@ CORS(app)
 data = pd.read_csv("/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/data.csv", encoding="UTF-8")
 w2v_menu_sim_sorted_idx=np.load("/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/w2v_menu_sim_sorted_idx.npy")
 bigram_menu_sim_sorted_idx=np.load("/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/bigram_menu_sim_sorted_idx.npy")
+menus = pd.read_csv('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/국방부메뉴_v2.1_맛_점수_포함.csv', index_col=0)
+vectorizer_b1 = pickle.load(open('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/vectorizer_b1.pk', 'rb'))
+vectorizer_t1 = pickle.load(open('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/vectorizer_t1.pk', 'rb'))
+vectorizer_b2 = pickle.load(open('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/vectorizer_b2.pk', 'rb'))
+vectorizer_t2 = pickle.load(open('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/vectorizer_t2.pk', 'rb'))
+x_min_max_scaler = joblib.load('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/x_min_max_scaler.save')
+y_min_max_scaler = joblib.load('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/y_min_max_scaler.save')
+model = pickle.load(open('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/ridge_v1.0.sav', 'rb'))
 
 # Flutter 앱에서 이 친구를 호출할 예정 (body 데이터를 가져오려면 http 규칙이 post로 전송)
 
@@ -42,7 +52,7 @@ def main():
             return jsonify(cmRespDto)
 
         # data - score
-    cmRespData['score'] = p.predictScore(cmReqDto["menus"])
+    cmRespData['score'] = p.predictScore(list(cmReqDto["menus"]), menus, vectorizer_b1, vectorizer_t1, vectorizer_b2, vectorizer_t2, x_min_max_scaler, y_min_max_scaler, model)
 
         # data - recommendation
     menuList=[]

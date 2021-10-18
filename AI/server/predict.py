@@ -19,12 +19,13 @@ x_min_max_scaler = joblib.load('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI fi
 y_min_max_scaler = joblib.load('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/y_min_max_scaler.save')
 model = pickle.load(open('/workspaces/APP_AI_MMIS_teamMMIS/AI/server/AI file/ridge_v1.0.sav', 'rb'))
 """
+
 # 유사 메뉴 추천 함수
 
 def find_sim_menu(data, menu_sim_sorted_idx, name, number=10):
 
     
-
+    
     title_menu=data[data['메뉴이름']==name]
 
     title_menu_idx = title_menu.index.values
@@ -53,7 +54,7 @@ def get_nearest_data(menu_name: str, menus: pd.DataFrame) -> pd.DataFrame:
     idx = lev_ratio.index(max(lev_ratio))
     return pd.DataFrame(menus.iloc[idx]).transpose()
 
-def create_predict_df(main: str, another: str) -> pd.DataFrame:
+def create_predict_df(main: str, another: str, menus) -> pd.DataFrame:
     # 첫번째 메뉴 데이터 가져오기
     main_df = menus.loc[menus['메뉴이름'] == main]
     if len(main_df) == 0: main_df = get_nearest_data(main, menus)
@@ -95,7 +96,7 @@ def create_ngrams(menuName: str, first: bool, predict_df: pd.DataFrame) -> pd.Da
         predict_df.insert(4, 'trigram2',trigramText)
     return predict_df
 
-def create_ngram_features(final_df: pd.DataFrame) -> pd.DataFrame:
+def create_ngram_features(final_df: pd.DataFrame, vectorizer_b1, vectorizer_t1, vectorizer_b2, vectorizer_t2) -> pd.DataFrame:
     # 메뉴이름, 다른메뉴 열 삭제
     del final_df['메뉴이름']
     del final_df['다른메뉴']
@@ -121,26 +122,26 @@ def create_ngram_features(final_df: pd.DataFrame) -> pd.DataFrame:
     # 리턴
     return final_df
 
-def predict_combination_score(main: str, another: str) -> float:
-    predict_df = create_predict_df(main, another)
+def predict_combination_score(main: str, another: str, menus, vectorizer_b1, vectorizer_t1, vectorizer_b2, vectorizer_t2, x_min_max_scaler, y_min_max_scaler, model) -> float:
+    predict_df = create_predict_df(main, another, menus)
     predict_df = create_ngrams(str(predict_df['메뉴이름1'][0]), True, predict_df)
     predict_df = create_ngrams(str(predict_df['다른메뉴2'][0]), False, predict_df)
     final_df = predict_df.rename(columns={'메뉴이름1': '메뉴이름', '다른메뉴2': '다른메뉴'})
-    final_df = create_ngram_features(final_df)
+    final_df = create_ngram_features(final_df, vectorizer_b1, vectorizer_t1, vectorizer_b2, vectorizer_t2)
 
     scaled_X = x_min_max_scaler.transform(final_df)
     pred = model.predict(scaled_X)
     score = y_min_max_scaler.inverse_transform(pred)
     return score
 
-def predictScore(menuList: list) -> int:
+def predictScore(menuList: list, menus, vectorizer_b1, vectorizer_t1, vectorizer_b2, vectorizer_t2, x_min_max_scaler, y_min_max_scaler, model) -> int:
     scores = []
     for i in range(len(menuList)):
         for j in range(len(menuList)):
             if i == j: break   
             main = menuList[i]
             another = menuList[j]
-            scores.append(predict_combination_score(main, another))
+            scores.append(predict_combination_score(main, another, menus, vectorizer_b1, vectorizer_t1, vectorizer_b2, vectorizer_t2, x_min_max_scaler, y_min_max_scaler, model))
     mean_score = round(np.mean(scores) + np.random.randint(-1, 3))
     return mean_score if mean_score > 0 else 0
 
