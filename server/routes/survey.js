@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
         }else{
 	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results};
 		
-		res.send(noticeresponse);
+		res.send(req.body.count);
         }
     })
    //var body = req.body;
