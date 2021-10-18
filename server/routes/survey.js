@@ -30,11 +30,11 @@ router.post('/', async (req, res) => {
         
 	 if (error) {
             console.log(error);
-	    res.send({"code" : -1});
+	    res.send(req.body.count);
         }else{
 	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results};
 		
-		res.send(req.body.count);
+		res.send(noticeresponse);
         }
     })
    //var body = req.body;
