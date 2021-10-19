@@ -74,9 +74,6 @@
         <td>
             <div align="center"><a href="https://gradle.org/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-plain.svg" alt="gradle" width="40" height="40"/> </a><br>Gradle</br></div>
         </td>
-        <td>
-            <div align="center"><a href="https://www.w3.org/html/" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a><br>Html5</div>
-        </td>
     </tr>
 </tbody>
 </table>
