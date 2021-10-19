@@ -50,15 +50,11 @@
         <td width="60">
             <div align="center"><a href="https://www.python.org" target="_blank"> <img src="https://www.python.org/static/img/python-logo@2x.png" alt="python" height="40"/> </a><br>Python</br></div>
         </td>
-          <td>
-            <div align="center"><a href="https://www.tensorflow.org/" target="_blank"> <img src="https://www.gstatic.com/devrel-devsite/prod/vfe8af62599ec445552c3fb43608c37ff46463c9fce3b14d8ee63b2e71edddffd/tensorflow/images/lockup.svg?dcb_=0.6050776491075445" alt="tensorflow" height="40"/> 
-            </a><br>Tensorflow</br></div>
-        </td>
-        <td>
-            <div align="center"><a href="https://keras.io/" target="_blank"> <img src="https://keras.io/img/logo.png" alt="keras" height="40"/> </a><br>Keras</br></div>
+        <td width="60">
+            <div align="center"><a href="https://www.tensorflow.org/" target="_blank"> <img src="https://www.gstatic.com/devrel-devsite/prod/vfe8af62599ec445552c3fb43608c37ff46463c9fce3b14d8ee63b2e71edddffd/tensorflow/images/lockup.svg?dcb_=0.6050776491075445" alt="tensorflow" height="40"/> </a><br>Tensorflow</br></div>
         </td>
         <td width="60">
-            <div align="center"><a href="https://github.com/huggingface/transformers" target="_blank"> <img src="https://raw.githubusercontent.com/huggingface/transformers/master/docs/source/imgs/transformers_logo_name.png" alt="transformers" height="40"/> </a><br>Transformers</br></div>
+            <div align="center"><a href="https://keras.io/" target="_blank"> <img src="https://keras.io/img/logo.png" alt="keras" height="40"/> </a><br>Keras</br></div>
         </td>
     </tr>
 </tbody>
@@ -72,6 +68,10 @@
         <td width="60">
             <div align="center"><a href="https://flutter.dev/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="flutter" width="40" height="40"/> </a><br>Flutter</br></div>
         </td>
+        <td width="60">
+            <div align="center"><a href="https://gradle.org/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-plain.svg" alt="gradle" width="40" height="40"/> </a><br>Gradle</br></div>
+        </td>
+        
     </tr>
 </tbody>
 </table>
@@ -82,7 +82,10 @@
 <tbody>
     <tr>
         <td width="60">
-            <div align="center"><a href="https://flutter.dev" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a><br>Node.js</br></div>
+            <div align="center"><a href="https://www.mysql.com/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a><br>MySQL</br></div>
+        </td>
+        <td width="60">
+            <div align="center"><a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="flask" width="40" height="40"/> </a><br>Flask</br></div>
         </td>
 </tbody>
 </table>
