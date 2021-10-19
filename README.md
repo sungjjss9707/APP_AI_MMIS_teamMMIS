@@ -95,9 +95,6 @@
         <td>
             <div align="center"><a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="flask" width="40" height="40"/> </a><br>Flask</br></div>
         </td>
-        <td>
-            <div align="center"><a href="https://www.linux.org/" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a><br>Linux</div>
-        </td>
     </tr>
 </tbody>
 </table>
