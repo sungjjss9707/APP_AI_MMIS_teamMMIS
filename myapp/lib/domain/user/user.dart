@@ -9,8 +9,6 @@ class User {
   // 소속
   final String? unit;
   final Map<String, dynamic>? allergy;
-  final DateTime? created;
-  final DateTime? updated;
 
   User({
     this.id,
@@ -19,8 +17,6 @@ class User {
     this.rank,
     this.unit,
     this.allergy,
-    this.created,
-    this.updated,
   });
 
   User.fromJson(Map<String, dynamic> json)
@@ -29,7 +25,5 @@ class User {
         militaryNumber = json["militaryNumber"],
         rank = json["grade"],
         unit = json["belong"],
-        allergy = json["allergy"],
-        created = DateFormat("yyyy-mm-dd").parse(json["createtime"]),
-        updated = DateFormat("yyyy-mm-dd").parse(json["updatetime"]);
+        allergy = json["allergy"];
 }

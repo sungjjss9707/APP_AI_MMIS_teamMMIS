@@ -35,26 +35,26 @@ class UserInfoPage extends StatelessWidget {
         child: ListView(
           children: [
             UserInfoTextFormField(
-                text: "소속",
-                info: u.principal.value.unit,
-                enabled: false,
-                validator: (String? value) => null),
+              text: "소속",
+              info: "${u.principal.value.unit}",
+              enabled: false,
+            ),
             UserInfoTextFormField(
-                text: "계급",
-                info: u.principal.value.rank,
-                enabled: false,
-                validator: (String? value) => null),
+              text: "계급",
+              info: "${u.principal.value.rank}",
+              enabled: false,
+            ),
             UserInfoTextFormField(
-                text: "이름",
-                info: u.principal.value.username,
-                enabled: false,
-                validator: (String? value) => null),
+              text: "이름",
+              info: "${u.principal.value.username}",
+              enabled: false,
+            ),
             UserInfoTextFormField(
-                obscureText: true,
-                text: "비밀번호",
-                info: "aaaaaaaaaa",
-                enabled: false,
-                validator: (String? value) => null),
+              obscureText: true,
+              text: "비밀번호",
+              info: "aaaaaaaaaa",
+              enabled: false,
+            ),
             Divider(),
             Container(
               padding: EdgeInsets.all(4.r),

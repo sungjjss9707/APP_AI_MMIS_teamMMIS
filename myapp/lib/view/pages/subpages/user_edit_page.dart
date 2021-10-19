@@ -14,15 +14,15 @@ import '../../../allergy.dart';
 class UserEditPage extends StatelessWidget {
   @override
   final _formKey = GlobalKey<FormState>();
-  final user = Get.put(UserController());
+  final UserController u = Get.find();
 
   Widget build(BuildContext context) {
     TextEditingController nameController = TextEditingController();
-    nameController.text = userName;
+    nameController.text = "${u.principal.value.username}";
     TextEditingController classController = TextEditingController();
-    classController.text = classes;
+    classController.text = "${u.principal.value.rank}";
     TextEditingController unitController = TextEditingController();
-    unitController.text = unit;
+    unitController.text = "${u.principal.value.unit}";
     final List<String> allergies = [];
     for (String i in userAllergy.keys) {
       if (userAllergy[i] == true) allergies.add(i);
@@ -68,12 +68,12 @@ class UserEditPage extends StatelessWidget {
                   text: "비밀번호",
                   controller: nameController,
                   enabled: true,
-                  validator: validateName()),
+                  validator: validatePassWorld()),
               UserInfoTextFormField(
                   text: "이름",
                   controller: nameController,
                   enabled: true,
-                  validator: validateName()),
+                  validator: validatePassWorld()),
               Divider(),
               Center(
                 child: Text(

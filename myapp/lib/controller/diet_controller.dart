@@ -13,8 +13,6 @@ class DietController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    DateTime now = DateTime.now();
-    findMonth(now.year.toString(), now.month.toString());
   }
 
   Future<void> findTime(

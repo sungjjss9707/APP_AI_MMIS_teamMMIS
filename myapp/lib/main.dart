@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         title: "MMIS project myapp",
         debugShowCheckedModeBanner: false,
         theme: themeData,
-        home: FramePage(),
+        home: LoginPage(),
       ),
     );
   }

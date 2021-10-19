@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserInfoTextFormField extends StatelessWidget {
-  String text;
-  String? info;
-  bool enabled;
-  int n;
+  final String text;
+  final String? info;
+  final enabled;
+  final int? n;
   final validator;
   final obscureText;
   TextEditingController? controller;
   UserInfoTextFormField({
     required this.text,
     this.info,
-    required this.enabled,
+    this.enabled,
     this.n = 10,
     this.controller,
-    required this.validator,
+    this.validator,
     this.obscureText,
   });
   Widget build(BuildContext context) {

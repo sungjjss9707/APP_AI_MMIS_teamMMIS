@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/pages/initialpages/login_page.dart';
 import 'package:myapp/view/pages/subpages/app_info_page.dart';
@@ -9,6 +11,7 @@ import 'package:myapp/view/pages/subpages/suggestion_page.dart';
 import 'package:myapp/view/pages/subpages/user_info_page.dart';
 
 class CustomDrawer extends StatelessWidget {
+  final u = Get.put(UserController());
   Widget build(BuildContext context) {
     return Container(
       width: 1.sw * 0.7,
@@ -20,14 +23,14 @@ class CustomDrawer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "$classes $userName",
+              "${u.principal.value.rank} ${u.principal.value.username}",
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25.sp,
                   color: Colors.black),
             ),
             Text(
-              "$army $unit",
+              "${u.principal.value.unit}",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 13.sp,
@@ -45,14 +48,14 @@ class CustomDrawer extends StatelessWidget {
               },
             ),
             DrawerLine(
-                iconName: Icons.analytics,
-                text: "공제내역 확인",
+                iconName: Icons.payment,
+                text: "공제내역",
                 tap: () {
                   Navigator.pop(context);
                   Get.to(() => DeductionPage());
                 }),
             DrawerLine(
-              iconName: Icons.question_answer,
+              iconName: FontAwesomeIcons.exclamationCircle,
               text: "건의사항",
               tap: () {
                 Navigator.pop(context);

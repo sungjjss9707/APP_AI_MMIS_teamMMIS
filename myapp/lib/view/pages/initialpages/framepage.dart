@@ -26,11 +26,13 @@ class _FramePageState extends State<FramePage> {
       drawer: CustomDrawer(),
       appBar: _buildAppBar(),
       bottomNavigationBar: _buildBottomNavigationBar(),
-      body: _selectedTapIndex == 0
-          ? HomePage()
-          : _selectedTapIndex == 1
-              ? ShowPhotoOfMealPage()
-              : SettingPage(),
+      body: SafeArea(
+        child: _selectedTapIndex == 0
+            ? HomePage()
+            : _selectedTapIndex == 1
+                ? ShowPhotoOfMealPage()
+                : SettingPage(),
+      ),
     );
   }
 

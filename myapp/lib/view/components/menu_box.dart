@@ -30,8 +30,8 @@ class MenuBox extends StatelessWidget {
         },
         child: Container(
           padding: EdgeInsets.all(2.w),
-          height: (0.3).sw,
-          width: (0.22).sw,
+          height: (0.3).sw * 1.5,
+          width: (0.22).sw * 1.5,
           decoration: BoxDecoration(
               color: Colors.white,
               border: _isNow == false

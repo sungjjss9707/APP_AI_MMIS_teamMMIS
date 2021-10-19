@@ -32,7 +32,6 @@ class UserRepository {
     Response response = await _userProvider.join(joinReqDto.toJson());
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
-    print(convertBody);
     //서버 연결안되면 여기서 오류남. convertBody가 String이 되기 때문
     CMRespDto cmRespDto = CMRespDto.fromJson(convertBody);
     return cmRespDto.code!;

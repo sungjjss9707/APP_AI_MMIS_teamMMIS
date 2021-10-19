@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/diet_controller.dart';
 import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/view/components/button/custom_elevated_button.dart';
@@ -52,7 +53,6 @@ class LoginPage extends StatelessWidget {
           CustomTextFormField(
             controller: _militaryNumber,
             hint: "군번",
-            funValidate: validateMilitaryNumber(),
           ),
           CustomTextFormField(
             controller: _password,
@@ -68,7 +68,10 @@ class LoginPage extends StatelessWidget {
               if (_formKey.currentState!.validate()) {
                 await u.login(
                     _militaryNumber.text.trim(), _password.text.trim());
-                Get.to(FramePage());
+                DateTime now = DateTime.now();
+                final d = Get.put(DietController());
+                await d.findMonth(now.year.toString(), now.month.toString());
+                Get.off(() => FramePage());
               }
             },
           ),
@@ -76,7 +79,7 @@ class LoginPage extends StatelessWidget {
           TextButton(
             child: Text("회원가입"),
             onPressed: () {
-              Get.to(JoinPage()); //회원가입페이지로 이동
+              Get.off(() => JoinPage()); //회원가입페이지로 이동
             },
           ),
         ],

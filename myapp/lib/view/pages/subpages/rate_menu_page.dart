@@ -307,6 +307,40 @@ class _RateMenuPageState extends State<RateMenuPage> {
         onPressed: () {
           setState(() {
             if (isEating!) {
+              showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (context) {
+                    List valueList = ["당직", "휴가", "외출", "근무", "기타"];
+                    var _selectedValue = valueList[0];
+                    return AlertDialog(
+                      content: DropdownButton(
+                        value: _selectedValue,
+                        items: valueList
+                            .map((value) => DropdownMenuItem(
+                                  child: Text(value),
+                                  value: value,
+                                ))
+                            .toList(),
+                        onChanged: (value) {
+                          _selectedValue = value;
+                        },
+                      ),
+                      actions: [
+                        Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                print(_selectedValue);
+                              },
+                              child: Text("신청하기"),
+                            ),
+                            CustomBackButton(text: '취소'),
+                          ],
+                        ),
+                      ],
+                    );
+                  });
               addUserNotEating(dateAndTime, time);
               isEating = false;
               showDialog(

@@ -11,8 +11,9 @@ class UserController extends GetxController {
     User principal = await _userRepository.login(militaryNumber, password);
     this.principal.value = principal;
     if (principal.id != null) {
-      userAllergy = principal.allergy!
-          .map((key, value) => MapEntry(key, value != "0" ? true : false));
+      userAllergy = principal.allergy!.map(
+        (key, value) => MapEntry(key, value != "0" ? false : true),
+      );
       return 1;
     }
     return -1;
