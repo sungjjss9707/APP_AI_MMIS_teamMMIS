@@ -20,8 +20,8 @@ router.post('/', async (req, res) => {
     }
     else{
 	console.log(results[0]);
-	if(results[0]){
-	    res.send({"code" :2});
+	if(results.length!=0){
+	    res.send({"code" :-1});
 	}
 	else{
 	    connection.query(sql, (error, results, fields) => {

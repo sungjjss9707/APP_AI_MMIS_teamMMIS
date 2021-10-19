@@ -22,8 +22,8 @@ router.post('/', async (req, res) => {
         res.send({"code" : -1});
     }
     else{
-	if(results[0]){
-	    res.send({"code" :2});
+	if(results.length!=0){
+	    res.send({"code" :-1});
 	}
 	else{
 	    connection.query(sql, (error, results1, fields) => {
@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
 				else{
 					console.log(results2);
 					console.log(results4);
-					var data = {"name" : req.body.name, "militaryNumber": req.body.militaryNumber, "password": req.body.password, "grade" : req.body.grade, "belong": req.body.belong, "allergy" : results4[0]};
+					var data = {"id": results2[0].id, "name" : req.body.name, "militaryNumber": req.body.militaryNumber, "password": req.body.password, "grade" : req.body.grade, "belong": req.body.belong, "allergy" : results4[0]};
 					var noticeresponse = {"code" : 1, "msg" : "success", "data" : data};
 		//res.send(results1[0]);
 		                        res.send(noticeresponse);

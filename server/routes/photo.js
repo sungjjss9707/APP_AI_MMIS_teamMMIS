@@ -26,8 +26,8 @@ router.post('/', async (req, res) => {
             console.log(error);
 	    res.send({"code" : "-1"});
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results1[0]};
-		//res.send(results1[0]);
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results[0]};
+
 		res.send(noticeresponse);
         }
     })
@@ -46,8 +46,8 @@ router.get('/:id', async (req, res) => {
             console.log(error);
 	    res.send({"code" : "-1"});
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results1[0]};
-		//res.send(results1[0]);
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results[0]};
+
 		res.send(noticeresponse);
         }
     })
@@ -63,8 +63,8 @@ router.delete('/delete/:id', async (req, res) => {
             console.log(error);
 	    res.send({"code" : "-1"});
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "삭제하기완료", "data" : results1[0]};
-		//res.send(results1[0]);
+	    var noticeresponse = {"code" : 1, "msg" : "삭제하기완료", "data" : results[0]};
+	
 		res.send(noticeresponse);
         }
     })
@@ -80,8 +80,8 @@ router.post('/comments/:id', async (req, res) => {
             console.log(error);
 	    res.send({"code" : "-1"});
         }else{
-	    var noticeresponse = {"code" : "1", "msg" : "success", "data" : results1[0]};
-		//res.send(results1[0]);
+	    var noticeresponse = {"code" : 1, "msg" : "success", "data" : results[0]};
+	
 		res.send(noticeresponse);
         }
     })

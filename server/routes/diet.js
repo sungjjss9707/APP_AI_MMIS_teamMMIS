@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mysql = require('mysql');
-
+const cors = require('cors');
 
 const connection =   mysql.createPool({
     user:'admin',
@@ -18,7 +18,16 @@ router.post('/', async (req, res) => {
 	var time = req.body.time;
         var menus = req.body.menus;
         var yearmonthdaytime = year+"/"+month+"/"+day+"/"+time;
-        var diet_reg = `insert into diet (yearmonthdaytime, year, month, day, time, menus, createtime, updatetime) value (\'${yearmonthdaytime}\',\'${year}\',\'${month}\',\'${day}\',\'${time}\',\'${menus}\', now(), now());`;
+	var checksql = `select * from diet where yearmonthdaytime = \'${yearmonthdaytime}\';`;
+	connection.query(checksql, (error, results7, fields) => {
+
+	    if(error) res.send({"code" : -1});
+	    else{
+		if(results7.length!=0){
+			res.send({"code":-1});
+		}
+		else{
+			var diet_reg = `insert into diet (yearmonthdaytime, year, month, day, time, menus, createtime, updatetime) value (\'${yearmonthdaytime}\',\'${year}\',\'${month}\',\'${day}\',\'${time}\',\'${menus}\', now(), now());`;
         connection.query(diet_reg, (error, results, fields) => {
                 if (error) {
                         console.log(error);
@@ -81,6 +90,11 @@ router.post('/', async (req, res) => {
         			}
         		})
     		}
+	})
+
+
+		}
+	    }
 	})
 });
 
@@ -175,6 +189,8 @@ router.get('/:year/:month', async (req, res) => {
 	    		res.send({"code" : -1});
 		}
 		else{
+			if(results.length==0) res.send({"code":1, "msg":"success", "data": []});
+			else{
 		//	console.log(results.length);
 			var dietarray=[], onedaydiet, yearmonthdaytime = [], now;
 			for(var i in results){
@@ -233,6 +249,7 @@ router.get('/:year/:month', async (req, res) => {
 
 				}
     			})
+		}
 
     		}
 
@@ -253,6 +270,10 @@ router.get('/:year/:month/:day', async (req, res) => {
 		}
 		else{
 		//	console.log(results.length);
+			if(results.length==0){
+				res.send({"code":1, "msg":"success", "data" : []});
+			}
+			else{
 			var dietarray=[], onedaydiet, yearmonthdaytime = [], now;
 			for(var i in results){
 		//		console.log(results[i]);
@@ -310,6 +331,7 @@ router.get('/:year/:month/:day', async (req, res) => {
 
 				}
     			})
+		}
 
     		}
 
@@ -330,6 +352,10 @@ router.get('/:year/:month/:day/:time', async (req, res) => {
 	    		res.send({"code" : -1});
 		}
 		else{
+			if(results.length==0){
+				res.send({"code":1, "msg":"success", "data":[]});
+			}
+			else{
 		//	console.log(results.length);
 			var dietarray=[], onedaydiet, yearmonthdaytime = [], now;
 			for(var i in results){
@@ -388,6 +414,7 @@ router.get('/:year/:month/:day/:time', async (req, res) => {
 
 				}
     			})
+		}
 
     		}
 
@@ -395,6 +422,92 @@ router.get('/:year/:month/:day/:time', async (req, res) => {
     	})
 });
 
+router.delete('/:year/:month/:day/:time', async (req, res) => {
+        var year = req.params.year;
+        var month = req.params.month;
+	var day = req.params.day;
+	var time = req.params.time;
+	var updatequery = `delete from diet where year = \'${year}\' and month = \'${month}\' and day = \'${day}\'and time = \'${time}\';`;
+
+        connection.query(updatequery, (error, results, fields) => {
+        	if (error) {
+            		console.log(error);
+	    		res.send({"code" : -1});
+		}
+		else{
+			res.send({"code":1, "msg":"success", "data":null});
+    		}
+
+		
+    	})
+});
 
 
+/*
+var diet_reg = `insert into diet (yearmonthdaytime, year, month, day, time, menus, createtime, updatetime) value (\'${yearmonthdaytime}\',\'${year}\',\'${month}\',\'${day}\',\'${time}\',\'${menus}\', now(), now());`;
+        connection.query(diet_reg, (error, results, fields) => {
+                if (error) {
+                        console.log(error);
+	                res.send({"code" : -1});
+                }
+	        else{
+			//console.log(menus);
+		//	res.send(menus);
+			var diet_query = `select * from diet where yearmonthdaytime = \'${yearmonthdaytime}\'and year = \'${year}\' and month = \'${month}\'and day = \'${day}\' and time = \'${time}\' and menus = \'${menus}\';`;
+			 connection.query(diet_query, (error, results1, fields) => {
+                		if (error) {
+                        		console.log(error);
+	                		res.send({"code" : -1});
+                		}
+	        		else{
+					newsql = "";
+					tempsql = "";
+					for(var i in menus){
+						tempsql= `select 칼로리, 탄수화물, 지방, 단백질, 나트륨, 콜레스테롤 from nutrition where name = \'${menus[i]}\';`;
+						console.log(tempsql);
+						newsql+=tempsql;
+					}
+					connection.query(newsql, (error, results2, fields) => {
+                				if (error) {
+                        				console.log(error);
+	                				res.send({"code" : -1});
+                				}
+	        				else{
+        						newsql2 = "";
+							tempsql2 = "";
+							for(var i in menus){
+								tempsql2= `select 계란류, 우유, 메밀, 땅콩, 대두, 밀, 고등어, 게, 새우, 돼지고기, 복숭아, 토마토, 아황산류, 호두, 닭고기, 쇠고기, 오징어, 조개류, 잣 from allergy where name = \'${menus[i]}\';`;
+								newsql2+=tempsql2;
+							}
+							connection.query(newsql2, (error, results3, fields) => {
+                						if (error) {
+                        						console.log(error);
+	                						res.send({"code" : -1});
+                						}
+	        						else{
+									console.log(results2[0]);
+									console.log(results3[0]);
+									var menusarray = [];
+									var namenutritionallergy;
+									for(var i in menus){
+										namenutritionallergy = {"name": menus[i], "nutrition": results2[i][0], "allergy": results3[i][0]};
+										menusarray.push(namenutritionallergy);
+									}
+									var data = {"id": results1[0].id,"menus": menusarray, "create": results1[0].createtime, "update": results1[0].updatetime};
+									var response = {"code": 1, "msg":"success", "data": data};
+									res.send(response);
+								}
+
+							})	
+	
+        					}
+        				})
+
+	
+        			}
+        		})
+    		}
+	})
+
+*/
 module.exports = router;

@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
 			if(error){
 			}
 			else{
-		            var data = {"name" : name, "militaryNumber": req.body.militaryNumber, "password": req.body.password, "grade" : grade, "belong": belong, "allergy" : results4[0]};
+		            var data = {"id": results1[0].id,"name" : name, "militaryNumber": req.body.militaryNumber, "password": req.body.password, "grade" : grade, "belong": belong, "allergy" : results4[0]};
 			    var noticeresponse = {"code" : 1, "msg" : "success", "data" : data};
 	   	            res.send(noticeresponse);
 	
