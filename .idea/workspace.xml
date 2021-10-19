@@ -4,27 +4,418 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="BranchesTreeState">
-    <expand />
-    <select />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="rate menupage 하는 중">
-      <change afterPath="$PROJECT_DIR$/admin/assets/ai_capture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/assets/diet_capture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/assets/noteating_capture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/assets/notice_capture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/assets/suggestion_capture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/assets/survey_capture.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/.metadata" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/.metadata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/kotlin/com/example/admin/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/kotlin/com/example/admin/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/res/drawable-v21/launch_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/res/drawable/launch_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/res/values-night/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/res/values-night/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/app/src/profile/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/ai_capture.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/ai_capture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/black_logo_transparent.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/black_logo_transparent.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/brunch.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/brunch.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/capture_ex.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/capture_ex.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/diet_capture.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/diet_capture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/food.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/food.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/morning.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/morning.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/noteating_capture.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/noteating_capture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/notice_capture.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/notice_capture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/suggestion_capture.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/suggestion_capture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/assets/survey_capture.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/assets/survey_capture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Runner-Bridging-Header.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/admin_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/admin_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/ai_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/ai_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/diet_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/diet_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/CM_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/CM_request_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/ai_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/ai_request_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/comment_save_or_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/comment_save_or_update_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/diet_save_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/diet_save_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/diet_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/diet_update_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/join_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/join_request_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/login_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/login_request_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/menu_save_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/menu_save_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/notice_save_or_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/notice_save_or_update_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/survey_post_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/survey_post_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/dto/total_num_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/total_num_update_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/menu_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/menu_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/not_eating_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/not_eating_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/notice_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/notice_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/suggestion_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/survey_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/survey_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/AI/ai.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/AI/ai.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/AI/ai_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/AI/ai_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/AI/ai_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/AI/ai_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/administer/admin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/administer/admin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/administer/admin_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/administer/admin_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/administer/admin_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/administer/admin_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/diet/diet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/diet/diet.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/diet/diet_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/diet/diet_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/diet/diet_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/diet/diet_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/host.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/host.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/menu/menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/menu/menu.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/menu/menu_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/menu/menu_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/menu/menu_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/menu/menu_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/not_eating/not_eating.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/not_eating/not_eating_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/not_eating/not_eating_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/not_eating/not_eating_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/notice/notice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/notice/notice.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/notice/notice_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/notice/notice_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/notice/notice_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/notice/notice_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/suggestion/suggestion.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/suggestion/suggestion_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/suggestion/suggestion_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/suggestion/suggestion_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/survey/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/survey/survey.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/survey/survey_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/survey/survey_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/domain/survey/survey_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/survey/survey_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/model/menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/model/menu.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/model/notice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/model/notice.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/model/numberOfEating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/model/numberOfEating.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/model/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/model/survey.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/size.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/size.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/style.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/style.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/Info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/util/Info.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/calendar_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/util/calendar_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/convertDateTime.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/util/convertDateTime.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/convert_utf8.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/util/convert_utf8.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/editDateFormat.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/util/editDateFormat.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/jwtToken.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/util/jwtToken.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/reg_ex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/util/reg_ex.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/util/validators.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/ai/ai_menu_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/ai/ai_menu_input_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/button/back_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/button/back_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/button/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/button/custom_elevated_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/button/not_eating_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/button/not_eating_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/button/yes_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/button/yes_eating.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/dialog/notice_content_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/notice_write_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/dialog/notice_write_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/home/customTitle.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/home/customTitle.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/home/guide_section_1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/home/guide_section_1.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/home/guide_section_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/home/guide_section_2.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/home/home_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/home/home_body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/home/home_header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/home/home_header.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/login_and_join/tag_and_textAheadFormField.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/login_and_join/tag_and_textAheadFormField.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/login_and_join/tag_and_textformfield.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/login_and_join/tag_and_textformfield.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/diet_input_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/menu_manage/diet_input_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/diet_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/menu_manage/diet_input_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/marker_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/menu_manage/marker_info.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/newMenuInputDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/menu_manage/newMenuInputDialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/menu_manage/show_menu_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/menu_manage/show_menu_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_detail_table.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/number_eating/custom_detail_table.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_piechart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/number_eating/custom_piechart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/custom_simple_table.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/number_eating/custom_simple_table.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/number_eating/total_num_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/number_eating/total_num_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/suggestion/written_comment_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/suggestion/written_comment_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/multipleChoice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/survey/multipleChoice.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/short_answer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/survey/short_answer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/single_choice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/survey/single_choice.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/single_choice_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/survey/single_choice_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_question_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/survey/survey_question_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/survey/survey_title_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/survey/survey_title_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/textfield/custom_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_text_form_field_search.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/textfield/custom_text_form_field_search.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/textfield/custom_writing_area.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/textfield/custom_writing_area.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/textfield/menuInputTextField.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/textfield/menuInputTextField.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/frame_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/frame_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/join_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/sub_sub_pages/create_survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/sub_sub_pages/survey_result_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/sub_sub_pages/survey_result_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/subpages/AI_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/diet_manage_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/subpages/diet_manage_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/subpages/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/subpages/manage_the_number_eating_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/test/widget_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/web/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/web/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/web/icons/Icon-192.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/web/icons/Icon-192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/web/icons/Icon-512.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/web/icons/Icon-512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/web/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/web/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/.metadata" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/.metadata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/analysis_options.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/analysis_options.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/kotlin/com/example/myapp/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/main/kotlin/com/example/myapp/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/res/drawable-v21/launch_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/res/drawable/launch_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/res/values-night/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/res/values-night/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/profile/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/android/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Black.otf" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/fonts/NotoSansKR-Black.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Bold.otf" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/fonts/NotoSansKR-Bold.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Light.otf" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/fonts/NotoSansKR-Light.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Medium.otf" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/fonts/NotoSansKR-Medium.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Regular.otf" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/fonts/NotoSansKR-Regular.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/fonts/NotoSansKR-Thin.otf" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/fonts/NotoSansKR-Thin.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/hearts/heart.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/hearts/heart.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/hearts/heart_border.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/hearts/heart_border.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/hearts/heart_half.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/hearts/heart_half.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/lang/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/lang/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/lang/ko.json" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/lang/ko.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/logo/logo_mmis.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/logo/logo_mmis.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_11.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_12.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_13.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/assets/meal_photos/example_9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/assets/meal_photos/example_9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/ios/Runner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/ios/Runner/Runner-Bridging-Header.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/allergy.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/allergy.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/ai_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/ai_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/diet_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/diet_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/CM_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/CM_request_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/ai_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/ai_request_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/comment_save_or_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/comment_save_or_update_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/diet_save_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/controller/dto/diet_save_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/diet_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/diet_update_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/join_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/join_request_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/login_request_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/login_request_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/menu_save_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/menu_save_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/notice_save_or_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/notice_save_or_update_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/photo_upload_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/photo_upload_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/suggestion_post_or_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/suggestion_post_or_update_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/survey_result_request_Dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/survey_result_request_Dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/dto/total_num_update_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/total_num_update_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/menu_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/menu_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/notice_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/notice_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/photo_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/photo_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/suggestion_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/suggestion_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/survey_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/survey_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/user_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/user_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/date_functions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/date_functions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/AI/ai.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/AI/ai.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/AI/ai_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/AI/ai_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/AI/ai_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/AI/ai_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/diet/diet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/diet/diet.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/diet/diet_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/diet/diet_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/diet/diet_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/diet/diet_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/host.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/host.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/menu/menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/domain/menu/menu.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/menu/menu_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/menu/menu_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/menu/menu_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/menu/menu_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/notice/notice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/notice/notice.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/notice/notice_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/notice/notice_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/notice/notice_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/notice/notice_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/photo/photo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/photo/photo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/photo/photo_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/photo/photo_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/photo/photo_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/photo/photo_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/suggestion/suggestion.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/suggestion/suggestion.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/suggestion/suggestion_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/suggestion/suggestion_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/suggestion/suggestion_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/suggestion/suggestion_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/survey/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/survey/survey.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/survey/survey_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/survey/survey_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/survey/survey_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/survey/survey_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/user/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/user/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/user/user_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/user/user_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/user/user_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/user/user_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/model/ai_recommend.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/model/ai_recommend.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/model/comments.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/model/comments.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/model/inform.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/model/inform.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/model/menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/model/menu.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/model/menu_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/model/menu_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/model/popular_menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/model/popular_menu.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/model/suggestion.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/model/suggestion.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/model/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/model/survey.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/Info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/page_util/Info.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/convert_utf8.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/page_util/convert_utf8.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/deduction_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/page_util/deduction_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/reg_ex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/page_util/reg_ex.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/page_util/validators.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/size.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/size.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/user/user_ex.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/user/user_ex.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/ai_menu_input_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/ai_menu_input_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/appBar/sub_page_appbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/appBar/sub_page_appbar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/back_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/back_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_elevated_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/custom_elevated_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/custom_upload_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/custom_upload_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/function_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/function_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/not_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/not_eating.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/button/yes_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/yes_eating.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_banner.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/custom_banner.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/custom_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/dialog/showNotEatingDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/dialog/showNotEatingDialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/menu_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/nutrition_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/nutrition_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/textfield/custom_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/custom_text_form_field_search.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/textfield/custom_text_form_field_search.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/custom_writing_area.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/textfield/custom_writing_area.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/menu_input_textfield.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/textfield/menu_input_textfield.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/total_nutrtion_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/total_nutrtion_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/user_info_radio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/user_info_radio.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/initialpages/join_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/initialpages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/setting_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/mainpages/setting_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/mainpages/show_photo_of_meal_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/ai_result_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/ai_result_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/ai_test_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/ai_test_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/allergy_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/allergy_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/app_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/app_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/deduction_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/deduction_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/do_survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/inner_setting_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/inner_setting_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/notice_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/notice_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/post_picture.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/post_picture.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/user_edit_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/write_suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/write_suggestion_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/test/widget_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/web/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/web/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/web/icons/Icon-192.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/web/icons/Icon-192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/web/icons/Icon-512.png" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/web/icons/Icon-512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/web/icons/Icon-maskable-192.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/web/icons/Icon-maskable-192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/web/icons/Icon-maskable-512.png" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/web/icons/Icon-maskable-512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/web/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/web/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +432,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="survey_kit_test" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,6 +464,13 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\WEB(FE)" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\APP(FE)" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\assets\font" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\number_eating" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\domain" />
@@ -80,17 +478,10 @@
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\domain" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\assets\font" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\number_eating" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\suggestion" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller\dto" />
-    </key>
   </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/myapp/lib/main.dart" />
+      <option name="filePath" value="$PROJECT_DIR$/APP(FE)/myapp/lib/main.dart" />
       <method v="2" />
     </configuration>
     <recent_temporary>
