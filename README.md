@@ -37,8 +37,12 @@
 ![admin flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/admin_flow.jpg)
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
-* ECMAScript 6 지원 브라우저 사용
-* 권장: Google Chrome 버젼 77 이상
+1. ECMAScript 6 지원 브라우저 사용
+2. 브라우저 지원 버전:
+- Chrome
+3. 앱 지원 버전:
+- Andriod
+- IOS
 
 ## 기술 스택 (Technique Used) 
 ### Artificial Intelligence
@@ -46,10 +50,10 @@
 <table>
 <tbody>
     <tr>
-        <td width="60">
+        <td>
             <div align="center"><a href="https://www.python.org" target="_blank"> <img src="https://www.python.org/static/img/python-logo@2x.png" alt="python" height="40"/> </a><br>Python</br></div>
         </td>
-        <td width="60">
+        <td>
             <div align="center"><a href="https://www.tensorflow.org/" target="_blank"> <img src="https://www.gstatic.com/devrel-devsite/prod/vfe8af62599ec445552c3fb43608c37ff46463c9fce3b14d8ee63b2e71edddffd/tensorflow/images/lockup.svg?dcb_=0.6050776491075445" alt="tensorflow" height="40"/> </a><br>Tensorflow</br></div>
         </td>
         <td>
@@ -64,10 +68,10 @@
 <table>
 <tbody>
     <tr>
-        <td width="60">
+        <td>
             <div align="center"><a href="https://flutter.dev/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="flutter" width="40" height="40"/> </a><br>Flutter</br></div>
         </td>
-        <td width="60">
+        <td>
             <div align="center"><a href="https://gradle.org/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-plain.svg" alt="gradle" width="40" height="40"/> </a><br>Gradle</br></div>
         </td>
     </tr>
@@ -79,10 +83,13 @@
 <table>
 <tbody>
     <tr>
-        <td width="60">
+        <td>
+            <div align="center"><a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a><br>Git</div>
+        </td>
+        <td>
             <div align="center"><a href="https://www.mysql.com/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a><br>MySQL</br></div>
         </td>
-        <td width="60">
+        <td>
             <div align="center"><a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="flask" width="40" height="40"/> </a><br>Flask</br></div>
         </td>
     </tr>
@@ -91,22 +98,32 @@
 
 
 ## 설치 안내 (Installation Process)
+
+<p>step1. MMIS 저장소를 클론합니다.</p>
+
 ```bash
-$ git clone git주소
-$ yarn or npm install
-$ yarn start or npm run start
+$ git clone https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS.git
 ```
+<br>
+<p>step2. 클론한 폴더로 이동하고 패키지를 설치합니다.</p>
+
+
+```bash
+// 클라이언트 패키지 설치
+$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/??
+$ yarn install
+$ yarn add next
+
+// 서버 패키지 설치
+$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/??
+$ yarn install
+```
+<br>
+
 
 ## 프로젝트 사용법 (Getting Started)
-**마크다운 문법을 이용하여 자유롭게 기재**
 
-잘 모를 경우
-구글 검색 - 마크다운 문법
-[https://post.naver.com/viewer/postView.nhn?volumeNo=24627214&memberNo=42458017](https://post.naver.com/viewer/postView.nhn?volumeNo=24627214&memberNo=42458017)
 
- 편한 마크다운 에디터를 찾아서 사용
- 샘플 에디터 [https://stackedit.io/app#](https://stackedit.io/app#)
- 
 ## 팀 정보 (Team Information)
 - 최윤호 (potatohead12@gmail.com), Github Id: potatohead12
 - 문철운 (heiyin315@gmail.com), Github Id: cjfdns007
@@ -117,6 +134,4 @@ $ yarn start or npm run start
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
  * [MIT](https://github.com/osam2020-WEB/Sample-ProjectName-TeamName/blob/master/license.md)
-
-This project is licensed under the terms of the MIT license.
 
