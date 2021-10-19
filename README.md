@@ -40,14 +40,52 @@
 * ECMAScript 6 지원 브라우저 사용
 * 권장: Google Chrome 버젼 77 이상
 
+
 ## 기술 스택 (Technique Used) 
-### Server(back-end)
- -  nodejs, php, java 등 서버 언어 버전 
- - express, laravel, sptring boot 등 사용한 프레임워크 
- - DB 등 사용한 다른 프로그램 
- 
-### Front-end
- -  flutter
+### Artificial Intelligence
+
+<table>
+<tbody>
+    <tr>
+        <td width="60">
+            <div align="center"><a href="https://www.python.org" target="_blank"> <img src="https://www.python.org/static/img/python-logo@2x.png" alt="python" height="40"/> </a><br>Python</br></div>
+        </td>
+          <td>
+            <div align="center"><a href="https://www.tensorflow.org/" target="_blank"> <img src="https://www.gstatic.com/devrel-devsite/prod/vfe8af62599ec445552c3fb43608c37ff46463c9fce3b14d8ee63b2e71edddffd/tensorflow/images/lockup.svg?dcb_=0.6050776491075445" alt="tensorflow" height="40"/> 
+            </a><br>Tensorflow</br></div>
+        </td>
+        <td>
+            <div align="center"><a href="https://keras.io/" target="_blank"> <img src="https://keras.io/img/logo.png" alt="keras" height="40"/> </a><br>Keras</br></div>
+        </td>
+        <td width="60">
+            <div align="center"><a href="https://github.com/huggingface/transformers" target="_blank"> <img src="https://raw.githubusercontent.com/huggingface/transformers/master/docs/source/imgs/transformers_logo_name.png" alt="transformers" height="40"/> </a><br>Transformers</br></div>
+        </td>
+    </tr>
+</tbody>
+</table>
+
+### Web Front-end
+
+<table>
+<tbody>
+    <tr>
+        <td width="60">
+            <div align="center"><a href="https://flutter.dev/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="flutter" width="40" height="40"/> </a><br>Flutter</br></div>
+        </td>
+    </tr>
+</tbody>
+</table>
+
+### Web Back-end
+
+<table>
+<tbody>
+    <tr>
+        <td width="60">
+            <div align="center"><a href="https://flutter.dev" target="_blank"> <img src="https://devicons.github.io/devicon/devicon.git/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a><br>Node.js</br></div>
+        </td>
+</tbody>
+</table>
 
 
 ## 설치 안내 (Installation Process)
