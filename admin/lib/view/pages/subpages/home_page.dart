@@ -174,38 +174,38 @@ class HomePage extends StatelessWidget {
       children: [
         GuideSection1(
             key: keyList[0],
-            imageName: "capture_ex.png",
+            imageName: "diet_capture.png",
             title: "식단 관리",
             content:
                 "메뉴 관리에서는 부대 내 식단을 하루, 한달 단위로 관리할 수 있습니다. 뿐만 아니라 새로운 메뉴의 추가도 손쉽게 가능합니다."),
         GuideSection2(
             key: keyList[1],
-            imageName: "capture_ex.png",
+            imageName: "noteating_capture.png",
             title: "식수 인원",
             content:
                 "식수 인원에서는 부대 내 취식 인원을 하루, 한달 단위로 파악할 수 있습니다. 식수 총원을 바꿀 수 있습니다."),
         GuideSection1(
             key: keyList[2],
-            imageName: "capture_ex.png",
+            imageName: "notice_capture.png",
             title: "공지사항",
             content: "부대원들에게 전달한 공지사항을 관리합니다."),
         GuideSection2(
             key: keyList[3],
-            imageName: "capture_ex.png",
+            imageName: "suggestion_capture.png",
             title: "건의사항",
             content: "부대원들이 건의한 내용을 파악하고 답변을 달 수 있습니다."),
         GuideSection1(
             key: keyList[4],
-            imageName: "capture_ex.png",
+            imageName: "survey_capture.png",
             title: "설문조사",
             content:
                 "설문조사를 생성하고 설문조사에 대한 결과를 얻을 수 있습니다. 설문조사 생성은 총 3가지(객관식, 다수선택, 단답식) 형태의 질문을 제공하고, 필수 답변 여부를 고를 수 있습니다."),
         GuideSection2(
             key: keyList[5],
-            imageName: "capture_ex.png",
+            imageName: "ai_capture.png",
             title: "AI실험실",
             content:
-                "부대원들에게 얻은 설문조사, 선호도 조사 등을 토대로 학습된 급식이 1.0.0을 체험할 수 있습니다. 식단을 입력 시 적합도와 함께 대체 추천 식단을 구해줍니다.")
+                "부대원들에게 얻은 설문조사, 선호도 조사 등을 토대로 학습된 급식이 1.0.0을 체험할 수 있습니다. 식단을 입력 시 적합도와 함께 대체 추천 식단을 구해줍니다."),
       ],
     );
   }

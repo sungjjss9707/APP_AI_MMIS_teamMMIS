@@ -9,25 +9,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="rate menupage 하는 중">
-      <change afterPath="$PROJECT_DIR$/myapp/lib/view/components/dialog/showNotEatingDialog.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/assets/ai_capture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/assets/diet_capture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/assets/noteating_capture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/assets/notice_capture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/assets/suggestion_capture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/assets/survey_capture.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/diet_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/controller/diet_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/controller/user_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/controller/user_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/user/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/user/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/domain/user/user_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/domain/user/user_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/page_util/validators.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/custom_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/menu_box.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/initialpages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_edit_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/controller/suggestion_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/components/dialog/suggestion_content_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/AI_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/admin/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/android/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,24 +68,24 @@
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/myapp/lib/domain" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin/assets" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\domain" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\controller" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\domain" />
+      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\controller" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\assets\font" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\number_eating" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\view\components\suggestion" />
       <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\lib\controller\dto" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\domain" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\myapp\lib\controller" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS\admin\assets" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\domain" />
-      <recent name="C:\Users\src\flutterwork\APP_AI_MMIS_teamMMIS_1\myapp\lib\controller" />
     </key>
   </component>
   <component name="RunManager">

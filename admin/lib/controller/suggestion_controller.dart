@@ -11,7 +11,6 @@ class SuggestionController extends GetxController {
 
   @override
   void onInit() {
-    print("start");
     super.onInit();
     findAll();
   }

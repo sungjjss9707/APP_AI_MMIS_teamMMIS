@@ -52,7 +52,7 @@ class _AIPageState extends State<AIPage> {
                     Container(
                       width: 500,
                       child: Text(
-                        "급식이 1.0.0은 급식 관리자들이 메뉴를 구성할 때, 도와주는 인공지능 모델입니다. 식단을 입력하면, 부대원들에 대한 이 식단의 적합도와 대체 추천 식단을 구해 줍니다. 구성한 식단을 테스트해보세요.",
+                        "급식이 1.0.0은 급식 관리자들이 메뉴를 구성할 때, 도와주는 인공지능 모델입니다. 식단을 입력하면, 부대원들에 대한 이 식단의 적합도(1 ~ 5점)와 대체 추천 식단을 구해 줍니다. 구성한 식단을 테스트해보세요.",
                         style: body1_grey(),
                       ),
                     ),
@@ -81,7 +81,7 @@ class _AIPageState extends State<AIPage> {
       child: Column(
         children: [
           Text(
-            "테스트하고 싶은 식단을 입력하세요.",
+            "테스트하고 싶은 식단을 입력하세요.(최대 7개)",
             style: subtitle1(),
           ),
           SizedBox(height: gap_s),
@@ -112,9 +112,11 @@ class _AIPageState extends State<AIPage> {
       () => Container(
         child: Wrap(
           alignment: WrapAlignment.center,
+          spacing: 60,
+          runSpacing: 10,
           children: [
             Padding(
-              padding: const EdgeInsets.all(gap_xl),
+              padding: const EdgeInsets.all(gap_s),
               child: Container(
                 width: 400,
                 height: 400,
@@ -134,27 +136,27 @@ class _AIPageState extends State<AIPage> {
                     ),
                     Spacer(),
                     Text(
-                      "${ai.principal.value.score}",
+                      "${ai.principal.value.score ?? 3}점",
                       style: TextStyle(
                           fontSize: 60,
                           fontWeight: FontWeight.bold,
-                          color: Colors.lightGreen),
+                          color: Colors.amber),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "좋음 ",
+                          "보통 ",
                           style: TextStyle(
                               fontSize: 60,
                               fontWeight: FontWeight.bold,
-                              color: Colors.lightGreen),
+                              color: Colors.amber),
                         ),
                         FaIcon(
                           // 보통은 meh, 별로는 frown
-                          FontAwesomeIcons.smile,
+                          FontAwesomeIcons.meh,
                           size: 60,
-                          color: Colors.lightGreen,
+                          color: Colors.amber,
                         ),
                       ],
                     ),
@@ -164,7 +166,7 @@ class _AIPageState extends State<AIPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(gap_xl),
+              padding: const EdgeInsets.all(gap_s),
               child: Container(
                 width: 400,
                 height: 400,
@@ -189,7 +191,7 @@ class _AIPageState extends State<AIPage> {
                     Flexible(
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
-                        child: _recommendedDiets(),
+                        child: _dummyRecommendedDiets(),
                       ),
                     ),
                   ],
@@ -199,6 +201,62 @@ class _AIPageState extends State<AIPage> {
           ],
         ),
       ),
+    );
+  }
+
+  List<Recommendation> dummyRecommendations = [
+    Recommendation(
+      score: 5,
+      menus: ["찰밥", "닭강정", "야채샐러드", "배추김치", "돼지김치찌개"],
+    ),
+    Recommendation(
+      score: 4,
+      menus: ["보리밥", "안동찜닭", "야채샐러드", "배추김치", "어묵탕"],
+    ),
+    Recommendation(
+      score: 4,
+      menus: ["쌀밥", "닭튀김", "콩나물무침", "배추김치", "버섯된장찌개"],
+    ),
+    Recommendation(
+      score: 4,
+      menus: ["쌀밥", "닭튀김", "어묵볶음", "오이소박이", "김치찜"],
+    ),
+  ];
+
+  Widget _dummyRecommendedDiets() {
+    return Column(
+      children: List.generate(dummyRecommendations.length, (index) {
+        Recommendation recommendation = dummyRecommendations[index];
+        return Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    children: recommendation.menus!
+                        .map((menu) => Text(menu, style: body1()))
+                        .toList(),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    child: Center(
+                      child: Text(
+                        "${recommendation.score}점",
+                        style: subtitle1(),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Divider(color: Colors.grey),
+          ],
+        );
+      }),
     );
   }
 

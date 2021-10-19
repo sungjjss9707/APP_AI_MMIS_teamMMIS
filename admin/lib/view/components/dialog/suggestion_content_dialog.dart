@@ -12,7 +12,11 @@ import '../../../size.dart';
 
 class SuggestionContentDialog extends StatefulWidget {
   final int id;
-  SuggestionContentDialog({Key? key, required this.id}) : super(key: key);
+  final String title;
+  final String content;
+  SuggestionContentDialog(
+      {Key? key, required this.id, required this.title, required this.content})
+      : super(key: key);
 
   @override
   _SuggestionContentDialog createState() => _SuggestionContentDialog();
@@ -30,9 +34,9 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
 
   @override
   initState() {
-    _titleController.text = s.suggestion.value.title ?? "";
+    _titleController.text = widget.title;
 
-    _contentController.text = s.suggestion.value.content ?? "";
+    _contentController.text = widget.content;
 
     super.initState();
   }
@@ -120,11 +124,6 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
               TextButton(
                 onPressed: () {
                   setState(() async {
-                    print("수정");
-                    print(s.suggestion.value.comments![index].id ?? "-1");
-                    print(s.suggestion.value.comments![index]
-                        .writer!["militaryNumber"]);
-                    print(_writtenCommentsList[index].controller.text);
                     await s.updateComment(
                         widget.id,
                         s.suggestion.value.comments![index].id ?? index + 1,

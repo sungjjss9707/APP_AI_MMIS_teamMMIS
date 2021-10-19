@@ -257,6 +257,8 @@ class _SuggestionPageState extends State<SuggestionPage> {
       context: context,
       builder: (context) {
         return SuggestionContentDialog(
+          title: title,
+          content: content,
           key: UniqueKey(),
           id: id,
         );
