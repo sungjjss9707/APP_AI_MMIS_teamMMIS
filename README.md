@@ -35,7 +35,7 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### 로그인 및 회원가입 기능
 |내용|사진|설명|
 |------|----------|---------|
-|로그인|<img src="../assets/images/login.png?raw=true" height="300">|체계상에 저장되어 있는 군번과 비밀번호로 로그인|
+|로그인|![login](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/login.png)|체계상에 저장되어 있는 군번과 비밀번호로 로그인|
 |회원가입|회원가입 사진|체계상에 저장되어 있는 군번과 비밀번호로 회원가입|
 
 #### 불취식 관리/ 공제내역
