@@ -264,5 +264,5 @@ $ yarn install
 - 홍유찬(팀장 : 인공지능) (hychan0709@gmail.com), Github Id: onlyshine
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
- * [MIT](https://github.com/osam2020-WEB/Sample-ProjectName-TeamName/blob/master/license.md)
+ * [MIT](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/license.md)
 
