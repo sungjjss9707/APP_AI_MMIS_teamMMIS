@@ -49,7 +49,7 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 |------|----------|---------|
 |메뉴 정보|![menu](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/menu.png)|끼니마다 각 메뉴별 영양정보 확인|
 |알레르기 정보|![allergy](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/allergy.png)|알레르기 정보 확인. 본인의 알레르기 정보 입력시 해당 성분 포함 메뉴 정보 확인 가능|
-|공지사항|공지사항 사진|병영식 관련 공지사항 확인|
+|공지사항|![announcement](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/announcement.png)|병영식 관련 공지사항 확인|
 
 #### 장병 의견 전달
 |내용|사진|설명|
@@ -60,7 +60,7 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### AI 실험실  
 |내용|사진|설명|
 |------|----------|---------|
-|AI 실험실|로그인 사진|사용자가 선호하는 메뉴 조합 입력|
+|AI 실험실|![ai](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/AI.png)|사용자가 선호하는 메뉴 조합 입력|
 |결과|회원가입 사진|입력 메뉴 조합의 점수, 유사 메뉴 조합을 추천|
 
 #### 설정 페이지
