@@ -105,8 +105,8 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 |내용|사진|설명|
 |------|----------|---------|
 |공지사항|로그인 사진|각종 공지 전달|
-|건의사항|회원가입 사진|건의사항 답변 및 건의사항 수령|
-|설문조사|회원가입 사진|메뉴 관련 선호도 등 부대 장병들 의견, 설문조사|
+|건의사항|![request](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/request.png)|건의사항 답변 및 건의사항 수령|
+|설문조사|![survey](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/survey.png)|메뉴 관련 선호도 등 부대 장병들 의견, 설문조사|
 
 
 #### AI 실험실   
