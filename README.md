@@ -1,8 +1,10 @@
 # MMIS (군 급식 정보 체계)
 ![Logo](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/logo.jpg)
   
-시연 영상 : [인공지능 단독시현영상](https://drive.google.com/file/d/1mA1Q2unX9jvko6GCk5LNBHOBurG__kLh/view?usp=sharing), [프로젝트 시현영상](https://drive.google.com/file/d/1iIOrjTJ4Cf9QrEbhqQJdLYdunUYrFjCF/view?usp=sharing)
+시연 영상 : [인공지능 단독시현영상](https://drive.google.com/file/d/1mA1Q2unX9jvko6GCk5LNBHOBurG__kLh/view?usp=sharing), 
+[프로젝트 시현영상](https://drive.google.com/file/d/1iIOrjTJ4Cf9QrEbhqQJdLYdunUYrFjCF/view?usp=sharing)
 
+발표자료 : [ppt](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/MMIS%20%EC%B5%9C%EC%A2%85.show)
 # 📖프로젝트 개요
 ## 프로젝트 개발 동기
 
@@ -10,8 +12,7 @@
 - 장병들이 병영식 관련 정보 수집하거나, 의견을 전달하는데 있어서 불편함이 발생합니다.
 
 ## 프로젝트 설명
-MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.    
-최신화된 기술환경에 맞춰 인트라넷 및 수기 식에 머물러 있는 병영식 정보 수집, 불취식신청을 포함한 식수 인원 파악 등 장정들이 해야하는 병영식 관련 행정 처리를 일반 스마트폰에서 처리할 수 있는 플랫폼입니다.    
+MMIS는 장병들을 위한 병영식 정보 모바일 앱/웹 플렛폼입니다. 최신화된 기술환경에 맞춰 인트라넷 및 수기 식에 머물러 있는 병영식 정보 수집, 불취식신청을 포함한 식수 인원 파악 등 장정들이 해야하는 병영식 관련 행정 처리를 일반 스마트폰 및 웹에서 처리할 수 있습니다. 급식 이용자 및 관리자 모두에게 유용한 정보를 제공합니다.     
 
 ## 프로젝트 목표
 본 프로젝트는 민간에서 이용중인 급식앱 "김급식"을 모티프로 삼았습니다. "김급식"처럼, 병영식 정보 전달 및 군대 환경에 적합화한 기능을 제공할 수 있는 방향으로 프로젝트를 진행했습니다.   
@@ -23,6 +24,10 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 [관리자 웹페이지 카카오 오븐](https://ovenapp.io/view/bMQKnCvUUOJyRndtkSEfVuVbqoQtTQly/)
 
 [사용자 앱 카카오 오븐](https://ovenapp.io/view/unFCimnqD5RSn7hPpC1XvYZWyt8vbjU7/)
+
+### API  
+[API 명세서](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/api_sheet.hwp)
+
 ### 서비스 플로우
 ![myapp flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/myapp_flow.jpg)
 ![admin flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/admin_flow.jpg)
@@ -155,6 +160,20 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 
    부대 병영식 자랑이 확대되면, 부대 간 병영식 비교를 통해 군 전반적 병영식 수준 상승이 기대됨
 
+5. 부대 급식 모니터링 시스템 
+   우리 부대 급식 자랑을 통해, 군 내의 급식 제공 형태를 모니터링 할 수 있음. 
+   
+   더 좋은 급식을 제공하기 위한 선의의 경쟁을 촉진할 수 있음.
+
+6. 민간에서의 활용성 
+
+   학교, 대형 식당 등 급식과 관련된 기관에서 폰 프로젝트를 활용할 수 있음. 
+7. flutter web 오픈 소스 
+
+   flutter web은 현재 활용 초기 단계로 템프릿 등의 자료가 많지 않음.
+   
+   본 관리자 웹 페이지는 flutter web의 좋은 예시가 될 수 있음. 
+
 
 
 
@@ -250,9 +269,11 @@ $ flutter run (등록된 기기로 실행)
 /// 배포용 빌드
 $ flutter build apk
 
-// 서버 패키지 설치
+// 서버 실행
 $ cd /workspaces/APP_AI_MMIS_TEAMMMIS/
-$ yarn install
+$ cd server
+$ cd node app.js
+$ cd forever start app.js
 ```
 <br>
 
