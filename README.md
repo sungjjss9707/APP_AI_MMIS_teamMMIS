@@ -73,7 +73,7 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### 부대 급식 자랑
 |내용|사진|설명|
 |------|----------|---------|
-|부대 급식 자랑|![post](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/post.png | width=200)|부대의 급식을 자랑|
+|부대 급식 자랑|![post](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/post.png =200x300)|부대의 급식을 자랑|
 |사진|회원가입 사진|매 식사별 사진 확인 가능|
 
 
