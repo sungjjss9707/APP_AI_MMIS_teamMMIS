@@ -35,22 +35,21 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### 로그인 및 회원가입 기능
 |내용|사진|설명|
 |------|----------|---------|
-|로그인|로그인 사진|체계상에 저장되어 있는 군번과 비밀번호로 로그인|
+|로그인|![login](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/login.png)|체계상에 저장되어 있는 군번과 비밀번호로 로그인|
 |회원가입|회원가입 사진|체계상에 저장되어 있는 군번과 비밀번호로 회원가입|
 
 #### 불취식 관리/ 공제내역
 |내용|사진|설명|
 |------|----------|---------|
-|불취식 관리|불취식 사진|매 끼니마다 편리하게 취식/불취식 신청|
-|공제내역|공제내역 사진|간부에 한해 불취식에 따른 공제내역을 확인|
+|불취식 관리|![noteating](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/noteating.png)|매 끼니마다 편리하게 취식/불취식 신청|
+|공제내역|![record](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/record.png)|간부에 한해 불취식에 따른 공제내역을 확인|
 
 #### 정보 수집
 |내용|사진|설명|
 |------|----------|---------|
-|메뉴 정보|로그인 사진|체계상에 저장되어 있는 군번과 비밀번호로 로그인|
-|메뉴 상세 정보|회원가입 사진|끼니마다 각 메뉴별 영양정보 확인|
-|알레르기 정보|회원가입 사진|알레르기 정보 확인. 본인의 알레르기 정보 입력시 해당 성분 포함 메뉴 정보 확인 가능|
-|공지사항|공지사항 사진|병영식 관련 공지사항 확인|
+|메뉴 정보|![menu](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/menu.png)|끼니마다 각 메뉴별 영양정보 확인|
+|알레르기 정보|![allergy](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/allergy.png)|알레르기 정보 확인. 본인의 알레르기 정보 입력시 해당 성분 포함 메뉴 정보 확인 가능|
+|공지사항|![announcement](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/announcement.png)|병영식 관련 공지사항 확인|
 
 #### 장병 의견 전달
 |내용|사진|설명|
@@ -61,7 +60,7 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### AI 실험실  
 |내용|사진|설명|
 |------|----------|---------|
-|AI 실험실|로그인 사진|사용자가 선호하는 메뉴 조합 입력|
+|AI 실험실|![ai](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/AI.png)|사용자가 선호하는 메뉴 조합 입력|
 |결과|회원가입 사진|입력 메뉴 조합의 점수, 유사 메뉴 조합을 추천|
 
 #### 설정 페이지
@@ -73,8 +72,8 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### 부대 급식 자랑
 |내용|사진|설명|
 |------|----------|---------|
-|부대 급식 자랑|로그인 사진|부대의 급식을 자랑|
-|사진|회원가입 사진|매 식사별 사진 확인 가능|
+|부대 급식 자랑|![post](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/post.png)|부대의 급식을 자랑|
+|사진|![eachpost](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/eachpost.png)|매 식사별 사진 확인 가능|
 
 
 ## 💻관리자 웹
@@ -91,14 +90,14 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### 메뉴관리   
 |내용|사진|설명|
 |------|----------|---------|
-|메뉴 입력|로그인 사진|날짜마다 조/중/석식 메뉴를 입력|
+|메뉴 입력|![managemenu](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managemenu.png)|날짜마다 조/중/석식 메뉴를 입력|
 |메뉴 데이터 입력|회원가입 사진|메뉴 데이터가 없을 경우 상세 영양성분을 입력|
 
 
 #### 식수인원 관리   
 |내용|사진|설명|
 |------|----------|---------|
-|식수인원 관리|로그인 사진|모바일 앱을 통해 입력받은 식수 인원 확인|
+|식수인원 관리|![managenumber](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managenumber.png)|모바일 앱을 통해 입력받은 식수 인원 확인|
 |식수인원 명단|회원가입 사진|식수 인원 명단 확인|
 
 
