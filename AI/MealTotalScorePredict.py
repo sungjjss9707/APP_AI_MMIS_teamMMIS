@@ -47,9 +47,9 @@ main_menu_data = pd.read_csv("Second Model Data/메인메뉴데이터.csv", inde
 another_menu_data = pd.read_csv("Second Model Data/다른메뉴데이터.csv", index_col=0)
 
 # %%
-pd.merge(left=distinct_correlation, right=main_menu_data, how="left", on="메뉴이름")
+test = pd.concat([main_menu_data, another_menu_data], axis=1)
 
 # %%
-another_menu_data
+test.coln
 
 # %%
