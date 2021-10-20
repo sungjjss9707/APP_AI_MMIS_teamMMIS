@@ -17,6 +17,16 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 ## 프로젝트 목표
 본 프로젝트는 민간에서 이용중인 급식앱 "김급식"을 모티프로 삼았습니다. "김급식"처럼, 병영식 정보 전달 및 군대 환경에 적합화한 기능을 제공할 수 있는 방향으로 프로젝트를 진행했습니다.   
 저희 플랫폼은 장병들이 편리하게 정보를 수집하는 것을 넘어, 장병들의 병영식 관련 의견 게시를 활성화시켜 최종적으로 음식물 쓰레기 줄이기, 급식 정보 접근성 향상, 부실급식 문제해결 및 급식 질 개선을 목표로 합니다.   
+
+# 개발 과정
+
+### 카카오 오븐
+[관리자 웹페이지 카카오 오븐](https://ovenapp.io/view/bMQKnCvUUOJyRndtkSEfVuVbqoQtTQly/)
+
+[사용자 앱 카카오 오븐](https://ovenapp.io/view/bMQKnCvUUOJyRndtkSEfVuVbqoQtTQly/)
+### 서비스 플로우
+![myapp flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/myapp_flow.jpg)
+![admin flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/admin_flow.jpg)
    
 
 # 📝기능 설계
@@ -107,10 +117,6 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 |메뉴 입력|로그인 사진|메뉴 조합 제공 전 AI 실험실에 메뉴를 입력|
 |결과 확인|회원가입 사진|인공지능이 예상한 장병들의 반응을 바탕으로 성공 가능성을 예측|
 
-## 서비스 플로우
-![myapp flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/myapp_flow.jpg)
-![admin flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/admin_flow.jpg)
-
 
 ## 🤖AI
 
@@ -181,7 +187,7 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 </tbody>
 </table>
 
-### Web Front-end
+### APP/Web Front-end
 
 <table>
 <tbody>
@@ -227,13 +233,20 @@ $ git clone https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS.git
 
 
 ```bash
-// 클라이언트 패키지 설치
-$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/??
-$ yarn install
-$ yarn add next
+// 데모 Web 보기
+$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/WEB(FE)
+$ flutter run -d chrome
+/// 배포용 
+$ flutter build web
+
+// 데모 App 보기
+$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/APP(FE)
+$ flutter run (등록된 기기로 실행)
+/// 배포용
+$ flutter build apk
 
 // 서버 패키지 설치
-$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/??
+$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/
 $ yarn install
 ```
 <br>
