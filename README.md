@@ -163,10 +163,11 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 1. ECMAScript 6 지원 브라우저 사용
 2. 브라우저 지원 버전:
-- Chrome
+- Google Chrome 버전 77 이상
+- Microsoft Edge 버전 84 이상
 3. 앱 지원 버전:
-- Andriod
-- IOS
+- Andriod 11
+- IOS 14
 
 ## 기술 스택 (Technique Used) 
 ### Artificial Intelligence
