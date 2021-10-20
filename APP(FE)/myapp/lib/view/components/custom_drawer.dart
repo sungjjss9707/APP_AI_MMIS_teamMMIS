@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/user_controller.dart';
+import 'package:myapp/domain/user/user.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/pages/initialpages/login_page.dart';
 import 'package:myapp/view/pages/subpages/app_info_page.dart';
@@ -74,7 +75,8 @@ class CustomDrawer extends StatelessWidget {
               iconName: Icons.logout,
               text: "로그아웃",
               tap: () {
-                Get.off(LoginPage());
+                u.principal.value = User();
+                Get.offAll(LoginPage());
               },
             ),
           ],

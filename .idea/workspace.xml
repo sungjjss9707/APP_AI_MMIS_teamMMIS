@@ -29,27 +29,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="rate menupage 하는 중">
-      <change afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/dto/post_notEating_dto.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/notEating_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/not_eating/not_eating.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/not_eating/not_eating_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/not_eating/not_eating_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/APP_AI_MMIS_teamMMIS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/allergy.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/allergy.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/diet_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/diet_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/menu_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/menu_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/user_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/controller/user_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/date_functions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/date_functions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/AI/ai.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/AI/ai.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/suggestion/suggestion.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/suggestion/suggestion.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/survey/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/survey/survey.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/user/user_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/user/user_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/user/user_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/domain/user/user_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/model/survey.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/model/survey.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/page_util/Info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/page_util/Info.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/back_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/back_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/initialpages/join_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/initialpages/join_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/page_util/validators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/page_util/validators.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/not_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/not_eating.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/yes_eating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/button/yes_eating.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/custom_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/custom_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/menu_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/menu_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/nutrition_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/nutrition_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/textfield/user_info_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/textfield/user_info_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/total_nutrtion_box.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/components/total_nutrtion_box.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/initialpages/framepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/initialpages/framepage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/initialpages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/initialpages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/ai_result_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/ai_result_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/mainpages/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/mainpages/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/ai_test_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/ai_test_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/app_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/app_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/deduction_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/deduction_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/rate_menu_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/rate_menu_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/suggestion_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/suggestion_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/horizontal_on_white_by_logaster.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo_white_background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/관리자페이지캡쳐.hwp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/survey_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/user_edit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/user_edit_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/user_info_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/APP(FE)/myapp/lib/view/pages/subpages/user_info_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB(FE)/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/WEB(FE)/admin/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -451,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634554754838</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="rate menupage 하는 중">
+      <created>1634698235186</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1634698235186</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -561,14 +578,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="623" height="498" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1633953324159" />
-    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1634554786503">
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2" timestamp="1634698238830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634554786503" />
-    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634554779720">
+    <state x="234" y="181" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634698238830" />
+    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634698219357">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634554779720" />
+    <state x="267" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1634698219357" />
     <state x="532" y="237" key="run.anything.popup" timestamp="1634367080702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

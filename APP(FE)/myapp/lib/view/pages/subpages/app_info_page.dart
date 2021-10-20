@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
@@ -60,30 +61,35 @@ class AppInfoPage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                                "팀장 : 최윤호 (potatohead12@gmail.com), Github Id: potatohead12"),
+                                "팀장/Frontend : 최윤호 (potatohead12@gmail.com), Github Id: potatohead12"),
                             SizedBox(
                               height: 14.h,
                             ),
                             Text(
-                                "문철운 (heiyin315@gmail.com), Github Id: cjfdns007"),
-                            Text("성민 (pho0570@gmail.com), Github Id: mini-777"),
+                                "Frontend : 문철운 (heiyin315@gmail.com), Github Id: cjfdns007"),
                             SizedBox(
                               height: 14.h,
                             ),
                             Text(
-                                "성준혁 (sungjjh9707@gmail.com), Github Id: sungjjss9707"),
+                                "Backend : 성민 (pho0570@gmail.com), Github Id: mini-777"),
                             SizedBox(
                               height: 14.h,
                             ),
                             Text(
-                                "최민호 (minhochoi.korea@gmail.com), Github Id: Paspachu"),
+                                "Backend : 성준혁 (sungjjh9707@gmail.com), Github Id: sungjjss9707"),
                             SizedBox(
                               height: 14.h,
                             ),
                             Text(
-                                "홍유찬 (hychan0709@gmail.com), Github Id: onlyshine"),
+                                "A.I. : 최민호 (minhochoi.korea@gmail.com), Github Id: Paspachu"),
+                            SizedBox(
+                              height: 14.h,
+                            ),
+                            Text(
+                                "A.I. : 홍유찬 (hychan0709@gmail.com), Github Id: onlyshine"),
                           ],
                         ),
                       ),

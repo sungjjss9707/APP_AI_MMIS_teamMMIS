@@ -25,8 +25,8 @@ class Suggestion {
         content = json["content"],
         writer = json["writer"][0],
         comments = convertToResult(json["comments"]),
-        created = DateFormat("yyyy-mm-dd").parse(json["createtime"]),
-        updated = DateFormat("yyyy-mm-dd").parse(json["updatetime"]);
+        created = DateFormat("yyyy-MM-dd").parse(json["createtime"]),
+        updated = DateFormat("yyyy-MM-dd").parse(json["updatetime"]);
   Suggestion.fromJson2(Map<String, dynamic> json)
       : id = json["id"],
         title = json["title"],

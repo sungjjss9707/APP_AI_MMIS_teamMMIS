@@ -41,7 +41,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
   late double rate;
   late String time;
   late List<String> menuList;
-  final m = Get.put(MenuController());
+  final MenuController m = Get.find();
   List<String> valueList = ["당직", "휴가", "외출", "근무", "기타"];
   var _selectedValue;
   _RateMenuPageState(this.dateAndTime);
@@ -74,7 +74,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
       drawer: CustomDrawer(),
       appBar: subPageAppBar("8전투비행단"),
       body: Padding(
-        padding: EdgeInsets.all(16.w),
+        padding: EdgeInsets.all(16.r),
         child: Column(
           children: [
             _arrowAndDate(), // < 날짜(석식) 취식여부 >
@@ -159,6 +159,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
+        textColor: Colors.black,
         childrenPadding: EdgeInsets.all(8.0.r),
         title: Row(
           children: [
@@ -202,17 +203,34 @@ class _RateMenuPageState extends State<RateMenuPage> {
   Widget _menuLists(Map nutritions) {
     return Expanded(
       child: ListView(
-        children: List.generate(
-          menuList.length,
-          (index) {
-            print(index);
-            return Column(
-              children: [
-                _menuTitle(menuList, index, nutritions),
+        children: menuList.length != 0
+            ? List.generate(
+                menuList.length,
+                (index) {
+                  return Column(
+                    children: [
+                      _menuTitle(menuList, index, nutritions),
+                    ],
+                  );
+                },
+              )
+            : [
+                Container(
+                  padding: EdgeInsets.all(16.r),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey[200]!),
+                    borderRadius: BorderRadius.circular(10.r),
+                  ),
+                  width: double.infinity,
+                  constraints: BoxConstraints(minHeight: 100),
+                  child: Center(
+                    child: Text(
+                      "식단 정보가 없습니다.",
+                      style: TextStyle(color: Colors.black54),
+                    ),
+                  ),
+                )
               ],
-            );
-          },
-        ),
       ),
     );
   }
@@ -236,7 +254,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
             protein: nutrition["단백질"],
             fat: nutrition["지방"],
             cholesterol: nutrition["콜레스테롤"] ?? 0,
-            salt: nutrition["나트륨"],
+            salt: nutrition["나트륨"] ?? 0,
           ),
         ],
       ),
@@ -269,7 +287,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
                 RatingBar(
                   itemPadding: EdgeInsets.symmetric(horizontal: 4.w),
                   itemSize: 20.w,
-                  initialRating: initialRate,
+                  initialRating: 0,
                   itemCount: 5,
                   unratedColor: Colors.red.withAlpha(50),
                   allowHalfRating: false,
@@ -296,7 +314,8 @@ class _RateMenuPageState extends State<RateMenuPage> {
                 Spacer(),
                 TextButton(
                   onPressed: () {
-                    isSave = true;
+                    Get.snackbar("성공", "저장되었습니다.",
+                        duration: Duration(microseconds: 500));
                   },
                   child: Text("저장하기"),
                 ),
@@ -311,100 +330,114 @@ class _RateMenuPageState extends State<RateMenuPage> {
   Widget _notEatingApplyButton() {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
-      child: ElevatedButton(
-        onPressed: () {
-          setState(() {
-            if (isEating!) {
-              showDialog(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (context) {
-                    return StatefulBuilder(
-                        builder: (BuildContext context, StateSetter setState) {
-                      return AlertDialog(
-                        title: Text("사유를 고르세요."),
-                        content: DropdownButton(
-                          value: _selectedValue,
-                          items: valueList
-                              .map((value) => DropdownMenuItem(
-                                    child: Text(value),
-                                    value: value,
-                                  ))
-                              .toList(),
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedValue = value;
-                            });
-                          },
-                        ),
-                        actions: [
-                          Row(
-                            children: [
-                              Spacer(),
-                              ElevatedButton(
-                                onPressed: () async {
-                                  final not = Get.put(NotEatingController());
-                                  final u = Get.put(UserController());
-                                  List<String> i =
-                                      getYearMonthAndDayFromDateAndTime(
-                                          dateAndTime); // year, month, day
-                                  int code = await not.applyNotEating(
-                                      i[0],
-                                      i[1],
-                                      i[2],
-                                      time,
-                                      u.principal.value.militaryNumber,
-                                      _selectedValue);
-                                  if (code == 1) {
-                                    Navigator.pop(context);
-                                    showDialog(
-                                      context: context,
-                                      barrierDismissible: false,
-                                      builder: (context) => AlertDialog(
-                                        content: Text("불취식 신청 되었습니다."),
-                                        actions: [
-                                          CustomBackButton(text: "돌아가기"),
-                                        ],
-                                      ),
-                                    );
-                                  } else
-                                    Get.snackbar("신청실패", "연결이 불안정합니다.",
-                                        colorText: Colors.red);
+      child: menuList.length != 0
+          ? ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (isEating!) {
+                    showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) {
+                          return StatefulBuilder(builder:
+                              (BuildContext context, StateSetter setState) {
+                            return AlertDialog(
+                              title: Text("사유를 고르세요."),
+                              content: DropdownButton(
+                                value: _selectedValue,
+                                items: valueList
+                                    .map((value) => DropdownMenuItem(
+                                          child: Text(value),
+                                          value: value,
+                                        ))
+                                    .toList(),
+                                onChanged: (value) {
+                                  setState(() {
+                                    _selectedValue = value;
+                                  });
                                 },
-                                child: Text("신청하기"),
                               ),
-                              SizedBox(width: 8.w),
-                              CustomBackButton(text: '취소'),
-                            ],
-                          ),
+                              actions: [
+                                Row(
+                                  children: [
+                                    Spacer(),
+                                    ElevatedButton(
+                                      onPressed: () async {
+                                        final not =
+                                            Get.put(NotEatingController());
+                                        final u = Get.put(UserController());
+                                        List<String> i =
+                                            getYearMonthAndDayFromDateAndTime(
+                                                dateAndTime); // year, month, day
+                                        int code = await not.applyNotEating(
+                                            i[0],
+                                            i[1],
+                                            i[2],
+                                            time,
+                                            u.principal.value.militaryNumber,
+                                            _selectedValue);
+                                        if (code == 1) {
+                                          Navigator.pop(context);
+                                          showDialog(
+                                            context: context,
+                                            barrierDismissible: false,
+                                            builder: (context) => AlertDialog(
+                                              content: Text("불취식 신청 되었습니다."),
+                                              actions: [
+                                                CustomBackButton(text: "돌아가기"),
+                                              ],
+                                            ),
+                                          );
+                                        } else
+                                          Get.snackbar("신청실패", "연결이 불안정합니다.",
+                                              colorText: Colors.red,
+                                              duration:
+                                                  Duration(milliseconds: 500));
+                                      },
+                                      child: Text("신청하기"),
+                                    ),
+                                    SizedBox(width: 8.w),
+                                    CustomBackButton(text: '취소'),
+                                  ],
+                                ),
+                              ],
+                            );
+                          });
+                        });
+                    addUserNotEating(dateAndTime, time);
+                    isEating = false;
+                  } else {
+                    removeUserNotEating(dateAndTime, time);
+                    isEating = true;
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) => AlertDialog(
+                        content: Text("취식 신청 되었습니다."),
+                        actions: [
+                          CustomBackButton(text: '돌아가기'),
                         ],
-                      );
-                    });
-                  });
-              addUserNotEating(dateAndTime, time);
-              isEating = false;
-            } else {
-              removeUserNotEating(dateAndTime, time);
-              isEating = true;
-              showDialog(
-                context: context,
-                barrierDismissible: false,
-                builder: (context) => AlertDialog(
-                  content: Text("취식 신청 되었습니다."),
-                  actions: [
-                    CustomBackButton(text: '돌아가기'),
-                  ],
-                ),
-              );
-            }
-          });
-        },
-        child: isEating! ? Text("불취식신청") : Text("취식신청"),
-        style: ElevatedButton.styleFrom(
-          primary: isEating! ? Colors.lightGreen[400] : Colors.lightBlue,
-          minimumSize: Size(double.infinity, 50),
-        ),
-      ),
+                      ),
+                    );
+                  }
+                });
+              },
+              child: isEating! ? Text("불취식신청") : Text("취식신청"),
+              style: ElevatedButton.styleFrom(
+                primary: isEating! ? Colors.lightGreen[400] : Colors.lightBlue,
+                minimumSize: Size(double.infinity, 50),
+              ),
+            )
+          : ElevatedButton(
+              onPressed: () {
+                Get.snackbar("오류", "잘못된 요청입니다.");
+              },
+              child: Text("불취식신청"),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.lightGreen.withOpacity(0.5),
+                minimumSize: Size(double.infinity, 50),
+              ),
+            ),
     );
   }
 

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/menu_controller.dart';
+import 'package:myapp/controller/user_controller.dart';
+import 'package:myapp/page_util/Info.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/button/yes_eating.dart';
 import 'package:myapp/view/pages/subpages/rate_menu_page.dart';
@@ -11,7 +14,9 @@ class MenuBox extends StatelessWidget {
   final String dateAndTime;
   final Map<String, List<String>> menuMap;
   final List<String> menuList;
-  const MenuBox(this.dateAndTime, this.menuList, this.menuMap);
+  final UserController u = Get.find();
+  final MenuController m = Get.find();
+  MenuBox(this.dateAndTime, this.menuList, this.menuMap);
   @override
   Widget build(BuildContext context) {
     bool _isNow = validateNow(dateAndTime);
@@ -77,6 +82,9 @@ class MenuBox extends StatelessWidget {
   }
 
   Widget _buildMenuList() {
+    Map<String, Map<String, dynamic>> menusAndAllergyMap =
+        getMenusAndAllergyMap(m.menus);
+
     return menuList.length == 0
         ? Center(
             child: Text(
@@ -93,7 +101,15 @@ class MenuBox extends StatelessWidget {
                     menuList.length,
                     (index) => Text(
                       "${menuList[index]}",
-                      style: TextStyle(fontSize: 8.sp),
+                      style: TextStyle(
+                          fontSize: 11.sp,
+                          color: containAllergy(
+                                      menuList[index],
+                                      menusAndAllergyMap,
+                                      u.principal.value.allergy ?? {}) ==
+                                  true
+                              ? Colors.red
+                              : Colors.black),
                     ),
                   ),
                 )

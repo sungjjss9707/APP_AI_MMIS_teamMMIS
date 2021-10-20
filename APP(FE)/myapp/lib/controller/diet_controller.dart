@@ -26,10 +26,11 @@ class DietController extends GetxController {
     this.diets.value = diets;
   }
 
-  Future<void> findMonth(String year, String month) async {
+  Future<int> findMonth(String year, String month) async {
     List<Diet> diets = await _dietRepository.findMonth(year, month);
     this.diets.value = diets;
-    this.dietsConvert.value = dietConvert(diets);
+    this.dietsConvert.value = await dietConvert(diets);
+    return 1;
   }
 
   Future<void> saveDiet(String year, String month, String day, String time,

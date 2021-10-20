@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/diet_controller.dart';
+import 'package:myapp/controller/menu_controller.dart';
 import 'package:myapp/model/menu_list.dart';
 import 'package:myapp/model/popular_menu.dart';
 import 'package:myapp/view/components/custom_banner.dart';
@@ -26,6 +27,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   //나중에 로그인할 때 불러오는 걸로 하자.
   final diet = Get.put(DietController());
+  final menu = Get.put(MenuController());
   final DateTime now = DateTime.now();
   late String nowYear;
   late String nowMonth;

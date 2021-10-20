@@ -33,7 +33,7 @@ String getTodayInKorean() {
 
 String transformToDateForm(int year, int month, int day) {
   DateTime now = DateTime(year, month, day);
-  DateFormat formatter = DateFormat("yyyy-MM-dd");
+  DateFormat formatter = DateFormat("yyyy/MM/dd");
   return formatter.format(now);
 }
 

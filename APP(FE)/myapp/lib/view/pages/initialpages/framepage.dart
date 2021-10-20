@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/menu_controller.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
 
@@ -18,6 +19,7 @@ class FramePage extends StatefulWidget {
 
 class _FramePageState extends State<FramePage> {
   final menuCon = Get.put(MenuController());
+  final UserController u = Get.find();
   int _selectedTapIndex = 0;
 
   @override
@@ -43,18 +45,20 @@ class _FramePageState extends State<FramePage> {
         style: TextStyle(fontSize: 14.sp, color: Colors.white),
       ),
       actions: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              unit,
-              style: TextStyle(color: Colors.white),
-            ),
-            Text(
-              "${classes} ${userName}님",
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
+        Obx(
+          () => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "${u.principal.value.unit}",
+                style: TextStyle(color: Colors.white),
+              ),
+              Text(
+                "${u.principal.value.rank} ${u.principal.value.username}님",
+                style: TextStyle(color: Colors.white),
+              ),
+            ],
+          ),
         ),
         SizedBox(width: 4.w),
       ],

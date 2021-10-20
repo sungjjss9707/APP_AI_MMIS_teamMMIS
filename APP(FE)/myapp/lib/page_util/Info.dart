@@ -88,7 +88,19 @@ class Menus {
 Map<String, Map<String, dynamic>> menusAndNutrition =
     {}; // ex {"김치" : {"칼로리" : "100", "우유"}}
 Map<String, Map<String, dynamic>> menusAndAllergy = {};
-getMenusAndAllergyMap(List<Menu> menus) {
+
+bool containAllergy(
+    String menuName,
+    Map<String, Map<String, dynamic>> MenusAndAllergyMap,
+    Map<String, dynamic> userAllergy) {
+  Map<String, dynamic> menuAllergy = MenusAndAllergyMap["$menuName"] ?? {};
+  for (String key in menuAllergy.keys) {
+    if (menuAllergy[key] == 1 && userAllergy[key] == "1") return true;
+  }
+  return false;
+}
+
+Map<String, Map<String, dynamic>> getMenusAndAllergyMap(List<Menu> menus) {
   Map<String, Map<String, dynamic>> result = {};
   for (Menu m in menus) {
     result[m.name ?? ""] = m.allergy ??
@@ -115,6 +127,7 @@ getMenusAndAllergyMap(List<Menu> menus) {
         };
   }
   menusAndAllergy = result;
+  return result;
 }
 
 getMenusAndNutritionMap(List<Menu> menus) {

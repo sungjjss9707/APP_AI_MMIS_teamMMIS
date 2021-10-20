@@ -118,6 +118,16 @@ Function validateClass() {
   };
 }
 
+Function validateEmpty() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "공백으로 둘 수 없습니다.";
+    } else {
+      return null;
+    }
+  };
+}
+
 Function validateUnit() {
   return (String? value) {
     if (value!.isEmpty) {

@@ -10,7 +10,6 @@ class MenuController extends GetxController {
 
   @override
   void onInit() {
-    findAll();
     super.onInit();
   }
 
@@ -22,11 +21,13 @@ class MenuController extends GetxController {
     }
   }
 
-  Future<void> findAll() async {
+  Future<int> findAll() async {
     List<Menu> menus = await _menuRepository.findAll();
     this.menus.value = menus;
-    getMenusAndAllergyMap(menus);
-    getMenusAndNutritionMap(menus);
+    Menus.menus = menus.map((e) => e.name!).toList();
+    await getMenusAndAllergyMap(menus);
+    await getMenusAndNutritionMap(menus);
+    return 1;
   }
 
   Future<void> findByName(String menuName) async {

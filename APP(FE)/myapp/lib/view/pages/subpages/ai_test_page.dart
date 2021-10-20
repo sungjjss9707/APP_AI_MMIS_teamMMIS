@@ -142,7 +142,7 @@ class _AiTestPageState extends State<AiTestPage> {
             ),
             SizedBox(height: 16.h),
             Container(
-              width: 200.h,
+              width: double.infinity,
               height: 200.h,
               padding: EdgeInsets.all(8.r),
               decoration: BoxDecoration(
@@ -161,7 +161,7 @@ class _AiTestPageState extends State<AiTestPage> {
                       )),
                   Spacer(),
                   Text(
-                    "${ai.principal.value.score}",
+                    "${ai.principal.value.score ?? 5}",
                     style: TextStyle(
                         fontSize: 32.sp,
                         fontWeight: FontWeight.bold,

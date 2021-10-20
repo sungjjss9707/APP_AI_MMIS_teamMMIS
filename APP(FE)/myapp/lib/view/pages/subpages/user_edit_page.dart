@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/user/user_ex.dart';
+import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/textfield/user_info_text_form_field.dart';
 
 import 'package:myapp/view/pages/initialpages/framepage.dart';
@@ -17,27 +18,21 @@ class UserEditPage extends StatelessWidget {
   final UserController u = Get.find();
 
   Widget build(BuildContext context) {
-    TextEditingController nameController = TextEditingController();
-    nameController.text = "${u.principal.value.username}";
-    TextEditingController classController = TextEditingController();
-    classController.text = "${u.principal.value.rank}";
-    TextEditingController unitController = TextEditingController();
-    unitController.text = "${u.principal.value.unit}";
+    TextEditingController nameController =
+        TextEditingController(text: "${u.principal.value.username}");
+    TextEditingController classController =
+        TextEditingController(text: "${u.principal.value.rank}");
+    TextEditingController unitController =
+        TextEditingController(text: "${u.principal.value.unit}");
+    TextEditingController passwordController =
+        TextEditingController(text: "*******");
+
     final List<String> allergies = [];
     for (String i in userAllergy.keys) {
       if (userAllergy[i] == true) allergies.add(i);
     }
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "회원정보",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18.sp,
-          ),
-        ),
-        centerTitle: true,
-      ),
+      appBar: subPageAppBar("회원정보 수정"),
       body: Padding(
         padding: EdgeInsets.only(
           top: 30.h,
@@ -50,28 +45,31 @@ class UserEditPage extends StatelessWidget {
           child: ListView(
             children: [
               UserInfoTextFormField(
+                  obscureText: false,
+                  info: "",
                   text: "소속",
                   controller: unitController,
                   enabled: true,
                   validator: validateUnit()),
               UserInfoTextFormField(
+                  obscureText: false,
+                  info: "",
                   text: "계급",
                   controller: classController,
                   enabled: true,
                   validator: validateClass()),
               UserInfoTextFormField(
+                  obscureText: false,
+                  info: "",
                   text: "이름",
                   controller: nameController,
                   enabled: true,
                   validator: validateName()),
               UserInfoTextFormField(
+                  obscureText: true,
+                  info: "",
                   text: "비밀번호",
-                  controller: nameController,
-                  enabled: true,
-                  validator: validatePassWorld()),
-              UserInfoTextFormField(
-                  text: "이름",
-                  controller: nameController,
+                  controller: passwordController,
                   enabled: true,
                   validator: validatePassWorld()),
               Divider(),
@@ -113,7 +111,7 @@ class UserEditPage extends StatelessWidget {
                       unit = unitController.text;
                       classes = classController.text;
                       userAllergy = {...localUserAllergy};
-                      Get.to(() => FramePage());
+                      Get.offAll(() => FramePage());
                       Get.snackbar("저장완료", "정보가 저장되었습니다.",
                           backgroundColor: Colors.white);
                     }

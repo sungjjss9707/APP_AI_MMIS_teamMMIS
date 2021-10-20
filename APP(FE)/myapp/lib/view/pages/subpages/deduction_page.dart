@@ -27,7 +27,7 @@ class DeductionPage extends StatelessWidget {
 }
 
 class DeductionCount extends StatelessWidget {
-  int count = calDeduction()[1];
+  final int count = calDeduction()[1];
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -106,6 +106,7 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
             selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
             onDaySelected: _onDaySelected,
             calendarBuilders: CalendarBuilders(
+              selectedBuilder: _selectedBuilder,
               markerBuilder: (context, date, events) {
                 if (events.isNotEmpty) {
                   return Container(
@@ -141,6 +142,7 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
               children: [
                 Container(
                   decoration: BoxDecoration(
+                    color: Colors.white,
                     border: Border.all(color: Colors.black54),
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
@@ -187,12 +189,26 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
       ),
     );
   }
+
+  Widget _selectedBuilder(context, DateTime date, focusedDay) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.lightGreen[300],
+        shape: BoxShape.circle,
+      ),
+      child: Center(
+        child: Text(
+          date.day.toString(),
+        ),
+      ),
+    );
+  }
 }
 
 class NoMenuText extends StatelessWidget {
-  int year;
-  int month;
-  int day;
+  final int year;
+  final int month;
+  final int day;
   NoMenuText(this.year, this.month, this.day);
   @override
   Widget build(BuildContext context) {

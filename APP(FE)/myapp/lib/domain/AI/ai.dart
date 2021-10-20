@@ -37,15 +37,15 @@ Map<String, dynamic> a = {
     "score": 80,
     "recommendation": [
       {
-        "score": 83,
+        "score": 5,
         "menus": ["보리밥", "열무김치", "뚝배기", "떡볶이", "우유", "빵", "치즈"]
       },
       {
-        "score": 82,
+        "score": 5,
         "menus": ["콩밥", "열무김치", "돼지김치찜"]
       },
       {
-        "score": 81,
+        "score": 4,
         "menus": ["보리밥", "열무김치", "돼지불백"]
       },
     ]

@@ -30,16 +30,10 @@ class UserController extends GetxController {
     }
   }
 
-  Future<void> updateInfo(
-      int id,
-      String name,
-      String militaryNumber,
-      String password,
-      String rank,
-      String unit,
-      Map<String, String> allergy) async {
+  Future<void> updateInfo(String name, String militaryNumber, String password,
+      String rank, String unit, Map<String, String> allergy) async {
     User principal = await _userRepository.update(
-        id, name, militaryNumber, password, rank, unit, allergy);
+        name, militaryNumber, password, rank, unit, allergy);
     this.principal.value = principal;
   }
 }

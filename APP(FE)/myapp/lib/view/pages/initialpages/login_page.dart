@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/diet_controller.dart';
+import 'package:myapp/controller/menu_controller.dart';
 import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/view/components/button/custom_elevated_button.dart';
@@ -71,8 +72,11 @@ class LoginPage extends StatelessWidget {
                 if (code == 1) {
                   DateTime now = DateTime.now();
                   final d = Get.put(DietController());
-                  await d.findMonth(now.year.toString(), now.month.toString());
-                  Get.off(() => FramePage());
+                  final menu = Get.put(MenuController());
+                  int code1 = await d.findMonth(
+                      now.year.toString(), now.month.toString());
+                  int code2 = await menu.findAll();
+                  if (code1 == 1 && code2 == 1) Get.off(() => FramePage());
                 } else
                   Get.snackbar(
                     "로그인 실패",

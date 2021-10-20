@@ -37,18 +37,11 @@ class UserRepository {
     return cmRespDto.code!;
   }
 
-  Future<User> update(
-      int id,
-      String name,
-      String militaryNumber,
-      String password,
-      String rank,
-      String unit,
-      Map<String, String> allergy) async {
+  Future<User> update(String name, String militaryNumber, String password,
+      String rank, String unit, Map<String, String> allergy) async {
     JoinOrUpdateReqDto joinReqDto =
         JoinOrUpdateReqDto(name, militaryNumber, password, rank, unit, allergy);
-    Response response = await _userProvider.update(id, joinReqDto.toJson());
-    dynamic headers = response.headers;
+    Response response = await _userProvider.update(joinReqDto.toJson());
     dynamic body = response.body;
     dynamic convertBody = convertUtf8ToObject(body);
     //서버 연결안되면 여기서 오류남. convertBody가 String이 되기 때문
