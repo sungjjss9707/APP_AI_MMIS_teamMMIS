@@ -66,8 +66,8 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### 설정 페이지
 |내용|사진|설명|
 |------|----------|---------|
-|회원 정보|로그인 사진|메뉴 건의 및 애로사항 전달|
-|앱 정보|회원가입 사진|진행되는 설문조사에 참여|
+|회원 정보|![userinfo](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/userinfo.png)|회원정보 확인 및 수정|
+|앱 정보|![appinfo](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/appinfo.png)|앱 소개 및 개발자 정보|
 
 #### 부대 급식 자랑
 |내용|사진|설명|
