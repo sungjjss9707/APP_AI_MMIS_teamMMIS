@@ -233,20 +233,20 @@ $ git clone https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS.git
 
 
 ```bash
-// 데모 Web 보기
-$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/WEB(FE)
+// 개발 Web 보기
+$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/WEB(FE)/admin
 $ flutter run -d chrome
-/// 배포용 
+/// 배포용 빌드
 $ flutter build web
 
-// 데모 App 보기
-$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/APP(FE)
+// 개발 App 보기
+$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/APP(FE)/myapp
 $ flutter run (등록된 기기로 실행)
-/// 배포용
+/// 배포용 빌드
 $ flutter build apk
 
 // 서버 패키지 설치
-$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/
+$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/server
 $ yarn install
 ```
 <br>
@@ -256,12 +256,12 @@ $ yarn install
 
 
 ## 팀 정보 (Team Information)
-- 최윤호 (potatohead12@gmail.com), Github Id: potatohead12
-- 문철운 (heiyin315@gmail.com), Github Id: cjfdns007
-- 성민 (pho0570@gmail.com), Github Id: mini-777
-- 성준혁 (sungjjh9707@gmail.com), Github Id: sungjjss9707
-- 최민호 (minhochoi.korea@gmail.com), Github Id: Paspachu
-- 홍유찬 (hychan0709@gmail.com), Github Id: onlyshine
+- 최윤호(팀장 : 프론트엔드) (potatohead12@gmail.com), Github Id: potatohead12
+- 문철운(팀원 : 프론트엔드)(heiyin315@gmail.com), Github Id: cjfdns007
+- 성민(팀원 : 백엔드) (pho0570@gmail.com), Github Id: mini-777
+- 성준혁(팀장 : 백엔드) (sungjjh9707@gmail.com), Github Id: sungjjss9707
+- 최민호(팀장 : 인공지능) (minhochoi.korea@gmail.com), Github Id: Paspachu
+- 홍유찬(팀장 : 인공지능) (hychan0709@gmail.com), Github Id: onlyshine
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
  * [MIT](https://github.com/osam2020-WEB/Sample-ProjectName-TeamName/blob/master/license.md)
