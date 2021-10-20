@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     double _width = getMediaQueryWidth(context);
     return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,7 +104,7 @@ class HomePage extends StatelessWidget {
     return Center(
       child: Wrap(
         alignment: WrapAlignment.center,
-        spacing: 64,
+        spacing: 58,
         runSpacing: 24,
         children: [
           OutlinedButton(

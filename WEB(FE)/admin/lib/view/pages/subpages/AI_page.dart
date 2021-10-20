@@ -89,9 +89,9 @@ class _AIPageState extends State<AIPage> {
           CustomElevatedButton(
             onPressed: () async {
               if (_aiMenuInputForm.formKey.currentState!.validate()) {
-                List<String> menus = _aiMenuInputForm.menuInputTextField
-                    .map((e) => e.controller.text.trim())
-                    .toList();
+                // List<String> menus = _aiMenuInputForm.menuInputTextField
+                //     .map((e) => e.controller.text.trim())
+                //     .toList();
                 //통신할 때, 활성화
                 // await ai.getRecommendedMenus(menus);
                 setState(() {
@@ -140,7 +140,13 @@ class _AIPageState extends State<AIPage> {
                       style: TextStyle(
                           fontSize: 60,
                           fontWeight: FontWeight.bold,
-                          color: Colors.amber),
+                          color: ai.principal.value.score == null
+                              ? Colors.black
+                              : ai.principal.value.score! > 3
+                                  ? Colors.green
+                                  : ai.principal.value.score! > 2
+                                      ? Colors.amber
+                                      : Colors.red),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -150,13 +156,25 @@ class _AIPageState extends State<AIPage> {
                           style: TextStyle(
                               fontSize: 60,
                               fontWeight: FontWeight.bold,
-                              color: Colors.amber),
+                              color: ai.principal.value.score == null
+                                  ? Colors.black
+                                  : ai.principal.value.score! > 3
+                                      ? Colors.green
+                                      : ai.principal.value.score! > 2
+                                          ? Colors.amber
+                                          : Colors.red),
                         ),
                         FaIcon(
                           // 보통은 meh, 별로는 frown
                           FontAwesomeIcons.meh,
                           size: 60,
-                          color: Colors.amber,
+                          color: ai.principal.value.score == null
+                              ? Colors.black
+                              : ai.principal.value.score! > 3
+                                  ? Colors.green
+                                  : ai.principal.value.score! > 2
+                                      ? Colors.amber
+                                      : Colors.red,
                         ),
                       ],
                     ),
@@ -260,6 +278,7 @@ class _AIPageState extends State<AIPage> {
     );
   }
 
+// 통신 될 경우 이거로 하면 됨.
   Widget _recommendedDiets() {
     return Obx(
       () => Column(

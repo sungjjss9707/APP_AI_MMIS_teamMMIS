@@ -56,6 +56,9 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomTitle("식수 인원 관리"),
+              Text(
+                  "주의! 데모버전에서는 10월 16일부터 11월 10일까지의 불취식만 데이터를 가지고 있습니다. 참고하시기 바랍니다. 다른 날을 선택하면 에러가 납니다."),
+              Text("데이터가 안변할 시, 다른 날짜를 찍고 다시 돌아와주세요."),
               Divider(color: Colors.grey),
               _buildCalendar(),
               _changeTotalNum(context),
@@ -109,6 +112,7 @@ class _ManageTheNumberEatingPageState extends State<ManageTheNumberEatingPage> {
             ),
           );
         }
+
         return Center(
           child: Container(
             width: _containerWidth,

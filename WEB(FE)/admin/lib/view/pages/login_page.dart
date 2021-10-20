@@ -1,5 +1,6 @@
 import 'package:admin/controller/admin_controller.dart';
 import 'package:admin/size.dart';
+import 'package:admin/style.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/login_and_join/tag_and_textformfield.dart';
@@ -82,7 +83,28 @@ class LoginPage extends StatelessWidget {
                           _militaryNumber.text.trim(), _password.text.trim());
                       if (r == 1) {
                         Get.to(() => FramePage());
-                      }
+                      } else
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text(
+                              "로그인 실패",
+                              style: subtitle1(),
+                            ),
+                            content: Text(
+                              "군번이나 비밀번호가 틀렸습니다.",
+                              style: body1(),
+                            ),
+                            actions: [
+                              CustomElevatedButton(
+                                text: "닫기",
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
+                          ),
+                        );
                     }
                   },
                 ),
