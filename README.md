@@ -228,7 +228,7 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 </table>
 
 
-## 설치 안내 (Installation Process)
+## 개발 프로젝트 사용법 (Getting Started)
 
 <p>step1. MMIS 저장소를 클론합니다.</p>
 
