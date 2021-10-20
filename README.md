@@ -1,7 +1,7 @@
 # MMIS (군 급식 정보 체계)
 ![Logo](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/logo.jpg)
   
-시연 영상 : [인공지능 단독시연영상](https://drive.google.com/file/d/1mA1Q2unX9jvko6GCk5LNBHOBurG__kLh/view?usp=sharing)
+시연 영상 : [인공지능 단독시현영상](https://drive.google.com/file/d/1mA1Q2unX9jvko6GCk5LNBHOBurG__kLh/view?usp=sharing), [프로젝트 시현영상](https://drive.google.com/file/d/1mA1Q2unX9jvko6GCk5LNBHOBurG__kLh/view?usp=sharing)
 
 # 📖프로젝트 개요
 ## 프로젝트 개발 동기
