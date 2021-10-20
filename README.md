@@ -1,7 +1,6 @@
 # MMIS (군 급식 정보 체계)
-![Logo](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/logo_white_background.jpg)
-
-발표자료 :    
+![Logo](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/logo.jpg)
+  
 시연 영상 : 
 
 # 📖프로젝트 개요
