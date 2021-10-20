@@ -5,12 +5,12 @@ import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/button/custom_elevated_button.dart';
 import 'package:admin/view/components/login_and_join/tag_and_textAheadFormField.dart';
 import 'package:admin/view/components/login_and_join/tag_and_textformfield.dart';
-import 'package:admin/view/pages/frame_page.dart';
 
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../style.dart';
 import 'login_page.dart';
 
 class JoinPage extends StatelessWidget {
@@ -114,10 +114,47 @@ class JoinPage extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
-                            title: Text("회원가입 실패"),
+                            title: Text(
+                              "회원가입 실패",
+                              style: subtitle1(),
+                            ),
+                            content: Text(
+                              "이미 가입된 아이디입니다.",
+                              style: body1(),
+                            ),
+                            actions: [
+                              CustomElevatedButton(
+                                text: "닫기",
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
                           ),
                         );
                       }
+                    } else if (_password.text != _passwordConfirm.text) {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text(
+                            "비밀번호 오류",
+                            style: subtitle1(),
+                          ),
+                          content: Text(
+                            "비밀번호가 서로 다릅니다.",
+                            style: body1(),
+                          ),
+                          actions: [
+                            CustomElevatedButton(
+                              text: "닫기",
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ],
+                        ),
+                      );
                     }
                   },
                 ),
