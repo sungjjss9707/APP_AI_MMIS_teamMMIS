@@ -41,15 +41,14 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### 불취식 관리/ 공제내역
 |내용|사진|설명|
 |------|----------|---------|
-|불취식 관리|불취식 사진|매 끼니마다 편리하게 취식/불취식 신청|
+|불취식 관리|![noteating](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/noteating.png)|매 끼니마다 편리하게 취식/불취식 신청|
 |공제내역|![record](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/record.png)|간부에 한해 불취식에 따른 공제내역을 확인|
 
 #### 정보 수집
 |내용|사진|설명|
 |------|----------|---------|
-|메뉴 정보|로그인 사진|체계상에 저장되어 있는 군번과 비밀번호로 로그인|
-|메뉴 상세 정보|회원가입 사진|끼니마다 각 메뉴별 영양정보 확인|
-|알레르기 정보|회원가입 사진|알레르기 정보 확인. 본인의 알레르기 정보 입력시 해당 성분 포함 메뉴 정보 확인 가능|
+|메뉴 정보|![menu](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/menu.png)|끼니마다 각 메뉴별 영양정보 확인|
+|알레르기 정보|![allergy](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/allergy.png)|알레르기 정보 확인. 본인의 알레르기 정보 입력시 해당 성분 포함 메뉴 정보 확인 가능|
 |공지사항|공지사항 사진|병영식 관련 공지사항 확인|
 
 #### 장병 의견 전달
@@ -73,7 +72,7 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### 부대 급식 자랑
 |내용|사진|설명|
 |------|----------|---------|
-|부대 급식 자랑|![post](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/post.png =200x300)|부대의 급식을 자랑|
+|부대 급식 자랑|![post](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/post.png)|부대의 급식을 자랑|
 |사진|회원가입 사진|매 식사별 사진 확인 가능|
 
 
