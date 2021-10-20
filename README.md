@@ -84,14 +84,14 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 #### 로그인 및 회원가입 기능
 |내용|사진|설명|
 |------|----------|---------|
-|로그인|로그인 사진|체계상에 저장되어 있는 군번과 비밀번호로 로그인|
-|회원가입|회원가입 사진|체계상에 저장되어 있는 군번과 비밀번호로 회원가입| 
+|로그인|![managelogin](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managelogin.png)|체계상에 저장되어 있는 군번과 비밀번호로 로그인|
+|회원가입|![managesign](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managesign.png)|체계상에 저장되어 있는 군번과 비밀번호로 회원가입| 
 
 #### 메뉴관리   
 |내용|사진|설명|
 |------|----------|---------|
 |메뉴 입력|![managemenu](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managemenu.png)|날짜마다 조/중/석식 메뉴를 입력|
-|메뉴 데이터 입력|회원가입 사진|메뉴 데이터가 없을 경우 상세 영양성분을 입력|
+|메뉴 데이터 입력|![managemenudetail](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managemenudetail.png)|메뉴 데이터가 없을 경우 상세 영양성분을 입력|
 
 
 #### 식수인원 관리   
