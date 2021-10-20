@@ -1,124 +1,131 @@
 # %%
+import pickle
 import pandas as pd
+import numpy as np
+import Levenshtein as lev
+import joblib
 
 # %%
-distinct_correlation = pd.read_csv("Second Model Data/메뉴조합점수.csv", index_col=0)
-main_menu_data = pd.read_csv("Second Model Data/메인메뉴데이터_v2.csv", index_col=0)
-another_menu_data = pd.read_csv("Second Model Data/다른메뉴데이터_v2.csv", index_col=0)
+menus = pd.read_csv('./server/AI file/국방부메뉴_v2.1_맛_점수_포함.csv', index_col=0)
+vectorizer_b1 = pickle.load(open('server/AI file/vectorizer_b1.pk', 'rb'))
+vectorizer_t1 = pickle.load(open('server/AI file/vectorizer_t1.pk', 'rb'))
+vectorizer_t2 = pickle.load(open('server/AI file/vectorizer_t2.pk', 'rb'))
+x_min_max_scaler = joblib.load('server/AI file/x_min_max_scaler.save')
+y_min_max_scaler = joblib.load('server/AI file/y_min_max_scaler.save')
+model = pickle.load(open('server/AI file/ridge_v1.0.sav', 'rb'))
 
 # %%
-del main_menu_data['메뉴이름']
-main_menu_data
+def calculate_lev(first: str, second: str) -> int:
+    return lev.ratio(first, second)
+
+def get_nearest_data(menu_name: str, menus: pd.DataFrame) -> pd.DataFrame:
+    lev_ratio = [calculate_lev(str(s), menu_name) for s in menus['메뉴이름']]
+    idx = lev_ratio.index(max(lev_ratio))
+    return pd.DataFrame(menus.iloc[idx]).transpose()
 
 # %%
-del another_menu_data['메뉴이름']
-another_menu_data
+def create_predict_df(main: str, another: str) -> pd.DataFrame:
+  # 첫번째 메뉴 데이터 가져오기
+  main_df = menus.loc[menus['메뉴이름'] == main]
+  if len(main_df) == 0: main_df = get_nearest_data(main, menus)
+  main_df.columns = [col_name + '1' for col_name in main_df.columns]
+  main_df = main_df.reset_index(drop=True)
+  # 두번째 메뉴 데이터 가져오기
+  another_df = menus.loc[menus['메뉴이름'] == another]
+  if len(another_df) == 0: another_df = get_nearest_data(another, menus)
+  another_df = another_df.rename(columns={'메뉴이름': '다른메뉴'})
+  another_df.columns = [col_name + '2' for col_name in another_df.columns]
+  another_df = another_df.reset_index(drop=True)
+  # 예측 데이터 테이블 만들기
+  predict_df = pd.concat([main_df, another_df], axis=1)
+  return predict_df
 
 # %%
-main_menu_data.columns = [col_name + '1' for col_name in main_menu_data.columns]
-another_menu_data.columns = [col_name + '2' for col_name in another_menu_data.columns]
+def create_ngrams(menuName: str, first: bool, predict_df: pd.DataFrame) -> pd.DataFrame:
+  # 메뉴이름 bigram 만들기
+  bigram_list=[]
+  if(len(menuName)==1):
+      bigram_list = [menuName]
+  else:
+      for i in range(len(menuName)-1):
+          bigram_list.append(str(menuName[i]+menuName[i+1]))       
+  bigramText = " ".join(bigram_list)
+  # 메뉴이름 tri-gram 만들기
+  trigram_list =[]
+  if(len(menuName)==1 or len(menuName)==2) :
+      trigram_list = [menuName]
+  else :
+      for i in range(len(menuName)-2):
+          trigram_list.append(str(menuName[i]+menuName[i+1]+menuName[i+2]))    
+  trigramText = " ".join(trigram_list)
+  # data축에 삽입
+  if first: 
+    predict_df.insert(1, 'bigram1',bigramText)
+    predict_df.insert(2, 'trigram1',trigramText)
+  else:
+    predict_df.insert(3, 'bigram2',bigramText)
+    predict_df.insert(4, 'trigram2',trigramText)
+  return predict_df
 
 # %%
-final_df = pd.concat([distinct_correlation, main_menu_data, another_menu_data], axis=1)
-final_df
+def create_ngram_features(final_df: pd.DataFrame) -> pd.DataFrame:
+  # 메뉴이름, 다른메뉴 열 삭제
+  del final_df['메뉴이름']
+  del final_df['다른메뉴']
+  # 첫번째 메뉴 bigram 생성
+  x_b1 = vectorizer_b1.transform(final_df['bigram1'])
+  bigram1 = pd.DataFrame(x_b1.toarray(), columns = ['b1_' + c for c in vectorizer_b1.get_feature_names()])
+  # 첫번째 메뉴 trigram 생성
+  x_t1 = vectorizer_t1.transform(final_df['trigram1'])
+  trigram1 = pd.DataFrame(x_t1.toarray(), columns = ['t1_' + c for c in vectorizer_t1.get_feature_names()])
+  # 두번째 메뉴 bigram 생성
+  x_b2 = vectorizer_b2.transform(final_df['bigram2'])
+  bigram2 = pd.DataFrame(x_b2.toarray(), columns = ['b2_' + c for c in vectorizer_b2.get_feature_names()])
+  # 두번째 메뉴 trigram 생성
+  x_t2 = vectorizer_t2.transform(final_df['trigram2'])
+  trigram2 = pd.DataFrame(x_t2.toarray(), columns = ['t2_' + c for c in vectorizer_t2.get_feature_names()])
+  # 데이터 합체
+  final_df = pd.concat([final_df, bigram1, trigram1, bigram2, trigram2], axis=1)
+  # 불필요 데이터 삭제
+  del final_df['bigram1']
+  del final_df['trigram1']
+  del final_df['bigram2']
+  del final_df['trigram2']
+  # 리턴
+  return final_df
 
 # %%
-# 메뉴이름 bigram 만들기
-bigram_list=[]
-for menuName in final_df['메뉴이름']:
-    temp=[]
-    if(len(menuName)==1):
-        bigram_list.append([menuName])
-    else:
-        for i in range(len(menuName)-1):
-            temp.append(str(menuName[i]+menuName[i+1]))
-        bigram_list.append(temp)        
-bigram_list
+def predict_combination_score(main: str, another: str) -> float:
+  predict_df = create_predict_df(main, another)
+  predict_df = create_ngrams(str(predict_df['메뉴이름1'][0]), True, predict_df)
+  predict_df = create_ngrams(str(predict_df['다른메뉴2'][0]), False, predict_df)
+  final_df = predict_df.rename(columns={'메뉴이름1': '메뉴이름', '다른메뉴2': '다른메뉴'})
+  final_df = create_ngram_features(final_df)
+
+  scaled_X = x_min_max_scaler.transform(final_df)
+  pred = model.predict(scaled_X)
+  score = y_min_max_scaler.inverse_transform(pred)
+  return score
 
 # %%
-# 메뉴이름 tri-gram 만들기
-trigram_list =[]
-for menuName in final_df['메뉴이름']:
-    temp=[]
-    if(len(menuName)==1 or len(menuName)==2) :
-        trigram_list.append([menuName])
-    else :
-        for i in range(len(menuName)-2):
-            temp.append(str(menuName[i]+menuName[i+1]+menuName[i+2]))    
-        trigram_list.append(temp)
-trigram_list
+main = "김치"
+another = "흑미밥"
 
 # %%
-# bigram/ trigram list 형태로 만듦
-bigramText = [" ".join(bigram) for bigram in bigram_list]
-trigramText = [" ".join(trigram) for trigram in trigram_list]
-
-# data축에 삽입
-final_df.insert(2, 'bigram1',bigramText)
-final_df.insert(3, 'trigram1',trigramText)
-final_df
+predict_combination_score(main, another)
 
 # %%
-# 다른메뉴 bigram 만들기
-bigram_list=[]
-for menuName in final_df['다른메뉴']:
-    temp=[]
-    if(len(menuName)==1):
-        bigram_list.append([menuName])
-    else:
-        for i in range(len(menuName)-1):
-            temp.append(str(menuName[i]+menuName[i+1]))
-        bigram_list.append(temp)        
-bigram_list
+menuList= ['두부김치', '해물짬뽕', '흑미밥', '김치', '복숭아 주스']
 
 # %%
-# 다른메뉴 tri-gram 만들기
-trigram_list =[]
-for menuName in final_df['다른메뉴']:
-    temp=[]
-    if(len(menuName)==1 or len(menuName)==2) :
-        trigram_list.append([menuName])
-    else :
-        for i in range(len(menuName)-2):
-            temp.append(str(menuName[i]+menuName[i+1]+menuName[i+2]))    
-        trigram_list.append(temp)
-trigram_list
+scores = []
+for i in range(len(menuList)):
+  for j in range(len(menuList)):
+    if i == j: break   
+    main = menuList[i]
+    another = menuList[j]
+    scores.append(predict_combination_score(main, another))
+scores
 
 # %%
-# bigram/ trigram list 형태로 만듦
-bigramText = [" ".join(bigram) for bigram in bigram_list]
-trigramText = [" ".join(trigram) for trigram in trigram_list]
-
-# data축에 삽입
-final_df.insert(4, 'bigram2',bigramText)
-final_df.insert(5, 'trigram2',trigramText)
-final_df
-
-# %%
-final_df.dropna()
-
-# %%
-# tf-idf 적용 
-from sklearn.feature_extraction.text import TfidfVectorizer
-
-bigram_tfidf_vectorizer=TfidfVectorizer
-trigram_tfidf_vectorizer=TfidfVectorizer
-
-#bigram/ trigram list 형태로 만듦
-bigramText = [" ".join(bigram) for bigram in data['bigram']]
-trigramText = [" ".join(trigram) for trigram in data['trigram']]
-
-#tfidf 진행
-bigram_tfidf_vectorizer = TfidfVectorizer(min_df = 3, ngram_range=(1,1))
-bigram_tfidf_vectorizer.fit(bigramText)
-
-trigram_tfidf_vectorizer = TfidfVectorizer(min_df = 2, ngram_range=(1,1))
-trigram_tfidf_vectorizer.fit(trigramText)
-
-#벡터로 변환
-bigram_vector = bigram_tfidf_vectorizer.transform(bigramText).toarray()
-trigram_vector=trigram_tfidf_vectorizer.transform(trigramText).toarray()
-
-
-# %%
-
+np.mean(scores)
