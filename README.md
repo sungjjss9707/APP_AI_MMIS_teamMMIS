@@ -23,7 +23,7 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 ### 카카오 오븐
 [관리자 웹페이지 카카오 오븐](https://ovenapp.io/view/bMQKnCvUUOJyRndtkSEfVuVbqoQtTQly/)
 
-[사용자 앱 카카오 오븐](https://ovenapp.io/view/bMQKnCvUUOJyRndtkSEfVuVbqoQtTQly/)
+[사용자 앱 카카오 오븐](https://ovenapp.io/view/unFCimnqD5RSn7hPpC1XvYZWyt8vbjU7/)
 ### 서비스 플로우
 ![myapp flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/myapp_flow.jpg)
 ![admin flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/admin_flow.jpg)
