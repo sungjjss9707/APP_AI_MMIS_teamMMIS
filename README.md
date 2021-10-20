@@ -127,7 +127,7 @@ MMIS는 장병들을 위한 병영식 정보 모바일 앱입니다.
 - 기존과 다른 메뉴 조합이 있을 시 그 조합의 종합점수를 산출합니다. 기존의 메뉴를 다른 조합으로 한 끼니를 만들었을 때 그 한 끼니의 종합 평가를 점수를 산출해 내는 모델입니다. 
 - supervised learning으로 모델을 학습시켰습니다. 학습을 위한 데이터는 한 끼니의 여러 점수(맛, 메뉴가 나온 빈도 등)를 활용하고 이를 바탕으로 기존 조합의 평가 점수를 regression해서 학습시켰습니다. 
 
-1번 모델과 2번 모델을 융합해 사용자가 메뉴 조합을 입력할 시, 그 메뉴 조합의 예상 점수와 더불어 인공지능이 추천해준 새로운 조합들 중 점수가 더 높은 점수의 메뉴를 추천해 줍니다.
+1번 모델과 2번 모델을 융합해 사용자가 메뉴 조합을 입력할 시, 그 메뉴 조합의 예상 점수와 더불어 인공지능이 추천해준 새로운 조합들 중 점수가 더 높은 점수의 메뉴를 추천해 줍니다. [인공지능 시현영상보러가기](https://drive.google.com/file/d/1mA1Q2unX9jvko6GCk5LNBHOBurG__kLh/view?usp=sharing)
 
 # 프로젝트 전망
 ## 기대효과
@@ -252,7 +252,7 @@ $ flutter run (등록된 기기로 실행)
 $ flutter build apk
 
 // 서버 패키지 설치
-$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/server
+$ cd /workspaces/APP_AI_MMIS_TEAMMMIS/
 $ yarn install
 ```
 <br>
