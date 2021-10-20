@@ -127,21 +127,20 @@ class JoinPage extends StatelessWidget {
                   Map<String, String> allergy = userAllergy.map(
                       (key, value) => MapEntry(key, value == true ? "1" : "0"));
                   try {
-                    int result = await u.join(
+                    int code = await u.join(
                         nameController.text,
                         milNumberController.text,
                         password.text,
                         armyController.text,
                         unitController.text,
                         allergy);
-                    if (result == 1) {
+                    if (code == 1) {
                       Get.snackbar("저장완료", "정보가 저장되었습니다.",
                           backgroundColor: Colors.white);
                       Get.to(() => LoginPage());
                     } else
                       Get.snackbar("회원가입 실패", "이미 가입되어 있습니다",
                           colorText: Colors.red, backgroundColor: Colors.white);
-                    Get.to(() => LoginPage());
                   } catch (e) {
                     Get.snackbar("회원가입 실패", "서버와의 연결이 끊겼습니다.",
                         colorText: Colors.red, backgroundColor: Colors.white);

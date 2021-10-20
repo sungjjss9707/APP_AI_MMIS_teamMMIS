@@ -1,9 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/suggestion_controller.dart';
-import 'package:myapp/model/suggestion.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
 
@@ -20,6 +21,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _filter = TextEditingController();
   final s = Get.put(SuggestionController());
+  final UserController u = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -28,36 +30,39 @@ class _SuggestionPageState extends State<SuggestionPage> {
       appBar: subPageAppBar("건의사항"),
       body: Padding(
         padding: EdgeInsets.all(16.0.r),
-        child: Obx(
-          () => Column(
-            children: [
-              Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Get.to(() => WriteSuggestionPage());
-                      },
-                      child: Row(
-                        children: [
-                          FaIcon(
-                            FontAwesomeIcons.pen,
-                            size: 14.r,
-                          ),
-                          SizedBox(width: 4.w),
-                          Text("건의하기"),
-                        ],
-                      ),
+        child: Column(
+          children: [
+            Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Get.to(() => WriteSuggestionPage());
+                    },
+                    child: Row(
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.pen,
+                          size: 14.r,
+                        ),
+                        SizedBox(width: 4.w),
+                        Text("건의하기"),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Expanded(
+            ),
+            Obx(
+              () => Expanded(
                 child: ListView.separated(
                   itemBuilder: (context, index) {
-                    Suggestion suggestion = dummySuggestion[index];
+                    bool delete;
+                    u.principal.value.id == s.suggestions[index].writer!["id"]
+                        ? delete = true
+                        : delete = false;
                     return ExpansionTile(
                       childrenPadding: EdgeInsets.all(8.0.r),
                       initiallyExpanded: false,
@@ -69,13 +74,28 @@ class _SuggestionPageState extends State<SuggestionPage> {
                           Text(editDateFormat(s.suggestions[index].updated!)),
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          padding: EdgeInsets.symmetric(horizontal: 8.0.r),
                           child: Column(
                             children: [
                               Text("${s.suggestions[index].content}"),
+                              SizedBox(height: 4.h),
                               Row(
                                 children: [
                                   Spacer(),
+                                  delete == true
+                                      ? Padding(
+                                          padding: EdgeInsets.only(right: 8.w),
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              s.deleteById(
+                                                  s.suggestions[index].id!);
+                                            },
+                                            child: Text("삭제"),
+                                            style: ElevatedButton.styleFrom(
+                                                primary: Colors.red),
+                                          ),
+                                        )
+                                      : SizedBox(),
                                   Text(
                                       "작성자 : ${s.suggestions[index].writer!["name"]}")
                                 ],
@@ -120,8 +140,8 @@ class _SuggestionPageState extends State<SuggestionPage> {
                   itemCount: s.suggestions.length,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

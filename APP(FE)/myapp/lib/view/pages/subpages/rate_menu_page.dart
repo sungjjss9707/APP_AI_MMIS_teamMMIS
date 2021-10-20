@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:myapp/controller/menu_controller.dart';
+import 'package:myapp/controller/notEating_controller.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/date_functions.dart';
 import 'package:myapp/page_util/Info.dart';
 import 'package:myapp/user/user_ex.dart';
@@ -38,17 +41,22 @@ class _RateMenuPageState extends State<RateMenuPage> {
   late double rate;
   late String time;
   late List<String> menuList;
+  final m = Get.put(MenuController());
+  List<String> valueList = ["당직", "휴가", "외출", "근무", "기타"];
+  var _selectedValue;
   _RateMenuPageState(this.dateAndTime);
 
   @override
   void initState() {
     initialRate = 0;
     rate = initialRate;
+    _selectedValue = valueList[0];
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    Map nutritions = getMenusAndNutritionMap(m.menus);
     time = getTimeFromDateAndTime(dateAndTime);
     List<String> menuKeys = widget.menuMap.keys.toList();
     isEating = checkIfEating(dateAndTime, time);
@@ -70,8 +78,8 @@ class _RateMenuPageState extends State<RateMenuPage> {
         child: Column(
           children: [
             _arrowAndDate(), // < 날짜(석식) 취식여부 >
-            _nutritionInfo(menuList),
-            _menuLists(),
+            _nutritionInfo(menuList, nutritions),
+            _menuLists(nutritions),
             _saveRating(),
             _notEatingApplyButton(),
             _suggestingButton(),
@@ -125,15 +133,16 @@ class _RateMenuPageState extends State<RateMenuPage> {
     );
   }
 
-  Widget _nutritionInfo(List<String> menuList) {
+  Widget _nutritionInfo(List<String> menuList, Map nutritions) {
     int calories = 0,
         carbohydrate = 0,
         protein = 0,
         fat = 0,
         salt = 0,
         cholesterol = 0;
+
     for (String menuName in menuList) {
-      Map<String, dynamic> nutrition = menusAndNutrition[menuName] ?? {};
+      Map<String, dynamic> nutrition = nutritions[menuName] ?? {};
       int? cal = nutrition["칼로리"],
           car = nutrition["탄수화물"],
           pro = nutrition["단백질"],
@@ -147,7 +156,6 @@ class _RateMenuPageState extends State<RateMenuPage> {
       salt += sal ?? 0;
       cholesterol += chol ?? 0;
     }
-
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
@@ -191,7 +199,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
     );
   }
 
-  Widget _menuLists() {
+  Widget _menuLists(Map nutritions) {
     return Expanded(
       child: ListView(
         children: List.generate(
@@ -200,7 +208,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
             print(index);
             return Column(
               children: [
-                _menuTitle(menuList, index),
+                _menuTitle(menuList, index, nutritions),
               ],
             );
           },
@@ -209,9 +217,9 @@ class _RateMenuPageState extends State<RateMenuPage> {
     );
   }
 
-  Widget _menuTitle(List<String> menu, int index) {
+  Widget _menuTitle(List<String> menu, int index, Map nutritions) {
     String name = menu[index];
-    Map<String, dynamic> nutrition = menusAndNutrition[name] ?? {};
+    Map<String, dynamic> nutrition = nutritions[name] ?? {};
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
@@ -311,48 +319,70 @@ class _RateMenuPageState extends State<RateMenuPage> {
                   context: context,
                   barrierDismissible: false,
                   builder: (context) {
-                    List valueList = ["당직", "휴가", "외출", "근무", "기타"];
-                    var _selectedValue = valueList[0];
-                    return AlertDialog(
-                      content: DropdownButton(
-                        value: _selectedValue,
-                        items: valueList
-                            .map((value) => DropdownMenuItem(
-                                  child: Text(value),
-                                  value: value,
-                                ))
-                            .toList(),
-                        onChanged: (value) {
-                          _selectedValue = value;
-                        },
-                      ),
-                      actions: [
-                        Row(
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                print(_selectedValue);
-                              },
-                              child: Text("신청하기"),
-                            ),
-                            CustomBackButton(text: '취소'),
-                          ],
+                    return StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                      return AlertDialog(
+                        title: Text("사유를 고르세요."),
+                        content: DropdownButton(
+                          value: _selectedValue,
+                          items: valueList
+                              .map((value) => DropdownMenuItem(
+                                    child: Text(value),
+                                    value: value,
+                                  ))
+                              .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
                         ),
-                      ],
-                    );
+                        actions: [
+                          Row(
+                            children: [
+                              Spacer(),
+                              ElevatedButton(
+                                onPressed: () async {
+                                  final not = Get.put(NotEatingController());
+                                  final u = Get.put(UserController());
+                                  List<String> i =
+                                      getYearMonthAndDayFromDateAndTime(
+                                          dateAndTime); // year, month, day
+                                  int code = await not.applyNotEating(
+                                      i[0],
+                                      i[1],
+                                      i[2],
+                                      time,
+                                      u.principal.value.militaryNumber,
+                                      _selectedValue);
+                                  if (code == 1) {
+                                    Navigator.pop(context);
+                                    showDialog(
+                                      context: context,
+                                      barrierDismissible: false,
+                                      builder: (context) => AlertDialog(
+                                        content: Text("불취식 신청 되었습니다."),
+                                        actions: [
+                                          CustomBackButton(text: "돌아가기"),
+                                        ],
+                                      ),
+                                    );
+                                  } else
+                                    Get.snackbar("신청실패", "연결이 불안정합니다.",
+                                        colorText: Colors.red);
+                                },
+                                child: Text("신청하기"),
+                              ),
+                              SizedBox(width: 8.w),
+                              CustomBackButton(text: '취소'),
+                            ],
+                          ),
+                        ],
+                      );
+                    });
                   });
               addUserNotEating(dateAndTime, time);
               isEating = false;
-              showDialog(
-                context: context,
-                barrierDismissible: false,
-                builder: (context) => AlertDialog(
-                  content: Text("불취식 신청 되었습니다."),
-                  actions: [
-                    CustomBackButton(text: "돌아가기"),
-                  ],
-                ),
-              );
             } else {
               removeUserNotEating(dateAndTime, time);
               isEating = true;

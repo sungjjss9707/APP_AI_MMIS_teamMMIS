@@ -62,3 +62,11 @@ String getTimeFromDateAndTime(String dateAndTime) {
               : "브런치";
   return time;
 }
+
+List<String> getYearMonthAndDayFromDateAndTime(String dateAndTime) {
+  DateTime _date = DateFormat("yyyy/MM/dd").parse(dateAndTime);
+  int year = _date.year;
+  int month = _date.month;
+  int day = _date.day;
+  return [year.toString(), month.toString(), day.toString()];
+}

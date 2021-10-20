@@ -6,7 +6,7 @@ class CustomBackButton extends StatelessWidget {
   const CustomBackButton({required this.text});
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return TextButton(
       onPressed: () {
         Navigator.pop(context);
       },

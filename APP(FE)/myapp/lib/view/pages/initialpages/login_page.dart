@@ -66,12 +66,20 @@ class LoginPage extends StatelessWidget {
             text: "로그인",
             funpageRoute: () async {
               if (_formKey.currentState!.validate()) {
-                await u.login(
+                int code = await u.login(
                     _militaryNumber.text.trim(), _password.text.trim());
-                DateTime now = DateTime.now();
-                final d = Get.put(DietController());
-                await d.findMonth(now.year.toString(), now.month.toString());
-                Get.off(() => FramePage());
+                if (code == 1) {
+                  DateTime now = DateTime.now();
+                  final d = Get.put(DietController());
+                  await d.findMonth(now.year.toString(), now.month.toString());
+                  Get.off(() => FramePage());
+                } else
+                  Get.snackbar(
+                    "로그인 실패",
+                    "아이디나 비밀번호가 알맞지 않습니다. ",
+                    colorText: Colors.red,
+                    duration: Duration(seconds: 1),
+                  );
               }
             },
           ),

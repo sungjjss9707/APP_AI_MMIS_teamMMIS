@@ -12,7 +12,7 @@ class UserController extends GetxController {
     this.principal.value = principal;
     if (principal.id != null) {
       userAllergy = principal.allergy!.map(
-        (key, value) => MapEntry(key, value != "0" ? false : true),
+        (key, value) => MapEntry(key, value != "1" ? false : true),
       );
       return 1;
     }

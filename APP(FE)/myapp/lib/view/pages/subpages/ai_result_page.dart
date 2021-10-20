@@ -3,6 +3,7 @@ import 'package:myapp/view/components/ai_menu_input_form.dart';
 import 'package:myapp/view/components/appBar/sub_page_appbar.dart';
 import 'package:myapp/view/components/button/custom_elevated_button.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AIResultPage extends StatelessWidget {
   @override

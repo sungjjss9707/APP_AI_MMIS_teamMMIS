@@ -6,6 +6,9 @@
       <excludeFolder url="file://$MODULE_DIR$/APP(FE)/myapp/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/APP(FE)/myapp/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/APP(FE)/myapp/build" />
+      <excludeFolder url="file://$MODULE_DIR$/WEB(FE)/admin/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/WEB(FE)/admin/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/WEB(FE)/admin/build" />
       <excludeFolder url="file://$MODULE_DIR$/admin/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/admin/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/admin/build" />

@@ -124,4 +124,5 @@ getMenusAndNutritionMap(List<Menu> menus) {
         {"칼로리": 0, "탄수화물": 0, "지방": 0, "단백질": 0, "나트륨": 0, "콜레스테롤": 0};
   }
   menusAndNutrition = result;
+  return result;
 }
