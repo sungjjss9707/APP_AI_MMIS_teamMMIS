@@ -36,6 +36,10 @@ class LoginPage extends StatelessWidget {
                     color: Colors.lightGreen),
               ),
             ),
+            Text(
+              "현재 회원가입을 한 후, 로그인을 했을 때, 통신이 안되는 버그가 있습니다. 회원가입 후 앱을 껐다 킨 뒤, 로그인 해주세요.",
+              style: TextStyle(fontSize: 12.sp, color: Colors.red),
+            ),
             SizedBox(height: 16.w),
             _loginForm(), ////////////////////////밑에 만들어놈
           ],
