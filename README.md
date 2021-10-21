@@ -1,16 +1,18 @@
 # MMIS (군 급식 정보 체계)
 <img src =https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/logo.jpg width = "80%">
   
-# 시연 영상 
-[인공지능 단독시연영상](https://drive.google.com/file/d/1mA1Q2unX9jvko6GCk5LNBHOBurG__kLh/view?usp=sharing), 
-[프로젝트 시연영상](https://drive.google.com/file/d/1iIOrjTJ4Cf9QrEbhqQJdLYdunUYrFjCF/view?usp=sharing)
+## 시연 영상 
+- [인공지능 단독시연영상](https://drive.google.com/file/d/1mA1Q2unX9jvko6GCk5LNBHOBurG__kLh/view?usp=sharing), 
+- [프로젝트 시연영상](https://drive.google.com/file/d/1iIOrjTJ4Cf9QrEbhqQJdLYdunUYrFjCF/view?usp=sharing)
 
-# 보다 자세한 정보
-[발표자료(pdf)](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/MMIS%20%EC%B5%9C%EC%A2%85.pdf)
-[발표자료(show)](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/MMIS%20%EC%B5%9C%EC%A2%85.show)
+## 보다 자세한 정보
+- [발표자료(pdf)](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/MMIS%20%EC%B5%9C%EC%A2%85.pdf)
+- [발표자료(show)](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/MMIS%20%EC%B5%9C%EC%A2%85.show)
 
-# notice!!
-위에서 server 파일이 AI/WEB/APP에 대한 backend입니다. 별도로 AI/server 파일에 인공지능 독립적으로 실행 시킬 수 있는 플라스크 서버가 있습니다. 
+## notice!!
+- 위에서 server 파일이 AI/WEB/APP에 대한 backend입니다. 
+- 별도로 AI/server 파일에 인공지능 독립적으로 실행 시킬 수 있는 플라스크 서버가 있습니다. 
+
 # 📖프로젝트 개요
 ## 프로젝트 개발 동기
 
