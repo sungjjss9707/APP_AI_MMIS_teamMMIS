@@ -44,72 +44,74 @@ MMIS는 장병들을 위한 군급식 정보 모바일 앱/웹 플렛폼입니�
 #### 정보 수집
 |사진|설명|
 |:----------:|:---------|
-|<img src = https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/homepage.png width ="200" height = "400">   <img src  = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/menu.png width ="200" height = "400">|메인페이지 메뉴 스크롤 뷰 게시 성분 함유 메뉴 표시|
+|<img src = https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/homepage.png width ="200" height = "400">   <img src  = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/menu.png width ="200" height = "400">|1. 메인페이지 메뉴 스크롤 뷰 게시 성분 함유 메뉴 표시 </br></br></br></br><br width = "33%">2. 클릭시 한 끼 단위의 자세한 식단 정보|
 
 
 
 #### 불취식 관리/ 공제내역
 |사진|설명|
 |:----------:|:---------|
-|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/noteating.png width = "200" height = "400">        <img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/record.png width = "200" height = "400">|<br width = "33%">1. 매 끼니마다 편리하게 취식/불취식 신청 </br></br></br></br><br width = "33%"> 2. 공제내역 페이지를 통해 한달 단위 관리 가능 </br>|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/noteating.png width = "200" height = "400">        <img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/record.png width = "200" height = "400">|<br width = "33%">1. 매 끼니마다 편리하게 취식/불취식 신청 </br></br></br></br><br width = "33%"> 2. 한달 단위의 관리 가능|
 
 
 #### 장병 의견 전달
 |사진|설명|
 |:----------:|:---------|
-|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/request.png width = "200" height = "400">    <img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/survey.png width = "200" height = "400">|메뉴 건의 및 애로사항 전달|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/request.png width = "200" height = "400">    <img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/survey.png width = "200" height = "400">|<br width = "33%">1. 메뉴, 애로사항 관련 건의사항 게시 </br></br></br></br><br width = "33%"> 2. 관리자 페이지에서 생성한 설문조사 실시|
 
 #### AI 실험실  
 |사진|설명|
 |:----------:|:---------|
-|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/AI.png width = "200" height = "400">    <img src = https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/ai_result.png width = "200" height = "400">|사용자가 선호하는 메뉴 조합 입력|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/AI.png width = "200" height = "400">    <img src = https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/ai_result.png width = "200" height = "400">|<br width = "33%">1. 사용자가 선호하는 메뉴 조합 입력 </br></br></br></br><br width = "33%"> 2. 식단 점수 및 대체 추천 식단 출력|
 
 
 #### 부대 급식 자랑
 |사진|설명|
 |:----------:|:---------|
-|부대 급식 자랑|<img  src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/post.png width = "200" height = "400">    <img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/eachpost.png width = "200" height = "400">|부대의 급식을 자랑|
+|<img  src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/post.png width = "200" height = "400">    <img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/eachpost.png width = "200" height = "400">|1. 각 부대별 급식 사진 게시 </br></br></br></br><br width = "33%"> 2. 장병들 끼리의 의견 공유|
 
 
 
 ## 💻관리자 웹
 - 부대별 급식 담당자를 위한 관리자 웹(앱 모드 지원)
 
-### 구현
 
 #### 로그인 및 회원가입 기능
-|내용|사진|설명|
-|------|----------|---------|
-|로그인|![managelogin](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managelogin.png)|체계상에 저장되어 있는 군번과 비밀번호로 로그인|
-|회원가입|![managesign](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managesign.png)|체계상에 저장되어 있는 군번과 비밀번호로 회원가입| 
+|사진|설명|
+|----------|---------|
+|<img src =https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managelogin.png width = "800" height = "300">|군번과 비밀번호로 로그인|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managesign.png width = "800" height = "300">|군번과 비밀번호로 회원가입| 
 
 #### 메뉴관리   
-|내용|사진|설명|
-|------|----------|---------|
-|메뉴 입력|![managemenu](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managemenu.png)|날짜마다 조/중/석식 메뉴를 입력|
-|메뉴 데이터 입력|![managemenudetail](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managemenudetail.png)|메뉴 데이터가 없을 경우 상세 영양성분을 입력|
+|사진|설명|
+|----------|---------|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managemenu.png width = "800" height = "300">|날짜마다 조/중/석식 메뉴를 입력|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managemenudetail.png width = "800" height = "300">|메뉴 데이터가 없을 경우 상세 영양성분을 입력|
 
 
 #### 식수인원 관리   
-|내용|사진|설명|
-|------|----------|---------|
-|식수인원 관리|![managenumber](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managenumber.png)|모바일 앱을 통해 입력받은 식수 인원 확인|
-|식수인원 명단|![managelist](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managelist.png)|식수 인원 명단 확인|
+|사진|설명|
+|----------|---------|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managenumber.png  width = "800" height = "300">|모바일 앱을 통해 입력받은 식수 인원 확인|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managelist.png width = "100%" height = "100%">|식수 인원 명단 확인|
 
 
 #### 공지사항/건의사항/설문조사 관리   
-|내용|사진|설명|
-|------|----------|---------|
-|공지사항|![manageann](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/manageann.png)|각종 공지 전달|
-|건의사항|![managerequest](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managerequest.png)|건의사항 답변 및 건의사항 수령|
-|설문조사|![managesurvey](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managesurvey.png)|메뉴 관련 선호도 등 부대 장병들 의견, 설문조사|
+|사진|설명|
+|----------|---------|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/manageann.png width = "100%" height = "100%">|각종 공지 전달|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/suggestion_admin.png width = "100%" height = "100%">|건의사항 답변 및 건의사항 수령|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managesurvey.png width = "100%" height = "100%">|메뉴 관련 선호도 등 부대 장병들 의견, 설문조사 생성 및 결과 조회|
 
 
-#### AI 실험실   
-|내용|사진|설명|
-|------|----------|---------|
-|메뉴 입력|로그인 사진|메뉴 조합 제공 전 AI 실험실에 메뉴를 입력|
-|결과 확인|회원가입 사진|인공지능이 예상한 장병들의 반응을 바탕으로 성공 가능성을 예측|
+#### AI 실험실 
+- 앱과 동일한 기능 사용가능 
+- 추천된 메뉴로 적합한 식단 구성에 도움
+
+|사진|설명|
+|----------|---------|
+|<img src  = https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/ai_admin.png width = "1000" height = "400">|메뉴 조합 제공 전 AI 실험실에 메뉴를 입력|
+
 
 
 ## 🤖AI
