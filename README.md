@@ -1,10 +1,12 @@
 # MMIS (군 급식 정보 체계)
-![Logo](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/logo.jpg)
+<img src =https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/logo.jpg width = "80%">
   
-시연 영상 : [인공지능 단독시연영상](https://drive.google.com/file/d/1mA1Q2unX9jvko6GCk5LNBHOBurG__kLh/view?usp=sharing), 
+# 시연 영상 
+[인공지능 단독시연영상](https://drive.google.com/file/d/1mA1Q2unX9jvko6GCk5LNBHOBurG__kLh/view?usp=sharing), 
 [프로젝트 시연영상](https://drive.google.com/file/d/1iIOrjTJ4Cf9QrEbhqQJdLYdunUYrFjCF/view?usp=sharing)
 
-발표자료 : [ppt](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/MMIS%20%EC%B5%9C%EC%A2%85.show)
+# 발표 자료
+[발표자료](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/MMIS%20%EC%B5%9C%EC%A2%85.show)
 # 📖프로젝트 개요
 ## 프로젝트 개발 동기
 
@@ -30,54 +32,48 @@ MMIS는 장병들을 위한 군급식 정보 모바일 앱/웹 플렛폼입니�
 [API 명세서](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/api_sheet.hwp)
 
 ### 서비스 플로우
-![myapp flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/myapp_flow.jpg)
-![admin flow](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/admin_flow.jpg)
+<img src =https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/myapp_flow.jpg width = "80%" height = "80%">
+<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/admin_flow.jpg width = "80%" height = "80%">
    
 
 # 📝기능 설계
-## 📱사용자 모바일 앱/ 웹
-### 핵심 기능 
-
-#### 불취식 관리/ 공제내역
-|내용|사진|설명|
-|------|----------|---------|
-|불취식 관리|![noteating](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/noteating.png)|매 끼니마다 편리하게 취식/불취식 신청|
-|공제내역|![record](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/record.png)|간부에 한해 불취식에 따른 공제내역을 확인|
+## 핵심기능
+### 📱사용자 모바일 앱
+- 급식을 이용하는 사용자들을 위한 앱
 
 #### 정보 수집
-|내용|사진|설명|
-|------|----------|---------|
-|메뉴 정보|![menu](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/menu.png)|끼니마다 각 메뉴별 영양정보 확인|
-|알레르기 정보|![allergy](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/allergy.png)|알레르기 정보 확인. 본인의 알레르기 정보 입력시 해당 성분 포함 메뉴 정보 확인 가능|
-|공지사항|![announcement](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/announcement.png)|병영식 관련 공지사항 확인|
+|사진|설명|
+|:----------:|:---------|
+|<img src = https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/homepage.png width ="200" height = "400">   <img src  = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/menu.png width ="200" height = "400">|메인페이지 메뉴 스크롤 뷰 게시 성분 함유 메뉴 표시|
+
+
+
+#### 불취식 관리/ 공제내역
+|사진|설명|
+|:----------:|:---------|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/noteating.png width = "200" height = "400">        <img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/record.png width = "200" height = "400">|<br width = "33%">1. 매 끼니마다 편리하게 취식/불취식 신청 </br></br></br></br><br width = "33%"> 2. 공제내역 페이지를 통해 한달 단위 관리 가능 </br>|
+
 
 #### 장병 의견 전달
-|내용|사진|설명|
-|------|----------|---------|
-|건의 사항|![request](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/request.png)|메뉴 건의 및 애로사항 전달|
-|설문조사|![survey](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/survey.png)|진행되는 설문조사에 참여|
+|사진|설명|
+|:----------:|:---------|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/request.png width = "200" height = "400">    <img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/survey.png width = "200" height = "400">|메뉴 건의 및 애로사항 전달|
 
 #### AI 실험실  
-|내용|사진|설명|
-|------|----------|---------|
-|AI 실험실|![ai](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/AI.png)|사용자가 선호하는 메뉴 조합 입력|
-|결과|회원가입 사진|입력 메뉴 조합의 점수, 유사 메뉴 조합을 추천|
+|사진|설명|
+|:----------:|:---------|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/AI.png width = "200" height = "400">    <img src = https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/ai_result.png width = "200" height = "400">|사용자가 선호하는 메뉴 조합 입력|
 
-#### 설정 페이지
-|내용|사진|설명|
-|------|----------|---------|
-|회원 정보|![userinfo](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/userinfo.png)|회원정보 확인 및 수정|
-|앱 정보|![appinfo](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/appinfo.png)|앱 소개 및 개발자 정보|
 
 #### 부대 급식 자랑
-|내용|사진|설명|
-|------|----------|---------|
-|부대 급식 자랑|![post](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/post.png)|부대의 급식을 자랑|
-|사진|![eachpost](https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/eachpost.png)|매 식사별 사진 확인 가능|
+|사진|설명|
+|:----------:|:---------|
+|부대 급식 자랑|<img  src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/post.png width = "200" height = "400">    <img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/eachpost.png width = "200" height = "400">|부대의 급식을 자랑|
+
 
 
 ## 💻관리자 웹
-- 부대별 급식 담당자를 위한 관리자 웹
+- 부대별 급식 담당자를 위한 관리자 웹(앱 모드 지원)
 
 ### 구현
 
