@@ -7,6 +7,9 @@
 
 # 발표 자료
 [발표자료](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/MMIS%20%EC%B5%9C%EC%A2%85.show)
+
+# notice!!
+위에서 server 파일이 AI/WEB/APP에 대한 backend입니다. 별도로 AI/server 파일에 인공지능 독립적으로 실행 시킬 수 있는 플라스크 서버가 있습니다. 
 # 📖프로젝트 개요
 ## 프로젝트 개발 동기
 
