@@ -99,15 +99,15 @@ MMIS는 장병들을 위한 군급식 정보 모바일 앱/웹 플렛폼입니�
 |사진|설명|
 |----------|---------|
 |<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managenumber.png  width = "800" height = "300">|모바일 앱을 통해 입력받은 식수 인원 확인|
-|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managelist.png width = "100%" height = "100%">|식수 인원 명단 확인|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managelist.png width = "800" height = "300">|식수 인원 명단 확인|
 
 
 #### 공지사항/건의사항/설문조사 관리   
 |사진|설명|
 |----------|---------|
-|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/manageann.png width = "100%" height = "100%">|각종 공지 전달|
-|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/suggestion_admin.png width = "100%" height = "100%">|건의사항 답변 및 건의사항 수령|
-|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managesurvey.png width = "100%" height = "100%">|메뉴 관련 선호도 등 부대 장병들 의견, 설문조사 생성 및 결과 조회|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/manageann.png  width = "800" height = "300">|각종 공지 전달|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/suggestion_admin.png  width = "800" height = "300">|건의사항 답변 및 건의사항 수령|
+|<img src = https://github.com/osamhack2021/APP_AI_MMIS_teamMMIS/blob/main/assets/managesurvey.png  width = "800" height = "300">|메뉴 관련 선호도 등 부대 장병들 의견, 설문조사 생성 및 결과 조회|
 
 
 #### AI 실험실 
@@ -116,7 +116,7 @@ MMIS는 장병들을 위한 군급식 정보 모바일 앱/웹 플렛폼입니�
 
 |사진|설명|
 |----------|---------|
-|<img src  = https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/ai_admin.png width = "1000" height = "400">|메뉴 조합 제공 전 AI 실험실에 메뉴를 입력|
+|<img src  = https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/assets/ai_admin.png width = "800" height = "300">|메뉴 조합 제공 전 AI 실험실에 메뉴를 입력|
 
 
 
