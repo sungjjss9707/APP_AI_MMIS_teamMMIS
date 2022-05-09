@@ -280,12 +280,12 @@ $ cd forever start app.js
 
 
 ## 팀 정보 (Team Information)
-- 최윤호(팀장 : 프론트엔드/기획) (potatohead12@gmail.com), Github Id: potatohead12
+- 최윤호(팀장 : 프론트엔드/인공지능) (potatohead12@gmail.com), Github Id: potatohead12
 - 문철운(팀원 : 프론트엔드)(heiyin315@gmail.com), Github Id: cjfdns007
 - 성민(팀원 : 백엔드) (pho0570@gmail.com), Github Id: mini-777
-- 성준혁(팀장 : 백엔드) (sungjjh9707@gmail.com), Github Id: sungjjss9707
-- 최민호(팀장 : 인공지능) (minhochoi.korea@gmail.com), Github Id: Paspachu
-- 홍유찬(팀장 : 인공지능) (hychan0709@gmail.com), Github Id: onlyshine
+- 성준혁(팀원 : 백엔드) (sungjjh9707@gmail.com), Github Id: sungjjss9707
+- 최민호(팀원 : 인공지능) (minhochoi.korea@gmail.com), Github Id: Paspachu
+- 홍유찬(팀원 : 인공지능) (hychan0709@gmail.com), Github Id: onlyshine
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
  * [MIT](https://github.com/osamhack2021/APP_WEB_AI_MMIS_teamMMIS/blob/main/license.md)
